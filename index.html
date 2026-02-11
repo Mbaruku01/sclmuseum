@@ -49,17 +49,29 @@
       <img src="1000186051.png" class="h-8" alt="SCL Digital Museum">
     </div>
 
-    <!-- DESKTOP NAV -->
-    <nav class="hidden md:flex items-center gap-8 text-sm">
-      <a href="collections.html" class="hover:text-sclCyan"><i class="fa-solid fa-layer-group mr-2"></i>Collections</a>
-      <a href="exhibitions.html" class="hover:text-sclCyan"><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</a>
-      <a href="research.html" class="hover:text-sclCyan"><i class="fa-solid fa-flask mr-2"></i>Research</a>
-      <a href="about.html" class="hover:text-sclCyan"><i class="fa-solid fa-circle-info mr-2"></i>About</a>
-      <a href="contacts.html" class="hover:text-sclCyan"><i class="fa-solid fa-envelope mr-2"></i>Contact</a>
-      <a href="donation.html" class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-medium text-black">
-        <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
-      </a>
-    </nav>
+    <!-- DESKTOP SEARCH + NAV -->
+    <div class="hidden md:flex flex-1 items-center gap-8">
+      <!-- SEARCH -->
+      <div class="flex-1 max-w-md">
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
+          <input type="search" placeholder="Search the archive…"
+            class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
+        </div>
+      </div>
+
+      <!-- NAV -->
+      <nav class="flex items-center gap-8 text-sm">
+        <a href="collections.html" class="hover:text-sclCyan"><i class="fa-solid fa-layer-group mr-2"></i>Collections</a>
+        <a href="exhibitions.html" class="hover:text-sclCyan"><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</a>
+        <a href="research.html" class="hover:text-sclCyan"><i class="fa-solid fa-flask mr-2"></i>Research</a>
+        <a href="about.html" class="hover:text-sclCyan"><i class="fa-solid fa-circle-info mr-2"></i>About</a>
+        <a href="contacts.html" class="hover:text-sclCyan"><i class="fa-solid fa-envelope mr-2"></i>Contact</a>
+        <a href="donation.html" class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-medium text-black">
+          <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+        </a>
+      </nav>
+    </div>
 
     <!-- MOBILE MENU BUTTON -->
     <div class="md:hidden">
@@ -71,6 +83,13 @@
 
   <!-- MOBILE MENU -->
   <div id="mobileMenu" class="hidden bg-sclDeep/95 text-white px-6 pb-4 md:hidden">
+    <!-- SEARCH -->
+    <div class="relative mb-4">
+      <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
+      <input type="search" placeholder="Search the archive…"
+        class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
+    </div>
+    <!-- NAV LINKS -->
     <a href="collections.html" class="block py-2 border-b border-white/10">Collections</a>
     <a href="exhibitions.html" class="block py-2 border-b border-white/10">Exhibitions</a>
     <a href="research.html" class="block py-2 border-b border-white/10">Research</a>
