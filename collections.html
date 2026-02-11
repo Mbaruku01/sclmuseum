@@ -77,17 +77,29 @@
 </section>
 
 <!-- FILTER BAR -->
-<section class="max-w-7xl mx-auto px-4 md:px-6 pb-12">
-  <div class="flex flex-wrap gap-3 sm:gap-4 text-sm justify-center md:justify-start">
-    <button class="rounded-full bg-white/10 px-4 sm:px-5 py-2 hover:bg-white/20 flex items-center"><i class="fa-solid fa-border-all mr-2"></i>All</button>
-    <button class="rounded-full bg-white/10 px-4 sm:px-5 py-2 hover:bg-white/20 flex items-center"><i class="fa-solid fa-film mr-2"></i>Video</button>
-    <button class="rounded-full bg-white/10 px-4 sm:px-5 py-2 hover:bg-white/20 flex items-center"><i class="fa-solid fa-image mr-2"></i>Images</button>
-    <button class="rounded-full bg-white/10 px-4 sm:px-5 py-2 hover:bg-white/20 flex items-center"><i class="fa-solid fa-microphone-lines mr-2"></i>Audio</button>
-    <button class="rounded-full bg-white/10 px-4 sm:px-5 py-2 hover:bg-white/20 flex items-center"><i class="fa-solid fa-file-lines mr-2"></i>Documents</button>
-    <button class="rounded-full bg-white/10 px-4 sm:px-5 py-2 hover:bg-white/20 flex items-center"><i class="fa-solid fa-cube mr-2"></i>3D & Virtual</button>
+<section class="max-w-7xl mx-auto px-4 md:px-6 pb-16">
+  <h2 class="font-serif text-2xl mb-6 text-center">Browse by Media Type</h2>
+  <div class="flex flex-wrap justify-center gap-4 text-sm">
+    <button class="filter-btn rounded-full bg-white/10 px-5 py-2 hover:bg-white/20" data-filter="all">
+      <i class="fa-solid fa-border-all mr-2"></i>All
+    </button>
+    <button class="filter-btn rounded-full bg-white/10 px-5 py-2 hover:bg-white/20" data-filter="video">
+      <i class="fa-solid fa-film mr-2"></i>Video
+    </button>
+    <button class="filter-btn rounded-full bg-white/10 px-5 py-2 hover:bg-white/20" data-filter="images">
+      <i class="fa-solid fa-image mr-2"></i>Images
+    </button>
+    <button class="filter-btn rounded-full bg-white/10 px-5 py-2 hover:bg-white/20" data-filter="audio">
+      <i class="fa-solid fa-microphone-lines mr-2"></i>Audio
+    </button>
+    <button class="filter-btn rounded-full bg-white/10 px-5 py-2 hover:bg-white/20" data-filter="document">
+      <i class="fa-solid fa-file-lines mr-2"></i>Documents
+    </button>
+    <button class="filter-btn rounded-full bg-white/10 px-5 py-2 hover:bg-white/20" data-filter="virtual">
+      <i class="fa-solid fa-cube mr-2"></i>3D & Virtual
+    </button>
   </div>
 </section>
-
 
 <!-- COLLECTION CARDS GRID -->
 <section class="max-w-7xl mx-auto px-4 md:px-6 pb-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
