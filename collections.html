@@ -5,13 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collections — SCL Digital Museum</title>
 
-  <!-- FAVICON -->
-  <link rel="icon" type="image/x-icon" href="1000186051.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="apple-touch-icon" href="1000186051.png">
-
-  <!-- Tailwind -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,43 +32,47 @@
     .font-serif { font-family: 'Playfair Display', serif; }
   </style>
 </head>
-
 <body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white">
 
 <!-- HEADER -->
-<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur">
+<header class="fixed top-0 z-50 w-full bg-sclDeep/90 backdrop-blur">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
     <a href="index.html" class="flex items-center gap-3">
-      <img src="1000186051.png" alt="SCL Digital Museum Logo" class="h-8 w-auto" />
+      <img src="1000186051.png" alt="SCL Logo" class="h-8 w-auto" />
     </a>
-    <div class="hidden md:block flex-1 max-w-md">
-      <div class="relative">
-        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
-        <input type="search" placeholder="Search the archive…"
-          class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
-      </div>
-    </div>
 
-    <nav class="hidden md:flex items-center gap-4 md:gap-8 text-sm">
-      <a href="collections.html" class="hover:text-sclCyan"><i class="fa-solid fa-layer-group mr-1"></i>Collections</a>
-      <a href="exhibitions.html" class="hover:text-sclCyan"><i class="fa-solid fa-landmark mr-1"></i>Exhibitions</a>
-      <a href="research.html" class="hover:text-sclCyan"><i class="fa-solid fa-flask mr-1"></i>Research</a>
-      <a href="about.html" class="hover:text-sclCyan"><i class="fa-solid fa-circle-info mr-1"></i>About</a>
-      <a href="contacts.html" class="hover:text-sclCyan"><i class="fa-solid fa-envelope mr-1"></i>Contact</a>
-      <a href="donation.html"
-        class="ml-2 md:ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-4 md:px-6 py-2 text-xs md:text-sm font-medium text-black flex items-center">
-        <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-white text-2xl"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-4 md:gap-6 text-sm">
+      <a href="collections.html" class="hover:text-sclCyan flex items-center gap-1"><i class="fa-solid fa-layer-group"></i>Collections</a>
+      <a href="exhibitions.html" class="hover:text-sclCyan flex items-center gap-1"><i class="fa-solid fa-landmark"></i>Exhibitions</a>
+      <a href="research.html" class="hover:text-sclCyan flex items-center gap-1"><i class="fa-solid fa-flask"></i>Research</a>
+      <a href="about.html" class="hover:text-sclCyan flex items-center gap-1"><i class="fa-solid fa-circle-info"></i>About</a>
+      <a href="contacts.html" class="hover:text-sclCyan flex items-center gap-1"><i class="fa-solid fa-envelope"></i>Contact</a>
+      <a href="donation.html" class="ml-2 md:ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-4 md:px-6 py-2 text-xs md:text-sm font-medium text-black flex items-center gap-2">
+        <i class="fa-solid fa-hand-holding-heart"></i>Donate
       </a>
     </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-sclDeep/90 backdrop-blur px-4 py-4 space-y-3">
+    <a href="collections.html" class="block text-white/90 hover:text-sclCyan">Collections</a>
+    <a href="exhibitions.html" class="block text-white/90 hover:text-sclCyan">Exhibitions</a>
+    <a href="research.html" class="block text-white/90 hover:text-sclCyan">Research</a>
+    <a href="about.html" class="block text-white/90 hover:text-sclCyan">About</a>
+    <a href="contacts.html" class="block text-white/90 hover:text-sclCyan">Contact</a>
+    <a href="donation.html" class="block text-black bg-gradient-to-r from-sclBlue to-sclCyan rounded-full px-4 py-2 text-center">Donate</a>
   </div>
 </header>
 
 <!-- INTRO -->
-<section class="pt-36 md:pt-44 pb-16 px-4 md:px-6 text-center">
+<section class="pt-32 md:pt-36 pb-12 px-4 md:px-6 text-center">
   <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl">National Collections</h1>
-  <p class="mt-6 sm:mt-8 text-base sm:text-lg text-white/75 max-w-3xl sm:max-w-4xl mx-auto">
-    Structured digital collections preserving audiovisual, documentary,
-    oral, visual, and virtual heritage across regions and generations.
+  <p class="mt-4 sm:mt-6 text-sm sm:text-lg text-white/75 max-w-3xl mx-auto">
+    Structured digital collections preserving audiovisual, documentary, oral, visual, and virtual heritage across regions and generations.
   </p>
 </section>
 
@@ -90,161 +88,196 @@
   </div>
 </section>
 
-<!-- COLLECTION SECTIONS -->
-<section class="max-w-7xl mx-auto px-4 md:px-6 pb-24 space-y-20">
 
-  <!-- PHOTOGRAPHY -->
-  <div>
-    <h2 class="font-serif text-2xl sm:text-3xl mb-4 flex items-center gap-2">
-      <i class="fa-solid fa-image text-sclCyan"></i> Historical Photography
-    </h2>
-    <p class="text-white/70 text-sm sm:text-base mb-6 max-w-3xl">Visual documentation of national milestones, leadership, daily life, ceremonies, and regional identity.</p>
+<!-- COLLECTION CARDS GRID -->
+<section class="max-w-7xl mx-auto px-4 md:px-6 pb-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      <!-- Card Example -->
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
-        <img src="assets/photos/photo1.jpg" alt="National Ceremony" class="w-full h-56 sm:h-48 md:h-56 object-cover transition-transform duration-300 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition duration-300"></div>
-        <div class="absolute bottom-3 left-3 text-white">
-          <h3 class="font-semibold text-sm sm:text-base">National Ceremony</h3>
-          <p class="text-xs sm:text-sm text-white/60">1950s</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
-        <img src="assets/photos/photo2.jpg" alt="Cultural Festival" class="w-full h-56 sm:h-48 md:h-56 object-cover transition-transform duration-300 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition duration-300"></div>
-        <div class="absolute bottom-3 left-3 text-white">
-          <h3 class="font-semibold text-sm sm:text-base">Cultural Festival</h3>
-          <p class="text-xs sm:text-sm text-white/60">1970s</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
-        <img src="assets/photos/photo3.jpg" alt="Historical Figure" class="w-full h-56 sm:h-48 md:h-56 object-cover transition-transform duration-300 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition duration-300"></div>
-        <div class="absolute bottom-3 left-3 text-white">
-          <h3 class="font-semibold text-sm sm:text-base">Historical Figure</h3>
-          <p class="text-xs sm:text-sm text-white/60">1960s</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
-        <img src="assets/photos/photo4.jpg" alt="Regional Landscape" class="w-full h-56 sm:h-48 md:h-56 object-cover transition-transform duration-300 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition duration-300"></div>
-        <div class="absolute bottom-3 left-3 text-white">
-          <h3 class="font-semibold text-sm sm:text-base">Regional Landscape</h3>
-          <p class="text-xs sm:text-sm text-white/60">1980s</p>
-        </div>
+  <!-- CARD 1: Photography -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb01.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Independence & Nationhood">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="video" data-src="assets/videos/sample.mp4">
+          <i class="fa-solid fa-video"></i>
+        </button>
+        <button class="media-btn" data-type="audio" data-src="assets/audio/sample.mp3">
+          <i class="fa-solid fa-headphones"></i>
+        </button>
+        <span class="text-sm text-white/80">Photography · Film</span>
       </div>
     </div>
-  </div>
+    <h3 class="mt-4 font-serif text-xl">Independence & Nationhood</h3>
+    <p class="text-sm text-white/70">Historic images and motion footage.</p>
+  </article>
 
-  <!-- VIDEO -->
-  <div>
-    <h2 class="font-serif text-2xl sm:text-3xl mb-4 flex items-center gap-2">
-      <i class="fa-solid fa-film text-sclCyan"></i> Film & Video Archive
-    </h2>
-    <p class="text-white/70 text-sm sm:text-base mb-6 max-w-3xl">Documentaries, ceremonial recordings, interviews, regional events, and cultural performances.</p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      <!-- Video Card -->
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-white/5 flex items-center justify-center">
-        <i class="fa-solid fa-play text-4xl text-white/60"></i>
-        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-300"></div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-white/5 flex items-center justify-center">
-        <i class="fa-solid fa-play text-4xl text-white/60"></i>
-        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-300"></div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-white/5 flex items-center justify-center">
-        <i class="fa-solid fa-play text-4xl text-white/60"></i>
-        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-300"></div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-white/5 flex items-center justify-center">
-        <i class="fa-solid fa-play text-4xl text-white/60"></i>
-        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-300"></div>
+  <!-- CARD 2: Video -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb04.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Ceremonial Recordings">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="video" data-src="assets/videos/ceremony.mp4">
+          <i class="fa-solid fa-video"></i>
+        </button>
+        <span class="text-sm text-white/80">Film · Video</span>
       </div>
     </div>
-  </div>
+    <h3 class="mt-4 font-serif text-xl">Ceremonial Recordings</h3>
+    <p class="text-sm text-white/70">Documented cultural events.</p>
+  </article>
 
-  <!-- AUDIO -->
-  <div>
-    <h2 class="font-serif text-2xl sm:text-3xl mb-4 flex items-center gap-2">
-      <i class="fa-solid fa-microphone-lines text-sclCyan"></i> Oral History & Audio
-    </h2>
-    <p class="text-white/70 text-sm sm:text-base mb-6 max-w-3xl">Recorded testimonies, songs, interviews, rituals, and spoken history from diverse communities.</p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      <div class="h-40 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-play text-3xl text-white/60 group-hover:text-sclCyan transition"></i>
-      </div>
-      <div class="h-40 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-play text-3xl text-white/60 group-hover:text-sclCyan transition"></i>
-      </div>
-      <div class="h-40 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-play text-3xl text-white/60 group-hover:text-sclCyan transition"></i>
-      </div>
-      <div class="h-40 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-play text-3xl text-white/60 group-hover:text-sclCyan transition"></i>
+  <!-- CARD 3: Audio -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb03.jpg" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Voices of the People">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="audio" data-src="assets/audio/oral.mp3">
+          <i class="fa-solid fa-headphones"></i>
+        </button>
+        <span class="text-sm text-white/80">Oral History</span>
       </div>
     </div>
-  </div>
+    <h3 class="mt-4 font-serif text-xl">Voices of the People</h3>
+    <p class="text-sm text-white/70">Recorded testimonies from communities.</p>
+  </article>
 
-  <!-- DOCUMENTS -->
-  <div>
-    <h2 class="font-serif text-2xl sm:text-3xl mb-4 flex items-center gap-2">
-      <i class="fa-solid fa-file-lines text-sclCyan"></i> Documents & Records
-    </h2>
-    <p class="text-white/70 text-sm sm:text-base mb-6 max-w-3xl">Colonial records, post-independence administration, letters, reports, and policy documents.</p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      <div class="h-48 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-file-pdf text-4xl text-white/60 group-hover:text-sclCyan transition"></i>
-      </div>
-      <div class="h-48 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-file-pdf text-4xl text-white/60 group-hover:text-sclCyan transition"></i>
-      </div>
-      <div class="h-48 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-file-pdf text-4xl text-white/60 group-hover:text-sclCyan transition"></i>
-      </div>
-      <div class="h-48 bg-white/5 rounded-2xl flex items-center justify-center cursor-pointer group">
-        <i class="fa-solid fa-file-pdf text-4xl text-white/60 group-hover:text-sclCyan transition"></i>
+  <!-- CARD 4: Documents -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb05.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Colonial Records">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="document" data-src="assets/docs/colonial.pdf">
+          <i class="fa-solid fa-file-lines"></i>
+        </button>
+        <span class="text-sm text-white/80">Documents</span>
       </div>
     </div>
-  </div>
+    <h3 class="mt-4 font-serif text-xl">Colonial Records</h3>
+    <p class="text-sm text-white/70">Archival historical documents.</p>
+  </article>
 
-  <!-- 3D & Virtual -->
-  <div>
-    <h2 class="font-serif text-2xl sm:text-3xl mb-4 flex items-center gap-2">
-      <i class="fa-solid fa-cube text-sclCyan"></i> 3D & Virtual Heritage
-    </h2>
-    <p class="text-white/70 text-sm sm:text-base mb-6 max-w-3xl">Digitized cultural objects reconstructed for interactive exploration beyond physical access.</p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      <div class="h-56 bg-white/5 rounded-2xl cursor-pointer group overflow-hidden flex items-center justify-center">
-        <img src="assets/3d/object1.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="3D Artifact">
-      </div>
-      <div class="h-56 bg-white/5 rounded-2xl cursor-pointer group overflow-hidden flex items-center justify-center">
-        <img src="assets/3d/object2.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="3D Artifact">
-      </div>
-      <div class="h-56 bg-white/5 rounded-2xl cursor-pointer group overflow-hidden flex items-center justify-center">
-        <img src="assets/3d/object3.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="3D Artifact">
-      </div>
-      <div class="h-56 bg-white/5 rounded-2xl cursor-pointer group overflow-hidden flex items-center justify-center">
-        <img src="assets/3d/object4.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="3D Artifact">
+  <!-- CARD 5: 3D & Virtual -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb02.jpg" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Cultural Objects in 3D">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="virtual">
+          <i class="fa-solid fa-cube"></i>
+        </button>
+        <span class="text-sm text-white/80">3D · Virtual</span>
       </div>
     </div>
-  </div>
+    <h3 class="mt-4 font-serif text-xl">Cultural Objects in 3D</h3>
+    <p class="text-sm text-white/70">Interactive 3D reconstructions.</p>
+  </article>
+
+  <!-- CARD 6: Photography -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb06.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Life & Landscape">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-2 items-center text-white/80">
+        <i class="fa-solid fa-camera-retro"></i>
+        <span>Photography</span>
+      </div>
+    </div>
+    <h3 class="mt-4 font-serif text-xl">Life & Landscape</h3>
+    <p class="text-sm text-white/70">Cultural visual records.</p>
+  </article>
+
+  <!-- CARD 7: Audio -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb07.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Songs & Rituals">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="audio" data-src="assets/audio/songs.mp3">
+          <i class="fa-solid fa-headphones"></i>
+        </button>
+        <span class="text-sm text-white/80">Audio</span>
+      </div>
+    </div>
+    <h3 class="mt-4 font-serif text-xl">Songs & Rituals</h3>
+    <p class="text-sm text-white/70">Cultural audio recordings.</p>
+  </article>
+
+  <!-- CARD 8: Documents -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb08.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Government Reports">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="document" data-src="assets/docs/reports.pdf">
+          <i class="fa-solid fa-file-lines"></i>
+        </button>
+        <span class="text-sm text-white/80">Documents</span>
+      </div>
+    </div>
+    <h3 class="mt-4 font-serif text-xl">Government Reports</h3>
+    <p class="text-sm text-white/70">Archival reports and letters.</p>
+  </article>
+
+  <!-- CARD 9: 3D & Virtual -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb09.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Virtual Museum">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="virtual">
+          <i class="fa-solid fa-cube"></i>
+        </button>
+        <span class="text-sm text-white/80">3D · Virtual</span>
+      </div>
+    </div>
+    <h3 class="mt-4 font-serif text-xl">Virtual Museum</h3>
+    <p class="text-sm text-white/70">Explore cultural heritage digitally.</p>
+  </article>
+
+  <!-- CARD 10: Special Exhibition -->
+  <article class="group">
+    <div class="relative h-64 rounded-2xl overflow-hidden">
+      <img src="assests/thumbnails/thumb10.png" 
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           alt="Contemporary Heritage">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 flex gap-3 items-center flex-wrap">
+        <button class="media-btn" data-type="special">
+          <i class="fa-solid fa-star"></i>
+        </button>
+        <span class="text-sm text-white/80">Special Exhibition</span>
+      </div>
+    </div>
+    <h3 class="mt-4 font-serif text-xl">Contemporary Heritage</h3>
+    <p class="text-sm text-white/70">Modern cultural narratives.</p>
+  </article>
 
 </section>
 
 <!-- FOOTER -->
 <footer class="border-0-0-t bg-[#0f2b3a]">
-  <div class="max-w-7xl mx-auto px-4 md:px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-neutral-600">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-neutral-600">
     <div>
       <div class="font-serif text-lg mb-3">SCL Digital Museum</div>
       <p>An official digital archive initiative by SHIMULIMULI COMPANY LIMITED, preserving cultural heritage for global access.</p>
@@ -252,4 +285,33 @@
     <div>
       <div class="mb-3 font-medium">Explore</div>
       <ul class="space-y-2">
-        <li><a href="#" class="hover:text-white">Collections</a></li
+        <li><a href="#" class="hover:text-white">Collections</a></li>
+        <li><a href="#" class="hover:text-white">Exhibitions</a></li>
+        <li><a href="#" class="hover:text-white">Research</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="mb-3 font-medium">Legal</div>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Usage Rights</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-0-0-t text-center py-6 text-xs text-neutral-500">
+    © 2026 SCL Digital Museum & Archive. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Mobile Menu Toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>
