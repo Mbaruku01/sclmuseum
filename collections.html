@@ -76,9 +76,19 @@
   </p>
 </section>
 
-<!-- FILTER BAR -->
+<<!-- SEARCH + FILTER BAR -->
 <section class="max-w-7xl mx-auto px-4 md:px-6 pb-16">
-  <h2 class="font-serif text-2xl mb-6 text-center">Browse by Media Type</h2>
+  <!-- SEARCH BAR -->
+  <div class="mb-6 flex justify-center">
+    <div class="relative w-full max-w-md">
+      <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
+      <input type="search" id="collection-search" placeholder="Search the archive…"
+        class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
+    </div>
+  </div>
+
+  <!-- FILTER BUTTONS -->
+  <h2 class="font-serif text-2xl mb-4 text-center">Browse by Media Type</h2>
   <div class="flex flex-wrap justify-center gap-4 text-sm">
     <button class="filter-btn rounded-full bg-white/10 px-5 py-2 hover:bg-white/20" data-filter="all">
       <i class="fa-solid fa-border-all mr-2"></i>All
@@ -100,7 +110,6 @@
     </button>
   </div>
 </section>
-
 <!-- COLLECTION CARDS GRID -->
 <section class="max-w-7xl mx-auto px-4 md:px-6 pb-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
@@ -325,5 +334,41 @@
   });
 </script>
 
+<!-- JS for search & filter -->
+<script>
+  // Filter buttons
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const searchInput = document.querySelector('#searchInput');
+  const cards = document.querySelectorAll('.collection-card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.type;
+      filterButtons.forEach(b => b.classList.remove('bg-white/20'));
+      btn.classList.add('bg-white/20');
+
+      cards.forEach(card => {
+        const cardType = card.dataset.type;
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        const searchValue = searchInput.value.toLowerCase();
+        const matchesType = type === 'all' || cardType === type;
+        const matchesSearch = title.includes(searchValue);
+        card.classList.toggle('hidden', !(matchesType && matchesSearch));
+      });
+    });
+  });
+
+  // Search input
+  searchInput.addEventListener('input', () => {
+    const searchValue = searchInput.value.toLowerCase();
+    const activeFilter = document.querySelector('.filter-btn.bg-white/20')?.dataset.type || 'all';
+    cards.forEach(card => {
+      const title = card.querySelector('h3').innerText.toLowerCase();
+      const matchesType = activeFilter === 'all' || card.dataset.type === activeFilter;
+      const matchesSearch = title.includes(searchValue);
+      card.classList.toggle('hidden', !(matchesType && matchesSearch));
+    });
+  });
+</script>
 </body>
 </html>
