@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate — SCL Digital Museum</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sclDeep: '#07161f',
+            sclBlue: '#18A9F4',
+            sclCyan: '#2EE6C8'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+
+<body class="bg-sclDeep text-white antialiased">
+
+<!-- HEADER -->
+<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <a href="home.html" class="flex items-center gap-3">
+      <img src="1000186051.png" class="h-8" alt="SCL Logo">
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex items-center gap-8 text-sm">
+      <a href="collections.html"><i class="fa-solid fa-layer-group mr-2"></i>Collections</a>
+      <a href="exhibitions.html"><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</a>
+      <a href="research.html"><i class="fa-solid fa-flask mr-2"></i>Research</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info mr-2"></i>About</a>
+      <a href="contacts.html"><i class="fa-solid fa-envelope mr-2"></i>Contact</a>
+      <a href="donation.html"
+        class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-medium text-black">
+        <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+      </a>
+    </nav>
+
+    <!-- HAMBURGER -->
+    <button id="menuBtn" class="md:hidden text-xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="hidden md:hidden bg-sclDeep border-t border-white/10">
+    <nav class="flex flex-col px-6 py-6 gap-4 text-sm">
+      <a href="home.html">Home</a>
+      <a href="collections.html">Collections</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contacts.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-36 pb-28 px-6 text-center">
+  <h1 class="font-serif text-4xl md:text-6xl">
+    Support Cultural Preservation
+  </h1>
+  <p class="mt-8 text-lg text-white/75 max-w-3xl mx-auto">
+    Your contribution supports digitization, education, and global access to Tanzania’s cultural heritage.
+  </p>
+</section>
+
+<!-- DONATION OPTIONS -->
+<!-- COMPLETE DONATION & PARTNERSHIP WALL -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+  <h2 class="font-serif text-3xl mb-16 text-center">
+    All Ways to Support SCL Digital Museum
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-10">
+
+    <!-- MPESA -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-solid fa-mobile-screen text-sclCyan mr-2"></i>M-Pesa (Tanzania)
+      </h3>
+      <form class="space-y-4">
+        <input type="number" placeholder="Amount (TZS)" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <input type="tel" placeholder="M-Pesa Phone Number" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <button class="w-full rounded-full bg-gradient-to-r from-sclBlue to-sclCyan py-3 text-black">
+          Donate via M-Pesa
+        </button>
+      </form>
+    </div>
+
+    <!-- TIGO PESA -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-solid fa-mobile-screen text-sclCyan mr-2"></i>Tigo Pesa
+      </h3>
+      <form class="space-y-4">
+        <input type="number" placeholder="Amount (TZS)" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <input type="tel" placeholder="Tigo Pesa Number" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <button class="w-full rounded-full bg-gradient-to-r from-sclBlue to-sclCyan py-3 text-black">
+          Donate via Tigo Pesa
+        </button>
+      </form>
+    </div>
+
+    <!-- AIRTEL MONEY -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-solid fa-mobile-screen text-sclCyan mr-2"></i>Airtel Money
+      </h3>
+      <form class="space-y-4">
+        <input type="number" placeholder="Amount (TZS)" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <input type="tel" placeholder="Airtel Money Number" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <button class="w-full rounded-full bg-gradient-to-r from-sclBlue to-sclCyan py-3 text-black">
+          Donate via Airtel Money
+        </button>
+      </form>
+    </div>
+
+    <!-- HALOPESA -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-solid fa-mobile-screen text-sclCyan mr-2"></i>HaloPesa
+      </h3>
+      <form class="space-y-4">
+        <input type="number" placeholder="Amount (TZS)" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <input type="tel" placeholder="HaloPesa Number" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <button class="w-full rounded-full bg-gradient-to-r from-sclBlue to-sclCyan py-3 text-black">
+          Donate via HaloPesa
+        </button>
+      </form>
+    </div>
+
+    <!-- LOCAL BANK TRANSFER -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-solid fa-building-columns text-sclCyan mr-2"></i>Local Bank Transfer
+      </h3>
+      <p class="text-sm text-white/70 mb-4">
+        NMB • CRDB • NBC
+      </p>
+      <p class="text-sm">
+        Account Name: <strong>SCL Digital Museum</strong><br>
+        Account No: <strong>XXXXXXXX</strong>
+      </p>
+    </div>
+
+    <!-- PAYPAL -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-brands fa-paypal text-sclCyan mr-2"></i>PayPal
+      </h3>
+      <form class="space-y-4">
+        <input type="number" placeholder="Amount (USD)" class="w-full bg-black/20 px-4 py-3 rounded-lg">
+        <button class="w-full rounded-full bg-gradient-to-r from-sclBlue to-sclCyan py-3 text-black">
+          Continue to PayPal
+        </button>
+      </form>
+    </div>
+
+    <!-- VISA -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-brands fa-cc-visa text-sclCyan mr-2"></i>Visa Card
+      </h3>
+      <button class="w-full rounded-full border border-white/30 py-3 hover:bg-white/10">
+        Pay with Visa
+      </button>
+    </div>
+
+    <!-- MASTERCARD -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-brands fa-cc-mastercard text-sclCyan mr-2"></i>MasterCard
+      </h3>
+      <button class="w-full rounded-full border border-white/30 py-3 hover:bg-white/10">
+        Pay with MasterCard
+      </button>
+    </div>
+
+    <!-- APPLE PAY -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-brands fa-apple text-sclCyan mr-2"></i>Apple Pay
+      </h3>
+      <button class="w-full rounded-full border border-white/30 py-3 hover:bg-white/10">
+        Donate with Apple Pay
+      </button>
+    </div>
+
+    <!-- GOOGLE PAY -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-brands fa-google-pay text-sclCyan mr-2"></i>Google Pay
+      </h3>
+      <button class="w-full rounded-full border border-white/30 py-3 hover:bg-white/10">
+        Donate with Google Pay
+      </button>
+    </div>
+
+    <!-- INTERNATIONAL WIRE -->
+    <div class="bg-white/5 rounded-2xl p-8 md:col-span-3">
+      <h3 class="font-serif text-xl mb-4">
+        <i class="fa-solid fa-globe text-sclCyan mr-2"></i>International Bank Wire (SWIFT)
+      </h3>
+      <p class="text-sm">
+        Bank: <strong>CRDB Bank PLC</strong><br>
+        SWIFT: <strong>XXXXXXXX</strong><br>
+        Account Name: <strong>SCL Digital Museum</strong>
+      </p>
+    </div>
+
+    <!-- NGOs -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-3">
+        <i class="fa-solid fa-hand-holding-heart text-sclCyan mr-2"></i>NGOs & Foundations
+      </h3>
+      <p class="text-sm text-white/70 mb-4">
+        Collaborate on preservation, education, and research initiatives.
+      </p>
+      <a href="contacts.html" class="block text-center rounded-full border py-3 hover:bg-white/10">
+        Partner with Us
+      </a>
+    </div>
+
+    <!-- CSR -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-3">
+        <i class="fa-solid fa-briefcase text-sclCyan mr-2"></i>Corporate CSR Programs
+      </h3>
+      <p class="text-sm text-white/70 mb-4">
+        Support national heritage through CSR funding.
+      </p>
+      <a href="contacts.html" class="block text-center rounded-full border py-3 hover:bg-white/10">
+        Discuss CSR
+      </a>
+    </div>
+
+    <!-- GRANTS -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-3">
+        <i class="fa-solid fa-award text-sclCyan mr-2"></i>Grants & Sponsorships
+      </h3>
+      <p class="text-sm text-white/70 mb-4">
+        Funding partnerships for long-term impact.
+      </p>
+      <a href="contacts.html" class="block text-center rounded-full border py-3 hover:bg-white/10">
+        Apply / Sponsor
+      </a>
+    </div>
+
+    <!-- MOUs -->
+    <div class="bg-white/5 rounded-2xl p-8">
+      <h3 class="font-serif text-xl mb-3">
+        <i class="fa-solid fa-file-contract text-sclCyan mr-2"></i>MOUs & Long-term Partnerships
+      </h3>
+      <p class="text-sm text-white/70 mb-4">
+        Institutional collaboration agreements.
+      </p>
+      <a href="contacts.html" class="block text-center rounded-full border py-3 hover:bg-white/10">
+        Start Discussion
+      </a>
+    </div>
+
+    <!-- DISCUSS PARTNERSHIP -->
+    <div class="bg-white/5 rounded-2xl p-8 md:col-span-3 text-center">
+      <h3 class="font-serif text-2xl mb-4">
+        <i class="fa-solid fa-handshake text-sclCyan mr-2"></i>Discuss Partnership
+      </h3>
+      <p class="text-white/70 mb-6">
+        For governments, institutions, donors, and strategic partners.
+      </p>
+      <a href="contacts.html"
+         class="inline-block rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-10 py-4 text-black">
+        Contact Partnership Team
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- DONATION ARTIFACTS -->
+<section class="max-w-6xl mx-auto px-6 py-24 text-center">
+  <h2 class="font-serif text-3xl mb-10">Transparency & Documents</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <a href="#" class="bg-white/5 p-8 rounded-2xl hover:bg-white/10">
+      <i class="fa-solid fa-file-pdf text-sclCyan text-3xl mb-4"></i>
+      <h3 class="font-serif text-xl">Donation Prospectus</h3>
+      <p class="text-sm text-white/70">Download our funding priorities & impact areas.</p>
+    </a>
+
+    <a href="#" class="bg-white/5 p-8 rounded-2xl hover:bg-white/10">
+      <i class="fa-solid fa-chart-line text-sclCyan text-3xl mb-4"></i>
+      <h3 class="font-serif text-xl">Annual Impact Report</h3>
+      <p class="text-sm text-white/70">See how contributions are used.</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- JOIN FORCES -->
+<section class="bg-sclDeep py-24 text-center px-6">
+  <i class="fa-solid fa-handshake text-sclCyan text-4xl mb-6"></i>
+  <h2 class="font-serif text-3xl mb-6">Join Forces With Us</h2>
+  <p class="max-w-3xl mx-auto text-white/70 mb-10">
+    We collaborate with institutions, NGOs, researchers, and corporate partners to preserve and amplify cultural heritage.
+  </p>
+  <a href="contacts.html" class="inline-block rounded-full border border-white/30 px-10 py-4 hover:bg-white/10">
+    Become a Partner
+  </a>
+</section>
+
+<!-- FOOTER (LOCKED — UNCHANGED) -->
+<footer class="border-0-0-t bg-[#0f2b3a]">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-neutral-600">
+    <div>
+      <div class="font-serif text-lg mb-3">SCL Digital Museum</div>
+      <p>An official digital archive initiative by SHIMULIMULI COMPANY LIMITED, preserving cultural heritage for global access.</p>
+    </div>
+    <div>
+      <div class="mb-3 font-medium">Explore</div>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Collections</a></li>
+        <li><a href="#" class="hover:text-white">Exhibitions</a></li>
+        <li><a href="#" class="hover:text-white">Research</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="mb-3 font-medium">Legal</div>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Usage Rights</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center py-6 text-xs text-neutral-500">
+    © 2026 SCL Digital Museum & Archive. All rights reserved.
+  </div>
+</footer>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+</script>
+
+</body>
+</html>

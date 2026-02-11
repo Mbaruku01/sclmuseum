@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCL Digital Museum & Archive</title>
+
+  <!-- FAVICON -->
+<link rel="icon" type="image/x-icon" href="1000186051.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="1000186051.png">
+
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sclBlue: '#18A9F4',
+            sclCyan: '#2EE6C8',
+            sclDeep: '#0B1F2A'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons (CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white">
+
+<!-- HEADER -->
+<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur">
+  <div class="mx-auto max-w-7xl flex items-center justify-between px-6 py-4 gap-6">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <img src="1000186051.png" class="h-8" alt="SCL Digital Museum">
+    </div>
+
+    <!-- SEARCH -->
+    <div class="hidden md:block flex-1 max-w-md">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
+        <input type="search" placeholder="Search the archive…"
+          class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="hidden md:flex items-center gap-8 text-sm">
+      <a href="collections.html"><i class="fa-solid fa-layer-group mr-2"></i>Collections</a>
+      <a href="exhibitions.html"><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</a>
+      <a href="research.html"><i class="fa-solid fa-flask mr-2"></i>Research</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info mr-2"></i>About</a>
+      <a href="contacts.html"><i class="fa-solid fa-envelope mr-2"></i>Contact</a>
+      <a href="donation.html"
+        class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-medium text-black">
+        <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-40 pb-32 px-6 text-center">
+  <h1 class="font-serif text-5xl md:text-7xl leading-tight">
+            Preserving Cultural Heritage<br/>for Future Generations
+  </h1>
+  <p class="mt-8 text-xl text-white/80 max-w-3xl mx-auto">
+    The SCL Digital Museum & Archive provides global access to our country’s
+        historical collections, cultural memory, and documented heritage through
+        modern archival technology.
+  </p>
+  <div class="mt-12 flex justify-center gap-6">
+    <a href="explorearchieve.html"
+      class="rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-12 py-4 text-sm text-black">
+      <i class="fa-solid fa-compass mr-2"></i>Explore Archive
+    </a>
+    <a href="exhibitions.html"
+      class="rounded-full border px-12 py-4 text-sm">
+      <i class="fa-solid fa-vr-cardboard mr-2"></i>Digital Exhibitions
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="bg-[#0f2b3a] py-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 text-center gap-8">
+    <div><i class="fa-solid fa-box-archive text-sclCyan text-2xl"></i><div class="font-serif text-3xl">120k+</div><p class="text-sm">Archived Items</p></div>
+    <div><i class="fa-solid fa-layer-group text-sclCyan text-2xl"></i><div class="font-serif text-3xl">300+</div><p class="text-sm">Collections</p></div>
+    <div><i class="fa-solid fa-clock-rotate-left text-sclCyan text-2xl"></i><div class="font-serif text-3xl">80+</div><p class="text-sm">Years</p></div>
+    <div><i class="fa-solid fa-globe text-sclCyan text-2xl"></i><div class="font-serif text-3xl">Global</div><p class="text-sm">Access</p></div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+  <h2 class="font-serif text-3xl mb-14">Featured National Collections</h2>
+
+  <div class="grid md:grid-cols-3 gap-10">
+
+    <!-- CARD -->
+    <article class="group bg-white/5 rounded-2xl p-8 hover:bg-white/10 transition">
+      <i class="fa-solid fa-camera-retro text-sclCyan text-2xl mb-5"></i>
+      <h3 class="font-serif text-xl mb-3">Historical Photography</h3>
+      <p class="text-sm text-white/70">
+        Digitized national photographs documenting communities, leaders,
+        ceremonies, and everyday life.
+      </p>
+    </article>
+
+    <!-- CARD -->
+    <article class="group bg-white/5 rounded-2xl p-8 hover:bg-white/10 transition">
+      <i class="fa-solid fa-microphone-lines text-sclCyan text-2xl mb-5"></i>
+      <h3 class="font-serif text-xl mb-3">Oral History Archive</h3>
+      <p class="text-sm text-white/70">
+        Recorded testimonies preserving memory, language,
+        traditions, and lived experience.
+      </p>
+    </article>
+
+    <!-- CARD -->
+    <article class="group bg-white/5 rounded-2xl p-8 hover:bg-white/10 transition">
+      <i class="fa-solid fa-film text-sclCyan text-2xl mb-5"></i>
+      <h3 class="font-serif text-xl mb-3">Film & Audio Heritage</h3>
+      <p class="text-sm text-white/70">
+        National audiovisual materials preserved for education,
+        research, and public access.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="bg-sclDeep py-28 text-center">
+  <i class="fa-solid fa-shield-halved text-sclCyan text-3xl mb-6"></i>
+  <h2 class="font-serif text-3xl">Our Mission</h2>
+  <p class="mt-6 max-w-3xl mx-auto text-white/70">
+    To become a leading cultural and digital media institution in Africa, setting standards in heritage preservation, creative production, and knowledge dissemination for present and future generations.
+  </p>
+</section>
+
+<!-- FOOTER (LOCKED — UNCHANGED) -->
+<footer class="border-0-0-t bg-[#0f2b3a]">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-neutral-600">
+    <div>
+      <div class="font-serif text-lg mb-3">SCL Digital Museum</div>
+      <p>An official digital archive initiative by SHIMULIMULI COMPANY LIMITED, preserving cultural heritage for global access.</p>
+    </div>
+    <div>
+      <div class="mb-3 font-medium">Explore</div>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Collections</a></li>
+        <li><a href="#" class="hover:text-white">Exhibitions</a></li>
+        <li><a href="#" class="hover:text-white">Research</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="mb-3 font-medium">Legal</div>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Usage Rights</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-0-0-t text-center py-6 text-xs text-neutral-500">
+    © 2026 SCL Digital Museum & Archive. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

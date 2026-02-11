@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — SCL Digital Museum</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sclBlue: '#18A9F4',
+            sclCyan: '#2EE6C8',
+            sclDeep: '#0B1F2A'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white">
+
+<!-- HEADER -->
+<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <img src="1000186051.png" alt="SCL Digital Museum Logo" class="h-8" />
+    <div class="hidden md:block flex-1 max-w-md">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
+        <input type="search" placeholder="Search the archive…"
+          class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 text-sm">
+      <a href="collections.html"><i class="fa-solid fa-layer-group mr-2"></i>Collections</a>
+      <a href="exhibitions.html"><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</a>
+      <a href="research.html"><i class="fa-solid fa-flask mr-2"></i>Research</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info mr-2"></i>About</a>
+      <a href="contacts.html"><i class="fa-solid fa-envelope mr-2"></i>Contact</a>
+      <a href="donation.html"
+        class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-medium text-black">
+        <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-44 pb-28 px-6 text-center">
+  <h1 class="font-serif text-5xl md:text-6xl">About Us</h1>
+  <p class="mt-8 text-lg text-white/75 max-w-4xl mx-auto">
+    SHIMULIMULI COMPANY LIMITED is a cultural, media, and technology enterprise
+    dedicated to preserving, producing, and disseminating knowledge, heritage,
+    and creative expression through modern digital platforms.
+  </p>
+</section>
+
+<!-- COMPANY OVERVIEW -->
+<section class="max-w-6xl mx-auto px-6 pb-24">
+  <div class="grid md:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <h2 class="font-serif text-3xl mb-6">
+        <i class="fa-solid fa-building-columns text-sclCyan mr-3"></i>
+        Corporate Identity
+      </h2>
+      <p class="text-white/75 leading-relaxed">
+        <strong>SHIMULIMULI COMPANY LIMITED</strong> is a legally registered company
+        operating within the United Republic of Tanzania. The company functions
+        as the founding and operating body behind the <strong>SCL Digital Museum & Archive</strong>,
+        ensuring institutional integrity, professional governance, and long-term sustainability.
+      </p>
+    </div>
+
+    <div class="bg-white/5 rounded-2xl p-8">
+      <ul class="space-y-4 text-sm text-white/80">
+        <li><i class="fa-solid fa-circle-check text-sclCyan mr-3"></i>Registered Company: SHIMULIMULI COMPANY LIMITED</li>
+        <li><i class="fa-solid fa-location-dot text-sclCyan mr-3"></i>Registered Office: Mainland Tanzania</li>
+        <li><i class="fa-solid fa-scale-balanced text-sclCyan mr-3"></i>Operating Under National Laws</li>
+        <li><i class="fa-solid fa-globe text-sclCyan mr-3"></i>Local Roots, Global Reach</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<section class="bg-sclDeep py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="font-serif text-4xl text-center mb-16">
+      <i class="fa-solid fa-bullseye text-sclCyan mr-3"></i>
+      Our Objectives
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 text-sm">
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-film text-3xl text-sclCyan mb-4"></i>
+        <p>Motion picture, video and television programme production activities.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-tower-broadcast text-3xl text-sclCyan mb-4"></i>
+        <p>Programming and broadcasting activities.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-satellite-dish text-3xl text-sclCyan mb-4"></i>
+        <p>Telecommunications and digital transmission services.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-code text-3xl text-sclCyan mb-4"></i>
+        <p>Computer programming, consultancy, and related activities.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-database text-3xl text-sclCyan mb-4"></i>
+        <p>Information services and digital archiving activities.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-music text-3xl text-sclCyan mb-4"></i>
+        <p>Sound recording and music publishing activities.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-clapperboard text-3xl text-sclCyan mb-4"></i>
+        <p>Motion picture, video, and television post-production services.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-video text-3xl text-sclCyan mb-4"></i>
+        <p>Motion picture projection and exhibition activities.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-radio text-3xl text-sclCyan mb-4"></i>
+        <p>Operation of open studios and radio stations.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-palette text-3xl text-sclCyan mb-4"></i>
+        <p>Supply and distribution of artistic works.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-people-group text-3xl text-sclCyan mb-4"></i>
+        <p>Conducting cultural workshops within and outside Tanzania.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8">
+        <i class="fa-solid fa-book-open text-3xl text-sclCyan mb-4"></i>
+        <p>Writing, publishing, selling, and supplying books and documentaries in audio and video formats.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="py-28 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="font-serif text-3xl mb-8">
+      <i class="fa-solid fa-eye text-sclCyan mr-3"></i>
+      Our Vision
+    </h2>
+    <p class="text-lg text-white/75">
+      To become a leading cultural and digital media institution in Africa,
+      setting standards in heritage preservation, creative production,
+      and knowledge dissemination for present and future generations.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER (LOCKED — UNCHANGED) -->
+<footer class="border-0-0-t bg-[#0f2b3a]">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-neutral-600">
+    <div>
+      <div class="font-serif text-lg mb-3">SCL Digital Museum</div>
+      <p>An official digital archive initiative by SHIMULIMULI COMPANY LIMITED, preserving cultural heritage for global access.</p>
+    </div>
+    <div>
+      <div class="mb-3 font-medium">Explore</div>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Collections</a></li>
+        <li><a href="#" class="hover:text-white">Exhibitions</a></li>
+        <li><a href="#" class="hover:text-white">Research</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="mb-3 font-medium">Legal</div>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Usage Rights</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-0-0-t text-center py-6 text-xs text-neutral-500">
+    © 2026 SCL Digital Museum & Archive. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
