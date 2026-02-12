@@ -6,10 +6,11 @@
   <title>Artifact — SCL Digital Museum</title>
 
   <!-- FAVICON -->
-  <link rel="icon" type="image/x-icon" href="1000186051.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="apple-touch-icon" href="1000186051.png">
+<link rel="icon" type="image/x-icon" href="1000186051.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="1000186051.png">
+
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=aspect-ratio"></script>
@@ -28,7 +29,7 @@
   </script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link
@@ -48,13 +49,12 @@
 <!-- HEADER -->
 <header class="fixed top-0 w-full z-50 bg-sclDeep/80 backdrop-blur border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="index.html" class="flex items-center gap-3">
+    <a href="home.html" class="flex items-center gap-3">
       <img src="1000186051.png" alt="SCL Digital Museum Logo" class="h-8 w-auto" />
     </a>
 
-    <!-- Desktop nav -->
     <nav class="hidden md:flex gap-8 text-sm text-white/70 items-center">
-      <a href="index.html" class="hover:text-sclCyan"><i class="fa-solid fa-house mr-2"></i>Home</a>
+      <a href="home.html" class="hover:text-sclCyan"><i class="fa-solid fa-house mr-2"></i>Home</a>
       <a href="collections.html" class="hover:text-white"><i class="fa-solid fa-layer-group mr-2"></i>Collections</a>
       <a href="exhibitions.html" class="hover:text-white"><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</a>
       <a href="research.html" class="hover:text-white"><i class="fa-solid fa-flask mr-2"></i>Research</a>
@@ -66,45 +66,28 @@
         <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
       </a>
     </nav>
-
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-btn" class="md:hidden text-white text-xl">
-      <i class="fa-solid fa-bars"></i>
-    </button>
   </div>
-
-  <!-- Mobile nav -->
-  <nav id="mobile-menu" class="hidden bg-sclDeep/90 border-t border-white/10 md:hidden px-6 pb-4 space-y-2 text-white/80">
-    <a href="index.html" class="block py-2 hover:text-sclCyan">Home</a>
-    <a href="collections.html" class="block py-2 hover:text-sclCyan">Collections</a>
-    <a href="exhibitions.html" class="block py-2 hover:text-sclCyan">Exhibitions</a>
-    <a href="research.html" class="block py-2 hover:text-sclCyan">Research</a>
-    <a href="about.html" class="block py-2 hover:text-sclCyan">About</a>
-    <a href="contacts.html" class="block py-2 hover:text-sclCyan">Contact</a>
-    <a href="donation.html" class="block py-2 bg-gradient-to-r from-sclBlue to-sclCyan text-black rounded-full text-center">
-      Donate
-    </a>
-  </nav>
 </header>
 
-<script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
-
+<!-- PRIMARY IMAGE VIEWER -->
 <!-- PRIMARY IMAGE VIEWER -->
 <section class="pt-32 pb-20">
   <div class="max-w-6xl mx-auto px-6">
     <figure class="rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl">
+
       <div class="aspect-video max-h-[520px]">
-        <img src="assests/Images/degombora.png" alt="Degombora Zakaria Kitomari" class="w-full h-full object-cover" />
+        <img
+          src="assests/Images/degombora.png"
+          alt="Degombora Zakaria Kitomari"
+          class="w-full h-full object-cover"
+        />
       </div>
+
+      <!-- Optional caption -->
       <figcaption class="px-6 py-4 text-sm text-white/60 bg-black/40">
         Degombora Zakaria Kitomari — Meru District, Arusha Region
       </figcaption>
+
     </figure>
   </div>
 </section>
@@ -116,127 +99,305 @@
   <div class="lg:col-span-2 space-y-10">
 
     <header>
-      <h1 class="font-serif text-4xl md:text-5xl leading-tight">Degombora Zakaria Kitomari</h1>
+      <h1 class="font-serif text-4xl md:text-5xl leading-tight">
+        Degombora Zakaria Kitomari
+      </h1>
+
       <p class="mt-6 text-lg text-white/70 max-w-2xl">
-        Custodian of Meru cultural practices, oral history, and traditional healing knowledge based in Meru District, Arusha Region.
+        Custodian of Meru cultural practices, oral history, and traditional
+        healing knowledge based in Meru District, Arusha Region.
       </p>
     </header>
 
-    <!-- TABS -->
-    <div class="max-w-7xl mx-auto px-6 pt-10">
-      <div class="flex flex-wrap gap-4 text-sm border-b border-white/10 mb-10">
-        <button data-tab="overview" class="tab-btn pb-3 text-sclCyan border-b-2 border-sclCyan">Overview</button>
-        <button data-tab="media" class="tab-btn pb-3 text-white/60 hover:text-white">Media</button>
-        <button data-tab="documents" class="tab-btn pb-3 text-white/60 hover:text-white">Documents</button>
-        <button data-tab="transcript" class="tab-btn pb-3 text-white/60 hover:text-white">Transcript</button>
-      </div>
+    <!-- TABS HEADER -->
+<div class="max-w-7xl mx-auto px-6 pt-10">
 
-      <!-- OVERVIEW -->
-      <div id="overview" class="tab-content space-y-6">
-        <p class="text-white/80 max-w-3xl">
-          This artifact documents Meru traditional healing knowledge, community memory, and oral history preserved through interviews and visual records.
-        </p>
-        <div class="grid gap-6 md:grid-cols-3">
-          <article class="bg-white/5 rounded-xl overflow-hidden">
-            <img src="assests/Images/degombora.png" class="w-full h-44 object-cover">
-            <div class="p-4 text-sm">Traditional Herbal Practices</div>
-          </article>
-          <article class="bg-white/5 rounded-xl overflow-hidden">
-            <img src="assests/Images/degombora.png" class="w-full h-44 object-cover">
-            <div class="p-4 text-sm">Meru Healing Rituals</div>
-          </article>
-          <article class="bg-white/5 rounded-xl overflow-hidden">
-            <img src="assests/Images/degombora.png" class="w-full h-44 object-cover">
-            <div class="p-4 text-sm">Oral History Interview</div>
-          </article>
-        </div>
-      </div>
+  <div class="flex gap-8 text-sm border-b border-white/10 mb-10">
+    <button data-tab="overview"
+      class="tab-btn pb-3 text-sclCyan border-b-2 border-sclCyan">
+      Overview
+    </button>
+    <button data-tab="media" class="tab-btn pb-3 text-white/60 hover:text-white">
+      Media
+    </button>
+    <button data-tab="documents" class="tab-btn pb-3 text-white/60 hover:text-white">
+      Documents
+    </button>
+    <button data-tab="transcript" class="tab-btn pb-3 text-white/60 hover:text-white">
+      Transcript
+    </button>
+  </div>
 
-      <!-- MEDIA -->
-      <div id="media" class="tab-content hidden max-w-4xl space-y-4">
-        <div class="rounded-xl overflow-hidden bg-black ring-1 ring-white/10">
-          <div class="aspect-video">
-            <video class="w-full h-full object-cover" controls>
-              <source src="assets/videos/degombora-interview.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <p class="text-sm text-white/60">Recorded interview documenting Meru traditional knowledge.</p>
-      </div>
+  <!-- OVERVIEW -->
+  <div id="overview" class="tab-content space-y-6">
+    <p class="text-white/80 max-w-3xl">
+      This artifact documents Meru traditional healing knowledge, community memory,
+      and oral history preserved through interviews and visual records.
+    </p>
 
-      <!-- DOCUMENTS -->
-      <div id="documents" class="tab-content hidden space-y-4 max-w-3xl">
-        <a href="assets/docs/field-notes.pdf" class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition">📄 Field Research Notes (PDF)</a>
-        <a href="assets/docs/consent-form.pdf" class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition">📄 Interview Consent Form</a>
-      </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      <article class="bg-white/5 rounded-xl overflow-hidden">
+        <img src="assests/Images/degombora.png" class="w-full h-44 object-cover">
+        <div class="p-4 text-sm">Traditional Herbal Practices</div>
+      </article>
 
-      <!-- TRANSCRIPT -->
-      <div id="transcript" class="tab-content hidden max-w-3xl">
-        <p class="text-white/80 leading-relaxed text-sm">
-          Interviewer: Can you describe the healing process?<br><br>
-          Interviewee: We begin by identifying the plant, preparing it carefully, and performing rituals passed down through generations...
-        </p>
+      <article class="bg-white/5 rounded-xl overflow-hidden">
+        <img src="assests/Images/degombora.png" class="w-full h-44 object-cover">
+        <div class="p-4 text-sm">Meru Healing Rituals</div>
+      </article>
+
+      <article class="bg-white/5 rounded-xl overflow-hidden">
+        <img src="assests/Images/degombora.png" class="w-full h-44 object-cover">
+        <div class="p-4 text-sm">Oral History Interview</div>
+      </article>
+    </div>
+  </div>
+
+  <!-- MEDIA -->
+  <div id="media" class="tab-content hidden max-w-4xl space-y-4">
+    <div class="rounded-xl overflow-hidden bg-black ring-1 ring-white/10">
+      <div class="aspect-video">
+        <video class="w-full h-full object-cover" controls>
+          <source src="assets/videos/degombora-interview.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
+    <p class="text-sm text-white/60">
+      Recorded interview documenting Meru traditional knowledge.
+    </p>
+  </div>
 
-    <!-- ARTIFACT METADATA -->
-    <aside class="bg-white/5 rounded-2xl p-8 backdrop-blur mt-12">
-      <h2 class="text-xs text-white/50 uppercase tracking-wider">Artifact Details</h2>
-      <dl class="mt-6 space-y-5 text-sm text-white/70">
-        <div><dt class="text-white/40">Title</dt><dd>Meru Traditional Healing Practices</dd></div>
-        <div><dt class="text-white/40">Date</dt><dd>2025</dd></div>
-        <div><dt class="text-white/40">Location</dt><dd>Meru Community, Arusha Region — Tanzania</dd></div>
-        <div><dt class="text-white/40">Creator / Producer</dt><dd>Shimulimuli Production</dd></div>
-        <div><dt class="text-white/40">Contributors</dt><dd>Community Elders, Local Healers, Oral Historians</dd></div>
-        <div><dt class="text-white/40">Medium</dt><dd>Digital Image & Video Recording</dd></div>
-        <div><dt class="text-white/40">Format</dt><dd>JPEG (Image), MP4 (Video)</dd></div>
-        <div><dt class="text-white/40">Language</dt><dd>Kiswahili, Kimeru (with English subtitles)</dd></div>
-        <div><dt class="text-white/40">Subject</dt><dd>Traditional Medicine, Indigenous Knowledge, Cultural Heritage</dd></div>
-        <div><dt class="text-white/40">Description</dt><dd>Visual and oral documentation of Meru traditional healing knowledge, focusing on medicinal plants, preparation methods, and cultural context.</dd></div>
-        <div><dt class="text-white/40">Rights & Usage</dt><dd>© SCL Digital Museum — Educational and Research Use Only</dd></div>
-      </dl>
-    </aside>
+  <!-- DOCUMENTS -->
+  <div id="documents" class="tab-content hidden space-y-4 max-w-3xl">
+    <a href="assets/docs/field-notes.pdf"
+      class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition">
+      📄 Field Research Notes (PDF)
+    </a>
 
-    <!-- RELATED ARTIFACTS -->
-    <section class="max-w-7xl mx-auto px-6 pb-28 mt-12">
-      <h2 class="font-serif text-2xl mb-10"><i class="fa-solid fa-link mr-2"></i>Related Artifacts</h2>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
-          <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
-            <img src="assests/Images/1.jpg" alt="Traditional Herbal Practices" class="w-full h-full object-cover"/>
-          </div>
-          <div class="min-w-0">
-            <h3 class="text-sm font-medium truncate">Traditional Herbal Practices</h3>
-            <p class="text-xs text-white/50 mt-1">Oral history • Meru</p>
-          </div>
-        </article>
+    <a href="assets/docs/consent-form.pdf"
+      class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition">
+      📄 Interview Consent Form
+    </a>
+  </div>
 
-        <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
-          <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
-            <img src="assests/Images/1.jpg" alt="Meru Healing Rituals" class="w-full h-full object-cover"/>
-          </div>
-          <div class="min-w-0">
-            <h3 class="text-sm font-medium truncate">Meru Healing Rituals</h3>
-            <p class="text-xs text-white/50 mt-1">Cultural practice</p>
-          </div>
-        </article>
+  <!-- TRANSCRIPT -->
+  <div id="transcript" class="tab-content hidden max-w-3xl">
+    <p class="text-white/80 leading-relaxed text-sm">
+      Interviewer: Can you describe the healing process?<br><br>
+      Interviewee: We begin by identifying the plant, preparing it carefully,
+      and performing rituals passed down through generations...
+    </p>
+  </div>
 
-        <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
-          <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
-            <img src="assests/Images/1.jpg" alt="Oral History Interview" class="w-full h-full object-cover"/>
-          </div>
-          <div class="min-w-0">
-            <h3 class="text-sm font-medium truncate">Oral History Interview</h3>
-            <p class="text-xs text-white/50 mt-1">Interview recording</p>
-          </div>
-        </article>
+</div>
+
+<!-- TAB SCRIPT -->
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const tabs = document.querySelectorAll('.tab-content');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.classList.remove('text-sclCyan','border-b-2','border-sclCyan');
+        b.classList.add('text-white/60');
+      });
+
+      button.classList.add('text-sclCyan','border-b-2','border-sclCyan');
+      button.classList.remove('text-white/60');
+
+      tabs.forEach(tab => tab.classList.add('hidden'));
+      document.getElementById(button.dataset.tab).classList.remove('hidden');
+
+      document.querySelectorAll('video').forEach(v => v.pause());
+    });
+  });
+</script>
+
+    <!-- TAB CONTENT -->
+    <div class="max-w-2xl">
+
+      <div id="overview" class="tab-content space-y-6 text-white/75 leading-relaxed">
+        <p>
+          Degombora Zakaria Kitomari is a highly respected Meru traditional expert
+          specializing in herbal medicine, healing rituals, and spiritual practices.
+        </p>
+        <p>
+          Her knowledge has been transmitted orally across generations and remains
+          essential to cultural preservation and education.
+        </p>
       </div>
-    </section>
+
+      <div id="media" class="tab-content hidden space-y-6">
+        <p class="text-white/60 text-sm">
+          Media content will appear here (videos, audio recordings, photographs).
+        </p>
+      </div>
+
+      <div id="documents" class="tab-content hidden space-y-4">
+        <a href="#"
+           class="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10">
+          <i class="fa-solid fa-file-pdf text-red-400"></i>
+          Meru Herbal Knowledge (PDF)
+        </a>
+      </div>
+
+      <div id="transcript" class="tab-content hidden text-white/75 leading-relaxed">
+        <p>
+          “Healing comes not only from the plant, but from understanding
+          its spirit, season, and place.”
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- METADATA -->
+<aside class="bg-white/5 rounded-2xl p-8 backdrop-blur">
+  <h2 class="text-xs text-white/50 uppercase tracking-wider">
+    Artifact Details
+  </h2>
+
+  <dl class="mt-6 space-y-5 text-sm">
+
+    <div>
+      <dt class="text-white/40">Title</dt>
+      <dd>Meru Traditional Healing Practices</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Date</dt>
+      <dd>2025</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Location</dt>
+      <dd>Meru Community, Arusha Region — Tanzania</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Creator / Producer</dt>
+      <dd>Shimulimuli Production</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Contributors</dt>
+      <dd>Community Elders, Local Healers, Oral Historians</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Medium</dt>
+      <dd>Digital Image & Video Recording</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Format</dt>
+      <dd>JPEG (Image), MP4 (Video)</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Language</dt>
+      <dd>Kiswahili, Kimeru (with English subtitles)</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Subject</dt>
+      <dd>Traditional Medicine, Indigenous Knowledge, Cultural Heritage</dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Description</dt>
+      <dd class="text-white/70">
+        Visual and oral documentation of Meru traditional healing knowledge,
+        focusing on medicinal plants, preparation methods, and cultural context.
+      </dd>
+    </div>
+
+    <div>
+      <dt class="text-white/40">Rights & Usage</dt>
+      <dd class="text-white/70">
+        © SCL Digital Museum — Educational and Research Use Only
+      </dd>
+    </div>
+
+  </dl>
+</aside>
+
+</section>
+
+<!-- RELATED ARTIFACTS -->
+<section class="max-w-7xl mx-auto px-6 pb-28">
+  <h2 class="font-serif text-2xl mb-10">
+    <i class="fa-solid fa-link mr-2"></i>
+    Related Artifacts
+  </h2>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+    <!-- CARD -->
+    <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
+      <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
+        <img
+          src="assests/Images/1.jpg"
+          alt="Traditional Herbal Practices"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="min-w-0">
+        <h3 class="text-sm font-medium truncate">
+          Traditional Herbal Practices
+        </h3>
+        <p class="text-xs text-white/50 mt-1">
+          Oral history • Meru
+        </p>
+      </div>
+    </article>
+
+    <!-- CARD -->
+    <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
+      <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
+        <img
+          src="assests/Images/1.jpg"
+          alt="Meru Healing Rituals"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="min-w-0">
+        <h3 class="text-sm font-medium truncate">
+          Meru Healing Rituals
+        </h3>
+        <p class="text-xs text-white/50 mt-1">
+          Cultural practice
+        </p>
+      </div>
+    </article>
+
+    <!-- CARD -->
+    <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
+      <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
+        <img
+          src="assests/Images/1.jpg"
+          alt="Oral History Interview"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="min-w-0">
+        <h3 class="text-sm font-medium truncate">
+          Oral History Interview
+        </h3>
+        <p class="text-xs text-white/50 mt-1">
+          Interview recording
+        </p>
+      </div>
+    </article>
 
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER (UNCHANGED) -->
 <footer class="bg-[#0f2b3a]">
   <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-neutral-400">
     <div>
@@ -266,7 +427,6 @@
   </div>
 </footer>
 
-<!-- TABS SCRIPT -->
 <script>
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -276,17 +436,15 @@
       const target = button.dataset.tab;
 
       tabButtons.forEach(btn => {
-        btn.classList.remove('text-sclCyan','border-b-2','border-sclCyan');
+        btn.classList.remove('text-sclCyan', 'border-b-2', 'border-sclCyan');
         btn.classList.add('text-white/60');
       });
 
       tabContents.forEach(content => content.classList.add('hidden'));
 
-      button.classList.add('text-sclCyan','border-b-2','border-sclCyan');
+      button.classList.add('text-sclCyan', 'border-b-2', 'border-sclCyan');
       button.classList.remove('text-white/60');
       document.getElementById(target).classList.remove('hidden');
-
-      document.querySelectorAll('video').forEach(v => v.pause());
     });
   });
 </script>

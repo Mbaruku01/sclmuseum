@@ -1,0 +1,38 @@
+[
+  {
+    "id": "vid01",
+    "type": "video",
+    "title": "Traditional Ngoma Ceremony",
+    "year": "1974",
+    "region": "Coastal Tanzania",
+    "src": "assets/videos/video01.mp4",
+    "thumbnail": "assets/thumbnails/thumb01.jpg"
+  },
+  {
+    "id": "img01",
+    "type": "image",
+    "title": "Early Urban Life Photograph",
+    "year": "1952",
+    "region": "Northern Tanzania",
+    "src": "assets/images/img01.jpg",
+    "thumbnail": "assets/images/img01.jpg"
+  },
+  {
+    "id": "aud01",
+    "type": "audio",
+    "title": "Elder Oral Testimony",
+    "year": "1991",
+    "region": "Lake Zone",
+    "src": "assets/audio/audio01.mp3",
+    "thumbnail": "assets/thumbnails/thumb02.jpg"
+  },
+  {
+    "id": "doc01",
+    "type": "document",
+    "title": "Colonial Administrative Report",
+    "year": "1936",
+    "region": "Central Tanzania",
+    "src": "assets/documents/doc01.pdf",
+    "thumbnail": "assets/thumbnails/thumb03.jpg"
+  }
+]
