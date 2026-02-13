@@ -277,8 +277,8 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 <section class="bg-[#0f2b3a] py-12 md:py-16">
   <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 text-center gap-6 md:gap-8 px-4 sm:px-6">
     <div><i class="fa-solid fa-box-archive text-sclCyan text-2xl"></i><div class="font-serif text-2xl md:text-3xl">500+</div><p class="text-xs md:text-sm">Archived Items</p></div>
-    <div><i class="fa-solid fa-layer-group text-sclCyan text-2xl"></i><div class="font-serif text-2xl md:text-3xl">8</div><p class="text-xs md:text-sm">Collections</p></div>
-    <div><i class="fa-solid fa-clock-rotate-left text-sclCyan text-2xl"></i><div class="font-serif text-2xl md:text-3xl">80+</div><p class="text-xs md:text-sm">Years</p></div>
+    <div><i class="fa-solid fa-layer-group text-sclCyan text-2xl"></i><div class="font-serif text-2xl md:text-3xl">800</div><p class="text-xs md:text-sm">Collections</p></div>
+    <div><i class="fa-solid fa-clock-rotate-left text-sclCyan text-2xl"></i><div class="font-serif text-2xl md:text-3xl">8</div><p class="text-xs md:text-sm">Years</p></div>
     <div><i class="fa-solid fa-globe text-sclCyan text-2xl"></i><div class="font-serif text-2xl md:text-3xl">Global</div><p class="text-xs md:text-sm">Access</p></div>
   </div>
 </section>
@@ -341,10 +341,50 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 <!-- INTERACTIVE MAP -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
   <h2 class="font-serif text-2xl md:text-3xl mb-8 text-center">Explore Heritage by Region</h2>
-  <div class="w-full h-80 md:h-[500px] bg-white/5 rounded-3xl flex items-center justify-center text-white/50">
-    Interactive Map Placeholder
-  </div>
+  
+  <div id="tanzaniaMap" class="w-full h-80 md:h-[500px] rounded-3xl"></div>
 </section>
+
+<!-- Leaflet.js CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+ integrity="sha256-sA+vG1kMvsYv+Yzp5sIfrYrTiOqMZZu8ci5q6dL9g7s=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-o9N1j8l2xT1h1o0sVmS+3sbq6dA1aa/Cr5Ck/8k6Ptw=" crossorigin=""></script>
+
+<script>
+// Initialize the map centered on Tanzania
+const map = L.map('tanzaniaMap').setView([-6.369028, 34.888822], 6);
+
+// Add OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Define regions with coordinates
+const regions = [
+  { name: "Mwanza", coords: [-2.517, 32.9] },
+  { name: "Arusha", coords: [-3.3869, 36.6829] },
+  { name: "Kilimanjaro", coords: [-3.065, 37.3533] },
+  { name: "Mtwara", coords: [-10.268, 40.184] },
+  { name: "Morogoro", coords: [-6.827, 37.659] }
+];
+
+// Add markers
+regions.forEach(region => {
+  L.marker(region.coords)
+    .addTo(map)
+    .bindPopup(`<b>${region.name}</b>`)
+    .openPopup();
+});
+</script>
+
+<style>
+  /* Optional: rounded corners for the map */
+  #tanzaniaMap {
+    background-color: rgba(255,255,255,0.05);
+  }
+</style>
 
 <!-- RESEARCH & DOWNLOAD PORTAL -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 bg-[#0b2a3a] rounded-3xl mx-4 sm:mx-6">
