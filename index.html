@@ -197,7 +197,7 @@
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="mobile-submenu hidden pl-6 space-y-1">
-          <a href="about.html#mission" class="block hover:text-sclCyan">Our Mission</a>
+          <a href="about.html" class="block hover:text-sclCyan">Our Mission</a>
           <a href="about-team.html" class="block hover:text-sclCyan">Team</a>
           <a href="about-history.html" class="block hover:text-sclCyan">History</a>
         </div>
@@ -327,21 +327,36 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 </section>
 
 <!-- FEATURED ARTIFACT OF THE WEEK -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 bg-[#0b2a3a] rounded-3xl mx-4 sm:mx-6">
-  <h2 class="font-serif text-2xl md:text-3xl mb-8 text-center">Artifact of the Week</h2>
-  <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-    <img src="assests/thumbnails/IMG_3450.jpg" alt="Featured Artifact" class="w-full md:w-1/3 rounded-2xl shadow-lg">
-    <div class="text-white max-w-xl">
-      <h3 class="font-serif text-xl mb-3">Sculpting History: Dinosaurs from Metal Waste</h3>
-      <p class="text-white/70 mb-2">
-        Origin: TRIASSIC PERIOD, 245 - 230 Million Years Ago | Location: National Museum of Tanzania
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 bg-[#0b2a3a] rounded-3xl text-center">
+  
+  <!-- Section Heading -->
+  <h2 class="font-serif text-2xl md:text-3xl mb-12 text-white"></h2>
+  
+  <!-- Flex Container -->
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+    
+    <!-- Artifact Image -->
+    <div class="w-full md:w-1/3 flex justify-center">
+      <img src="assests/thumbnails/IMG_3450.jpg" alt="Featured Artifact" class="w-full max-w-xs md:max-w-full rounded-2xl shadow-xl object-cover">
+    </div>
+    
+    <!-- Artifact Description -->
+    <div class="w-full md:w-2/3 max-w-xl text-center md:text-left text-white">
+      <h2 class="font-serif text-2xl md:text-3xl mb-12 text-white"> ARTIFACT OF THE WEEK</h2>
+      <h3 class="font-serif text-xl md:text-2xl mb-4">Sculpting History: Dinosaurs from Metal Waste</h3>
+      <p class="text-white/70 mb-3 font-medium">
+        <strong>Origin:</strong> TRIASSIC PERIOD, 245 - 230 Million Years Ago | 
+        <strong>Location:</strong> National Museum of Tanzania
       </p>
-      <p class="text-sm text-white/70">
-        Metal wastes were carefully collected and repurposed to create a welded sculpture in the shape of a dinosaur. This approach not only transforms discarded materials into a striking piece of art but also serves as a tangible preservation of history, connecting viewers with the prehistoric past in a modern, sustainable form. Each welded piece reflects both creativity and conservation, highlighting how cultural memory and environmental awareness can come together in artistic expression
+      <p class="text-sm text-white/70 leading-relaxed">
+        Metal wastes were carefully collected and repurposed to create a welded sculpture in the shape of a dinosaur. This approach not only transforms discarded materials into a striking piece of art but also serves as a tangible preservation of history, connecting viewers with the prehistoric past in a modern, sustainable form. Each welded piece reflects both creativity and conservation, highlighting how cultural memory and environmental awareness can come together in artistic expression.
       </p>
     </div>
+    
   </div>
-</section> 
+</section>
+
+
 
 <!-- INTERACTIVE MAP -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">

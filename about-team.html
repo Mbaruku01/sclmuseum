@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCL Digital Museum & Archive</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sclBlue: '#18A9F4',
+            sclCyan: '#2EE6C8',
+            sclDeep: '#0B1F2A'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons (CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white">
+
+<!-- HEADER -->
+<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur border-b border-white/10">
+
+  <div class="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <img src="1000186051.png" class="h-8" alt="SCL Digital Museum">
+    </div>
+
+    <!-- SEARCH (desktop only) -->
+    <div class="hidden md:block flex-1 max-w-md mx-6">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
+        <input type="search" placeholder="Search the archive…"
+          class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
+      </div>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+
+      <!-- Collections Dropdown -->
+      <div class="relative group">
+        <a href="collections.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-layer-group"></i>Collections
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="historical-photography.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Historical Photography</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Oral History Archive</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Film & Audio Heritage</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">Full Archive</a>
+        </div>
+      </div>
+
+      <!-- Exhibitions Dropdown -->
+      <div class="relative group">
+        <a href="exhibitions.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-landmark"></i>Exhibitions
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="exhibitions.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Digital Exhibitions</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Upcoming Exhibitions</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Past Exhibitions</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">3D Virtual Tour</a>
+        </div>
+      </div>
+
+      <!-- Research Dropdown -->
+      <div class="relative group">
+        <a href="research.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-flask"></i>Research
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Historical Documents</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Artifact Metadata</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Audio & Video Archives</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">Academic Partnerships</a>
+        </div>
+      </div>
+
+      <!-- About Dropdown -->
+      <div class="relative group">
+        <a href="about.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-circle-info"></i>About
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="about.html#mission" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Our Mission</a>
+          <a href="about-team.html" class="block px-4 py-2 hover:bg-sclBlue">Team</a>
+          <a href="about-history.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">History</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a href="contacts.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+        <i class="fa-solid fa-envelope"></i>Contact
+      </a>
+
+      <!-- Donate -->
+      <a href="donation.html"
+         class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-semibold text-black hover:scale-105 transition flex items-center gap-1">
+         <i class="fa-solid fa-hand-holding-heart"></i>Donate
+      </a>
+
+    </nav>
+
+    <!-- MOBILE BUTTON -->
+    <button id="menuBtn" class="md:hidden text-white text-2xl transition-transform duration-300">
+      <i id="menuIcon" class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu"
+       class="max-h-0 overflow-hidden md:hidden transition-all duration-500 ease-in-out px-6">
+
+    <div class="py-6 space-y-2 text-sm">
+
+      <!-- Search -->
+      <input type="search" placeholder="Search..."
+        class="w-full px-4 py-2 rounded-full bg-white/10 border border-white/10">
+
+      <!-- Collections (click to expand) -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-layer-group mr-2"></i> <a href="collections.html">Collections</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="historical-photography.html" class="block hover:text-sclCyan">Historical Photography</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Oral History Archive</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Film & Audio Heritage</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Full Archive</a>
+        </div>
+      </div>
+
+      <!-- Exhibitions -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-landmark mr-2"></i> <a href="exhibitions.html">Exhibition</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="exhibitions.html" class="block hover:text-sclCyan">Digital Exhibitions</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Upcoming Exhibitions</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Past Exhibitions</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">3D Virtual Tour</a>
+        </div>
+      </div>
+
+      <!-- Research -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-flask mr-2"></i><a href="research.html"> Research</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="research-documents.html" class="block hover:text-sclCyan">Historical Documents</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Artifact Metadata</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Audio & Video Archives</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Academic Partnerships</a>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-circle-info mr-2"></i> <a href="">About</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="about.html" class="block hover:text-sclCyan">Our Mission</a>
+          <a href="about-team.html" class="block hover:text-sclCyan">Team</a>
+          <a href="about-history.html" class="block hover:text-sclCyan">History</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a href="contacts.html" class="block px-2 py-2 hover:text-sclCyan transition mobile-link">
+        <i class="fa-solid fa-envelope mr-2"></i>Contact
+      </a>
+
+      <!-- Donate -->
+      <a href="donation.html"
+         class="block text-center rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 font-semibold text-black hover:scale-105 transition mobile-link mt-2">
+         <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+      </a>
+
+    </div>
+  </div>
+
+</header>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+const icon = document.getElementById("menuIcon");
+
+// Toggle mobile menu
+btn.addEventListener("click", () => {
+  if (menu.classList.contains("max-h-0")) {
+    menu.classList.remove("max-h-0");
+    menu.classList.add("max-h-[1000px]");
+    icon.classList.replace("fa-bars","fa-xmark");
+  } else {
+    menu.classList.add("max-h-0");
+    menu.classList.remove("max-h-[1000px]");
+    icon.classList.replace("fa-xmark","fa-bars");
+  }
+});
+
+// Toggle mobile submenus
+document.querySelectorAll(".mobile-group > button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const submenu = btn.nextElementSibling;
+    submenu.classList.toggle("hidden");
+    btn.querySelector("i.fa-chevron-down").classList.toggle("rotate-180");
+  });
+});
+</script>
+  <!-- INTRO -->
+  <section class="pt-40 pb-16 px-6 text-center">
+    <h1 class="font-serif text-4xl md:text-6xl mb-4">Meet Our Team</h1>
+    <p class="text-white/70 max-w-3xl mx-auto text-lg md:text-xl">
+      The dedicated professionals behind SCL Digital Museum, driving innovation, creativity, and excellence in every aspect of our work. Connect with us or learn more about their roles below.
+    </p>
+  </section>
+
+  <!-- TEAM GRID -->
+  <section class="max-w-7xl mx-auto px-6 pb-24 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    
+    <!-- Felician G. Tomeka -->
+    <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition shadow-lg text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl mb-2 text-sclCyan flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-user-tie"></i> Felician G. Tomeka
+      </h3>
+      <p class="font-semibold mb-3 flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-briefcase"></i> CEO
+      </p>
+      <p class="text-white/70 text-sm leading-relaxed mb-4">
+        Provides strategic leadership, oversees company operations, and drives business growth while ensuring quality and compliance.
+      </p>
+      <div class="flex gap-4">
+        <a href="mailto:felician@scldigitalmuseum.com" class="hover:text-sclCyan transition">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="#" class="hover:text-sclCyan transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Prof. Gastor Mapunda -->
+    <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition shadow-lg text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl mb-2 text-sclCyan flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-chalkboard-user"></i> Prof. Gastor Mapunda
+      </h3>
+      <p class="font-semibold mb-3 flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-gavel"></i> Chief Advisor
+      </p>
+      <p class="text-white/70 text-sm leading-relaxed mb-4">
+        Provides strategic guidance to the Board and executive team, offering expert advice to support governance, decision-making, and long-term growth.
+      </p>
+      <div class="flex gap-4">
+        <a href="mailto:gastor@scldigitalmuseum.com" class="hover:text-sclCyan transition">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="#" class="hover:text-sclCyan transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Winnie Kimaro -->
+    <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition shadow-lg text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl mb-2 text-sclCyan flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-gavel"></i> Winnie Kimaro
+      </h3>
+      <p class="font-semibold mb-3 flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-briefcase"></i> Director of Legal Affairs
+      </p>
+      <p class="text-white/70 text-sm leading-relaxed mb-4">
+        Oversees all legal matters, ensures regulatory compliance, manages contracts, and provides legal guidance to support company operations.
+      </p>
+      <div class="flex gap-4">
+        <a href="mailto:winnie@scldigitalmuseum.com" class="hover:text-sclCyan transition">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="#" class="hover:text-sclCyan transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Chaddy Zawuya -->
+    <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition shadow-lg text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl mb-2 text-sclCyan flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-lightbulb"></i> Chaddy Zawuya
+      </h3>
+      <p class="font-semibold mb-3 flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-gears"></i> Director of Innovation & Technology
+      </p>
+      <p class="text-white/70 text-sm leading-relaxed mb-4">
+        Leads technology strategy, drives innovation, and oversees the adoption of modern solutions to improve efficiency and service delivery.
+      </p>
+      <div class="flex gap-4">
+        <a href="mailto:chaddy@scldigitalmuseum.com" class="hover:text-sclCyan transition">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="#" class="hover:text-sclCyan transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Zakia Mpodi -->
+    <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition shadow-lg text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl mb-2 text-sclCyan flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-pen-nib"></i> Zakia Mpodi
+      </h3>
+      <p class="font-semibold mb-3 flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-book"></i> Director of Editing & Storytelling
+      </p>
+      <p class="text-white/70 text-sm leading-relaxed mb-4">
+        Leads the creation and refinement of compelling narratives, ensuring all content is engaging, accurate, and aligns with the company’s vision and messaging.
+      </p>
+      <div class="flex gap-4">
+        <a href="mailto:zakia@scldigitalmuseum.com" class="hover:text-sclCyan transition">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="#" class="hover:text-sclCyan transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Hamis Y. Mbaruku -->
+    <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition shadow-lg text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl mb-2 text-sclCyan flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-video"></i> Hamis Y. Mbaruku
+      </h3>
+      <p class="font-semibold mb-3 flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-camera"></i> Director of Production & Multimedia
+      </p>
+      <p class="text-white/70 text-sm leading-relaxed mb-4">
+        Oversees content production and multimedia operations, ensuring high-quality creative output aligned with the company’s brand and communication goals.
+      </p>
+      <div class="flex gap-4">
+        <a href="mailto:hamis@scldigitalmuseum.com" class="hover:text-sclCyan transition">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="#" class="hover:text-sclCyan transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Damian Clement -->
+    <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition shadow-lg text-center flex flex-col items-center">
+      <h3 class="font-serif text-2xl mb-2 text-sclCyan flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-server"></i> Damian Clement
+      </h3>
+      <p class="font-semibold mb-3 flex items-center gap-2 justify-center">
+        <i class="fa-solid fa-cogs"></i> Director of Technical Leadership
+      </p>
+      <p class="text-white/70 text-sm leading-relaxed mb-4">
+        Oversees technical strategy, leads engineering teams, and ensures all systems and projects align with the comanization’s goals.
+      </p>
+      <div class="flex gap-4">
+        <a href="mailto:damian@scldigitalmuseum.com" class="hover:text-sclCyan transition">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="#" class="hover:text-sclCyan transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- FOOTER -->
+  <!-- Use your existing footer here -->
+<!-- FOOTER -->
+<footer class="bg-[#0f2b3a] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+
+    <!-- ABOUT -->
+    <div>
+      <div class="font-serif text-lg mb-3">SCL Digital Museum</div>
+      <p class="text-white/70">
+        An official digital archive initiative by SHIMULIMULI COMPANY LIMITED,
+        preserving cultural heritage for global access.
+      </p>
+    </div>
+
+    <!-- EXPLORE -->
+    <div>
+      <div class="mb-3 font-medium">Explore</div>
+      <ul class="space-y-2 text-white/70">
+        <li><a href="collections.html" class="hover:text-sclCyan transition">Collections</a></li>
+        <li><a href="exhibitions.html" class="hover:text-sclCyan transition">Exhibitions</a></li>
+        <li><a href="research.html" class="hover:text-sclCyan transition">Research</a></li>
+      </ul>
+    </div>
+
+    <!-- LEGAL -->
+    <div>
+      <div class="mb-3 font-medium">Legal</div>
+      <ul class="space-y-2 text-white/70">
+        <li><a href="privacy.html" class="hover:text-sclCyan transition">Usage Rights</a></li>
+        <li><a href="privacy.html" class="hover:text-sclCyan transition">Privacy Policy</a></li>
+        <li><a href="Accessibility.html" class="hover:text-sclCyan transition">Accessibility</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <div class="mb-3 font-medium">Contact</div>
+      <ul class="space-y-2 text-white/70 text-sm">
+        <li>
+          <i class="fa-solid fa-envelope mr-2 text-sclCyan"></i>
+          <a href="mailto:info@scldigitalmuseum.com" class="hover:text-sclCyan">info@scldigitalmuseum.com</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-phone mr-2 text-sclCyan"></i>
+          <a href="tel:+255123456789" class="hover:text-sclCyan">+255 786 172 760 | +255 719 931 862</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot mr-2 text-sclCyan"></i>
+          Dar es Salaam, Tanzania
+        </li>
+        <li>
+          <i class="fa-solid fa-box mr-2 text-sclCyan"></i>
+          P.O. Box 42431, Dar es Salaam
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="text-center py-6 text-xs text-white/60 border-t border-white/10 px-4">
+    © 2026 SCL Digital Museum & Archive. All rights reserved.
+  </div>
+</footer>
+
+<script>
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+const icon = document.getElementById("menuIcon");
+const links = document.querySelectorAll(".mobile-link");
+
+btn.addEventListener("click", () => {
+  if (menu.classList.contains("max-h-0")) {
+    menu.classList.remove("max-h-0");
+    menu.classList.add("max-h-[500px]");
+    icon.classList.replace("fa-bars","fa-xmark");
+  } else {
+    menu.classList.add("max-h-0");
+    menu.classList.remove("max-h-[500px]");
+    icon.classList.replace("fa-xmark","fa-bars");
+  }
+});
+
+links.forEach(link=>{
+  link.addEventListener("click",()=>{
+    menu.classList.add("max-h-0");
+    menu.classList.remove("max-h-[500px]");
+    icon.classList.replace("fa-xmark","fa-bars");
+  });
+});
+</script>
+<!-- FLOATING BUTTONS WRAPPER -->
+<div class="fixed bottom-6 right-6 z-50 flex gap-4">
+
+  <!-- HOME BUTTON -->
+  <a href="index.html"
+     class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-house text-white text-xl"></i>
+  </a>
+
+  <!-- UPLOAD BUTTON -->
+  <button id="uploadBtn"
+          class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-upload text-white text-xl"></i>
+  </button>
+
+</div>
+
+<!-- UPLOAD POPUP -->
+<div id="uploadPopup" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4">
+  <div class="bg-[#1a1a1a] rounded-2xl p-6 w-full max-w-md mx-2 sm:mx-0">
+    <h3 class="text-xl font-semibold mb-4 text-white text-center">Upload Your Content</h3>
+
+    <form id="uploadForm" class="flex flex-col gap-4">
+      <input type="file" name="file" id="fileInput" class="text-white"/>
+      <input type="text" name="Author" placeholder="Author" class="bg-[#2a2a2a] border border-gray-600 rounded-lg px-3 py-2 text-white" required>
+       <input type="text" name="title" placeholder="Title" class="bg-[#2a2a2a] border border-gray-600 rounded-lg px-3 py-2 text-white" required>
+       <textarea name="description" placeholder="Description" class="bg-[#2a2a2a] border border-gray-600 rounded-lg px-3 py-2 text-white" rows="3"></textarea>
+      <button type="submit" class="bg-sclCyan text-black py-2 rounded-lg hover:scale-105 transition">Upload</button>
+      <button type="button" id="closePopup" class="text-gray-400 hover:text-white text-sm mt-2">Cancel</button>
+    </form>
+
+    <!-- Agreement Modal -->
+    <div id="agreementModal" class="hidden mt-4 bg-gray-800 rounded-xl p-4 text-white">
+      <p class="mb-4 text-sm">
+        By clicking "Agree", you accept our <strong>Privacy Policy</strong> and <strong>Usage Rights</strong>.
+      </p>
+      <div class="flex gap-4 justify-center">
+        <button id="agreeBtn" class="bg-sclCyan text-black py-1 px-4 rounded-lg hover:scale-105 transition">Agree</button>
+        <button id="disagreeBtn" class="bg-gray-600 py-1 px-4 rounded-lg hover:scale-105 transition">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div id="progressContainer" class="hidden mt-4">
+      <div class="w-full bg-white/20 rounded-full h-4">
+        <div id="progressBar" class="bg-sclCyan h-4 rounded-full w-0"></div>
+      </div>
+      <p id="progressText" class="text-white text-sm mt-1 text-center">0%</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const uploadBtn = document.getElementById("uploadBtn");
+const uploadPopup = document.getElementById("uploadPopup");
+const closePopup = document.getElementById("closePopup");
+const uploadForm = document.getElementById("uploadForm");
+const fileInput = document.getElementById("fileInput");
+
+const agreementModal = document.getElementById("agreementModal");
+const agreeBtn = document.getElementById("agreeBtn");
+const disagreeBtn = document.getElementById("disagreeBtn");
+
+const progressContainer = document.getElementById("progressContainer");
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
+
+// Show upload popup
+uploadBtn.addEventListener("click", () => {
+  uploadPopup.classList.remove("hidden");
+});
+
+// Close popup
+closePopup.addEventListener("click", () => {
+  uploadPopup.classList.add("hidden");
+  fileInput.value = "";
+  agreementModal.classList.add("hidden");
+  progressContainer.classList.add("hidden");
+  progressBar.style.width = "0%";
+  progressText.textContent = "0%";
+});
+
+// Submit form (show agreement first)
+uploadForm.addEventListener("submit", e => {
+  e.preventDefault();
+  if(!fileInput.files.length) {
+    alert("Please select a file first.");
+    return;
+  }
+  agreementModal.classList.remove("hidden");
+});
+
+// Disagree -> cancel
+disagreeBtn.addEventListener("click", () => {
+  agreementModal.classList.add("hidden");
+});
+
+// Agree -> simulate upload
+agreeBtn.addEventListener("click", () => {
+  agreementModal.classList.add("hidden");
+  progressContainer.classList.remove("hidden");
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random() * 10) + 5; // random increment
+    if(progress > 100) progress = 100;
+    progressBar.style.width = progress + "%";
+    progressText.textContent = progress + "%";
+
+    if(progress === 100) {
+      clearInterval(interval);
+      // Redirect to research.html after "upload"
+      alert("Upload complete! Redirecting to your content...");
+      window.location.href = "research.html";
+    }
+  }, 300);
+});
+</script>
+</body>
+</html>
