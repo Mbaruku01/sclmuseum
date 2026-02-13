@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SCL Digital Museum App - Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="bg-black text-white">
+
+<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-4">
+
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop playsinline poster="archive-bg.jpg"
+         class="absolute inset-0 w-full h-full object-cover">
+    <source src="assests/videos/sample.mp4" type="video/mp4">
+  </video>
+
+  <!-- DARK OVERLAY -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <!-- CONTENT -->
+  <div class="relative z-10 max-w-3xl">
+
+    <h1 class="font-serif text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
+      SCL Digital Museum App<br class="sm:hidden"> Coming Soon
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+      Exciting news! The <span class="text-cyan-400 font-semibold">SCL Digital Museum App</span> is under development. 
+      Soon, you will be able to access our digital collections, cultural archives, and multimedia heritage directly from your mobile device.
+    </p>
+
+    <p class="mt-4 text-sm sm:text-base text-white/60 leading-relaxed">
+      Our team is working tirelessly to bring Tanzanian and African history, memory, and cultural heritage to your fingertips. 
+      Stay tuned for a seamless, interactive, and engaging digital experience.
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+
+      <!-- Back Home -->
+      <a href="index.html"
+         class="px-8 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition flex items-center justify-center gap-2 text-sm">
+        <i class="fa-solid fa-house"></i> Back Home
+      </a>
+
+      <!-- Contact -->
+      <a href="contacts.html"
+         class="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-sky-400 text-black font-semibold hover:scale-105 transition flex items-center justify-center gap-2 text-sm">
+        <i class="fa-solid fa-envelope"></i> Contact Team
+      </a>
+
+      <!-- Download App -->
+      <a href="app.html"
+         class="px-8 py-3 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 text-white hover:scale-105 transition flex items-center justify-center gap-2 text-sm">
+        <i class="fa-solid fa-download"></i> Download App
+      </a>
+
+    </div>
+
+    <!-- STATUS -->
+    <div class="mt-10 text-white/50 text-xs sm:text-sm tracking-widest uppercase">
+      Launching Soon • Mobile Access • Cultural Heritage
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
