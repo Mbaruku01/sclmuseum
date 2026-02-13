@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accessibility</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+  background:#0f2b3a;
+  color:white;
+  font-family: Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+  padding:20px;
+}
+
+.container{
+  max-width:650px;
+}
+
+h1{
+  font-size:2rem;
+  margin-bottom:15px;
+}
+
+p{
+  color:#cbd5e1;
+  margin-bottom:30px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 22px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:bold;
+  text-decoration:none;
+  margin:8px;
+  transition:0.2s;
+}
+
+.download{
+  background:#2ee6c8;
+  color:black;
+}
+
+.home{
+  background:white;
+  color:black;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+/* Phone responsive */
+@media(max-width:600px){
+  h1{font-size:1.6rem;}
+  .btn{width:100%; justify-content:center;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Accessibility Statement</h1>
+  <p>
+    SCL Digital Museum is committed to providing a website that is accessible to everyone, including people with disabilities.  
+    Please download and review our Accessibility Statement to learn more.
+  </p>
+
+  <!-- DOWNLOAD BUTTON -->
+  <a href="accessibility-policy.pdf" download class="btn download">
+    <i class="fa-solid fa-universal-access"></i> Download Accessibility Policy
+  </a>
+
+  <!-- BACK HOME BUTTON -->
+  <a href="index.html" class="btn home">
+    <i class="fa-solid fa-house"></i> Back Home
+  </a>
+</div>
+
+</body>
+</html>
