@@ -249,7 +249,7 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 
 <!-- INTRO -->
 <section class="pt-44 pb-24 px-6 text-center">
-  <h1 class="font-serif text-5xl md:text-6xl">National Collections</h1>
+  <h1 class="font-serif text-5xl md:text-6xl">SCL Digital Collections</h1>
   <p class="mt-8 text-lg text-white/75 max-w-4xl mx-auto">
     Structured digital collections preserving audiovisual, documentary,
     oral, visual, and virtual heritage across regions and generations.
@@ -577,7 +577,7 @@ audioClose.addEventListener("click", () => {
 <!-- NDA POPUP MODAL -->
 <div id="ndaModal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center hidden p-4">
   <div class="bg-sclDeep rounded-2xl max-w-md w-full p-6 text-white">
-    <h3 class="text-xl font-semibold mb-4">Download Agreement</h3>
+    <h3 class="text-xl font-semibold mb-4">DOWNLOAD DOCUMENT</h3>
     <p class="mb-6 text-sm text-white/80">
       By downloading this document, you agree to our NDA, privacy policy, and usage rights. The content is for personal research and educational purposes only.
     </p>
@@ -625,24 +625,67 @@ ndaAgree.addEventListener("click", () => {
 });
 </script>
 
+<!-- 3D & VIRTUAL HERITAGE -->
+<div>
+  <h2 class="font-serif text-3xl mb-6">
+    <i class="fa-solid fa-cube text-sclCyan mr-3"></i>3D & Virtual Heritage
+  </h2>
 
-  <!-- 3D -->
-  <div>
-    <h2 class="font-serif text-3xl mb-6">
-      <i class="fa-solid fa-cube text-sclCyan mr-3"></i>3D & Virtual Heritage
-    </h2>
-    <p class="text-white/70 max-w-4xl mb-10">
-      Digitized cultural objects reconstructed for
-      interactive exploration beyond physical access.
-    </p>
+  <p class="text-white/70 max-w-4xl mb-10">
+    Digitized cultural objects reconstructed for interactive exploration beyond physical access.
+  </p>
 
-    <div class="grid md:grid-cols-4 gap-8">
-      <div class="h-56 bg-white/10 rounded-2xl"></div>
-      <div class="h-56 bg-white/10 rounded-2xl"></div>
-      <div class="h-56 bg-white/10 rounded-2xl"></div>
-      <div class="h-56 bg-white/10 rounded-2xl"></div>
+  <!-- 3D OBJECT GRID -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="object-thumb h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex items-center justify-center"
+         data-desc="Artifact 1: Historical sculpture from Mtwara">
+      <i class="fa-solid fa-cube text-white/40 text-4xl"></i>
+    </div>
+
+    <div class="object-thumb h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex items-center justify-center"
+         data-desc="Artifact 2: Traditional Kilimanjaro mask">
+      <i class="fa-solid fa-cube text-white/40 text-4xl"></i>
+    </div>
+
+    <div class="object-thumb h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex items-center justify-center"
+         data-desc="Artifact 3: Arusha ceremonial tool">
+      <i class="fa-solid fa-cube text-white/40 text-4xl"></i>
+    </div>
+
+    <div class="object-thumb h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex items-center justify-center"
+         data-desc="Artifact 4: Mwanza fishing heritage artifact">
+      <i class="fa-solid fa-cube text-white/40 text-4xl"></i>
     </div>
   </div>
+</div>
+
+<!-- POPUP MESSAGE -->
+<div id="comingSoon" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
+  <div class="bg-white rounded-2xl p-8 max-w-sm text-center">
+    <h3 class="text-xl font-semibold mb-4">Coming Soon!</h3>
+    <p class="text-gray-700 mb-6">This 3D & Virtual Heritage feature is under development. Stay tuned for the full experience!</p>
+    <button id="closePopup" class="px-6 py-2 bg-sclCyan text-black rounded-full hover:scale-105 transition">OK</button>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+const objects = document.querySelectorAll(".object-thumb");
+const popup = document.getElementById("comingSoon");
+const closeBtn = document.getElementById("closePopup");
+
+objects.forEach(obj => {
+  obj.addEventListener("click", () => {
+    popup.classList.remove("hidden");
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.classList.add("hidden");
+});
+</script>
+
+
 
 </section>
 
