@@ -344,17 +344,125 @@ form.addEventListener("submit", function(e){
   });
 });
 </script>
-<!-- GLASS FLOATING HOME BUTTON -->
-<a href="index.html"
-   class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 
-          w-12 h-12 md:w-14 md:h-14 
-          flex items-center justify-center rounded-full 
-          backdrop-blur-xl bg-white/20 border border-white/30 
-          shadow-2xl hover:scale-110 transition">
+<!-- FLOATING BUTTONS WRAPPER -->
+<div class="fixed bottom-6 right-6 z-50 flex gap-4">
 
-  <i class="fa-solid fa-house text-white text-lg md:text-xl"></i>
+  <!-- HOME BUTTON -->
+  <a href="index.html"
+     class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-house text-white text-xl"></i>
+  </a>
 
-</a>
+  <!-- UPLOAD BUTTON -->
+  <button id="uploadBtn"
+          class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-upload text-white text-xl"></i>
+  </button>
+
+</div>
+
+<!-- UPLOAD POPUP -->
+<div id="uploadPopup" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4">
+  <div class="bg-[#1a1a1a] rounded-2xl p-6 w-full max-w-md mx-2 sm:mx-0">
+    <h3 class="text-xl font-semibold mb-4 text-white text-center">Upload Your Content</h3>
+
+    <form id="uploadForm" class="flex flex-col gap-4">
+      <input type="file" name="file" id="fileInput" class="text-white"/>
+      <input type="text" name="Author" placeholder="Author" class="bg-[#2a2a2a] border border-gray-600 rounded-lg px-3 py-2 text-white" required>
+       <input type="text" name="title" placeholder="Title" class="bg-[#2a2a2a] border border-gray-600 rounded-lg px-3 py-2 text-white" required>
+       <textarea name="description" placeholder="Description" class="bg-[#2a2a2a] border border-gray-600 rounded-lg px-3 py-2 text-white" rows="3"></textarea>
+      <button type="submit" class="bg-sclCyan text-black py-2 rounded-lg hover:scale-105 transition">Upload</button>
+      <button type="button" id="closePopup" class="text-gray-400 hover:text-white text-sm mt-2">Cancel</button>
+    </form>
+
+    <!-- Agreement Modal -->
+    <div id="agreementModal" class="hidden mt-4 bg-gray-800 rounded-xl p-4 text-white">
+      <p class="mb-4 text-sm">
+        By clicking "Agree", you accept our <strong>Privacy Policy</strong> and <strong>Usage Rights</strong>.
+      </p>
+      <div class="flex gap-4 justify-center">
+        <button id="agreeBtn" class="bg-sclCyan text-black py-1 px-4 rounded-lg hover:scale-105 transition">Agree</button>
+        <button id="disagreeBtn" class="bg-gray-600 py-1 px-4 rounded-lg hover:scale-105 transition">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div id="progressContainer" class="hidden mt-4">
+      <div class="w-full bg-white/20 rounded-full h-4">
+        <div id="progressBar" class="bg-sclCyan h-4 rounded-full w-0"></div>
+      </div>
+      <p id="progressText" class="text-white text-sm mt-1 text-center">0%</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const uploadBtn = document.getElementById("uploadBtn");
+const uploadPopup = document.getElementById("uploadPopup");
+const closePopup = document.getElementById("closePopup");
+const uploadForm = document.getElementById("uploadForm");
+const fileInput = document.getElementById("fileInput");
+
+const agreementModal = document.getElementById("agreementModal");
+const agreeBtn = document.getElementById("agreeBtn");
+const disagreeBtn = document.getElementById("disagreeBtn");
+
+const progressContainer = document.getElementById("progressContainer");
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
+
+// Show upload popup
+uploadBtn.addEventListener("click", () => {
+  uploadPopup.classList.remove("hidden");
+});
+
+// Close popup
+closePopup.addEventListener("click", () => {
+  uploadPopup.classList.add("hidden");
+  fileInput.value = "";
+  agreementModal.classList.add("hidden");
+  progressContainer.classList.add("hidden");
+  progressBar.style.width = "0%";
+  progressText.textContent = "0%";
+});
+
+// Submit form (show agreement first)
+uploadForm.addEventListener("submit", e => {
+  e.preventDefault();
+  if(!fileInput.files.length) {
+    alert("Please select a file first.");
+    return;
+  }
+  agreementModal.classList.remove("hidden");
+});
+
+// Disagree -> cancel
+disagreeBtn.addEventListener("click", () => {
+  agreementModal.classList.add("hidden");
+});
+
+// Agree -> simulate upload
+agreeBtn.addEventListener("click", () => {
+  agreementModal.classList.add("hidden");
+  progressContainer.classList.remove("hidden");
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random() * 10) + 5; // random increment
+    if(progress > 100) progress = 100;
+    progressBar.style.width = progress + "%";
+    progressText.textContent = progress + "%";
+
+    if(progress === 100) {
+      clearInterval(interval);
+      // Redirect to research.html after "upload"
+      alert("Upload complete! Redirecting to your content...");
+      window.location.href = "research.html";
+    }
+  }, 300);
+});
+</script>
 </body>
 </html>
 
