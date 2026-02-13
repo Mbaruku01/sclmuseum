@@ -256,89 +256,87 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 
 <!-- FILTERS -->
 <section class="max-w-7xl mx-auto px-6 pb-16">
-  <div class="flex flex-wrap gap-4 text-sm">
-    <button class="rounded-full bg-white/10 px-5 py-2"><i class="fa-solid fa-border-all"></i> All</button>
-    <button class="rounded-full bg-white/10 px-5 py-2"><i class="fa-solid fa-file-pdf"></i> Papers</button>
-    <button class="rounded-full bg-white/10 px-5 py-2"><i class="fa-solid fa-video"></i> Video Research</button>
-    <button class="rounded-full bg-white/10 px-5 py-2"><i class="fa-solid fa-headphones"></i> Audio</button>
-    <button class="rounded-full bg-white/10 px-5 py-2"><i class="fa-solid fa-database"></i> Data</button>
+  <div class="flex flex-wrap gap-4 text-sm justify-center">
+    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-sclCyan transition"><i class="fa-solid fa-border-all"></i> All</button>
+    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-sclCyan transition"><i class="fa-solid fa-file-pdf"></i> Papers</button>
+    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-sclCyan transition"><i class="fa-solid fa-video"></i> Video Research</button>
+    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-sclCyan transition"><i class="fa-solid fa-headphones"></i> Audio</button>
+    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-sclCyan transition"><i class="fa-solid fa-database"></i> Data</button>
   </div>
 </section>
 
-<!-- RESEARCH GRID -->
-<section class="max-w-7xl mx-auto px-6 pb-32 grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-
-  <!-- CARD -->
-  <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition">
-    <div class="text-xs text-white/50 flex gap-4 mb-3">
-      <span><i class="fa-solid fa-file-pdf"></i> PDF</span>
-      <span><i class="fa-solid fa-calendar"></i> 2024</span>
-      <span><i class="fa-solid fa-graduation-cap"></i> Paper</span>
-    </div>
-    <h3 class="font-serif text-xl">Preserving Oral History in Rural Tanzania</h3>
-    <p class="mt-3 text-sm text-white/70">
-      Methodologies and challenges in digitizing elder narratives across remote regions.
-    </p>
-    <a href="#" class="inline-flex items-center gap-2 mt-6 text-sclCyan">
-      <i class="fa-solid fa-download"></i> Download Paper
-    </a>
-  </article>
-
-  <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition">
-    <div class="text-xs text-white/50 flex gap-4 mb-3">
-      <span><i class="fa-solid fa-video"></i> Video</span>
-      <span><i class="fa-solid fa-clock"></i> 18 min</span>
-    </div>
-    <h3 class="font-serif text-xl">Field Documentation: Coastal Heritage</h3>
-    <p class="mt-3 text-sm text-white/70">
-      Visual research documenting architecture, rituals, and material culture.
-    </p>
-    <a href="#" class="inline-flex items-center gap-2 mt-6 text-sclCyan">
-      <i class="fa-solid fa-play"></i> Watch Study
-    </a>
-  </article>
-
-  <article class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition">
-    <div class="text-xs text-white/50 flex gap-4 mb-3">
-      <span><i class="fa-solid fa-headphones"></i> Audio</span>
-      <span><i class="fa-solid fa-language"></i> Kiswahili</span>
-    </div>
-    <h3 class="font-serif text-xl">Migration & Memory</h3>
-    <p class="mt-3 text-sm text-white/70">
-      Recorded analytical discussions with historians and community elders.
-    </p>
-    <a href="#" class="inline-flex items-center gap-2 mt-6 text-sclCyan">
-      <i class="fa-solid fa-play"></i> Listen
-    </a>
-  </article>
-
+<!-- RESEARCH GRID PLACEHOLDER -->
+<section id="uploadedContent" class="max-w-4xl mx-auto px-6 pb-32 text-center flex flex-col items-center justify-center">
+  <i class="fa-solid fa-inbox text-white/40 text-6xl mb-6"></i>
+  <p class="text-xl md:text-2xl font-serif text-white/70 leading-relaxed">
+    All uploaded content will appear here once you upload your files.
+  </p>
+  <p class="mt-4 text-white/50 text-sm">
+    Use the <strong>Upload Your Content</strong> button at the bottom right to contribute your research, papers, or multimedia.
+  </p>
 </section>
 
-<!-- FOOTER  -->
-<footer class="bg-[#0f2b3a]">
-  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-white">
+
+<!-- FOOTER -->
+<footer class="bg-[#0f2b3a] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+
+    <!-- ABOUT -->
     <div>
       <div class="font-serif text-lg mb-3">SCL Digital Museum</div>
-      <p>An official digital archive initiative by SHIMULIMULI COMPANY LIMITED, preserving cultural heritage for global access.</p>
+      <p class="text-white/70">
+        An official digital archive initiative by SHIMULIMULI COMPANY LIMITED,
+        preserving cultural heritage for global access.
+      </p>
     </div>
+
+    <!-- EXPLORE -->
     <div>
       <div class="mb-3 font-medium">Explore</div>
-      <ul class="space-y-2">
-        <li><a href="#" class="hover:text-sclCyan">Collections</a></li>
-        <li><a href="#" class="hover:text-sclCyan">Exhibitions</a></li>
-        <li><a href="#" class="hover:text-sclCyan">Research</a></li>
+      <ul class="space-y-2 text-white/70">
+        <li><a href="#" class="hover:text-sclCyan transition">Collections</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Exhibitions</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Research</a></li>
       </ul>
     </div>
+
+    <!-- LEGAL -->
     <div>
       <div class="mb-3 font-medium">Legal</div>
-      <ul class="space-y-2">
-        <li><a href="#" class="hover:text-sclCyan">Usage Rights</a></li>
-        <li><a href="#" class="hover:text-sclCyan">Privacy Policy</a></li>
-        <li><a href="#" class="hover:text-sclCyan">Accessibility</a></li>
+      <ul class="space-y-2 text-white/70">
+        <li><a href="#" class="hover:text-sclCyan transition">Usage Rights</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Accessibility</a></li>
       </ul>
     </div>
+
+    <!-- CONTACT -->
+    <div>
+      <div class="mb-3 font-medium">Contact</div>
+      <ul class="space-y-2 text-white/70 text-sm">
+        <li>
+          <i class="fa-solid fa-envelope mr-2 text-sclCyan"></i>
+          <a href="mailto:info@sclmuseum.org" class="hover:text-sclCyan">info@scldigitalmuseum.com</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-phone mr-2 text-sclCyan"></i>
+          <a href="tel:+255123456789" class="hover:text-sclCyan">+255 786 172 760 | +255 719 931 862</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot mr-2 text-sclCyan"></i>
+          Dar es Salaam, Tanzania
+        </li>
+        <li>
+          <i class="fa-solid fa-box mr-2 text-sclCyan"></i>
+          P.O. Box 42431, Dar es Salaam
+        </li>
+      </ul>
+    </div>
+
   </div>
-  <div class="text-center py-6 text-xs text-white">
+
+  <!-- COPYRIGHT -->
+  <div class="text-center py-6 text-xs text-white/60 border-t border-white/10 px-4">
     © 2026 SCL Digital Museum & Archive. All rights reserved.
   </div>
 </footer>
@@ -461,6 +459,139 @@ agreeBtn.addEventListener("click", () => {
     }
   }, 300);
 });
+</script>
+
+<script>
+// --- UPLOAD FUNCTIONALITY ---
+// Store uploads in localStorage
+const uploadBtn = document.getElementById("uploadBtn");
+const uploadPopup = document.getElementById("uploadPopup");
+const closePopup = document.getElementById("closePopup");
+const uploadForm = document.getElementById("uploadForm");
+const fileInput = document.getElementById("fileInput");
+
+const agreementModal = document.getElementById("agreementModal");
+const agreeBtn = document.getElementById("agreeBtn");
+const disagreeBtn = document.getElementById("disagreeBtn");
+
+const progressContainer = document.getElementById("progressContainer");
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
+
+// Show upload popup
+uploadBtn.addEventListener("click", () => uploadPopup.classList.remove("hidden"));
+
+// Close popup
+closePopup.addEventListener("click", () => {
+  uploadPopup.classList.add("hidden");
+  uploadForm.reset();
+  agreementModal.classList.add("hidden");
+  progressContainer.classList.add("hidden");
+  progressBar.style.width = "0%";
+  progressText.textContent = "0%";
+});
+
+// Submit form → show agreement
+uploadForm.addEventListener("submit", e => {
+  e.preventDefault();
+  if(!fileInput.files.length) return alert("Please select a file first.");
+  agreementModal.classList.remove("hidden");
+});
+
+// Disagree → cancel
+disagreeBtn.addEventListener("click", () => agreementModal.classList.add("hidden"));
+
+// Agree → simulate upload & store in localStorage
+agreeBtn.addEventListener("click", () => {
+  agreementModal.classList.add("hidden");
+  progressContainer.classList.remove("hidden");
+
+  let progress = 0;
+  const file = fileInput.files[0];
+  const title = uploadForm.title.value;
+  const author = uploadForm.Author.value;
+  const description = uploadForm.description.value;
+
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random()*10)+5;
+    if(progress>100) progress=100;
+    progressBar.style.width = progress+"%";
+    progressText.textContent = progress+"%";
+
+    if(progress===100){
+      clearInterval(interval);
+
+      // --- Store file info in localStorage ---
+      const storedFiles = JSON.parse(localStorage.getItem("researchFiles") || "[]");
+
+      // Use FileReader to get file URL (simulate upload)
+      const reader = new FileReader();
+      reader.onload = function(e){
+        storedFiles.push({
+          name: file.name,
+          type: file.type,
+          title,
+          author,
+          description,
+          url: e.target.result
+        });
+        localStorage.setItem("researchFiles", JSON.stringify(storedFiles));
+
+        // Redirect (refresh page)
+        window.location.href = "research.html";
+      }
+      reader.readAsDataURL(file);
+    }
+  }, 300);
+});
+
+// --- DISPLAY UPLOADED FILES IN GRID ---
+function displayUploadedFiles(){
+  const grid = document.querySelector("section.max-w-7xl.mx-auto.px-6.pb-32.grid");
+  if(!grid) return;
+
+  const files = JSON.parse(localStorage.getItem("researchFiles") || "[]");
+
+  files.forEach(f=>{
+    let icon="", actionText="", actionIcon="";
+
+    if(f.type.includes("pdf")) {
+      icon = '<i class="fa-solid fa-file-pdf"></i>';
+      actionText = "Download PDF";
+      actionIcon = '<i class="fa-solid fa-download"></i>';
+    } else if(f.type.includes("video")) {
+      icon = '<i class="fa-solid fa-video"></i>';
+      actionText = "Watch Video";
+      actionIcon = '<i class="fa-solid fa-play"></i>';
+    } else if(f.type.includes("audio")) {
+      icon = '<i class="fa-solid fa-headphones"></i>';
+      actionText = "Listen";
+      actionIcon = '<i class="fa-solid fa-play"></i>';
+    } else {
+      icon = '<i class="fa-solid fa-file"></i>';
+      actionText = "Download File";
+      actionIcon = '<i class="fa-solid fa-download"></i>';
+    }
+
+    const card = document.createElement("article");
+    card.className = "bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition";
+    card.innerHTML = `
+      <div class="text-xs text-white/50 flex gap-4 mb-3">
+        <span>${icon}</span>
+        <span>${f.author || "Unknown"}</span>
+      </div>
+      <h3 class="font-serif text-xl">${f.title || f.name}</h3>
+      <p class="mt-3 text-sm text-white/70">${f.description || ""}</p>
+      <a href="${f.url}" target="_blank" class="inline-flex items-center gap-2 mt-6 text-sclCyan">
+        ${actionIcon} ${actionText}
+      </a>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// Call on page load
+displayUploadedFiles();
 </script>
 
 </body>

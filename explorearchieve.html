@@ -581,32 +581,66 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
   </div>
 </section>
 
-<!-- FOOTER (UNCHANGED) -->
-<footer class="bg-[#0f2b3a]">
-  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3 text-sm text-neutral-400">
+<!-- FOOTER -->
+<footer class="bg-[#0f2b3a] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+
+    <!-- ABOUT -->
     <div>
-      <div class="font-serif text-lg mb-3 text-white">SCL Digital Museum</div>
-      <p>An official digital archive initiative by SHIMULIMULI COMPANY LIMITED, preserving cultural heritage for global access.</p>
+      <div class="font-serif text-lg mb-3">SCL Digital Museum</div>
+      <p class="text-white/70">
+        An official digital archive initiative by SHIMULIMULI COMPANY LIMITED,
+        preserving cultural heritage for global access.
+      </p>
     </div>
+
+    <!-- EXPLORE -->
     <div>
-      <div class="mb-3 font-medium text-white">Explore</div>
-      <ul class="space-y-2">
-        <li><a href="collections.html" class="hover:text-white">Collections</a></li>
-        <li><a href="exhibitions.html" class="hover:text-white">Exhibitions</a></li>
-        <li><a href="research.html" class="hover:text-white">Research</a></li>
+      <div class="mb-3 font-medium">Explore</div>
+      <ul class="space-y-2 text-white/70">
+        <li><a href="#" class="hover:text-sclCyan transition">Collections</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Exhibitions</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Research</a></li>
       </ul>
     </div>
+
+    <!-- LEGAL -->
     <div>
-      <div class="mb-3 font-medium text-white">Legal</div>
-      <ul class="space-y-2">
-        <li><a href="#" class="hover:text-white">Usage Rights</a></li>
-        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+      <div class="mb-3 font-medium">Legal</div>
+      <ul class="space-y-2 text-white/70">
+        <li><a href="#" class="hover:text-sclCyan transition">Usage Rights</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-sclCyan transition">Accessibility</a></li>
       </ul>
     </div>
+
+    <!-- CONTACT -->
+    <div>
+      <div class="mb-3 font-medium">Contact</div>
+      <ul class="space-y-2 text-white/70 text-sm">
+        <li>
+          <i class="fa-solid fa-envelope mr-2 text-sclCyan"></i>
+          <a href="mailto:info@sclmuseum.org" class="hover:text-sclCyan">info@scldigitalmuseum.com</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-phone mr-2 text-sclCyan"></i>
+          <a href="tel:+255123456789" class="hover:text-sclCyan">+255 786 172 760 | +255 719 931 862</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot mr-2 text-sclCyan"></i>
+          Dar es Salaam, Tanzania
+        </li>
+        <li>
+          <i class="fa-solid fa-box mr-2 text-sclCyan"></i>
+          P.O. Box 42431, Dar es Salaam
+        </li>
+      </ul>
+    </div>
+
   </div>
 
-  <div class="text-center py-6 text-xs text-neutral-500">
+  <!-- COPYRIGHT -->
+  <div class="text-center py-6 text-xs text-white/60 border-t border-white/10 px-4">
     © 2026 SCL Digital Museum & Archive. All rights reserved.
   </div>
 </footer>
