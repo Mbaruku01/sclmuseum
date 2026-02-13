@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Artifact — SCL Digital Museum</title>
+  <title>SCL Digital Museum & Archive</title>
 
   <!-- FAVICON -->
-<link rel="icon" type="image/x-icon" href="1000186051.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="apple-touch-icon" href="1000186051.png">
-
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
 
   <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com?plugins=aspect-ratio"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -21,7 +20,7 @@
           colors: {
             sclBlue: '#18A9F4',
             sclCyan: '#2EE6C8',
-            sclDeep: '#07161f'
+            sclDeep: '#0B1F2A'
           }
         }
       }
@@ -29,14 +28,10 @@
   </script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous"
-  />
+  <!-- Icons (CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
@@ -44,7 +39,7 @@
   </style>
 </head>
 
-<body class="bg-sclDeep text-white antialiased">
+<body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white">
 
 <!-- HEADER -->
 <header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur border-b border-white/10">
@@ -202,7 +197,7 @@
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="mobile-submenu hidden pl-6 space-y-1">
-          <a href="about.html#mission" class="block hover:text-sclCyan">Our Mission</a>
+          <a href="about.html" class="block hover:text-sclCyan">Our Mission</a>
           <a href="about-team.html" class="block hover:text-sclCyan">Team</a>
           <a href="about-history.html" class="block hover:text-sclCyan">History</a>
         </div>
@@ -253,335 +248,89 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 });
 </script>
 
-<!-- PRIMARY IMAGE VIEWER -->
-<!-- PRIMARY IMAGE VIEWER -->
-<section class="pt-32 pb-20">
-  <div class="max-w-6xl mx-auto px-6">
-    <figure class="rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl">
+  <!-- INTRO -->
+  <section class="pt-40 pb-12 px-6 text-center">
+    <h1 class="font-serif text-4xl md:text-6xl mb-4">Academic Partnerships</h1>
+    <p class="text-white/70 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
+      Collaborating with leading institutions to preserve and promote Tanzanian and African culture through innovative research and field projects.
+    </p>
+  </section>
 
-      <div class="aspect-video max-h-[520px]">
-        <img
-          src="assests/Images/degombora.png"
-          alt="Degombora Zakaria Kitomari"
-          class="w-full h-full object-cover"
-        />
-      </div>
+  <!-- PARTNERSHIP DETAILS -->
+  <section class="max-w-7xl mx-auto px-6 pb-24 space-y-12">
 
-      <!-- Optional caption -->
-      <figcaption class="px-6 py-4 text-sm text-white/60 bg-black/40">
-        Degombora Zakaria Kitomari — Meru District, Arusha Region
-      </figcaption>
+    <div class="bg-white/5 p-8 rounded-3xl shadow-lg hover:bg-white/10 transition">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <!-- Icon -->
+        <div class="flex-shrink-0">
+          <i class="fa-solid fa-university text-6xl text-sclCyan"></i>
+        </div>
 
-    </figure>
+        <!-- Text -->
+        <section class="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-12">
+  
+  <!-- LEFT: TEXT -->
+  <div class="text-white md:w-1/2">
+    <h2 class="font-serif text-3xl md:text-4xl mb-4 text-sclCyan">The Open University of Tanzania</h2>
+    <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
+      SCL Digital Museum proudly collaborates with <strong>The Open University of Tanzania</strong> to conduct the <strong>Cultural Echoes Field Project</strong>. 
+      This nationwide initiative aims to document Tanzanian culture comprehensively, including languages, oral histories, traditional art forms, and community practices. 
+      Together, we ensure that cultural knowledge is preserved for future generations and made accessible for research, education, and public engagement.
+    </p>
+    <p class="text-white/70 text-sm md:text-base leading-relaxed">
+      The partnership combines academic expertise with field research capabilities, fostering cross-institutional learning and high-quality documentation standards. 
+      By working closely with local communities across various regions, we capture the richness of Tanzanian heritage in a way that is both authentic and academically rigorous.
+    </p>
   </div>
+
+  <!-- RIGHT: IMAGE -->
+  <div class="md:w-1/2">
+    <img src="assests/Images/kikao.jpg" 
+         alt="The Open University of Tanzania Partnership" 
+         class="w-full rounded-2xl shadow-lg object-cover">
+  </div>
+
 </section>
 
-<!-- ARTIFACT CONTENT -->
-<section class="max-w-7xl mx-auto px-6 pb-24 grid grid-cols-1 lg:grid-cols-3 gap-16">
+      </div>
+    </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="lg:col-span-2 space-y-10">
-
-    <header>
-      <h1 class="font-serif text-4xl md:text-5xl leading-tight">
-        Degombora Zakaria Kitomari
-      </h1>
-
-      <p class="mt-6 text-lg text-white/70 max-w-2xl">
-        Custodian of Meru cultural practices, oral history, and traditional
-        healing knowledge based in Meru District, Arusha Region.
+    <!-- PROJECT HIGHLIGHTS -->
+    <div class="text-center space-y-6">
+      <h3 class="font-serif text-2xl md:text-3xl text-sclCyan">Cultural Echoes Field Project Highlights</h3>
+      <p class="text-white/70 max-w-4xl mx-auto text-sm md:text-base leading-relaxed">
+        The project covers multiple regions of Tanzania, documenting languages, rituals, art, and community practices. 
+        This initiative provides valuable insights into local culture while empowering communities to preserve their traditions.
       </p>
-    </header>
 
-    <!-- TABS HEADER -->
-<div class="max-w-7xl mx-auto px-6 pt-10">
-
-  <div class="flex gap-8 text-sm border-b border-white/10 mb-10">
-    <button data-tab="overview"
-      class="tab-btn pb-3 text-sclCyan border-b-2 border-sclCyan">
-      Overview
-    </button>
-    <button data-tab="media" class="tab-btn pb-3 text-white/60 hover:text-white">
-      Media
-    </button>
-    <button data-tab="documents" class="tab-btn pb-3 text-white/60 hover:text-white">
-      Documents
-    </button>
-    <button data-tab="transcript" class="tab-btn pb-3 text-white/60 hover:text-white">
-      Transcript
-    </button>
-  </div>
-
-  <!-- OVERVIEW -->
-  <div id="overview" class="tab-content space-y-6">
-    <p class="text-white/80 max-w-3xl">
-      This artifact documents Meru traditional healing knowledge, community memory,
-      and oral history preserved through interviews and visual records.
-    </p>
-
-    <div class="grid gap-6 md:grid-cols-3">
-      <article class="bg-white/5 rounded-xl overflow-hidden">
-        <img src="assests/Images/herbs.png" class="w-full h-44 object-cover">
-        <div class="p-4 text-sm">Traditional Herbal Practices</div>
-      </article>
-
-      <article class="bg-white/5 rounded-xl overflow-hidden">
-        <img src="assests/Images/bakuri.JPG" class="w-full h-44 object-cover">
-        <div class="p-4 text-sm">Meru Healing Rituals</div>
-      </article>
-
-      <article class="bg-white/5 rounded-xl overflow-hidden">
-        <img src="assests/Images/interview.JPG" class="w-full h-44 object-cover">
-        <div class="p-4 text-sm">Oral History Interview</div>
-      </article>
-    </div>
-  </div>
-
-  <!-- MEDIA -->
-  <div id="media" class="tab-content hidden max-w-4xl space-y-4">
-    <div class="rounded-xl overflow-hidden bg-black ring-1 ring-white/10">
-      <div class="aspect-video">
-        <video class="w-full h-full object-cover" controls>
-          <source src="assests/videos/sample2.mp4" type="video/mp4">
-        </video>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
+        <div class="bg-white/5 p-6 rounded-2xl shadow-lg hover:bg-white/10 transition flex flex-col items-center text-center">
+          <i class="fa-solid fa-landmark text-4xl text-sclCyan mb-3"></i>
+          <h4 class="font-serif text-xl md:text-2xl mb-2">Nationwide Coverage</h4>
+          <p class="text-white/70 text-sm leading-relaxed">
+            Engaging communities from multiple Tanzanian regions to ensure comprehensive cultural documentation.
+          </p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-2xl shadow-lg hover:bg-white/10 transition flex flex-col items-center text-center">
+          <i class="fa-solid fa-book text-4xl text-sclCyan mb-3"></i>
+          <h4 class="font-serif text-xl md:text-2xl mb-2">Academic Research</h4>
+          <p class="text-white/70 text-sm leading-relaxed">
+            High-quality research outputs accessible to scholars, students, and cultural practitioners.
+          </p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-2xl shadow-lg hover:bg-white/10 transition flex flex-col items-center text-center">
+          <i class="fa-solid fa-users text-4xl text-sclCyan mb-3"></i>
+          <h4 class="font-serif text-xl md:text-2xl mb-2">Community Engagement</h4>
+          <p class="text-white/70 text-sm leading-relaxed">
+            Working closely with local communities to ensure authenticity, respect, and sustainability in all cultural documentation.
+          </p>
+        </div>
       </div>
     </div>
-    <p class="text-sm text-white/60">
-      Recorded interview documenting Meru traditional knowledge.
-    </p>
-  </div>
 
-  <!-- DOCUMENTS -->
-  <div id="documents" class="tab-content hidden space-y-4 max-w-3xl">
-    <a href="assets/docs/field-notes.pdf"
-      class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition">
-      📄 Field Research Notes (PDF)
-    </a>
+  </section>
 
-    <a href="assets/docs/consent-form.pdf"
-      class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition">
-      📄 Interview Consent Form
-    </a>
-  </div>
-
-  <!-- TRANSCRIPT -->
-  <div id="transcript" class="tab-content hidden max-w-3xl">
-    <p class="text-white/80 leading-relaxed text-sm">
-      Interviewer: Can you describe the healing process?<br><br>
-      Interviewee: We begin by identifying the plant, preparing it carefully,
-      and performing rituals passed down through generations...
-    </p>
-  </div>
-
-</div>
-
-<!-- TAB SCRIPT -->
-<script>
-  const buttons = document.querySelectorAll('.tab-btn');
-  const tabs = document.querySelectorAll('.tab-content');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(b => {
-        b.classList.remove('text-sclCyan','border-b-2','border-sclCyan');
-        b.classList.add('text-white/60');
-      });
-
-      button.classList.add('text-sclCyan','border-b-2','border-sclCyan');
-      button.classList.remove('text-white/60');
-
-      tabs.forEach(tab => tab.classList.add('hidden'));
-      document.getElementById(button.dataset.tab).classList.remove('hidden');
-
-      document.querySelectorAll('video').forEach(v => v.pause());
-    });
-  });
-</script>
-
-    <!-- TAB CONTENT -->
-    <div class="max-w-2xl">
-
-      <div id="overview" class="tab-content space-y-6 text-white/75 leading-relaxed">
-        <p>
-          Degombora Zakaria Kitomari is a highly respected Meru traditional expert
-          specializing in herbal medicine, healing rituals, and spiritual practices.
-        </p>
-        <p>
-          Her knowledge has been transmitted orally across generations and remains
-          essential to cultural preservation and education.
-        </p>
-      </div>
-
-      <div id="media" class="tab-content hidden space-y-6">
-        <p class="text-white/60 text-sm">
-          Media content will appear here (videos, audio recordings, photographs).
-        </p>
-      </div>
-
-      <div id="documents" class="tab-content hidden space-y-4">
-        <a href="#"
-           class="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10">
-          <i class="fa-solid fa-file-pdf text-red-400"></i>
-          Meru Herbal Knowledge (PDF)
-        </a>
-      </div>
-
-      <div id="transcript" class="tab-content hidden text-white/75 leading-relaxed">
-        <p>
-          “Healing comes not only from the plant, but from understanding
-          its spirit, season, and place.”
-        </p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- METADATA -->
-<aside class="bg-white/5 rounded-2xl p-8 backdrop-blur">
-  <h2 class="text-xs text-white/50 uppercase tracking-wider">
-    Artifact Details
-  </h2>
-
-  <dl class="mt-6 space-y-5 text-sm">
-
-    <div>
-      <dt class="text-white/40">Title</dt>
-      <dd>Meru Traditional Healing Practices</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Date</dt>
-      <dd>2025</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Location</dt>
-      <dd>Meru Community, Arusha Region — Tanzania</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Creator / Producer</dt>
-      <dd>Shimulimuli Production</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Contributors</dt>
-      <dd>Community Elders, Local Healers, Oral Historians</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Medium</dt>
-      <dd>Digital Image & Video Recording</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Format</dt>
-      <dd>JPEG (Image), MP4 (Video)</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Language</dt>
-      <dd>Kiswahili, Kimeru (with English subtitles)</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Subject</dt>
-      <dd>Traditional Medicine, Indigenous Knowledge, Cultural Heritage</dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Description</dt>
-      <dd class="text-white/70">
-        Visual and oral documentation of Meru traditional healing knowledge,
-        focusing on medicinal plants, preparation methods, and cultural context.
-      </dd>
-    </div>
-
-    <div>
-      <dt class="text-white/40">Rights & Usage</dt>
-      <dd class="text-white/70">
-        © SCL Digital Museum — Educational and Research Use Only
-      </dd>
-    </div>
-
-  </dl>
-</aside>
-
-</section>
-
-<!-- RELATED ARTIFACTS -->
-<section class="max-w-7xl mx-auto px-6 pb-28">
-  <h2 class="font-serif text-2xl mb-10">
-    <i class="fa-solid fa-link mr-2"></i>
-    Related Artifacts
-  </h2>
-
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-    <!-- CARD -->
-    <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
-      <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
-        <img
-          src="assests/Images/herbs.png"
-          alt="Traditional Herbal Practices"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
-      <div class="min-w-0">
-        <h3 class="text-sm font-medium truncate">
-          Traditional Herbal Practices
-        </h3>
-        <p class="text-xs text-white/50 mt-1">
-          Oral history • Meru
-        </p>
-      </div>
-    </article>
-
-    <!-- CARD -->
-    <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
-      <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
-        <img
-          src="assests/Images/davison.JPG"
-          alt="Meru Healing Rituals"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
-      <div class="min-w-0">
-        <h3 class="text-sm font-medium truncate">
-          Meru Healing Rituals
-        </h3>
-        <p class="text-xs text-white/50 mt-1">
-          Cultural practice
-        </p>
-      </div>
-    </article>
-
-    <!-- CARD -->
-    <article class="flex items-start gap-4 rounded-xl bg-white/5 p-4 hover:bg-white/10 transition">
-      <div class="w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40">
-        <img
-          src="assests/Images/allan.JPG"
-          alt="Oral History Interview"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
-      <div class="min-w-0">
-        <h3 class="text-sm font-medium truncate">
-          Oral History Interview
-        </h3>
-        <p class="text-xs text-white/50 mt-1">
-          Interview recording
-        </p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
+  <!-- FOOTER -->
 <footer class="bg-[#0f2b3a] text-white">
   <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">
 
@@ -646,25 +395,30 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 </footer>
 
 <script>
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+const icon = document.getElementById("menuIcon");
+const links = document.querySelectorAll(".mobile-link");
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.tab;
+btn.addEventListener("click", () => {
+  if (menu.classList.contains("max-h-0")) {
+    menu.classList.remove("max-h-0");
+    menu.classList.add("max-h-[500px]");
+    icon.classList.replace("fa-bars","fa-xmark");
+  } else {
+    menu.classList.add("max-h-0");
+    menu.classList.remove("max-h-[500px]");
+    icon.classList.replace("fa-xmark","fa-bars");
+  }
+});
 
-      tabButtons.forEach(btn => {
-        btn.classList.remove('text-sclCyan', 'border-b-2', 'border-sclCyan');
-        btn.classList.add('text-white/60');
-      });
-
-      tabContents.forEach(content => content.classList.add('hidden'));
-
-      button.classList.add('text-sclCyan', 'border-b-2', 'border-sclCyan');
-      button.classList.remove('text-white/60');
-      document.getElementById(target).classList.remove('hidden');
-    });
+links.forEach(link=>{
+  link.addEventListener("click",()=>{
+    menu.classList.add("max-h-0");
+    menu.classList.remove("max-h-[500px]");
+    icon.classList.replace("fa-xmark","fa-bars");
   });
+});
 </script>
 <!-- FLOATING BUTTONS WRAPPER -->
 <div class="fixed bottom-6 right-6 z-50 flex gap-4">
