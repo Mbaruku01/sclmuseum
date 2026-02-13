@@ -342,17 +342,15 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
   <h2 class="font-serif text-2xl md:text-3xl mb-8 text-center">Explore Heritage by Region</h2>
   
-  <div id="tanzaniaMap" class="w-full h-80 md:h-[500px] rounded-3xl"></div>
+  <div id="tanzaniaMap" class="w-full h-80 md:h-[500px] rounded-3xl shadow-lg"></div>
 </section>
 
 <!-- Leaflet.js CSS & JS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
- integrity="sha256-sA+vG1kMvsYv+Yzp5sIfrYrTiOqMZZu8ci5q6dL9g7s=" crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
- integrity="sha256-o9N1j8l2xT1h1o0sVmS+3sbq6dA1aa/Cr5Ck/8k6Ptw=" crossorigin=""></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-// Initialize the map centered on Tanzania
+// Initialize map centered on Tanzania
 const map = L.map('tanzaniaMap').setView([-6.369028, 34.888822], 6);
 
 // Add OpenStreetMap tiles
@@ -361,7 +359,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Define regions with coordinates
+// Regions with coordinates
 const regions = [
   { name: "Mwanza", coords: [-2.517, 32.9] },
   { name: "Arusha", coords: [-3.3869, 36.6829] },
@@ -370,21 +368,25 @@ const regions = [
   { name: "Morogoro", coords: [-6.827, 37.659] }
 ];
 
-// Add markers
+// Add markers with clickable popups
 regions.forEach(region => {
   L.marker(region.coords)
     .addTo(map)
-    .bindPopup(`<b>${region.name}</b>`)
-    .openPopup();
+    .bindPopup(`<b>${region.name}</b>`);
 });
+
+// Optional: fit map bounds to markers
+const group = new L.featureGroup(regions.map(r => L.marker(r.coords)));
+map.fitBounds(group.getBounds().pad(0.2));
 </script>
 
 <style>
-  /* Optional: rounded corners for the map */
+  /* Map styling */
   #tanzaniaMap {
-    background-color: rgba(255,255,255,0.05);
+    background-color: #0b1f2a; /* dark background for style */
   }
 </style>
+
 
 <!-- RESEARCH & DOWNLOAD PORTAL -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 bg-[#0b2a3a] rounded-3xl mx-4 sm:mx-6">
