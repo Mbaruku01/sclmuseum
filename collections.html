@@ -284,7 +284,7 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 
 <section class="max-w-7xl mx-auto px-6 pb-32 space-y-32">
 
-  <!-- PHOTOGRAPHY -->
+<!-- PHOTOGRAPHY -->
 <div>
   <h2 class="font-serif text-3xl mb-6">
     <i class="fa-solid fa-image text-sclCyan mr-3"></i>Historical Photography
@@ -297,23 +297,28 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 
   <!-- IMAGE GRID -->
   <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-    <img src="images/image4.JPG" class="photo-thumb h-56 w-full object-cover rounded-2xl cursor-pointer">
-    <img src="images/image11.JPG" class="photo-thumb h-56 w-full object-cover rounded-2xl cursor-pointer">
-    <img src="images/image12.JPG" class="photo-thumb h-56 w-full object-cover rounded-2xl cursor-pointer">
-    <img src="images/image18.JPG" class="photo-thumb h-56 w-full object-cover rounded-2xl cursor-pointer">
+    <img src="images/image1.jpg" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
+    <img src="images/image2.jpg" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
+    <img src="images/image3.jpg" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
+    <img src="images/image4.jpg" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
   </div>
 </div>
 
-<!-- PIP VIEWER -->
-<div id="pipBox" class="fixed bottom-4 right-4 w-80 bg-black/90 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl hidden z-50">
+<!-- FULLSCREEN PIP VIEWER -->
+<div id="pipBox" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center hidden">
+  <div class="relative w-full h-full md:max-w-4xl md:h-auto flex flex-col">
 
-  <div class="flex justify-between items-center px-3 py-2 bg-white/10">
-    <span class="text-sm">Photo Viewer</span>
-    <button id="pipClose" class="text-red-400 text-lg">✕</button>
+    <!-- CLOSE BUTTON -->
+    <button id="pipClose" class="absolute top-4 right-4 text-white text-2xl z-50 hover:text-red-400 transition">✕</button>
+
+    <!-- IMAGE -->
+    <img id="pipImage" class="w-full h-full md:h-auto object-contain rounded-xl mx-auto my-auto">
+
+    <!-- OPTIONAL NAV BUTTONS -->
+    <button id="pipPrev" class="absolute left-2 top-1/2 -translate-y-1/2 text-white text-3xl md:text-4xl hover:text-sclCyan transition">❮</button>
+    <button id="pipNext" class="absolute right-2 top-1/2 -translate-y-1/2 text-white text-3xl md:text-4xl hover:text-sclCyan transition">❯</button>
+
   </div>
-
-  <img id="pipImage" class="w-full h-64 object-contain bg-black rounded-b-xl">
-
 </div>
 
 <!-- SCRIPT -->
@@ -322,11 +327,17 @@ const thumbs = document.querySelectorAll(".photo-thumb");
 const pipBox = document.getElementById("pipBox");
 const pipImage = document.getElementById("pipImage");
 const pipClose = document.getElementById("pipClose");
+const pipNext = document.getElementById("pipNext");
+const pipPrev = document.getElementById("pipPrev");
+
+let currentIndex = 0;
+const images = Array.from(thumbs).map(img => img.src);
 
 // Open PIP
-thumbs.forEach(img => {
+thumbs.forEach((img, idx) => {
   img.onclick = () => {
-    pipImage.src = img.src;
+    currentIndex = idx;
+    pipImage.src = images[currentIndex];
     pipBox.classList.remove("hidden");
   };
 });
@@ -334,6 +345,18 @@ thumbs.forEach(img => {
 // Close PIP
 pipClose.onclick = () => {
   pipBox.classList.add("hidden");
+};
+
+// Next image
+pipNext.onclick = () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  pipImage.src = images[currentIndex];
+};
+
+// Previous image
+pipPrev.onclick = () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  pipImage.src = images[currentIndex];
 };
 </script>
 
