@@ -36,38 +36,211 @@
 <body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white">
 
 <!-- HEADER -->
-<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-    <img src="1000186051.png" alt="SCL Digital Museum Logo" class="h-8" />
-    <div class="hidden md:block flex-1 max-w-md">
+<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur border-b border-white/10">
+
+  <div class="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <img src="1000186051.png" class="h-8" alt="SCL Digital Museum">
+    </div>
+
+    <!-- SEARCH (desktop only) -->
+    <div class="hidden md:block flex-1 max-w-md mx-6">
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
         <input type="search" placeholder="Search the archive…"
           class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
       </div>
     </div>
-    <nav class="hidden md:flex items-center gap-8 text-sm">
-      <a href="collections.html"><i class="fa-solid fa-layer-group mr-2"></i>Collections</a>
-      <a href="exhibitions.html"><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</a>
-      <a href="research.html"><i class="fa-solid fa-flask mr-2"></i>Research</a>
-      <a href="about.html"><i class="fa-solid fa-circle-info mr-2"></i>About</a>
-      <a href="contacts.html"><i class="fa-solid fa-envelope mr-2"></i>Contact</a>
-      <a href="donation.html"
-        class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-medium text-black">
-        <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+
+      <!-- Collections Dropdown -->
+      <div class="relative group">
+        <a href="collections.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-layer-group"></i>Collections
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="historical-photography.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Historical Photography</a>
+          <a href="oral-history-archive.html" class="block px-4 py-2 hover:bg-sclBlue">Oral History Archive</a>
+          <a href="film-audio-heritage.html" class="block px-4 py-2 hover:bg-sclBlue">Film & Audio Heritage</a>
+          <a href="explorearchive.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">Full Archive</a>
+        </div>
+      </div>
+
+      <!-- Exhibitions Dropdown -->
+      <div class="relative group">
+        <a href="exhibitions.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-landmark"></i>Exhibitions
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="exhibitions.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Digital Exhibitions</a>
+          <a href="upcoming-exhibitions.html" class="block px-4 py-2 hover:bg-sclBlue">Upcoming Exhibitions</a>
+          <a href="past-exhibitions.html" class="block px-4 py-2 hover:bg-sclBlue">Past Exhibitions</a>
+          <a href="virtual-tour.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">3D Virtual Tour</a>
+        </div>
+      </div>
+
+      <!-- Research Dropdown -->
+      <div class="relative group">
+        <a href="research.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-flask"></i>Research
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="research-documents.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Historical Documents</a>
+          <a href="research-artifacts.html" class="block px-4 py-2 hover:bg-sclBlue">Artifact Metadata</a>
+          <a href="research-av.html" class="block px-4 py-2 hover:bg-sclBlue">Audio & Video Archives</a>
+          <a href="research-partners.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">Academic Partnerships</a>
+        </div>
+      </div>
+
+      <!-- About Dropdown -->
+      <div class="relative group">
+        <a href="about.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-circle-info"></i>About
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+          <a href="about.html#mission" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Our Mission</a>
+          <a href="about-team.html" class="block px-4 py-2 hover:bg-sclBlue">Team</a>
+          <a href="about-history.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">History</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a href="contacts.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+        <i class="fa-solid fa-envelope"></i>Contact
       </a>
+
+      <!-- Donate -->
+      <a href="donation.html"
+         class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-semibold text-black hover:scale-105 transition flex items-center gap-1">
+         <i class="fa-solid fa-hand-holding-heart"></i>Donate
+      </a>
+
     </nav>
+
+    <!-- MOBILE BUTTON -->
+    <button id="menuBtn" class="md:hidden text-white text-2xl transition-transform duration-300">
+      <i id="menuIcon" class="fa-solid fa-bars"></i>
+    </button>
+
   </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu"
+       class="max-h-0 overflow-hidden md:hidden transition-all duration-500 ease-in-out px-6">
+
+    <div class="py-6 space-y-2 text-sm">
+
+      <!-- Search -->
+      <input type="search" placeholder="Search..."
+        class="w-full px-4 py-2 rounded-full bg-white/10 border border-white/10">
+
+      <!-- Collections (click to expand) -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-layer-group mr-2"></i>Collections</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="historical-photography.html" class="block hover:text-sclCyan">Historical Photography</a>
+          <a href="oral-history-archive.html" class="block hover:text-sclCyan">Oral History Archive</a>
+          <a href="film-audio-heritage.html" class="block hover:text-sclCyan">Film & Audio Heritage</a>
+          <a href="explorearchive.html" class="block hover:text-sclCyan">Full Archive</a>
+        </div>
+      </div>
+
+      <!-- Exhibitions -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-landmark mr-2"></i>Exhibitions</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="exhibitions.html" class="block hover:text-sclCyan">Digital Exhibitions</a>
+          <a href="upcoming-exhibitions.html" class="block hover:text-sclCyan">Upcoming Exhibitions</a>
+          <a href="past-exhibitions.html" class="block hover:text-sclCyan">Past Exhibitions</a>
+          <a href="virtual-tour.html" class="block hover:text-sclCyan">3D Virtual Tour</a>
+        </div>
+      </div>
+
+      <!-- Research -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-flask mr-2"></i>Research</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="research-documents.html" class="block hover:text-sclCyan">Historical Documents</a>
+          <a href="research-artifacts.html" class="block hover:text-sclCyan">Artifact Metadata</a>
+          <a href="research-av.html" class="block hover:text-sclCyan">Audio & Video Archives</a>
+          <a href="research-partners.html" class="block hover:text-sclCyan">Academic Partnerships</a>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-circle-info mr-2"></i>About</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="about.html#mission" class="block hover:text-sclCyan">Our Mission</a>
+          <a href="about-team.html" class="block hover:text-sclCyan">Team</a>
+          <a href="about-history.html" class="block hover:text-sclCyan">History</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a href="contacts.html" class="block px-2 py-2 hover:text-sclCyan transition mobile-link">
+        <i class="fa-solid fa-envelope mr-2"></i>Contact
+      </a>
+
+      <!-- Donate -->
+      <a href="donation.html"
+         class="block text-center rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 font-semibold text-black hover:scale-105 transition mobile-link mt-2">
+         <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+      </a>
+
+    </div>
+  </div>
+
 </header>
 
-<!-- HERO -->
-<section class="pt-44 pb-24 px-6 text-center">
-  <h1 class="font-serif text-5xl md:text-6xl">Contact Us</h1>
-  <p class="mt-8 text-lg text-white/75 max-w-3xl mx-auto">
-    Get in touch with SCL Digital Museum & Archive for partnerships, research access,
-    exhibitions, licensing, or general inquiries.
-  </p>
-</section>
+<!-- MOBILE MENU SCRIPT -->
+<script>
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+const icon = document.getElementById("menuIcon");
+
+// Toggle mobile menu
+btn.addEventListener("click", () => {
+  if (menu.classList.contains("max-h-0")) {
+    menu.classList.remove("max-h-0");
+    menu.classList.add("max-h-[1000px]");
+    icon.classList.replace("fa-bars","fa-xmark");
+  } else {
+    menu.classList.add("max-h-0");
+    menu.classList.remove("max-h-[1000px]");
+    icon.classList.replace("fa-xmark","fa-bars");
+  }
+});
+
+// Toggle mobile submenus
+document.querySelectorAll(".mobile-group > button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const submenu = btn.nextElementSibling;
+    submenu.classList.toggle("hidden");
+    btn.querySelector("i.fa-chevron-down").classList.toggle("rotate-180");
+  });
+});
+</script>
 
 <!-- CONTACT INFO -->
 <section class="max-w-7xl mx-auto px-6 pb-28">
@@ -170,3 +343,4 @@
 
 </body>
 </html>
+
