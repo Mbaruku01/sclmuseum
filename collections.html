@@ -598,25 +598,25 @@ audioClose.addEventListener("click", () => {
   <!-- GRID -->
   <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
     <!-- DOCUMENT 1 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assets/docs/doc1.pdf" data-title="Colonial Records">
+    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Colonial Records">
       <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
       <span class="text-sm text-white/70 text-center">Colonial Records</span>
     </button>
 
     <!-- DOCUMENT 2 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assets/docs/doc2.pdf" data-title="Post-Independence Letters">
+    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Post-Independence Letters">
       <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
       <span class="text-sm text-white/70 text-center">Post-Independence Letters</span>
     </button>
 
     <!-- DOCUMENT 3 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assets/docs/doc3.pdf" data-title="Policy Reports">
+    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Policy Reports">
       <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
       <span class="text-sm text-white/70 text-center">Policy Reports</span>
     </button>
 
     <!-- DOCUMENT 4 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assets/docs/doc4.pdf" data-title="Letters & Memoranda">
+    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Letters & Memoranda">
       <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
       <span class="text-sm text-white/70 text-center">Letters & Memoranda</span>
     </button>
@@ -716,21 +716,21 @@ ndaAgree.addEventListener("click", () => {
     <button id="closePopup" class="px-6 py-2 bg-sclCyan text-black rounded-full hover:scale-105 transition">OK</button>
   </div>
 </div>
-
-<!-- SCRIPT -->
 <script>
-const objects = document.querySelectorAll(".object-thumb");
-const popup = document.getElementById("comingSoon");
-const closeBtn = document.getElementById("closePopup");
+document.addEventListener("DOMContentLoaded", () => {
+  const objects = document.querySelectorAll(".object-thumb");
+  const popup = document.getElementById("comingSoon");
+  const closeBtn = document.getElementById("closePopup");
 
-objects.forEach(obj => {
-  obj.addEventListener("click", () => {
-    popup.classList.remove("hidden");
+  objects.forEach(obj => {
+    obj.addEventListener("click", () => {
+      popup.classList.remove("hidden");
+    });
   });
-});
 
-closeBtn.addEventListener("click", () => {
-  popup.classList.add("hidden");
+  closeBtn.addEventListener("click", () => {
+    popup.classList.add("hidden");
+  });
 });
 </script>
 
