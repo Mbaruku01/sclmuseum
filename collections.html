@@ -446,6 +446,55 @@ pipPrev.onclick = () => {
      </div>
 </section>
  
+<!-- MEDIA PLAYER MODAL -->
+<div id="mediaModal" class="fixed inset-0 bg-black/90 hidden z-[9999] flex items-center justify-center p-4">
+  <div class="relative w-full max-w-4xl">
+
+    <button id="mediaClose" class="absolute -top-10 right-0 text-white text-2xl hover:text-red-400">✕</button>
+
+    <video id="videoPlayer" class="w-full rounded-xl hidden" controls></video>
+    <audio id="audioPlayer" class="w-full hidden" controls></audio>
+
+  </div>
+</div>
+
+<script>
+const mediaButtons = document.querySelectorAll(".media-btn");
+const modal = document.getElementById("mediaModal");
+const videoPlayer = document.getElementById("videoPlayer");
+const audioPlayer = document.getElementById("audioPlayer");
+const closeBtn = document.getElementById("mediaClose");
+
+mediaButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const type = btn.dataset.type;
+    const src = btn.dataset.src;
+
+    modal.classList.remove("hidden");
+    videoPlayer.classList.add("hidden");
+    audioPlayer.classList.add("hidden");
+
+    if (type === "video") {
+      videoPlayer.src = src;
+      videoPlayer.classList.remove("hidden");
+      videoPlayer.play();
+    } else {
+      audioPlayer.src = src;
+      audioPlayer.classList.remove("hidden");
+      audioPlayer.play();
+    }
+  });
+});
+
+closeBtn.onclick = () => {
+  modal.classList.add("hidden");
+  videoPlayer.pause();
+  audioPlayer.pause();
+  videoPlayer.src = "";
+  audioPlayer.src = "";
+};
+</script>
+
   <!-- AUDIO / ORAL HISTORY -->
 <div>
   <h2 class="font-serif text-3xl mb-6">
