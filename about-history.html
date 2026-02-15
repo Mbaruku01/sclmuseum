@@ -383,32 +383,7 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
   </div>
 </footer>
 
-<script>
-const btn = document.getElementById("menuBtn");
-const menu = document.getElementById("mobileMenu");
-const icon = document.getElementById("menuIcon");
-const links = document.querySelectorAll(".mobile-link");
-
-btn.addEventListener("click", () => {
-  if (menu.classList.contains("max-h-0")) {
-    menu.classList.remove("max-h-0");
-    menu.classList.add("max-h-[500px]");
-    icon.classList.replace("fa-bars","fa-xmark");
-  } else {
-    menu.classList.add("max-h-0");
-    menu.classList.remove("max-h-[500px]");
-    icon.classList.replace("fa-xmark","fa-bars");
-  }
-});
-
-links.forEach(link=>{
-  link.addEventListener("click",()=>{
-    menu.classList.add("max-h-0");
-    menu.classList.remove("max-h-[500px]");
-    icon.classList.replace("fa-xmark","fa-bars");
-  });
-});
-</script>
+ 
 <!-- FLOATING BUTTONS WRAPPER -->
 <div class="fixed bottom-6 right-6 z-50 flex gap-4">
 

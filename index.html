@@ -112,7 +112,7 @@
           <i class="fa-solid fa-chevron-down text-xs"></i>
         </a>
         <div class="absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
-          <a href="about.html#mission" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Our Mission</a>
+          <a href="about.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Our Mission</a>
           <a href="about-team.html" class="block px-4 py-2 hover:bg-sclBlue">Team</a>
           <a href="about-history.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">History</a>
         </div>
@@ -521,32 +521,6 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
   </div>
 </footer>
 
-<script>
-const btn = document.getElementById("menuBtn");
-const menu = document.getElementById("mobileMenu");
-const icon = document.getElementById("menuIcon");
-const links = document.querySelectorAll(".mobile-link");
-
-btn.addEventListener("click", () => {
-  if (menu.classList.contains("max-h-0")) {
-    menu.classList.remove("max-h-0");
-    menu.classList.add("max-h-[500px]");
-    icon.classList.replace("fa-bars","fa-xmark");
-  } else {
-    menu.classList.add("max-h-0");
-    menu.classList.remove("max-h-[500px]");
-    icon.classList.replace("fa-xmark","fa-bars");
-  }
-});
-
-links.forEach(link=>{
-  link.addEventListener("click",()=>{
-    menu.classList.add("max-h-0");
-    menu.classList.remove("max-h-[500px]");
-    icon.classList.replace("fa-xmark","fa-bars");
-  });
-});
-</script>
 <!-- FLOATING BUTTONS WRAPPER -->
 <div class="fixed bottom-6 right-6 z-50 flex gap-4">
 

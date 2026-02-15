@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Digital Archive - Coming Soon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCL Digital Museum & Archive</title>
 
   <!-- FAVICON -->
   <link rel="icon" type="image/x-icon" href="1000186051.png">
@@ -13,63 +13,306 @@
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sclBlue: '#18A9F4',
+            sclCyan: '#2EE6C8',
+            sclDeep: '#0B1F2A'
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- GLightbox -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css"/>
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white font-sans">
 
-<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-4">
-
-  <!-- VIDEO BACKGROUND -->
-  <video autoplay muted loop playsinline poster="archive-bg.jpg"
-         class="absolute inset-0 w-full h-full object-cover">
-    <source src="assests/videos/sample.mp4" type="video/mp4">
-  </video>
-
-  <!-- DARK OVERLAY -->
-  <div class="absolute inset-0 bg-black/70"></div>
-
-  <!-- CONTENT -->
-  <div class="relative z-10 max-w-3xl">
-
-    <h1 class="font-serif text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
-      SCL Digital Museum<br class="sm:hidden"> Under Development
-    </h1>
-
-    <p class="mt-6 text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
-      Our team is working tirelessly to build a world-class  
-      <span class="text-cyan-400 font-semibold">Digital Archive</span> platform to preserve  
-      history, memory, and cultural heritage for future generations.
-    </p>
-
-    <p class="mt-4 text-sm sm:text-base text-white/60">
-      We are digitizing collections, organizing historical records, and creating an advanced  
-      digital system to ensure global access to our national heritage.
-    </p>
-
-    <!-- BUTTONS -->
-    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-      <a href="index.html"
-         class="px-8 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition text-sm">
-        <i class="fa-solid fa-house mr-2"></i> Back to Home
-      </a>
-
-      <a href="contacts.html"
-         class="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-sky-400 text-black font-semibold hover:scale-105 transition text-sm">
-        <i class="fa-solid fa-envelope mr-2"></i> Contact Team
-      </a>
+<!-- HEADER -->
+<header class="fixed top-0 z-50 w-full bg-sclDeep/80 backdrop-blur border-b border-white/10">
+  <div class="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <img src="1000186051.png" class="h-8" alt="SCL Digital Museum" loading="lazy">
     </div>
 
-    <!-- STATUS -->
-    <div class="mt-10 text-white/50 text-xs sm:text-sm tracking-widest uppercase">
-      Launching Soon • Digital Heritage • Global Access
+    <!-- SEARCH (desktop) -->
+    <div class="hidden md:block flex-1 max-w-md mx-6">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-white/40 text-sm"></i>
+        <input type="search" placeholder="Search the archive…"
+          class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-white/10 text-sm placeholder-white/40 focus:ring-2 focus:ring-sclCyan outline-none">
+      </div>
     </div>
 
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium nav-dropdown">
+      <!-- Collections Dropdown -->
+      <div class="relative group">
+        <a href="collections.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-layer-group"></i>Collections
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="dropdown absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 invisible transition-all duration-200 z-50">
+          <a href="historical-photography.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Historical Photography</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Oral History Archive</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Film & Audio Heritage</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">Full Archive</a>
+        </div>
+      </div>
+
+      <!-- Exhibitions Dropdown -->
+      <div class="relative group">
+        <a href="exhibitions.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-landmark"></i>Exhibitions
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="dropdown absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 invisible transition-all duration-200 z-50">
+          <a href="exhibitions.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Digital Exhibitions</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Upcoming Exhibitions</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Past Exhibitions</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">3D Virtual Tour</a>
+        </div>
+      </div>
+
+      <!-- Research Dropdown -->
+      <div class="relative group">
+        <a href="research.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-flask"></i>Research
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="dropdown absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 invisible transition-all duration-200 z-50">
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Historical Documents</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Artifact Metadata</a>
+          <a href="comingsoon.html" class="block px-4 py-2 hover:bg-sclBlue">Audio & Video Archives</a>
+          <a href="academicpartner.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">Academic Partnerships</a>
+        </div>
+      </div>
+
+      <!-- About Dropdown -->
+      <div class="relative group">
+        <a href="about.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+          <i class="fa-solid fa-circle-info"></i>About
+          <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="dropdown absolute left-0 mt-2 w-48 bg-sclDeep/90 rounded-lg shadow-lg opacity-0 invisible transition-all duration-200 z-50">
+          <a href="about.html#mission" class="block px-4 py-2 hover:bg-sclBlue rounded-t-lg">Our Mission</a>
+          <a href="about-team.html" class="block px-4 py-2 hover:bg-sclBlue">Team</a>
+          <a href="about-history.html" class="block px-4 py-2 hover:bg-sclBlue rounded-b-lg">History</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a href="contacts.html" class="flex items-center gap-1 hover:text-sclCyan transition">
+        <i class="fa-solid fa-envelope"></i>Contact
+      </a>
+
+      <!-- Donate -->
+      <a href="donation.html"
+         class="ml-4 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 text-xs font-semibold text-black hover:scale-105 transition flex items-center gap-1">
+         <i class="fa-solid fa-hand-holding-heart"></i>Donate
+      </a>
+    </nav>
+
+    <!-- MOBILE BUTTON -->
+    <button id="menuBtn" class="md:hidden text-white text-2xl transition-transform duration-300">
+      <i id="menuIcon" class="fa-solid fa-bars"></i>
+    </button>
   </div>
 
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="max-h-0 overflow-hidden md:hidden transition-all duration-300 ease-in-out px-6">
+    <div class="py-6 space-y-2 text-sm">
+      <input type="search" placeholder="Search..."
+        class="w-full px-4 py-2 rounded-full bg-white/10 border border-white/10">
+      
+      <!-- Mobile dropdowns: Collections, Exhibitions, Research, About (same as before) -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-layer-group mr-2"></i> <a href="collections.html">Collections</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="historical-photography.html" class="block hover:text-sclCyan">Historical Photography</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Oral History Archive</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Film & Audio Heritage</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Full Archive</a>
+        </div>
+      </div>
+      <!-- Exhibitions -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-landmark mr-2"></i> <a href="exhibitions.html">Exhibition</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="exhibitions.html" class="block hover:text-sclCyan">Digital Exhibitions</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Upcoming Exhibitions</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Past Exhibitions</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">3D Virtual Tour</a>
+        </div>
+      </div>
+
+      <!-- Research -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-flask mr-2"></i><a href="research.html"> Research</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="research-documents.html" class="block hover:text-sclCyan">Historical Documents</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Artifact Metadata</a>
+          <a href="comingsoon.html" class="block hover:text-sclCyan">Audio & Video Archives</a>
+          <a href="academicpartner.html" class="block hover:text-sclCyan">Academic Partnerships</a>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="mobile-group">
+        <button class="w-full flex justify-between items-center px-2 py-2 hover:text-sclCyan transition mobile-link">
+          <span><i class="fa-solid fa-circle-info mr-2"></i> <a href="about.html">About</a></span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="mobile-submenu hidden pl-6 space-y-1">
+          <a href="about.html" class="block hover:text-sclCyan">Our Mission</a>
+          <a href="about-team.html" class="block hover:text-sclCyan">Team</a>
+          <a href="about-history.html" class="block hover:text-sclCyan">History</a>
+        </div>
+      </div>
+      
+      <!-- Contact & Donate -->
+      <a href="contacts.html" class="block px-2 py-2 hover:text-sclCyan transition mobile-link">
+        <i class="fa-solid fa-envelope mr-2"></i>Contact
+      </a>
+      <a href="donation.html" class="block text-center rounded-full bg-gradient-to-r from-sclBlue to-sclCyan px-6 py-2 font-semibold text-black hover:scale-105 transition mobile-link mt-2">
+        <i class="fa-solid fa-hand-holding-heart mr-2"></i>Donate
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative pt-32 md:pt-40 pb-16 md:pb-24 text-center px-4 sm:px-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl mb-4 md:mb-6 animate-fade-in-up">
+      Gallery
+    </h1>
+    <p class="text-white/80 text-base sm:text-lg md:text-xl animate-fade-in-up" style="animation-delay:0.2s;">
+      Discover a vibrant collection of digital artifacts, from photographs to audiovisual heritage, beautifully arranged in a modern, mixed-layout gallery. 
+      Scroll through and explore the stories, history, and culture behind each piece.
+    </p>
+  </div>
 </section>
 
+<!-- GALLERY -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+  <div id="gallery" class="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4"></div>
+</section>
+
+<!-- GLightbox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+
+<script>
+// MOBILE MENU
+(() => {
+  const btn = document.getElementById("menuBtn");
+  const menu = document.getElementById("mobileMenu");
+  const icon = document.getElementById("menuIcon");
+  btn.addEventListener("click", () => {
+    const isOpen = !menu.classList.contains("max-h-0");
+    menu.classList.toggle("max-h-0", isOpen);
+    menu.classList.toggle("max-h-screen", !isOpen);
+    icon.classList.replace(isOpen ? "fa-xmark" : "fa-bars", isOpen ? "fa-bars" : "fa-xmark");
+  });
+
+  document.querySelectorAll(".mobile-group > button").forEach(b=>{
+    const submenu = b.nextElementSibling;
+    const chevron = b.querySelector("i.fa-chevron-down");
+    b.addEventListener("click", ()=>{
+      submenu.classList.toggle("hidden");
+      chevron.classList.toggle("rotate-180");
+    });
+  });
+})();
+
+// GALLERY IMAGES
+const gallery = document.getElementById('gallery');
+const heights = ['h-48','h-56','h-64','h-72','h-80','h-96'];
+for (let i=1;i<=50;i++){
+  const a = document.createElement('a');
+  a.href = `assests/Images/gallery${i}.jpg`;
+  a.className = 'glightbox relative block mb-4 overflow-hidden rounded-xl shadow-lg group break-inside animate-fade-in';
+  a.style.animationDelay = `${Math.random()*0.5}s`;
+
+  const img = document.createElement('img');
+  img.src = `assests/Images/gallery${i}.jpg`;
+  img.alt = `Artifact ${i}`;
+  img.loading = 'lazy';
+  img.className = `w-full object-cover ${heights[Math.floor(Math.random()*heights.length)]} transition-transform duration-500 group-hover:scale-110 rounded-xl`;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center p-2 transition-all duration-500 rounded-xl translate-y-6 group-hover:translate-y-0';
+  overlay.innerHTML = `<h2 class="font-serif text-sm md:text-base mb-1 text-white">Artifact ${i}</h2>
+                       <p class="text-xs md:text-sm text-white/70">Author Name</p>`;
+
+  a.appendChild(img);
+  a.appendChild(overlay);
+  gallery.appendChild(a);
+}
+
+// Initialize GLightbox
+GLightbox({ selector: '.glightbox' });
+</script>
+
+<style>
+/* Animations */
+@keyframes fadeInUp {0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+.animate-fade-in {animation: fadeInUp 0.8s ease forwards;}
+.animate-fade-in-up {animation: fadeInUp 0.8s ease forwards;}
+
+/* Desktop dropdown hover */
+.nav-dropdown .group:hover .dropdown {opacity:1; visibility:visible;}
+
+/* Smooth rotate chevrons */
+.rotate-180 {transform: rotate(180deg); transition: transform 0.3s ease;}
+</style>
+<!-- FLOATING BUTTONS WRAPPER -->
+<div class="fixed bottom-6 right-6 z-50 flex gap-4">
+
+  <!-- HOME BUTTON -->
+  <a href="index.html"
+     class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-house text-white text-xl"></i>
+  </a>
+
+  <!-- UPLOAD BUTTON -->
+  <button id="uploadBtn"
+          class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-upload text-white text-xl"></i>
+  </button>
+
+</div>
+
+<!-- FLOATING BUTTONS LEFT -->
+<div class="fixed bottom-6 left-6 z-50 flex flex-col gap-4 items-center">
+
+  <!-- DOWNLOAD APP BUTTON -->
+  <a href="app.html"
+     class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-download text-white text-xl"></i>
+  </a>
+
+</div>
 </body>
 </html>

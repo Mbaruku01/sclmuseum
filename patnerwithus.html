@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner With Us — SCL Digital Museum</title>
+
+ <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        sclBlue: '#18A9F4',
+        sclCyan: '#2EE6C8',
+        sclDeep: '#0B1F2A'
+      }
+    }
+  }
+}
+</script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+body { font-family: 'Inter', sans-serif; transition: background 0.5s, color 0.5s; }
+.font-serif { font-family: 'Playfair Display', serif; }
+.animate-fadeIn { opacity: 0; transform: translateY(20px); animation: fadeIn 0.5s forwards; }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+
+<body class="bg-gradient-to-br from-[#07161f] via-[#0b2a3a] to-[#07161f] text-white transition-colors duration-500">
+
+<!-- Center Partner Button -->
+<div class="flex flex-col items-center justify-center min-h-screen px-6 space-y-6">
+  
+  <!-- Company Logo -->
+  <img src="1000186051.png" alt="Company Logo" class="h-24 w-auto rounded-full border-2 border-sclCyan shadow-lg">
+
+  <!-- Partner Button -->
+  <button id="partnerBtn" class="bg-gradient-to-r from-sclBlue to-sclCyan text-black font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-transform">
+    Partner With Us
+  </button>
+
+  <button id="mouBtn" class="bg-gradient-to-r from-sclBlue to-sclCyan text-black font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition">
+Start Discussion
+</button>
+
+
+  
+</div>
+
+<!-- DISCUSSION MODAL -->
+<!-- MOU PARTNERSHIP MODAL -->
+<div id="mouModal" class="fixed inset-0 bg-black/70 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 z-50">
+  <div class="bg-[#0b1f2a] rounded-2xl w-full max-w-3xl p-8 shadow-2xl border border-white/10 relative">
+
+    <!-- Close Button -->
+    <span id="closeMou" class="absolute top-4 right-5 text-white/70 hover:text-white text-3xl cursor-pointer">&times;</span>
+
+    <h2 class="font-serif text-3xl text-white text-center mb-2">MOUs & Long-term Partnerships</h2>
+    <p class="text-white/70 text-center mb-6">Institutional Collaboration Agreement Request</p>
+
+    <form id="mouForm" class="space-y-6 md:space-y-8">
+
+
+      <!-- STEP 1: Institution Info -->
+      <div class="mstep">
+        <input type="text" name="institutionName" placeholder="Institution / Organization Name*" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400">
+
+        <select name="institutionType" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white">
+          <option value="" disabled selected>Institution Type*</option>
+          <option>University</option>
+          <option>Museum</option>
+          <option>NGO</option>
+          <option>Government Agency</option>
+          <option>Private Company</option>
+          <option>Other</option>
+        </select>
+
+        <input type="text" name="registrationNumber" placeholder="Registration Number (Optional)"
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400">
+      </div>
+
+      <!-- STEP 2: Contact Person -->
+      <div class="mstep hidden">
+        <input type="text" name="contactName" placeholder="Contact Person Full Name*" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400">
+
+        <input type="text" name="position" placeholder="Position / Title (Director, Manager)*" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400">
+
+        <input type="email" name="email" placeholder="Official Email Address*" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400">
+
+        <input type="tel" name="phone" placeholder="Phone Number*" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400">
+      </div>
+
+      <!-- STEP 3: Partnership Details -->
+      <div class="mstep hidden">
+        <select name="duration" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white">
+          <option value="" disabled selected>Partnership Duration*</option>
+          <option>Short-term</option>
+          <option>Long-term</option>
+          <option>Permanent / Strategic</option>
+        </select>
+
+        <textarea name="areas" placeholder="Areas of Collaboration (Research, Exhibitions, Education, Technology, Funding...)*" rows="3" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white"></textarea>
+
+        <textarea name="proposal" placeholder="Brief Proposal / Partnership Description*" rows="4" required
+        class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white"></textarea>
+
+        <input type="file" name="fileUpload" accept=".pdf,.doc,.docx"
+        class="w-full text-white file:bg-sclBlue file:border-0 file:px-4 file:py-2 file:rounded-lg file:text-black">
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-between">
+        <button type="button" id="mPrevBtn" class="bg-gray-600 px-6 py-2 rounded-full" hidden>Previous</button>
+        <button type="button" id="mNextBtn" class="bg-gradient-to-r from-sclBlue to-sclCyan text-black px-6 py-2 rounded-full">Next</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Agreement Modal -->
+<div id="agreementModal" class="fixed inset-0 bg-black/70 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 z-50">
+  <div class="bg-[#0b1f2a] rounded-2xl w-full max-w-3xl p-8 shadow-2xl border border-white/10 transform scale-90 transition-all duration-500">
+    <h2 class="font-serif text-2xl text-white text-center mb-4">Terms & Privacy Policy</h2>
+    <p class="text-white/70 text-center mb-6">
+      By clicking "Agree", you accept our <strong>Privacy Policy</strong> and <strong>Terms & Conditions</strong>.
+    </p>
+    <div class="flex justify-center gap-6">
+      <button id="agreeBtn" class="bg-sclCyan text-black px-6 py-2 rounded-full hover:scale-105 transition">Agree</button>
+      <button id="disagreeBtn" class="bg-gray-600 px-6 py-2 rounded-full hover:scale-105 transition">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Multi-Step Form Modal -->
+<div id="formModal" class="fixed inset-0 bg-black/70 flex items-center justify-center opacity-0 pointer-events-none scale-90 transition-all duration-500 z-50">
+  <div class="bg-[#0b1f2a] rounded-2xl w-full max-w-3xl p-8 shadow-2xl border border-white/10 transform transition-all duration-500 overflow-hidden relative">
+
+    <!-- Close Button -->
+    <span id="closeForm" class="absolute top-4 right-5 text-white/70 hover:text-white text-3xl cursor-pointer">&times;</span>
+
+    <div class="flex justify-center mb-4">
+      <img src="1000186051.png" alt="Company Logo" class="h-16 w-auto rounded-full border-2 border-sclCyan shadow-lg animate-fadeIn">
+    </div>
+
+    <h2 class="font-serif text-3xl text-white mb-2 text-center animate-fadeIn">Partnership Form</h2>
+    <p class="text-white/70 mb-4 text-center animate-fadeIn">Fill all fields step by step. 4 fields per step.</p>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-white/20 rounded-full h-2 mb-6">
+      <div id="progressBar" class="bg-sclCyan h-2 rounded-full w-0 transition-all duration-500"></div>
+    </div>
+
+    <form id="multiStepForm" class="space-y-4">
+
+  <!-- Step 1 -->
+  <div class="step flex flex-col space-y-4">
+    <input type="text" name="companyName" placeholder="Company / Organization Name*" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+    <input type="text" name="registrationNumber" placeholder="Company Registration Number*" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+    <input type="text" name="taxId" placeholder="Tax ID / VAT Number*" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+    <input type="text" name="contactName" placeholder="Contact Person Name*" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step flex flex-col space-y-4 hidden">
+    <input type="email" name="email" placeholder="Email Address*" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+    <input type="tel" name="phone" placeholder="Phone Number*" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+    <select name="partnershipType" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+      <option value="" disabled selected>Select Type of Partnership*</option>
+      <option value="sponsorship">Sponsorship</option>
+      <option value="collaboration">Collaboration</option>
+      <option value="event">Event Support</option>
+      <option value="other">Other</option>
+    </select>
+    <input type="text" name="bankDetails" placeholder="Bank Details (Optional)" 
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors">
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step flex flex-col space-y-4 hidden">
+    <textarea name="references" placeholder="References / Previous Partnerships" rows="3"
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors"></textarea>
+    <textarea name="message" placeholder="Brief Description / Proposal*" rows="4" required
+      class="w-full rounded-lg bg-[#0b1f2a] border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors"></textarea>
+    <input type="file" name="fileUpload" accept=".pdf,.doc,.docx,.jpg,.png"
+      class="w-full text-white placeholder-gray-400 file:bg-sclBlue file:border-0 file:px-4 file:py-2 file:rounded-lg file:text-black file:cursor-pointer hover:file:bg-sclCyan transition-colors">
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="flex justify-between mt-4">
+    <button type="button" id="prevBtn" class="bg-gray-600 text-white px-6 py-2 rounded-full hover:scale-105 transition" hidden>Previous</button>
+    <button type="button" id="nextBtn" class="bg-gradient-to-r from-sclBlue to-sclCyan text-black px-6 py-2 rounded-full hover:scale-105 transition">Next</button>
+  </div>
+
+</form>
+
+  </div>
+</div>
+
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+// Initialize EmailJS
+emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+
+// Elements
+const partnerBtn = document.getElementById('partnerBtn');
+const agreementModal = document.getElementById('agreementModal');
+const agreeBtn = document.getElementById('agreeBtn');
+const disagreeBtn = document.getElementById('disagreeBtn');
+const formModal = document.getElementById('formModal');
+const closeForm = document.getElementById('closeForm');
+const form = document.getElementById('multiStepForm');
+const steps = document.querySelectorAll('.step');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const progressBar = document.getElementById('progressBar');
+
+let currentStep = 0;
+
+// ---------- MODAL FUNCTIONS ----------
+function openFormModal() {
+  formModal.classList.remove('opacity-0','pointer-events-none','scale-90');
+  formModal.classList.add('opacity-100','scale-100');
+}
+
+function closeFormModal() {
+  formModal.classList.remove('opacity-100','scale-100');
+  formModal.classList.add('opacity-0','pointer-events-none','scale-90');
+  // Reset form to first step
+  form.reset();
+  currentStep = 0;
+  showStep(currentStep);
+}
+
+// ---------- AGREEMENT MODAL ----------
+partnerBtn.onclick = () => {
+  agreementModal.classList.remove('opacity-0','pointer-events-none');
+};
+
+disagreeBtn.onclick = () => {
+  agreementModal.classList.add('opacity-0','pointer-events-none');
+  form.reset();
+  currentStep = 0;
+  showStep(currentStep);
+};
+
+agreeBtn.onclick = () => {
+  agreementModal.classList.add('opacity-0','pointer-events-none');
+  currentStep = 0;
+  showStep(currentStep);
+  openFormModal();
+};
+
+// ---------- CLOSE FORM ----------
+closeForm.onclick = closeFormModal;
+
+// ---------- MULTI-STEP FORM ----------
+function updateProgress() {
+  progressBar.style.width = `${((currentStep+1)/steps.length)*100}%`;
+}
+
+function showStep(step) {
+  steps.forEach((s,i)=> s.classList.toggle('hidden', i!==step));
+  prevBtn.hidden = step === 0;
+  nextBtn.textContent = step === steps.length - 1 ? 'Submit' : 'Next';
+  updateProgress();
+}
+showStep(currentStep);
+
+nextBtn.onclick = () => {
+  // Validate current step inputs
+  const currentInputs = steps[currentStep].querySelectorAll('input, select, textarea');
+  let valid = true;
+  currentInputs.forEach(input => {
+    if (!input.checkValidity()) {
+      input.reportValidity();
+      valid = false;
+    }
+  });
+  if (!valid) return;
+
+  if (currentStep < steps.length - 1) {
+    currentStep++;
+    showStep(currentStep);
+  } else {
+    // Collect form data
+    const formData = {
+      companyName: form.companyName.value,
+      registrationNumber: form.registrationNumber.value,
+      taxId: form.taxId.value,
+      contactName: form.contactName.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      partnershipType: form.partnershipType.value,
+      bankDetails: form.bankDetails.value,
+      references: form.references.value,
+      message: form.message.value
+    };
+
+    // Send email via EmailJS
+    emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID", formData, "YOUR_PUBLIC_KEY")
+      .then(()=>{
+        alert("Form submitted successfully!");
+        form.reset();
+        closeFormModal();
+      })
+      .catch(()=>{
+        alert("Submission failed. Try again.");
+      });
+  }
+};
+
+prevBtn.onclick = () => {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  }
+};
+
+// ---------- INPUT STYLING ----------
+document.querySelectorAll('input, select, textarea').forEach(input=>{
+  input.classList.add("w-full rounded-lg bg-gray-800 border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sclCyan transition-colors");
+});
+</script>
+
+<script>
+const mouBtn = document.getElementById("mouBtn");
+const mouModal = document.getElementById("mouModal");
+const closeMou = document.getElementById("closeMou");
+const mSteps = document.querySelectorAll(".mstep");
+const mNextBtn = document.getElementById("mNextBtn");
+const mPrevBtn = document.getElementById("mPrevBtn");
+
+let mStep = 0;
+
+// Open
+mouBtn.onclick = () => mouModal.classList.remove("opacity-0","pointer-events-none");
+
+// Close
+closeMou.onclick = () => {
+  mouModal.classList.add("opacity-0","pointer-events-none");
+  mStep = 0;
+  showMStep(mStep);
+};
+
+// Show step
+function showMStep(step){
+  mSteps.forEach((s,i)=> s.classList.toggle("hidden", i!==step));
+  mPrevBtn.hidden = step === 0;
+  mNextBtn.textContent = step === mSteps.length - 1 ? "Submit" : "Next";
+}
+showMStep(mStep);
+
+// Next
+mNextBtn.onclick = () => {
+  const inputs = mSteps[mStep].querySelectorAll("input, textarea, select");
+  let valid = true;
+  inputs.forEach(i=>{
+    if(!i.checkValidity()){ i.reportValidity(); valid=false; }
+  });
+  if(!valid) return;
+
+  if(mStep < mSteps.length - 1){
+    mStep++;
+    showMStep(mStep);
+  } else {
+    alert("MOU Partnership request submitted successfully!");
+    mouModal.classList.add("opacity-0","pointer-events-none");
+    mStep = 0;
+    showMStep(mStep);
+  }
+};
+
+// Previous
+mPrevBtn.onclick = () => {
+  mStep--;
+  showMStep(mStep);
+};
+</script>
+
+
+<!-- FLOATING BUTTONS WRAPPER -->
+<div class="fixed bottom-6 right-6 z-50 flex gap-4">
+
+  <!-- HOME BUTTON -->
+  <a href="index.html"
+     class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-house text-white text-xl"></i>
+  </a>
+
+  <!-- UPLOAD BUTTON -->
+  <button id="uploadBtn"
+          class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-upload text-white text-xl"></i>
+  </button>
+
+</div>
+<!-- FLOATING BUTTONS LEFT -->
+<div class="fixed bottom-6 left-6 z-50 flex flex-col gap-4 items-center">
+
+  <!-- DOWNLOAD APP BUTTON -->
+  <a href="app.html"
+     class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-download text-white text-xl"></i>
+  </a>
+
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll("img:not([loading])");
+  images.forEach(img => img.setAttribute("loading", "lazy"));
+});
+</script>
+</body>
+</html>
