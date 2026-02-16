@@ -2,133 +2,247 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SCL National Virtual House Museum</title>
+<title>SCL Swahili Digital Heritage Museum</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- A-Frame Engine (VR Ready) -->
+<!-- A-Frame & Extras -->
 <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe-animation-component@5.2.5/dist/aframe-animation-component.min.js"></script>
+
+<!-- Tailwind CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
 
 <style>
 body { margin:0; font-family:Arial; background:black; }
 
-/* HUD Panels */
-.panel {
-  position: fixed;
-  background: rgba(0,0,0,0.65);
-  color: white;
-  padding: 12px 16px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.15);
-  z-index: 9999;
+.ui{
+  position:fixed; background:rgba(0,0,0,0.7); color:white; padding:12px;
+  border-radius:12px; backdrop-filter:blur(8px); z-index:9999;
 }
-#infoBox { bottom:20px; left:20px; width:280px; display:none; }
-#map { top:20px; right:20px; width:200px; }
-#admin { bottom:20px; right:20px; width:220px; font-size:12px; }
-button { padding:6px 10px; border:none; border-radius:6px; background:#00c853; color:black; cursor:pointer; }
+#info{bottom:20px;left:20px;display:none;width:300px}
+#map{top:20px;right:20px}
+#admin{bottom:20px;right:20px;font-size:12px}
+button{cursor:pointer;}
+
+#startGuidedBtn{
+  position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+  z-index:9999; padding:14px 24px; font-size:16px;
+  border-radius:12px; font-weight:bold; color:white;
+  background:linear-gradient(to right,#00c853,#2196f3);
+}
+
+#startEquipmentBtn{
+  position:fixed; bottom:80px; left:50%; transform:translateX(-50%);
+  z-index:9999; padding:14px 24px; font-size:16px;
+  border-radius:12px; font-weight:bold; color:white;
+  background:linear-gradient(to right,#ff9800,#f44336);
+}
+
+#popupOverlay{
+  position:fixed; inset:0; background:rgba(0,0,0,0.85);
+  display:none; align-items:center; justify-content:center; z-index:9998;
+}
+#popupOverlay .box{
+  background:white; padding:30px; border-radius:16px; text-align:center; max-width:600px;
+  max-height:90vh; overflow-y:auto;
+}
 </style>
 </head>
-
 <body>
 
-<!-- INFO POPUP -->
-<div id="infoBox" class="panel"></div>
+<!-- Info HUD -->
+<div id="info" class="ui"></div>
 
-<!-- MINI MAP UI -->
-<div id="map" class="panel">
-<b>Navigation Map</b><br>
-Gallery | Office | Library | Archive<br>
-Use WASD to walk
+<div id="map" class="ui">
+<b>SCL National 3D Digital Heritage</b><br>
+Visitor Journey:<br>
+Entrance → History → Culture → Arts → Digital → Archive → Courtyard
 </div>
 
-<!-- ADMIN DASHBOARD -->
-<div id="admin" class="panel">
-<b>Government Admin Panel</b><br>
-<button onclick="alert('Visitor Count: 128')">Analytics</button>
-<button onclick="alert('Security Mode Enabled')">Security</button>
-<button onclick="alert('Artifacts Updated')">Update Exhibit</button>
+<div id="admin" class="ui">
+<b>Government Dashboard</b><br>
+<button onclick="alert('Visitor analytics')">Analytics</button>
+<button onclick="alert('Security enabled')">Security</button>
+<button onclick="alert('Updated')">Update</button>
+</div>
+
+<!-- Buttons -->
+<button id="startGuidedBtn">Start Guided Tour</button>
+<button id="startEquipmentBtn">Start Equipment Presentation</button>
+
+<!-- Popup Overlay -->
+<div id="popupOverlay" class="flex">
+  <div class="box" id="popupContent">
+    <!-- Dynamic content injected here -->
+  </div>
 </div>
 
 <script>
-function showInfo(text){
-  let box=document.getElementById('infoBox');
-  box.innerHTML=text;
-  box.style.display='block';
-  setTimeout(()=>box.style.display='none',5000);
+// Info popup
+function show(txt){
+  const i = document.getElementById("info");
+  i.innerHTML = txt;
+  i.style.display = "block";
+  setTimeout(()=> i.style.display="none",7000);
 }
+
+// Camera Rig
+const camRig = document.querySelector('#cameraRig');
+
+// Guided Tour
+document.getElementById('startGuidedBtn').addEventListener('click', ()=>{
+  show("Starting Guided Tour...");
+  camRig.setAttribute('animation__step1','property: position; to: 0 1.7 25; dur:3000; easing: easeInOutQuad');
+  setTimeout(()=> show("Welcome to the Swahili History Gallery!"), 3500);
+  setTimeout(()=> camRig.setAttribute('animation__step2','property: position; to: -20 1.7 10; dur:3000; easing: easeInOutQuad'), 6000);
+  setTimeout(()=> show("Explore the Cultural Identity exhibits."), 9500);
+  setTimeout(()=> camRig.setAttribute('animation__step3','property: position; to: 0 1.7 -15; dur:3000; easing: easeInOutQuad'), 12000);
+  setTimeout(()=> show("Here we showcase Makonde Arts and East African crafts."), 15500);
+  setTimeout(()=> camRig.setAttribute('animation__step4','property: position; to: 20 1.7 -25; dur:3000; easing: easeInOutQuad'), 18000);
+  setTimeout(()=> show("National Archive Vault, preserving our heritage."), 21500);
+  setTimeout(()=> show("Guided tour complete!"), 25000);
+});
+
+// Equipment Presentation Data
+const equipmentItems = [
+  {
+    title: "Photogrammetry Camera (Mirrorless/DSLR)",
+    description: "High-resolution photography for capturing accurate 3D geometry.",
+    cost: "$1,500 – $3,000"
+  },
+  {
+    title: "Drone with High-Res Camera",
+    description: "Captures aerial views of roofs & exteriors for full 3D coverage.",
+    cost: "$800 – $1,500"
+  },
+  {
+    title: "Tripod & Stabilizers",
+    description: "Ensures sharp, stable images for photogrammetry processing.",
+    cost: "$300 – $500"
+  },
+  {
+    title: "Lighting Panels",
+    description: "Uniform lighting for interior photography.",
+    cost: "$200 – $400"
+  },
+  {
+    title: "Computer Workstation (GPU + RAM)",
+    description: "High-performance PC for processing photogrammetry & 3D models.",
+    cost: "$2,000 – $4,000"
+  },
+  {
+    title: "Software: RealityCapture / Metashape / Blender",
+    description: "Photogrammetry & 3D modeling for VR and web deployment.",
+    cost: "$300 – $5,000"
+  }
+];
+
+let currentIndex = 0;
+const popup = document.getElementById('popupOverlay');
+const popupContent = document.getElementById('popupContent');
+
+function renderEquipment(index){
+  const item = equipmentItems[index];
+  popupContent.innerHTML = `
+    <h2 class="text-2xl font-bold mb-4 text-center">${item.title}</h2>
+    <p class="text-gray-700 mb-4">${item.description}</p>
+    <p class="text-green-600 font-semibold mb-6">Estimated Cost: ${item.cost}</p>
+    <div class="flex justify-between">
+      <button id="prevBtn" class="bg-gray-400 text-white font-bold py-2 px-6 rounded hover:bg-gray-500">Previous</button>
+      <button id="nextBtn" class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600">Next</button>
+      <button id="closeBtn" class="bg-red-500 text-white font-bold py-2 px-6 rounded hover:bg-red-600">Close</button>
+    </div>
+  `;
+
+  document.getElementById('prevBtn').disabled = (index===0);
+  if(index===0) document.getElementById('prevBtn').classList.add('opacity-50');
+  else document.getElementById('prevBtn').classList.remove('opacity-50');
+
+  document.getElementById('prevBtn').addEventListener('click', ()=>{
+    currentIndex--;
+    renderEquipment(currentIndex);
+  });
+  document.getElementById('nextBtn').addEventListener('click', ()=>{
+    if(currentIndex < equipmentItems.length-1){
+      currentIndex++;
+      renderEquipment(currentIndex);
+    }
+  });
+  document.getElementById('closeBtn').addEventListener('click', ()=>{
+    popup.style.display = 'none';
+  });
+}
+
+// Open equipment presentation
+document.getElementById('startEquipmentBtn').addEventListener('click', ()=>{
+  currentIndex = 0;
+  popup.style.display = 'flex';
+  renderEquipment(currentIndex);
+});
 </script>
 
-<a-scene vr-mode-ui="enabled: true">
+<!-- A-Frame Scene -->
+<a-scene renderer="physicallyCorrectLights:true" shadow="type:pcfsoft">
+  <a-sky color="#0a1c2a"></a-sky>
 
-<!-- SKY -->
-<a-sky color="#0a1c2a"></a-sky>
+  <a-light type="directional" intensity="1.2" position="5 10 5" castShadow="true"></a-light>
+  <a-light type="ambient" intensity="0.4"></a-light>
 
-<!-- FLOOR TEXTURES -->
-<a-assets>
-  <img id="wood" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-  <img id="tile" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-</a-assets>
+  <!-- Floor -->
+  <a-plane rotation="-90 0 0" width="100" height="100" src="https://cdn.aframe.io/a-painter/images/floor.jpg" repeat="20 20"></a-plane>
 
-<a-plane position="0 0 0" rotation="-90 0 0" width="60" height="60" src="#wood" repeat="10 10"></a-plane>
+  <!-- Exhibits -->
+  <a-entity position="0 0 40">
+    <a-box width="30" height="6" depth="2" color="#5d4037" material="roughness:0.8"></a-box>
+    <a-text value="SCL National Swahili Digital Heritage" position="0 4 0" align="center" width="12" color="#fff"></a-text>
+    <a-box position="0 1 1" width="4" height="3" depth="0.5" color="#3e2723"></a-box>
+  </a-entity>
 
-<!-- HOUSE STRUCTURE -->
-<!-- Outer Walls -->
-<a-box position="0 2 -20" width="40" height="4" depth="0.2" color="#222"></a-box>
-<a-box position="0 2 20" width="40" height="4" depth="0.2" color="#222"></a-box>
-<a-box position="-20 2 0" rotation="0 90 0" width="40" height="4" depth="0.2" color="#222"></a-box>
-<a-box position="20 2 0" rotation="0 90 0" width="40" height="4" depth="0.2" color="#222"></a-box>
+  <a-entity position="-20 0 10">
+    <a-box width="14" height="5" depth="22" color="#8d6e63" material="src: https://cdn.aframe.io/a-painter/images/brick.jpg; repeat: 2 2;" 
+           onclick="show('Swahili trade, Indian Ocean networks, coastal civilizations.')"></a-box>
+    <a-text value="Swahili History" position="0 4 0" align="center" width="8" color="#fff"></a-text>
+  </a-entity>
 
-<!-- Roof -->
-<a-cone position="0 5 0" radius-bottom="25" radius-top="0" height="4" color="#333"></a-cone>
+  <a-entity position="20 0 10">
+    <a-box width="14" height="5" depth="22" color="#a1887f" material="src: https://cdn.aframe.io/a-painter/images/wood.jpg; repeat:2 2"
+           onclick="show('Language, clothing, music, coastal traditions.')"></a-box>
+    <a-text value="Cultural Identity" position="0 4 0" align="center" width="8" color="#fff"></a-text>
+  </a-entity>
 
-<!-- Windows -->
-<a-plane position="-10 2 -19.9" width="3" height="2" color="#88c"></a-plane>
-<a-plane position="10 2 -19.9" width="3" height="2" color="#88c"></a-plane>
+  <a-entity position="0 0 -15">
+    <a-box width="6" height="3" depth="2" color="gold"
+           onclick="show('Makonde Mask: 19th Century Cultural Artifact')"
+           animation__hover="property: rotation; startEvents: mouseenter; endEvents: mouseleave; to:0 360 0; dur:1500"></a-box>
+    <a-text value="Makonde Arts" position="0 2 1.5" align="center" width="6" color="#000"></a-text>
+  </a-entity>
 
-<!-- Doors -->
-<a-box position="0 1 -19.9" width="2" height="2.5" depth="0.1" color="#654321"></a-box>
+  <a-entity position="-20 0 -25">
+    <a-box width="14" height="5" depth="14" color="#37474f"
+           material="src: https://cdn.aframe.io/a-painter/images/floor.jpg; repeat:2 2"
+           onclick="show('AI, data, future skills, digital heritage.')"></a-box>
+    <a-text value="Digital Innovation Lab" position="0 4 0" align="center" width="8" color="#fff"></a-text>
+  </a-entity>
 
-<!-- ROOM WALLS -->
-<!-- Gallery Divider -->
-<a-box position="0 2 -5" width="0.2" height="4" depth="30" color="#333"></a-box>
-<!-- Library Divider -->
-<a-box position="-10 2 5" width="20" height="4" depth="0.2" color="#333"></a-box>
+  <a-entity position="20 0 -25">
+    <a-box width="14" height="5" depth="14" color="#263238"
+           onclick="show('National archive, preservation, memory.')"></a-box>
+    <a-text value="National Archive Vault" position="0 4 0" align="center" width="8" color="#fff"></a-text>
+  </a-entity>
 
-<!-- FLAGS & LOGO -->
-<a-plane src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Tanzania.svg" position="-18 3 -10" width="4" height="2"></a-plane>
-<a-text value="SCL National Heritage Lab" position="-18 1.5 -10" color="white"></a-text>
+  <a-plane src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Tanzania.svg"
+           position="-28 5 20" width="6" height="3"></a-plane>
 
-<!-- ARTIFACTS WITH INTERACTION -->
-<a-box position="-5 1 -10" color="gold" depth="1" width="1" height="1" onclick="showInfo('Makonde Mask: 19th Century Cultural Artifact')"></a-box>
-<a-box position="5 1 -10" color="silver" depth="1" width="1" height="1" onclick="showInfo('Ancient Sculpture: Tribal Heritage Piece')"></a-box>
+  <!-- Sound -->
+  <a-entity sound="src:url(https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav); autoplay:true; loop:true"></a-entity>
 
-<!-- LIBRARY BOOK SHELVES -->
-<a-box position="-15 1 10" width="2" height="3" depth="6" color="#552200"></a-box>
-<a-text value="Research Library" position="-15 3.5 10" color="white"></a-text>
-
-<!-- OFFICE -->
-<a-box position="10 1 10" width="3" height="1" depth="2" color="#444"></a-box>
-<a-text value="Curator Office" position="10 2.5 10" color="white"></a-text>
-
-<!-- ARCHIVE ROOM -->
-<a-box position="0 1 15" width="6" height="2" depth="2" color="#111"></a-box>
-<a-text value="National Archive Vault" position="0 2.5 15" color="white"></a-text>
-
-<!-- LIGHTING -->
-<a-light type="ambient" color="#555"></a-light>
-<a-light type="point" intensity="1.2" position="0 4 0"></a-light>
-
-<!-- VIRTUAL GUIDE VOICE -->
-<a-entity sound="src: url(https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav); autoplay:true; loop:true"></a-entity>
-
-<!-- WALK CAMERA (VR READY) -->
-<a-entity position="0 1.6 0">
-  <a-camera wasd-controls look-controls>
-    <a-cursor></a-cursor>
-  </a-camera>
-</a-entity>
-
+  <!-- Camera Rig -->
+  <a-entity id="cameraRig" position="0 1.7 45">
+    <a-camera wasd-controls look-controls>
+      <a-cursor></a-cursor>
+    </a-camera>
+  </a-entity>
 </a-scene>
-
 </body>
 </html>
