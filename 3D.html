@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SCL National Virtual House Museum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- A-Frame Engine (VR Ready) -->
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+<style>
+body { margin:0; font-family:Arial; background:black; }
+
+/* HUD Panels */
+.panel {
+  position: fixed;
+  background: rgba(0,0,0,0.65);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  z-index: 9999;
+}
+#infoBox { bottom:20px; left:20px; width:280px; display:none; }
+#map { top:20px; right:20px; width:200px; }
+#admin { bottom:20px; right:20px; width:220px; font-size:12px; }
+button { padding:6px 10px; border:none; border-radius:6px; background:#00c853; color:black; cursor:pointer; }
+</style>
+</head>
+
+<body>
+
+<!-- INFO POPUP -->
+<div id="infoBox" class="panel"></div>
+
+<!-- MINI MAP UI -->
+<div id="map" class="panel">
+<b>Navigation Map</b><br>
+Gallery | Office | Library | Archive<br>
+Use WASD to walk
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="admin" class="panel">
+<b>Government Admin Panel</b><br>
+<button onclick="alert('Visitor Count: 128')">Analytics</button>
+<button onclick="alert('Security Mode Enabled')">Security</button>
+<button onclick="alert('Artifacts Updated')">Update Exhibit</button>
+</div>
+
+<script>
+function showInfo(text){
+  let box=document.getElementById('infoBox');
+  box.innerHTML=text;
+  box.style.display='block';
+  setTimeout(()=>box.style.display='none',5000);
+}
+</script>
+
+<a-scene vr-mode-ui="enabled: true">
+
+<!-- SKY -->
+<a-sky color="#0a1c2a"></a-sky>
+
+<!-- FLOOR TEXTURES -->
+<a-assets>
+  <img id="wood" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+  <img id="tile" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+</a-assets>
+
+<a-plane position="0 0 0" rotation="-90 0 0" width="60" height="60" src="#wood" repeat="10 10"></a-plane>
+
+<!-- HOUSE STRUCTURE -->
+<!-- Outer Walls -->
+<a-box position="0 2 -20" width="40" height="4" depth="0.2" color="#222"></a-box>
+<a-box position="0 2 20" width="40" height="4" depth="0.2" color="#222"></a-box>
+<a-box position="-20 2 0" rotation="0 90 0" width="40" height="4" depth="0.2" color="#222"></a-box>
+<a-box position="20 2 0" rotation="0 90 0" width="40" height="4" depth="0.2" color="#222"></a-box>
+
+<!-- Roof -->
+<a-cone position="0 5 0" radius-bottom="25" radius-top="0" height="4" color="#333"></a-cone>
+
+<!-- Windows -->
+<a-plane position="-10 2 -19.9" width="3" height="2" color="#88c"></a-plane>
+<a-plane position="10 2 -19.9" width="3" height="2" color="#88c"></a-plane>
+
+<!-- Doors -->
+<a-box position="0 1 -19.9" width="2" height="2.5" depth="0.1" color="#654321"></a-box>
+
+<!-- ROOM WALLS -->
+<!-- Gallery Divider -->
+<a-box position="0 2 -5" width="0.2" height="4" depth="30" color="#333"></a-box>
+<!-- Library Divider -->
+<a-box position="-10 2 5" width="20" height="4" depth="0.2" color="#333"></a-box>
+
+<!-- FLAGS & LOGO -->
+<a-plane src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Tanzania.svg" position="-18 3 -10" width="4" height="2"></a-plane>
+<a-text value="SCL National Heritage Lab" position="-18 1.5 -10" color="white"></a-text>
+
+<!-- ARTIFACTS WITH INTERACTION -->
+<a-box position="-5 1 -10" color="gold" depth="1" width="1" height="1" onclick="showInfo('Makonde Mask: 19th Century Cultural Artifact')"></a-box>
+<a-box position="5 1 -10" color="silver" depth="1" width="1" height="1" onclick="showInfo('Ancient Sculpture: Tribal Heritage Piece')"></a-box>
+
+<!-- LIBRARY BOOK SHELVES -->
+<a-box position="-15 1 10" width="2" height="3" depth="6" color="#552200"></a-box>
+<a-text value="Research Library" position="-15 3.5 10" color="white"></a-text>
+
+<!-- OFFICE -->
+<a-box position="10 1 10" width="3" height="1" depth="2" color="#444"></a-box>
+<a-text value="Curator Office" position="10 2.5 10" color="white"></a-text>
+
+<!-- ARCHIVE ROOM -->
+<a-box position="0 1 15" width="6" height="2" depth="2" color="#111"></a-box>
+<a-text value="National Archive Vault" position="0 2.5 15" color="white"></a-text>
+
+<!-- LIGHTING -->
+<a-light type="ambient" color="#555"></a-light>
+<a-light type="point" intensity="1.2" position="0 4 0"></a-light>
+
+<!-- VIRTUAL GUIDE VOICE -->
+<a-entity sound="src: url(https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav); autoplay:true; loop:true"></a-entity>
+
+<!-- WALK CAMERA (VR READY) -->
+<a-entity position="0 1.6 0">
+  <a-camera wasd-controls look-controls>
+    <a-cursor></a-cursor>
+  </a-camera>
+</a-entity>
+
+</a-scene>
+
+</body>
+</html>
