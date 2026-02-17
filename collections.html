@@ -257,28 +257,53 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 </section>
 
 <!-- FILTER BAR -->
+<!-- FILTER BUTTONS -->
 <section class="max-w-7xl mx-auto px-6 pb-16">
-  <div class="flex flex-wrap gap-4 text-sm">
-    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-white/20">
-      <i class="fa-solid fa-border-all mr-2"></i>All
+  <div class="flex flex-wrap gap-4 justify-center sm:justify-start text-sm">
+    
+    <!-- Button Template -->
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+      <i class="fa-solid fa-border-all"></i>All
     </button>
-    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-white/20">
-      <i class="fa-solid fa-film mr-2"></i>Video
+
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+      <i class="fa-solid fa-film"></i>Video
     </button>
-    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-white/20">
-      <i class="fa-solid fa-image mr-2"></i>Images
+
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+      <i class="fa-solid fa-image"></i>Images
     </button>
-    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-white/20">
-      <i class="fa-solid fa-microphone-lines mr-2"></i>Audio
+
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+      <i class="fa-solid fa-microphone-lines"></i>Audio
     </button>
-    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-white/20">
-      <i class="fa-solid fa-file-lines mr-2"></i>Documents
+
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+      <i class="fa-solid fa-file-lines"></i>Documents
     </button>
-    <button class="rounded-full bg-white/10 px-5 py-2 hover:bg-white/20">
-      <i class="fa-solid fa-cube mr-2"></i>3D & Virtual
+
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+      <i class="fa-solid fa-cube"></i>3D & Virtual
     </button>
+
   </div>
 </section>
+
+<style>
+  .filter-btn.active {
+    background: linear-gradient(to right, #2EE6C8, #18A9F4);
+    color: #0b1f2a;
+    font-weight: 500;
+  }
+
+  .filter-btn i {
+    transition: transform 0.3s;
+  }
+
+  .filter-btn:hover i {
+    transform: scale(1.2);
+  }
+</style>
 
 <!-- COLLECTION SECTIONS -->
 

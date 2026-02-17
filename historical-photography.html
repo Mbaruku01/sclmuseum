@@ -202,77 +202,117 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="relative pt-32 md:pt-40 pb-16 md:pb-24 text-center px-4 sm:px-6">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl mb-4 md:mb-6 animate-fade-in-up">
-      Gallery
+<main class="pt-20"> <!-- 20 = 5rem, adjust if navbar taller -->
+  <!-- HERO -->
+  <section class="relative pt-16 md:pt-20 pb-4 text-center px-4 sm:px-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-2 animate-fade-in-up">
+      SCL Digital Gallery
     </h1>
-    <p class="text-white/80 text-base sm:text-lg md:text-xl animate-fade-in-up" style="animation-delay:0.2s;">
-      Discover a vibrant collection of digital artifacts, from photographs to audiovisual heritage, beautifully arranged in a modern, mixed-layout gallery. 
-      Scroll through and explore the stories, history, and culture behind each piece.
+    <p class="text-white/80 text-sm sm:text-base animate-fade-in-up" style="animation-delay:0.1s;">
+      Explore curated digital artifacts in a clean, structured gallery.
     </p>
   </div>
 </section>
 
+  <!-- FILTER BUTTONS -->
+<div id="filters" class="flex justify-center flex-wrap gap-3 mb-8 px-4 sm:px-6"></div>
+
 <!-- GALLERY -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-  <div id="gallery" class="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4"></div>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+  <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6"></div>
 </section>
 
 <!-- GLightbox -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
 
 <script>
-// MOBILE MENU
+  // ======================
+// FILTERED & UNIFORM GALLERY JS
+// ======================
 (() => {
-  const btn = document.getElementById("menuBtn");
-  const menu = document.getElementById("mobileMenu");
-  const icon = document.getElementById("menuIcon");
-  btn.addEventListener("click", () => {
-    const isOpen = !menu.classList.contains("max-h-0");
-    menu.classList.toggle("max-h-0", isOpen);
-    menu.classList.toggle("max-h-screen", !isOpen);
-    icon.classList.replace(isOpen ? "fa-xmark" : "fa-bars", isOpen ? "fa-bars" : "fa-xmark");
-  });
+  const gallery = document.getElementById('gallery');
+  const filtersContainer = document.getElementById('filters');
 
-  document.querySelectorAll(".mobile-group > button").forEach(b=>{
-    const submenu = b.nextElementSibling;
-    const chevron = b.querySelector("i.fa-chevron-down");
-    b.addEventListener("click", ()=>{
-      submenu.classList.toggle("hidden");
-      chevron.classList.toggle("rotate-180");
+  const totalImages = 50; // total artifacts
+  let currentFilter = null; // null = show all
+  const fixedHeight = 'h-48'; // uniform height
+
+  // Load gallery based on filter
+  function loadGallery(range){
+    gallery.innerHTML = "";
+    let imagesToShow = [];
+    
+    if(range){
+      // show images in selected filter
+      imagesToShow = Array.from({length: range.end - range.start + 1}, (_, i) => range.start + i);
+    } else {
+      // SHOW ALL images if no filter
+      imagesToShow = Array.from({length: totalImages}, (_, i) => i + 1);
+    }
+
+    imagesToShow.forEach(i => {
+      const a = document.createElement('a');
+      a.href = `assests/Images/gallery${i}.jpg`;
+      a.className = 'glightbox relative block overflow-hidden rounded-xl shadow-lg group transition';
+
+      const img = document.createElement('img');
+      img.src = `assests/Images/gallery${i}.jpg`;
+      img.alt = `Artifact ${i}`;
+      img.loading = 'lazy';
+      img.className = `w-full object-cover ${fixedHeight} transition-transform duration-500 group-hover:scale-105 rounded-xl`;
+
+      const overlay = document.createElement('div');
+      overlay.className = 'absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center p-2 transition-all duration-500 rounded-xl';
+      overlay.innerHTML = `<h2 class="font-serif text-sm md:text-base mb-1 text-white">Artifact ${i}</h2>
+                           <p class="text-xs md:text-sm text-white/70">Author Name</p>`;
+
+      a.appendChild(img);
+      a.appendChild(overlay);
+      gallery.appendChild(a);
     });
-  });
+
+    // Initialize GLightbox
+    GLightbox({ selector: '.glightbox' });
+  }
+
+  // Create filter buttons
+  function createFilters(){
+    filtersContainer.innerHTML = "";
+    const ranges = [
+      {label: '1–10', start:1, end:10},
+      {label: '11–20', start:11, end:20},
+      {label: '21–30', start:21, end:30},
+      {label: '31–40', start:31, end:40},
+      {label: '41–50', start:41, end:50}
+    ];
+
+    ranges.forEach(range => {
+      const btn = document.createElement('button');
+      btn.innerText = range.label;
+      btn.className = 'px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white/90 hover:bg-white/20 transition text-sm';
+      btn.addEventListener('click', ()=>{
+        currentFilter = range;
+        loadGallery(currentFilter);
+      });
+      filtersContainer.appendChild(btn);
+    });
+
+    // Show All button
+    const allBtn = document.createElement('button');
+    allBtn.innerText = 'Show All';
+    allBtn.className = 'px-4 py-2 rounded-lg bg-gradient-to-r from-sclBlue to-sclCyan text-black hover:scale-105 transition text-sm';
+    allBtn.addEventListener('click', ()=>{
+      currentFilter = null;
+      loadGallery(null);
+    });
+    filtersContainer.appendChild(allBtn);
+  }
+
+  // INITIAL LOAD
+  createFilters();
+  loadGallery(null);
 })();
-
-// GALLERY IMAGES
-const gallery = document.getElementById('gallery');
-const heights = ['h-48','h-56','h-64','h-72','h-80','h-96'];
-for (let i=1;i<=50;i++){
-  const a = document.createElement('a');
-  a.href = `assests/Images/gallery${i}.jpg`;
-  a.className = 'glightbox relative block mb-4 overflow-hidden rounded-xl shadow-lg group break-inside animate-fade-in';
-  a.style.animationDelay = `${Math.random()*0.5}s`;
-
-  const img = document.createElement('img');
-  img.src = `assests/Images/gallery${i}.jpg`;
-  img.alt = `Artifact ${i}`;
-  img.loading = 'lazy';
-  img.className = `w-full object-cover ${heights[Math.floor(Math.random()*heights.length)]} transition-transform duration-500 group-hover:scale-110 rounded-xl`;
-
-  const overlay = document.createElement('div');
-  overlay.className = 'absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center p-2 transition-all duration-500 rounded-xl translate-y-6 group-hover:translate-y-0';
-  overlay.innerHTML = `<h2 class="font-serif text-sm md:text-base mb-1 text-white">Artifact ${i}</h2>
-                       <p class="text-xs md:text-sm text-white/70">Author Name</p>`;
-
-  a.appendChild(img);
-  a.appendChild(overlay);
-  gallery.appendChild(a);
-}
-
-// Initialize GLightbox
-GLightbox({ selector: '.glightbox' });
 </script>
 
 <style>
@@ -287,6 +327,26 @@ GLightbox({ selector: '.glightbox' });
 /* Smooth rotate chevrons */
 .rotate-180 {transform: rotate(180deg); transition: transform 0.3s ease;}
 </style>
+
+<!-- FOOTER -->
+<footer class="bg-sclDeep/90 text-white/80 text-sm py-6 mt-12 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-2">
+    
+    <!-- Links centered -->
+    <div class="flex flex-wrap justify-center gap-6">
+      <a href="privacy.html" class="hover:text-sclCyan transition">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-sclCyan transition">Terms & Agreements</a>
+      <a href="usage.html" class="hover:text-sclCyan transition">Usage Rights</a>
+    </div>
+
+    <!-- Copyright centered -->
+    <div class="text-center text-xs md:text-sm text-white/60 mt-2">
+      &copy; 2026 SCL Digital Museum & Archive. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
 <!-- FLOATING BUTTONS WRAPPER -->
 <div class="fixed bottom-6 right-6 z-50 flex gap-4">
 
@@ -314,5 +374,30 @@ GLightbox({ selector: '.glightbox' });
   </a>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("menuBtn");
+  const menu = document.getElementById("mobileMenu");
+  const icon = document.getElementById("menuIcon");
+
+  btn.addEventListener("click", () => {
+    const isOpen = !menu.classList.contains("max-h-0");
+    menu.classList.toggle("max-h-0", isOpen);
+    menu.classList.toggle("max-h-screen", !isOpen);
+    icon.classList.replace(isOpen ? "fa-xmark" : "fa-bars", isOpen ? "fa-bars" : "fa-xmark");
+  });
+
+  // Mobile dropdown toggles
+  document.querySelectorAll(".mobile-group > button").forEach(b => {
+    const submenu = b.nextElementSibling;
+    const chevron = b.querySelector("i.fa-chevron-down");
+    b.addEventListener("click", () => {
+      submenu.classList.toggle("hidden");
+      chevron.classList.toggle("rotate-180");
+    });
+  });
+});
+</script>
 </body>
 </html>

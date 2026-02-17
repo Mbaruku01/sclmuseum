@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Reports Dashboard | SCL Digital Museum</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sclBlue: '#18A9F4',
+            sclCyan: '#2EE6C8',
+            sclDeep: '#0B1F2A'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #0b2a3a; color: white; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .read-btn:hover { background-color: #2EE6C8; color: #0B1F2A; }
+    .sidebar a:hover { color: #2EE6C8; }
+    .report-card:hover { transform: translateY(-4px); transition: transform 0.3s; }
+    .filter-btn.active { background: linear-gradient(to right, #2EE6C8, #18A9F4); color: #0b1f2a; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+<!-- Main Layout -->
+<section class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-[#0a2230] p-6 flex flex-col space-y-6 hidden md:flex">
+    <h1 class="font-serif text-2xl mb-8">Reports Dashboard</h1>
+    <nav class="flex flex-col gap-3 sidebar">
+      <a href="#" class="hover:text-sclCyan">Home</a>
+      <a href="#" class="text-sclCyan font-semibold">Batch 1 Reports</a>
+      <a href="#" class="hover:text-sclCyan">Batch 2 Reports</a>
+      <a href="#" class="hover:text-sclCyan">Account</a>
+      <a href="#" class="hover:text-sclCyan">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6">
+
+    <!-- Top Bar -->
+    <div class="flex justify-between items-center mb-8">
+      <div class="font-serif text-xl">Welcome, <span class="font-bold">Administrator</span></div>
+      <div>
+        <img src="assests/profile.jpg" alt="Profile" class="w-10 h-10 rounded-full border-2 border-sclCyan">
+      </div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <section class="mb-12">
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white flex items-center gap-2 active">
+          <i class="fa-solid fa-border-all"></i>All
+        </button>
+        <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white flex items-center gap-2">
+          <i class="fa-solid fa-film"></i>Mtwara
+        </button>
+        <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white flex items-center gap-2">
+          <i class="fa-solid fa-image"></i>Kilimanjaro
+        </button>
+        <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white flex items-center gap-2">
+          <i class="fa-solid fa-microphone-lines"></i>Morogoro
+        </button>
+      </div>
+    </section>
+
+   <!-- Reports Grid -->
+<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+  <!-- Report Card Template -->
+  <div class="bg-[#0f2b3a] rounded-2xl p-6 shadow-lg flex flex-col justify-between report-card">
+    <div class="mb-4">
+      <h3 class="font-serif text-xl mb-2">Morogoro - Vidunda</h3>
+      <p class="text-white/70">Students collected data on local agriculture practices. Summary of findings included crop rotation methods, soil analysis, and community engagement.</p>
+    </div>
+    <button class="read-btn mt-4 bg-sclCyan text-[#0b1f2a] font-semibold rounded-lg px-4 py-2 hover:bg-sclBlue transition" onclick="checkLogin()">Read</button>
+  </div>
+
+  <div class="bg-[#0f2b3a] rounded-2xl p-6 shadow-lg flex flex-col justify-between report-card">
+    <div class="mb-4">
+      <h3 class="font-serif text-xl mb-2">Mtwara - Newala</h3>
+      <p class="text-white/70">Field study on fisheries, local trade practices, and traditional medicine knowledge collected by students during the immersion program.</p>
+    </div>
+    <button class="read-btn mt-4 bg-sclCyan text-[#0b1f2a] font-semibold rounded-lg px-4 py-2 hover:bg-sclBlue transition" onclick="checkLogin()">Read</button>
+  </div>
+
+  <div class="bg-[#0f2b3a] rounded-2xl p-6 shadow-lg flex flex-col justify-between report-card">
+    <div class="mb-4">
+      <h3 class="font-serif text-xl mb-2">Kilimanjaro - Same</h3>
+      <p class="text-white/70">Students observed mountain agriculture, irrigation methods, and social structures of local communities.</p>
+    </div>
+    <button class="read-btn mt-4 bg-sclCyan text-[#0b1f2a] font-semibold rounded-lg px-4 py-2 hover:bg-sclBlue transition" onclick="checkLogin()">Read</button>
+  </div>
+
+  <div class="bg-[#0f2b3a] rounded-2xl p-6 shadow-lg flex flex-col justify-between report-card">
+    <div class="mb-4">
+      <h3 class="font-serif text-xl mb-2">Arusha - Meru</h3>
+      <p class="text-white/70">Students documented social interactions, cultural heritage sites, and agricultural techniques of the Meru communities.</p>
+    </div>
+    <button class="read-btn mt-4 bg-sclCyan text-[#0b1f2a] font-semibold rounded-lg px-4 py-2 hover:bg-sclBlue transition" onclick="checkLogin()">Read</button>
+  </div>
+
+  <div class="bg-[#0f2b3a] rounded-2xl p-6 shadow-lg flex flex-col justify-between report-card">
+    <div class="mb-4">
+      <h3 class="font-serif text-xl mb-2">Mwanza - Kisesa</h3>
+      <p class="text-white/70">Field study on local markets, community practices, and regional identity of Kisesa village.</p>
+    </div>
+    <button class="read-btn mt-4 bg-sclCyan text-[#0b1f2a] font-semibold rounded-lg px-4 py-2 hover:bg-sclBlue transition" onclick="checkLogin()">Read</button>
+  </div>
+
+</div>
+
+      <!-- Batch 2 Placeholder -->
+      <!-- When Batch 2 students finish fieldwork, duplicate these cards with new info -->
+      
+    </div>
+  </main>
+</section>
+
+<!-- Login Modal -->
+<div id="loginModal" class="fixed inset-0 bg-black/70 flex items-center justify-center hidden z-50">
+  <div class="bg-[#0b2a3a] rounded-3xl p-8 w-full max-w-md">
+    <h2 class="font-serif text-2xl mb-4">Create Account to Read Reports</h2>
+    <p class="text-white/70 mb-6">Please register or login to access the Batch 1 reports.</p>
+    <div class="flex gap-4 justify-end">
+      <button onclick="closeModal()" class="px-4 py-2 rounded-lg bg-gray-600 hover:bg-gray-500 transition">Cancel</button>
+      <a href="register.html" class="px-4 py-2 rounded-lg bg-sclCyan hover:bg-sclBlue transition text-[#0b1f2a] font-semibold">Register</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function checkLogin() {
+  const loggedIn = false; // Replace with real login check
+  if(!loggedIn) {
+    document.getElementById('loginModal').classList.remove('hidden');
+  } else {
+    // Redirect to report reading page
+    window.location.href = 'report-details.html';
+  }
+}
+
+function closeModal() {
+  document.getElementById('loginModal').classList.add('hidden');
+}
+</script>
+</body>
+</html>
