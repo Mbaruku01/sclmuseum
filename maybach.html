@@ -126,13 +126,120 @@
         <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
           <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
           <a href="ShopSetting.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
-          <a href="" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">WhatsApp</a>
           <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
         </div>
       </div>
     </div>
 
+  <!-- MOBILE SIDEBAR -->
+<div id="mobileSidebar"
+class="fixed top-0 left-0 h-full w-64 bg-purple-700 dark:bg-purple-900 text-white
+transform -translate-x-full transition-transform duration-300 z-40 md:hidden">
 
+<!-- Logo -->
+<div class="flex items-center p-6 space-x-3 border-b border-purple-500">
+  <img src="1000186051.png" class="h-10 w-10 rounded-full shadow-md">
+  <span class="text-2xl font-bold">SCL Shop</span>
+</div>
+
+<!-- Navigation -->
+<nav class="flex-1 px-4 py-6 overflow-auto">
+<ul class="space-y-4">
+
+<li>
+<a href="shop.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-gauge-high"></i>
+<span>Dashboard</span>
+</a>
+</li>
+
+<li>
+<a href="artifacts.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-mask"></i>
+<span>Artifacts Replicas</span>
+</a>
+</li>
+
+<li>
+<a href="merchandise.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-tshirt"></i>
+<span>Branded Merchandise</span>
+</a>
+</li>
+
+<li>
+<a href="books.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-book"></i>
+<span>Books & Publications</span>
+</a>
+</li>
+
+<li>
+<a href="digital.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-file-arrow-down"></i>
+<span>Digital Products</span>
+</a>
+</li>
+
+<li>
+<a href="tour.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-map-location-dot"></i>
+<span>Cultural Tour Packages</span>
+</a>
+</li>
+
+<li>
+<a href="hotels.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-hotel"></i>
+<span>Hotels</span>
+</a>
+</li>
+
+<li>
+<a href="transport.html" class="flex items-center space-x-3 hover:bg-purple-600 p-2 rounded-lg">
+<i class="fa-solid fa-truck"></i>
+<span>Transportations</span>
+</a>
+</li>
+
+</ul>
+</nav>
+
+</div>
+
+
+<!-- MOBILE SIDEBAR BUTTON -->
+<button id="mobileSidebarBtn"
+class="md:hidden fixed top-5 left-5 z-50
+backdrop-blur-lg bg-white/30 dark:bg-black/30
+border border-white/40
+w-12 h-12 rounded-full shadow-lg
+flex items-center justify-center
+hover:scale-110 transition duration-300">
+
+<i id="mobileSidebarIcon" class="fa-solid fa-bars text-xl text-purple-700"></i>
+
+</button>
+
+<script>
+
+const mobileBtn = document.getElementById("mobileSidebarBtn");
+const mobileSidebar = document.getElementById("mobileSidebar");
+const mobileIcon = document.getElementById("mobileSidebarIcon");
+
+mobileBtn.addEventListener("click", () => {
+
+mobileSidebar.classList.toggle("-translate-x-full");
+
+if(mobileSidebar.classList.contains("-translate-x-full")){
+mobileIcon.classList.replace("fa-xmark","fa-bars");
+}else{
+mobileIcon.classList.replace("fa-bars","fa-xmark");
+}
+
+});
+
+</script>
     <!-- Mercedes-Maybach GLS 600 (2025) Vehicle Details Page -->
 <div class="max-w-6xl mx-auto p-6 md:p-12 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
 
