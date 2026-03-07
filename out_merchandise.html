@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Museum Shop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+  
+  <script>
+    tailwind.config = { darkMode: 'class' } // Enable class-based dark mode
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes slide-in { to { transform: translateX(0); } }
+    .animate-slide-in { animation: slide-in 0.5s ease-out forwards; }
+  </style>
+</head>
+<body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-900 font-sans">
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-purple-700 dark:bg-purple-900 text-white flex flex-col sticky top-0 h-screen rounded-r-3xl shadow-xl overflow-hidden transform -translate-x-64 animate-slide-in">
+    <!-- Logo -->
+    <div class="flex items-center p-6 space-x-3">
+      <img src="1000186051.png" alt="SCL Logo" class="h-10 w-10 rounded-full shadow-md">
+      <span class="text-2xl font-bold tracking-wide">SCL Shop</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 overflow-auto">
+      <ul class="space-y-4">
+        <!-- Dashboard -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="shop.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-gauge-high group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- Artifacts -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="artifacts.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-mask group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Artifacts Replicas</span>
+          </a>
+        </li>
+        <!-- Merchandise -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="merchandise.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-tshirt group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Branded Merchandise</span>
+          </a>
+        </li>
+        <!-- Books -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="books.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-book group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Books & Publications</span>
+          </a>
+        </li>
+        <!-- Digital -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="digital.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-file-arrow-down group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Digital Products</span>
+          </a>
+        </li>
+        <!-- Cultural Tours -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="tour.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-map-location-dot group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Cultural Tour Packages</span>
+          </a>
+        </li>
+        <!-- Hotels -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="hotels.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-hotel group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Hotels</span>
+          </a>
+        </li>
+        <!-- Transport -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="transport.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-truck group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Transportations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+      </h1>
+
+      <div class="flex items-center space-x-4">
+        <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+        <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fa-solid fa-bell text-gray-800 dark:text-gray-200"></i>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button id="darkToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+          <i id="darkIcon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="relative">
+        <img id="profileBtn" src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10 cursor-pointer">
+        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+    <!-- Main Content -->
+  <!-- Main Content -->
+<main class="flex-1 p-8 overflow-auto flex flex-col">
+
+  <!-- Page Title -->
+  <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
+    The Open University of Tanzania - Merchandise Collection
+  </h1>
+
+  <!-- Merchandise Category Links -->
+<div class="flex space-x-4 mb-6">
+  <a href="merchandise.html" 
+     class="px-4 py-2 bg-purple-200 dark:bg-gray-700 dark:text-gray-200 rounded hover:bg-purple-300 transition text-center">
+    NMT Branded Merchandise
+  </a>
+  <a href="out_merchandise.html" 
+     class="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800 transition text-center">
+    OUT Branded Merchandise
+  </a>
+  <a href="scl_merchandise.html" 
+     class="px-4 py-2 bg-purple-200 dark:bg-gray-700 dark:text-gray-200 rounded hover:bg-purple-300 transition text-center">
+    SCL Branded Merchandise
+  </a>
+</div>
+
+  <!-- Merchandise Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <!-- 1 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/out1.png" alt="Logo T-Shirt" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Logo T-Shirt</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Comfortable black t-shirt with the university logo printed.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$29.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/out2.png" alt="Museum Hoodie" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">University Hoodie</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Cozy hoodie with embroidered university emblem, perfect for cool evenings.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$49.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/out3.png" alt="Museum Cap" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">University Cap</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Adjustable cap with university embroidered logo, unisex fit.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$19.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/out4.png" alt="Canvas Tote Bag" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Canvas Tote Bag</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Durable canvas tote bag with university artwork print, ideal for shopping.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$24.50</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch5.png" alt="Ceramic Mug" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Ceramic Mug</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          High-quality ceramic mug with museum logo and traditional patterns.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$14.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch6.png" alt="Poster Print" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Poster Print</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Museum-quality poster print of historical artifacts and exhibitions.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$12.50</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch7.png" alt="Keychain Collection" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Keychain Collection</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Set of 5 keychains featuring iconic museum symbols and artwork.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$9.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch8.png" alt="Notebook" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Notebook</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Hardcover notebook with museum logo and artwork on the cover.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$15.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch9.png" alt="Fridge Magnet" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Fridge Magnet</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Colorful fridge magnet with museum logo, perfect collectible.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$4.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch10.png" alt="Canvas Print" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Canvas Print</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          12x12 inch canvas print featuring iconic museum artifacts.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$39.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch11.png" alt="Eco Water Bottle" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Eco Water Bottle</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Reusable water bottle with museum branding, BPA-free material.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$22.50</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch12.png" alt="Socks Collection" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Socks Collection</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Pair of socks featuring museum symbols and traditional patterns.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$12.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch13.png" alt="Notebook Pen Set" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Notebook & Pen Set</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Stylish notebook and pen set featuring museum branding.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$17.50</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch14.png" alt="Museum Pin Badge" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Pin Badge</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Metal pin badge with museum logo, collectible item.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$7.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch15.png" alt="Tote Bag Mini" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Mini Tote Bag</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Small tote bag for essentials with museum print.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$14.50</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch16.png" alt="Key Ring" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Key Ring</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          High-quality key ring with museum logo, durable and stylish.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$6.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch17.png" alt="Bookmark Collection" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Bookmark Collection</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Set of 3 bookmarks showcasing museum artifacts and traditional designs.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$5.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch18.png" alt="Phone Case" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Phone Case</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Protective phone case with vibrant museum artwork print.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$19.50</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch19.png" alt="Eco Tote Bag" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Eco Tote Bag</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Environmentally-friendly tote bag with museum branding.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$18.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition flex flex-col">
+      <img src="pic/merch20.png" alt="Art Print Set" class="rounded-t-xl w-full h-64 object-cover">
+      <div class="p-4 flex flex-col flex-1">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Art Print Set</h2>
+        <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">
+          Set of 3 museum-quality art prints showcasing Tanzanian cultural artifacts.
+        </p>
+        <p class="text-purple-700 dark:text-purple-400 font-semibold mb-4">$34.99</p>
+        <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+          <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Detailed Info Section -->
+  <div class="mt-12 bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">About Our Merchandise</h2>
+    <p class="text-gray-500 dark:text-gray-300 mb-4">
+      Our branded merchandise features authentic SCL Museum designs, including apparel, accessories, and collectibles. Each product is crafted to celebrate Tanzanian culture while providing practical use.
+    </p>
+    <p class="text-gray-500 dark:text-gray-300 mb-4">
+      Ideal for gifts, souvenirs, and collectors, these items support museum programs and cultural preservation initiatives.
+    </p>
+    <p class="text-gray-500 dark:text-gray-300">
+      Shop with pride knowing your purchase contributes to education and cultural awareness.
+    </p>
+  </div>
+
+  <!-- Copyright (stuck beneath content) -->
+  <div class="mt-auto w-full text-center py-4 text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900">
+    &copy; 2026 SCL Digital Museum. All rights reserved.
+  </div>
+
+</main>
+
+
+
+
+
+
+
+    <!-- Scripts -->
+<script>
+  // Sidebar Profile Dropdown
+  const profileBtn = document.getElementById('profileBtn');
+  const profileMenu = document.getElementById('profileMenu');
+  profileBtn.addEventListener('click', () => profileMenu.classList.toggle('hidden'));
+  document.addEventListener('click', (e) => {
+    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) profileMenu.classList.add('hidden');
+  });
+
+  // Dark/Light Toggle
+  const darkToggle = document.getElementById('darkToggle');
+  const darkIcon = document.getElementById('darkIcon');
+  darkToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if(document.documentElement.classList.contains('dark')){
+      darkIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      darkIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+  });
+</script>
+</body>
+</html>
