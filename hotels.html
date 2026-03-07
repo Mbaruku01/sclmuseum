@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Museum Shop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+  
+  <script>
+    tailwind.config = { darkMode: 'class' } // Enable class-based dark mode
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes slide-in { to { transform: translateX(0); } }
+    .animate-slide-in { animation: slide-in 0.5s ease-out forwards; }
+  </style>
+</head>
+<body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-900 font-sans">
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-purple-700 dark:bg-purple-900 text-white flex flex-col sticky top-0 h-screen rounded-r-3xl shadow-xl overflow-hidden transform -translate-x-64 animate-slide-in">
+    <!-- Logo -->
+    <div class="flex items-center p-6 space-x-3">
+      <img src="1000186051.png" alt="SCL Logo" class="h-10 w-10 rounded-full shadow-md">
+      <span class="text-2xl font-bold tracking-wide">SCL Shop</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 overflow-auto">
+      <ul class="space-y-4">
+        <!-- Dashboard -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="shop.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-gauge-high group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- Artifacts -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="artifacts.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-mask group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Artifacts Replicas</span>
+          </a>
+        </li>
+        <!-- Merchandise -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="merchandise.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-tshirt group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Branded Merchandise</span>
+          </a>
+        </li>
+        <!-- Books -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="books.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-book group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Books & Publications</span>
+          </a>
+        </li>
+        <!-- Digital -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="digital.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-file-arrow-down group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Digital Products</span>
+          </a>
+        </li>
+        <!-- Cultural Tours -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="tour.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-map-location-dot group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Cultural Tour Packages</span>
+          </a>
+        </li>
+        <!-- Hotels -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="hotels.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-hotel group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Hotels</span>
+          </a>
+        </li>
+        <!-- Transport -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="transport.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-truck group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Transportations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+      </h1>
+
+      <div class="flex items-center space-x-4">
+        <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+        <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fa-solid fa-bell text-gray-800 dark:text-gray-200"></i>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button id="darkToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+          <i id="darkIcon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="relative">
+        <img id="profileBtn" src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10 cursor-pointer">
+        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+          <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+          <a href="ShopSetting.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Main Content -->
+<!-- Main Content -->
+ <!-- Main Content -->
+<main class="flex-1 p-8 overflow-auto bg-gray-50 dark:bg-gray-900">
+
+  <!-- Page Header -->
+  <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-10 gap-6">
+    <div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
+        Tanzania Accommodations Booking
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 mt-2 max-w-2xl">
+        Explore the top Hotels, Lodges, Villas, and Rental Apartments across Tanzania. Each property is carefully curated for comfort, safety, and authentic experiences. All bookings are paid and managed professionally.
+      </p>
+    </div>
+  </div>
+
+  <!-- Payment Info Bar -->
+  <div class="bg-gradient-to-r from-purple-700 to-purple-900 text-white rounded-xl p-6 mb-10 shadow-lg">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+      <div>
+        <h3 class="text-lg font-semibold flex items-center gap-2">
+          <i class="fa-solid fa-coins"></i>
+          Booking & Payment Model
+        </h3>
+        <p class="text-purple-100 text-sm mt-1">
+          All accommodations are paid. Prices vary by property and season.
+        </p>
+      </div>
+      <div class="text-sm text-purple-200">
+        Secure Payments • Verified Listings • Flexible Booking Options
+      </div>
+    </div>
+  </div>
+
+  <!-- Hotels Grid -->
+  <section id="hotels" class="mb-14">
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+      <i class="fa-solid fa-building text-purple-600"></i> Top Hotels
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <!-- 01 Hyatt Regency Dar es Salaam -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/hyatt.jpg" alt="Hyatt Regency Dar es Salaam" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Hyatt Regency Dar es Salaam</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+          <p class="text-purple-600 font-semibold mt-1">US$150+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 02 Serena Hotel Dar es Salaam -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/serena.jpg" alt="Serena Hotel Dar es Salaam" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Serena Hotel</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+          <p class="text-purple-600 font-semibold mt-1">US$160+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 03 Four Points by Sheraton -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/four.jpg" alt="Four Points by Sheraton" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Four Points by Sheraton</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+          <p class="text-purple-600 font-semibold mt-1">US$190+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 04 Mount Meru Hotel -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/mount.jpg" alt="Mount Meru Hotel" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Mount Meru Hotel</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Arusha</p>
+          <p class="text-purple-600 font-semibold mt-1">US$160+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 05 New Africa Hotel -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/new.jpg" alt="New Africa Hotel" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">New Africa Hotel</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+          <p class="text-purple-600 font-semibold mt-1">US$170+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 06 Kempinski Hotel Gold Coast -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/kempinski.jpg" alt="Kempinski Hotel Gold Coast" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Kempinski Hotel Gold Coast</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+          <p class="text-purple-600 font-semibold mt-1">US$350+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 07 Sea Cliff Resort & Spa -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/seacliff.jpg" alt="Sea Cliff Resort & Spa" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Sea Cliff Resort & Spa</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+          <p class="text-purple-600 font-semibold mt-1">US$280+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 08 Best Western Jangwani -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/best.jpg" alt="Best Western Jangwani Sea Breeze" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Best Western Jangwani</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+          <p class="text-purple-600 font-semibold mt-1">US$150+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 09 Tulia Zanzibar Resort -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/tulia.jpg" alt="Tulia Zanzibar Resort" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Tulia Zanzibar Resort</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+          <p class="text-purple-600 font-semibold mt-1">US$260+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+      <!-- 10 Arusha Serena Hotel -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+        <img src="pic/serenaarusha.jpg" alt="Arusha Serena Hotel" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Arusha Serena Hotel</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Arusha</p>
+          <p class="text-purple-600 font-semibold mt-1">US$200+ / night</p>
+          <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lodges Grid -->
+<section id="lodges" class="mb-14">
+  <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+    <i class="fa-solid fa-tree text-purple-600"></i> Top 10 Lodges
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    <!-- 01 Four Seasons Safari Lodge Serengeti -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/fourseasons.jpg" alt="Four Seasons Safari Lodge Serengeti" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Four Seasons Safari Lodge Serengeti</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Serengeti</p>
+        <p class="text-purple-600 font-semibold mt-1">US$900+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 02 Singita Grumeti Lodge -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/singita.jpg" alt="Singita Grumeti Lodge" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Singita Grumeti Lodge</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Grumeti</p>
+        <p class="text-purple-600 font-semibold mt-1">US$1200+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 03 &Beyond Ngorongoro Crater Lodge -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/beyond.jpg" alt="Ngorongoro Crater Lodge" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">&Beyond Ngorongoro Crater Lodge</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Ngorongoro Crater</p>
+        <p class="text-purple-600 font-semibold mt-1">US$1500+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 04 Mbalageti Safari Lodge -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/mbalageti.jpg" alt="Mbalageti Safari Lodge" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Mbalageti Safari Lodge</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Serengeti</p>
+        <p class="text-purple-600 font-semibold mt-1">US$700+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 05 Oliver’s Camp -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/oliver.jpg" alt="Oliver's Camp" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Oliver's Camp</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Serengeti</p>
+        <p class="text-purple-600 font-semibold mt-1">US$600+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 06 Lamai Serengeti Lodge -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/serengeti.jpg" alt="Lamai Serengeti Lodge" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Lamai Serengeti Lodge</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Serengeti</p>
+        <p class="text-purple-600 font-semibold mt-1">US$750+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 07 Lake Manyara Serena Safari Lodge -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/lakemanyara.jpg" alt="Lake Manyara Serena Safari Lodge" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Lake Manyara Serena Safari Lodge</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Lake Manyara</p>
+        <p class="text-purple-600 font-semibold mt-1">US$500+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 08 Kitela Lodge -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/kitela.jpg" alt="Kitela Lodge" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Kitela Lodge</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Ngorongoro</p>
+        <p class="text-purple-600 font-semibold mt-1">US$550+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 09 Ololosokwan Camp -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/highlands.jpg" alt="Ololosokwan Camp" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Ololosokwan Camp</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Ngorongoro</p>
+        <p class="text-purple-600 font-semibold mt-1">US$520+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 10 Ndutu Safari Lodge -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/ndutu.jpg" alt="Ndutu Safari Lodge" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Ndutu Safari Lodge</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Ndutu</p>
+        <p class="text-purple-600 font-semibold mt-1">US$480+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Villas Grid -->
+<section id="villas" class="mb-14">
+  <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+    <i class="fa-solid fa-house-chimney text-purple-600"></i> Top 10 Villas
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    <!-- 01 Safira Blu -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/safirablu.jpg" alt="Safira Blu" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Safira Blu</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$200–800+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 02 The Palms Zanzibar -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/palms.jpg" alt="The Palms Zanzibar" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">The Palms Zanzibar</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$350–900+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 03 Kisiwa Villas -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/kisiwa-house.jpg" alt="Kisiwa Villas" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Kisiwa Villas</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$400–1000+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 04 Matemwe Retreat -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/matemwe-lodge.jpg" alt="Matemwe Retreat" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Matemwe Retreat</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$300–850+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 05 Kizingo Villa -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/kizingo.jpg" alt="Kizingo Villa" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Kizingo Villa</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$250–750+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 06 Nungwi Beach Villas -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/sandies.jpg" alt="Nungwi Beach Villas" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Nungwi Beach Villas</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$300–900+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 07 Mnemba Island Villas -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/mnemba.jpg" alt="Mnemba Island Villas" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Mnemba Island Villas</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Mnemba Island</p>
+        <p class="text-purple-600 font-semibold mt-1">US$500–1200+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 08 Zuri Zanzibar Villa -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/zuri.jpg" alt="Zuri Zanzibar Villa" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Zuri Zanzibar Villa</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$400–950+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 09 Baraza Villas -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/baraza.avif" alt="Baraza Villas" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Baraza Villas</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$450–1100+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 10 Matemwe Bay Villas -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/matemweadults.jpg" alt="Matemwe Bay Villas" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Matemwe Bay Villas</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Zanzibar</p>
+        <p class="text-purple-600 font-semibold mt-1">US$350–900+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Rental Apartments Grid -->
+<section id="apartments" class="mb-14">
+  <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+    <i class="fa-solid fa-building-columns text-purple-600"></i> Top 10 Rental Apartments
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    <!-- 01 Luxury Meets Comfort – Mbezi Beach -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/comfort.jpg" alt="Luxury Meets Comfort – Mbezi Beach" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Luxury Meets Comfort – Mbezi Beach</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$88–110+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 02 Ocean View Apartment – Kigamboni -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/oceanview.webp" alt="Ocean View Apartment – Kigamboni" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Ocean View Apartment – Kigamboni</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$95–130+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 03 Mikocheni Modern Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/mikocheni.jpg" alt="Mikocheni Modern Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Mikocheni Modern Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$80–120+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 04 Masaki Luxury Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/masaki.avif" alt="Masaki Luxury Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Masaki Luxury Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$100–150+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 05 Oyster Bay Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/osterbay.jpg" alt="Oyster Bay Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Oyster Bay Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$90–140+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 06 Upanga Studio Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/upanga.jpg" alt="Upanga Studio Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Upanga Studio Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$70–110+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 07 Sinza Comfort Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/sinzacomfort.avif" alt="Sinza Comfort Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Sinza Comfort Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$75–115+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 08 Kariakoo Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/kariakoo.jpg" alt="Kariakoo Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Kariakoo Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$60–100+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 09 Mlimani City Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/mlimani.jpg" alt="Mlimani City Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Mlimani City Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$85–125+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- 10 Kinondoni Luxury Apartment -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition overflow-hidden">
+      <img src="pic/kinondoni.jpg" alt="Kinondoni Luxury Apartment" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white">Kinondoni Luxury Apartment</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold mt-1">US$95–140+ / night</p>
+        <a href="bookinghotel.html" class="mt-3 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded transition text-sm">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+
+<!-- Chat Button -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="chatToggle" class="bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center gap-2">
+    <i class="fa-solid fa-comment-dots"></i>
+    Chat With Us
+  </button>
+</div>
+
+<!-- Centered Chat Modal -->
+<div id="chatBox" class="fixed inset-0 bg-black/30 flex items-center justify-center hidden z-50">
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-96 md:w-[500px] h-[550px] flex flex-col">
+    
+    <!-- Header -->
+    <div class="bg-purple-600 dark:bg-purple-700 text-white p-4 flex justify-between items-center rounded-t-2xl">
+      <span class="font-semibold">Customer Support</span>
+      <button id="chatClose" class="text-white hover:text-gray-200">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-gray-900 dark:text-gray-100">
+      <div class="text-sm text-gray-500 dark:text-gray-400">Hello! How can we assist you today?</div>
+    </div>
+
+    <!-- Input -->
+    <div class="border-t border-gray-200 dark:border-gray-700 p-3 flex flex-col gap-2">
+      <input type="text" id="chatInput" placeholder="Type your message..." class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white">
+      
+      <div class="flex gap-2 items-center">
+        <input type="file" id="chatFile" class="text-sm text-gray-500 dark:text-gray-400">
+        <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+          <i class="fa-solid fa-paper-plane"></i> Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const chatClose = document.getElementById('chatClose');
+const sendChat = document.getElementById('sendChat');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const chatFile = document.getElementById('chatFile');
+
+// Open chat modal
+chatToggle.addEventListener('click', () => {
+  chatBox.classList.remove('hidden');
+});
+
+// Close chat modal
+chatClose.addEventListener('click', () => {
+  chatBox.classList.add('hidden');
+});
+
+// Add message
+function createMessage(content, sender = 'user', file = null) {
+  const div = document.createElement('div');
+  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  div.className = `p-2 rounded-lg text-sm break-words max-w-[75%] ${sender==='user'?'bg-purple-100 dark:bg-purple-700 text-purple-900 dark:text-white ml-auto':'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100'}`;
+
+  if(file){
+    const filePreview = document.createElement('div');
+    if(file.type.startsWith('image/')){
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.className='max-w-full rounded mt-1';
+      filePreview.appendChild(img);
+    } else if(file.type==='application/pdf'){
+      filePreview.innerHTML=`<a href="${URL.createObjectURL(file)}" target="_blank" class="underline text-blue-600">${file.name}</a>`;
+    } else {
+      filePreview.textContent=`[File: ${file.name}]`;
+    }
+    div.appendChild(document.createTextNode(content));
+    div.appendChild(filePreview);
+  } else {
+    div.textContent = content;
+  }
+
+  const timeSpan = document.createElement('div');
+  timeSpan.className='text-xs text-gray-400 dark:text-gray-300 mt-1 text-right';
+  timeSpan.textContent = timestamp;
+
+  div.appendChild(timeSpan);
+
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Simulate staff reply
+function staffResponse(message){
+  setTimeout(() => {
+    createMessage(`Support: We received your message "${message}" and will get back shortly.`, 'staff');
+  }, 1000);
+}
+
+// Send chat
+sendChat.addEventListener('click', () => {
+  const message = chatInput.value.trim();
+  const file = chatFile.files[0];
+  if(!message && !file) return;
+
+  createMessage(message || '', 'user', file);
+  if(message) staffResponse(message);
+
+  chatInput.value = '';
+  chatFile.value = '';
+});
+
+// Enter key sends message
+chatInput.addEventListener('keypress',(e)=>{
+  if(e.key==='Enter') sendChat.click();
+});
+</script>
+
+    
+
+
+    <!-- Scripts -->
+<script>
+  // Sidebar Profile Dropdown
+  const profileBtn = document.getElementById('profileBtn');
+  const profileMenu = document.getElementById('profileMenu');
+  profileBtn.addEventListener('click', () => profileMenu.classList.toggle('hidden'));
+  document.addEventListener('click', (e) => {
+    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) profileMenu.classList.add('hidden');
+  });
+
+  // Dark/Light Toggle
+  const darkToggle = document.getElementById('darkToggle');
+  const darkIcon = document.getElementById('darkIcon');
+  darkToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if(document.documentElement.classList.contains('dark')){
+      darkIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      darkIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+  });
+</script>
+</body>
+</html>
