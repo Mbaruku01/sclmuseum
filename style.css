@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('pic/background.jpg') no-repeat center center/cover;
+    backdrop-filter: blur(10px);
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.password-group {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle i {
+    font-size: 20px;
+    color: #007bff;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-login a {
+    display: inline-block;
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.social-login a i {
+    margin-right: 8px;
+}
+
+.google-login {
+    background: linear-gradient(45deg, #4285F4, #fff);
+    color: #fff;
+}
+
+.google-login:hover {
+    background: linear-gradient(65deg, #357ae8, #fff);
+}
+
+.apple-login {
+    background: linear-gradient(45deg, #333, #fff);
+    color: #fff;
+}
+
+.apple-login:hover {
+    background: linear-gradient(65deg, #000, #fff);
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.terms input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.terms a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.back-to-login {
+    display: block;
+    margin-top: 15px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.back-to-login:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+.form-logo {
+    display: block;
+    margin: 0 auto 15px;
+    width: 100px; /* adjust size as needed */
+    height: auto;
+}
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
