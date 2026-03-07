@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fingerprint Login</title>
+    <link rel="stylesheet" href="biometric.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Fingerprint Login</h2>
+       
+        <p>Place your finger on the sensor to login</p>
+        
+        <div class="fingerprint-icon" id="fingerprintIcon">
+            <img src="pic/fingerprint1.png" alt="Fingerprint" id="fingerprintImage"/>
+            <div class="spinner" id="loadingSpinner"></div> <!-- Spinner for loading -->
+            <div class="success-circle" id="successCircle">
+                <div class="checkmark"></div> <!-- Green tick mark -->
+            </div>
+        </div>
+        
+        <p id="statusMessage"></p>
+
+        <p> Agree to terms and conditions </p>
+    </div>
+
+    <script src="biometric-script.js"></script>
+</body>
+</html>
