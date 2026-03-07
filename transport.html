@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Museum Shop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+  
+  <script>
+    tailwind.config = { darkMode: 'class' } // Enable class-based dark mode
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes slide-in { to { transform: translateX(0); } }
+    .animate-slide-in { animation: slide-in 0.5s ease-out forwards; }
+  </style>
+</head>
+<body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-900 font-sans">
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-purple-700 dark:bg-purple-900 text-white flex flex-col sticky top-0 h-screen rounded-r-3xl shadow-xl overflow-hidden transform -translate-x-64 animate-slide-in">
+    <!-- Logo -->
+    <div class="flex items-center p-6 space-x-3">
+      <img src="1000186051.png" alt="SCL Logo" class="h-10 w-10 rounded-full shadow-md">
+      <span class="text-2xl font-bold tracking-wide">SCL Shop</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 overflow-auto">
+      <ul class="space-y-4">
+        <!-- Dashboard -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="shop.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-gauge-high group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- Artifacts -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="artifacts.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-mask group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Artifacts Replicas</span>
+          </a>
+        </li>
+        <!-- Merchandise -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="merchandise.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-tshirt group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Branded Merchandise</span>
+          </a>
+        </li>
+        <!-- Books -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="books.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-book group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Books & Publications</span>
+          </a>
+        </li>
+        <!-- Digital -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="digital.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-file-arrow-down group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Digital Products</span>
+          </a>
+        </li>
+        <!-- Cultural Tours -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="tour.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-map-location-dot group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Cultural Tour Packages</span>
+          </a>
+        </li>
+        <!-- Hotels -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="hotels.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-hotel group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Hotels</span>
+          </a>
+        </li>
+        <!-- Transport -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="transport.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-truck group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Transportations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+      </h1>
+
+      <div class="flex items-center space-x-4">
+        <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+        <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fa-solid fa-bell text-gray-800 dark:text-gray-200"></i>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button id="darkToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+          <i id="darkIcon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="relative">
+        <img id="profileBtn" src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10 cursor-pointer">
+        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+          <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+          <a href="ShopSetting.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Main Content -->
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-auto bg-gray-50 dark:bg-gray-900">
+
+  <!-- Page Header -->
+  <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-10 gap-6">
+    <div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
+        Tanzania Vehicle Booking
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 mt-2 max-w-2xl">
+        Explore top SUVs, Mini SUVs, Sedans, Vans, and Buses across Tanzania. Each vehicle is carefully selected for comfort, safety, and convenience. All bookings are paid and professionally managed.
+      </p>
+    </div>
+
+    <div class="flex gap-4">
+      <a href="transportbooking.htmlsuvs"
+         class="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-xl shadow-md flex items-center gap-3 transition">
+        <i class="fa-solid fa-car-side"></i>
+        View Receipt
+      </a>
+
+      <a href="transportbooking.htmlmini-suvs"
+         class="border border-gray-300 dark:border-gray-600 dark:text-gray-200 px-6 py-3 rounded-xl flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+        Booking Analytics
+      </a>
+    </div>
+  </div>
+
+  <!-- Payment Info Bar -->
+  <div class="bg-gradient-to-r from-purple-700 to-purple-900 text-white rounded-xl p-6 mb-10 shadow-lg">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+      <div>
+        <h3 class="text-lg font-semibold flex items-center gap-2">
+          <i class="fa-solid fa-coins"></i>
+          Vehicle Booking & Payment Model
+        </h3>
+        <p class="text-purple-100 text-sm mt-1">
+          All vehicles are paid per day. Prices vary by type and service level.
+        </p>
+      </div>
+      <div class="text-sm text-purple-200">
+        Secure Payments • Verified Vehicles • Licensed Drivers
+      </div>
+    </div>
+  </div>
+
+  <!-- SUVs Section -->
+  <div id="suvs" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-700 hover:shadow-xl transition mb-14">
+    <div class="mb-6 flex items-center gap-3">
+      <i class="fa-solid fa-car-side text-purple-600 text-xl"></i>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+        Top SUVs
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="hardtop.html"><img src="pic/suv11.jpg" alt="Toyota Land Cruiser" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Toyota HardTop Safari</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold">$190/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="transportdetails.html"><img src="pic/suv1.png" alt="Toyota Land Cruiser" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Toyota Land Cruiser</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold">$250/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="nissanpatrol.html"><img src="pic/suv2.webp" alt="Nissan Patrol" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Nissan Patrol</h3>
+        <p class="text-gray-600 dark:text-gray-300">Arusha</p>
+        <p class="text-purple-600 font-semibold">$140/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="wrangler.html"><img src="pic/suv3.jpg" alt="Jeep Wrangler" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Jeep Wrangler</h3>
+        <p class="text-gray-600 dark:text-gray-300">Mwanza</p>
+        <p class="text-purple-600 font-semibold">$130/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="prado.html"><img src="pic/suv4.jpg" alt="Toyota Prado" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Toyota Prado</h3>
+        <p class="text-gray-600 dark:text-gray-300">Kilimanjaro</p>
+        <p class="text-purple-600 font-semibold">$145/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="ford.html"><img src="pic/ford.avif" alt="Ford Explorer" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Ford Everest</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dodoma</p>
+        <p class="text-purple-600 font-semibold">$135/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="defender110.html"><img src="pic/suv6.avif" alt="Land Rover Discovery" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Land Rover Defender 110</h3>
+        <p class="text-gray-600 dark:text-gray-300">Zanzibar</p>
+        <p class="text-purple-600 font-semibold">$160/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="pajero.html"><img src="pic/suv7.jpg" alt="Mitsubishi Pajero" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Mitsubishi Pajero</h3>
+        <p class="text-gray-600 dark:text-gray-300">Moshi</p>
+        <p class="text-purple-600 font-semibold">$138/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="Mercedes-Benz.html"><img src="assests/booking/gwagon1.png" alt="Mercedes-Benz G-Class" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Mercedes-Benz G-Class</h3>
+        <p class="text-gray-600 dark:text-gray-300">Mbeya</p>
+        <p class="text-purple-600 font-semibold">$340/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="maybach.html"><img src="assests/booking/maybach1.png" alt="Maybach GLS 600" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Maybach GLS 600</h3>
+        <p class="text-gray-600 dark:text-gray-300">VIP Presidential Luxury SUV</p>
+        <p class="text-purple-600 font-semibold">$950/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="range.html"><img src="assests/booking/sv1.png" alt="Range Rover SV" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Range Rover SV</h3>
+        <p class="text-gray-600 dark:text-gray-300">VIP</p>
+        <p class="text-purple-600 font-semibold">$728/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mini SUVs Section -->
+  <div id="mini-suvs" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-700 hover:shadow-xl transition mb-14">
+    <div class="mb-6 flex items-center gap-3">
+      <i class="fa-solid fa-car text-purple-600 text-xl"></i>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+        Top Mini SUVs
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+      <!-- Example Mini SUV 1 -->
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="mazda.html"><img src="pic/mini-suv1.jpg" alt="Mazda CX-5" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Mazda CX-5</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold">$60/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="xtrail.html"><img src="assests/booking/xtrail1.png" alt="Nissan X-Trail" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Nissan X-Trail</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold">$100/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="audi.html"><img src="assests/booking/audi1.png" alt="Audi Q5" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Audi Q5</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold">$190/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <!-- Continue similarly up to Mini SUV 10 -->
+    </div>
+  </div>
+
+  <!-- Sedans Section -->
+  <div id="sedans" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-700 hover:shadow-xl transition mb-14">
+    <div class="mb-6 flex items-center gap-3">
+      <i class="fa-solid fa-car-rear text-purple-600 text-xl"></i>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+        Top Sedans
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+      <!-- Sedan 1 -->
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="crown.html"><img src="pic/sedan1.avif" alt="Toyota Crown" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Toyota Crown</h3>
+        <p class="text-gray-600 dark:text-gray-300">Arusha</p>
+        <p class="text-purple-600 font-semibold">$180/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="porsche.html"><img src="assests/booking/panamera1.png" alt="Porsche Panamera" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Porsche Panamera</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dar Es Salaam</p>
+        <p class="text-purple-600 font-semibold">$580/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <!-- Continue up to Sedan 10 -->
+    </div>
+  </div>
+
+  <!-- Vans Section -->
+  <div id="vans" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-700 hover:shadow-xl transition mb-14">
+    <div class="mb-6 flex items-center gap-3">
+      <i class="fa-solid fa-shuttle-van text-purple-600 text-xl"></i>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+        Top Vans
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+      <!-- Van 1 -->
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="hiace.html"><img src="pic/van1.jpg" alt="Toyota Hiace" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Toyota Hiace</h3>
+        <p class="text-gray-600 dark:text-gray-300">Dar es Salaam</p>
+        <p class="text-purple-600 font-semibold">$100/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <!-- Continue up to Van 10 -->
+    </div>
+  </div>
+
+  <!-- Buses Section -->
+  <div id="buses" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-700 hover:shadow-xl transition mb-14">
+    <div class="mb-6 flex items-center gap-3">
+      <i class="fa-solid fa-bus text-purple-600 text-xl"></i>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+        Top Buses
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+      <!-- Bus 1 -->
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-xl">
+        <a href="coaster.html"><img src="assests/booking/bus3.png" alt="Coaster Bus" class="rounded-lg mb-3 w-full h-40 object-cover"></a>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Coaster Bus</h3>
+        <p class="text-gray-600 dark:text-gray-300">Mwanza</p>
+        <p class="text-purple-600 font-semibold">$250/Day</p>
+        <a href="transportbooking.html" class="block mt-2 text-center bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition">
+          Book Now
+        </a>
+      </div>
+      <!-- Continue up to Bus 10 -->
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center text-gray-500 dark:text-gray-400 py-8">
+    © 2026 SCL Tanzania Vehicle Booking Platform. All rights reserved.
+  </div>
+
+</main>
+
+
+
+    <!-- Chat Button -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="chatToggle" class="bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center gap-2">
+    <i class="fa-solid fa-comment-dots"></i>
+    Chat With Us
+  </button>
+</div>
+
+<!-- Centered Chat Modal -->
+<div id="chatBox" class="fixed inset-0 bg-black/30 flex items-center justify-center hidden z-50">
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-96 md:w-[500px] h-[550px] flex flex-col">
+    
+    <!-- Header -->
+    <div class="bg-purple-600 dark:bg-purple-700 text-white p-4 flex justify-between items-center rounded-t-2xl">
+      <span class="font-semibold">Customer Support</span>
+      <button id="chatClose" class="text-white hover:text-gray-200">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-gray-900 dark:text-gray-100">
+      <div class="text-sm text-gray-500 dark:text-gray-400">Hello! How can we assist you today?</div>
+    </div>
+
+    <!-- Input -->
+    <div class="border-t border-gray-200 dark:border-gray-700 p-3 flex flex-col gap-2">
+      <input type="text" id="chatInput" placeholder="Type your message..." class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white">
+      
+      <div class="flex gap-2 items-center">
+        <input type="file" id="chatFile" class="text-sm text-gray-500 dark:text-gray-400">
+        <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+          <i class="fa-solid fa-paper-plane"></i> Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const chatClose = document.getElementById('chatClose');
+const sendChat = document.getElementById('sendChat');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const chatFile = document.getElementById('chatFile');
+
+// Open chat modal
+chatToggle.addEventListener('click', () => {
+  chatBox.classList.remove('hidden');
+});
+
+// Close chat modal
+chatClose.addEventListener('click', () => {
+  chatBox.classList.add('hidden');
+});
+
+// Add message
+function createMessage(content, sender = 'user', file = null) {
+  const div = document.createElement('div');
+  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  div.className = `p-2 rounded-lg text-sm break-words max-w-[75%] ${sender==='user'?'bg-purple-100 dark:bg-purple-700 text-purple-900 dark:text-white ml-auto':'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100'}`;
+
+  if(file){
+    const filePreview = document.createElement('div');
+    if(file.type.startsWith('image/')){
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.className='max-w-full rounded mt-1';
+      filePreview.appendChild(img);
+    } else if(file.type==='application/pdf'){
+      filePreview.innerHTML=`<a href="${URL.createObjectURL(file)}" target="_blank" class="underline text-blue-600">${file.name}</a>`;
+    } else {
+      filePreview.textContent=`[File: ${file.name}]`;
+    }
+    div.appendChild(document.createTextNode(content));
+    div.appendChild(filePreview);
+  } else {
+    div.textContent = content;
+  }
+
+  const timeSpan = document.createElement('div');
+  timeSpan.className='text-xs text-gray-400 dark:text-gray-300 mt-1 text-right';
+  timeSpan.textContent = timestamp;
+
+  div.appendChild(timeSpan);
+
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Simulate staff reply
+function staffResponse(message){
+  setTimeout(() => {
+    createMessage(`Support: We received your message "${message}" and will get back shortly.`, 'staff');
+  }, 1000);
+}
+
+// Send chat
+sendChat.addEventListener('click', () => {
+  const message = chatInput.value.trim();
+  const file = chatFile.files[0];
+  if(!message && !file) return;
+
+  createMessage(message || '', 'user', file);
+  if(message) staffResponse(message);
+
+  chatInput.value = '';
+  chatFile.value = '';
+});
+
+// Enter key sends message
+chatInput.addEventListener('keypress',(e)=>{
+  if(e.key==='Enter') sendChat.click();
+});
+</script>
+
+
+
+    <!-- Scripts -->
+<script>
+  // Sidebar Profile Dropdown
+  const profileBtn = document.getElementById('profileBtn');
+  const profileMenu = document.getElementById('profileMenu');
+  profileBtn.addEventListener('click', () => profileMenu.classList.toggle('hidden'));
+  document.addEventListener('click', (e) => {
+    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) profileMenu.classList.add('hidden');
+  });
+
+  // Dark/Light Toggle
+  const darkToggle = document.getElementById('darkToggle');
+  const darkIcon = document.getElementById('darkIcon');
+  darkToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if(document.documentElement.classList.contains('dark')){
+      darkIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      darkIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+  });
+</script>
+</body>
+</html>

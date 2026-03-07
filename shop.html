@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Museum Shop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+  
+  <script>
+    tailwind.config = { darkMode: 'class' } // Enable class-based dark mode
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes slide-in { to { transform: translateX(0); } }
+    .animate-slide-in { animation: slide-in 0.5s ease-out forwards; }
+  </style>
+</head>
+<body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-900 font-sans">
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-purple-700 dark:bg-purple-900 text-white flex flex-col sticky top-0 h-screen rounded-r-3xl shadow-xl overflow-hidden transform -translate-x-64 animate-slide-in">
+    <!-- Logo -->
+    <div class="flex items-center p-6 space-x-3">
+      <img src="1000186051.png" alt="SCL Logo" class="h-10 w-10 rounded-full shadow-md">
+      <span class="text-2xl font-bold tracking-wide">SCL Shop</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 overflow-auto">
+      <ul class="space-y-4">
+        <!-- Dashboard -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="shop.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-gauge-high group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- Artifacts -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="artifacts.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-mask group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Artifacts Replicas</span>
+          </a>
+        </li>
+        <!-- Merchandise -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="merchandise.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-tshirt group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Branded Merchandise</span>
+          </a>
+        </li>
+        <!-- Books -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="books.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-book group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Books & Publications</span>
+          </a>
+        </li>
+        <!-- Digital -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="digital.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-file-arrow-down group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Digital Products</span>
+          </a>
+        </li>
+        <!-- Cultural Tours -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="tour.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-map-location-dot group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Cultural Tour Packages</span>
+          </a>
+        </li>
+        <!-- Hotels -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="hotels.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-hotel group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Hotels</span>
+          </a>
+        </li>
+        <!-- Transport -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="transport.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-truck group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Transportations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+      </h1>
+
+      <div class="flex items-center space-x-4">
+        <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+        <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fa-solid fa-bell text-gray-800 dark:text-gray-200"></i>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button id="darkToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+          <i id="darkIcon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="relative">
+        <img id="profileBtn" src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10 cursor-pointer">
+        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+          <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+          <a href="ShopSetting.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats & Charts Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+  <!-- Total Orders -->
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition flex items-center justify-between">
+    <div>
+      <p class="text-gray-500 dark:text-gray-400">Total Orders</p>
+      <h2 id="totalOrders" class="text-2xl font-bold mt-2 text-gray-900 dark:text-gray-100">0</h2>
+    </div>
+    <i class="fa-solid fa-box-open text-purple-700 text-3xl"></i>
+  </div>
+
+  <!-- Total Revenue -->
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition flex items-center justify-between">
+    <div>
+      <p class="text-gray-500 dark:text-gray-400">Total Revenue</p>
+      <h2 id="totalRevenue" class="text-2xl font-bold mt-2 text-gray-900 dark:text-gray-100">0</h2>
+    </div>
+    <i class="fa-solid fa-dollar-sign text-purple-700 text-3xl"></i>
+  </div>
+
+  <!-- Unique Visitors -->
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition flex items-center justify-between">
+    <div>
+      <p class="text-gray-500 dark:text-gray-400">Unique Visitors</p>
+      <h2 id="uniqueVisitors" class="text-2xl font-bold mt-2 text-gray-900 dark:text-gray-100">0</h2>
+    </div>
+    <i class="fa-solid fa-users text-purple-700 text-3xl"></i>
+  </div>
+</div>
+
+<!-- Charts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+    <h3 class="font-semibold mb-4 text-gray-900 dark:text-gray-100">Sales Trend</h3>
+    <canvas id="salesChart" class="w-full h-48"></canvas>
+  </div>
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+    <h3 class="font-semibold mb-4 text-gray-900 dark:text-gray-100">Visitors Trend</h3>
+    <canvas id="visitorsChart" class="w-full h-48"></canvas>
+  </div>
+</div>
+
+<script>
+// ----- Animate Metrics Counters -----
+function animateValue(id, start, end, duration) {
+  let obj = document.getElementById(id);
+  let range = end - start;
+  let startTime = null;
+  
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    let progress = timestamp - startTime;
+    let val = Math.min(Math.floor(start + (range * (progress / duration))), end);
+    obj.innerText = val.toLocaleString();
+    if (progress < duration) {
+      window.requestAnimationFrame(step);
+    }
+  }
+  window.requestAnimationFrame(step);
+}
+
+// Start counting when page loads
+window.addEventListener('load', () => {
+  animateValue('totalOrders', 0, 1245, 2000);
+  animateValue('totalRevenue', 0, 12890, 2000);
+  animateValue('uniqueVisitors', 0, 8430, 2000);
+});
+
+// ----- Chart.js Animations -----
+const salesCtx = document.getElementById('salesChart').getContext('2d');
+const visitorsCtx = document.getElementById('visitorsChart').getContext('2d');
+
+new Chart(salesCtx, {
+  type: 'line',
+  data: {
+    labels: ['Week 1','Week 2','Week 3','Week 4'],
+    datasets: [{
+      label: 'Sales',
+      data: [300, 500, 400, 650],
+      borderColor: 'rgb(139, 92, 246)',
+      backgroundColor: 'rgba(139, 92, 246, 0.2)',
+      tension: 0.4,
+      fill: true,
+      pointRadius: 5,
+      pointHoverRadius: 7
+    }]
+  },
+  options: {
+    responsive: true,
+    animation: { duration: 2000, easing: 'easeOutQuart' },
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+new Chart(visitorsCtx, {
+  type: 'line',
+  data: {
+    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    datasets: [{
+      label: 'Visitors',
+      data: [120, 150, 100, 200, 180, 220, 190],
+      borderColor: 'rgb(79, 70, 229)',
+      backgroundColor: 'rgba(79, 70, 229, 0.2)',
+      tension: 0.4,
+      fill: true,
+      pointRadius: 5,
+      pointHoverRadius: 7
+    }]
+  },
+  options: {
+    responsive: true,
+    animation: { duration: 2000, easing: 'easeOutQuart' },
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+</script>
+
+  <!-- Featured Products / Bestsellers -->
+  <div class="mb-8">
+    <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Featured Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+      <!-- Example Product Card -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+  <img src="pic/artifact.JPG" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+
+  <div class="flex items-center justify-between mb-2">
+    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Artifact Replica</h3>
+    <i class="fa-solid fa-mask text-purple-700 dark:text-purple-400"></i>
+  </div>
+
+  <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">$49.99</p>
+
+  <a href="cart.html"
+     class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+     <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+  </a>
+</div>
+
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+  <img src="pic/branded.png" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+
+  <div class="flex items-center justify-between mb-2">
+    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Branded Merchandise</h3>
+    <i class="fa-solid fa-tshirt text-purple-700 dark:text-purple-400"></i>
+  </div>
+
+  <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">Black T-Shirt $29.99</p>
+
+  <a href="cart.html"
+     class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+     <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+  </a>
+</div>
+
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+  <img src="pic/chura.png" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+
+  <div class="flex items-center justify-between mb-2">
+    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Book & Publications</h3>
+    <i class="fa-solid fa-book text-purple-700 dark:text-purple-400"></i>
+  </div>
+
+  <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">Mrembo Chura $19.99</p>
+
+  <a href="cart.html"
+     class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+     <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+  </a>
+</div>
+
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+  <img src="pic/hardtop.jpg" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+
+  <div class="flex items-center justify-between mb-2">
+    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Transportation</h3>
+    <i class="fa-solid fa-truck text-purple-700 dark:text-purple-400"></i>
+  </div>
+
+  <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">LC HardTop 70'S $299.49</p>
+
+  <a href="cart.html"
+     class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block">
+     <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+  </a>
+</div>
+
+      <!-- Repeat similar cards for other products... -->
+    </div>
+
+    <!-- Reviews & Comments Section -->
+<div class="mt-12">
+
+  <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
+    Customer Reviews & Comments
+  </h2>
+
+  <!-- Review Form -->
+  <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8">
+    <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Leave a Review</h3>
+
+    <form class="space-y-4">
+      <input 
+        type="text" 
+        placeholder="Your Name"
+        class="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+
+      <textarea 
+        placeholder="Write your comment..."
+        rows="4"
+        class="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+
+      <button 
+        type="submit"
+        class="bg-purple-700 text-white px-5 py-2 rounded hover:bg-purple-800 transition">
+        Submit Review
+      </button>
+    </form>
+  </div>
+
+  <!-- Example Reviews -->
+  <div class="space-y-4">
+
+    <!-- Review 1 -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100">Amina K.</h4>
+        <span class="text-yellow-400">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+        </span>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        Amazing artifact replicas! The quality is really good and delivery was fast.
+      </p>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100">James M.</h4>
+        <span class="text-yellow-400">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </span>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        I bought the museum book collection and it was very informative. Highly recommended!
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+  </main>
+</div>
+
+<!-- Chat Button -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="chatToggle" class="bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center gap-2">
+    <i class="fa-solid fa-comment-dots"></i>
+    Chat With Us
+  </button>
+</div>
+
+<!-- Centered Chat Modal -->
+<div id="chatBox" class="fixed inset-0 bg-black/30 flex items-center justify-center hidden z-50">
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-96 md:w-[500px] h-[550px] flex flex-col">
+    
+    <!-- Header -->
+    <div class="bg-purple-600 dark:bg-purple-700 text-white p-4 flex justify-between items-center rounded-t-2xl">
+      <span class="font-semibold">Customer Support</span>
+      <button id="chatClose" class="text-white hover:text-gray-200">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-gray-900 dark:text-gray-100">
+      <div class="text-sm text-gray-500 dark:text-gray-400">Hello! How can we assist you today?</div>
+    </div>
+
+    <!-- Input -->
+    <div class="border-t border-gray-200 dark:border-gray-700 p-3 flex flex-col gap-2">
+      <input type="text" id="chatInput" placeholder="Type your message..." class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white">
+      
+      <div class="flex gap-2 items-center">
+        <input type="file" id="chatFile" class="text-sm text-gray-500 dark:text-gray-400">
+        <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+          <i class="fa-solid fa-paper-plane"></i> Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const chatClose = document.getElementById('chatClose');
+const sendChat = document.getElementById('sendChat');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const chatFile = document.getElementById('chatFile');
+
+// Open chat modal
+chatToggle.addEventListener('click', () => {
+  chatBox.classList.remove('hidden');
+});
+
+// Close chat modal
+chatClose.addEventListener('click', () => {
+  chatBox.classList.add('hidden');
+});
+
+// Add message
+function createMessage(content, sender = 'user', file = null) {
+  const div = document.createElement('div');
+  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  div.className = `p-2 rounded-lg text-sm break-words max-w-[75%] ${sender==='user'?'bg-purple-100 dark:bg-purple-700 text-purple-900 dark:text-white ml-auto':'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100'}`;
+
+  if(file){
+    const filePreview = document.createElement('div');
+    if(file.type.startsWith('image/')){
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.className='max-w-full rounded mt-1';
+      filePreview.appendChild(img);
+    } else if(file.type==='application/pdf'){
+      filePreview.innerHTML=`<a href="${URL.createObjectURL(file)}" target="_blank" class="underline text-blue-600">${file.name}</a>`;
+    } else {
+      filePreview.textContent=`[File: ${file.name}]`;
+    }
+    div.appendChild(document.createTextNode(content));
+    div.appendChild(filePreview);
+  } else {
+    div.textContent = content;
+  }
+
+  const timeSpan = document.createElement('div');
+  timeSpan.className='text-xs text-gray-400 dark:text-gray-300 mt-1 text-right';
+  timeSpan.textContent = timestamp;
+
+  div.appendChild(timeSpan);
+
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Simulate staff reply
+function staffResponse(message){
+  setTimeout(() => {
+    createMessage(`Support: We received your message "${message}" and will get back shortly.`, 'staff');
+  }, 1000);
+}
+
+// Send chat
+sendChat.addEventListener('click', () => {
+  const message = chatInput.value.trim();
+  const file = chatFile.files[0];
+  if(!message && !file) return;
+
+  createMessage(message || '', 'user', file);
+  if(message) staffResponse(message);
+
+  chatInput.value = '';
+  chatFile.value = '';
+});
+
+// Enter key sends message
+chatInput.addEventListener('keypress',(e)=>{
+  if(e.key==='Enter') sendChat.click();
+});
+</script>
+
+<!-- Scripts -->
+<script>
+  // Sidebar Profile Dropdown
+  const profileBtn = document.getElementById('profileBtn');
+  const profileMenu = document.getElementById('profileMenu');
+  profileBtn.addEventListener('click', () => profileMenu.classList.toggle('hidden'));
+  document.addEventListener('click', (e) => {
+    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) profileMenu.classList.add('hidden');
+  });
+
+  // Dark/Light Toggle
+  const darkToggle = document.getElementById('darkToggle');
+  const darkIcon = document.getElementById('darkIcon');
+  darkToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if(document.documentElement.classList.contains('dark')){
+      darkIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      darkIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+  });
+</script>
+</body>
+</html>

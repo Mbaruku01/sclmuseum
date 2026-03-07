@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Museum Shop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+  
+  <script>
+    tailwind.config = { darkMode: 'class' } // Enable class-based dark mode
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes slide-in { to { transform: translateX(0); } }
+    .animate-slide-in { animation: slide-in 0.5s ease-out forwards; }
+  </style>
+</head>
+<body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-900 font-sans">
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-purple-700 dark:bg-purple-900 text-white flex flex-col sticky top-0 h-screen rounded-r-3xl shadow-xl overflow-hidden transform -translate-x-64 animate-slide-in">
+    <!-- Logo -->
+    <div class="flex items-center p-6 space-x-3">
+      <img src="1000186051.png" alt="SCL Logo" class="h-10 w-10 rounded-full shadow-md">
+      <span class="text-2xl font-bold tracking-wide">SCL Shop</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 overflow-auto">
+      <ul class="space-y-4">
+        <!-- Dashboard -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="shop.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-gauge-high group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- Artifacts -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="artifacts.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-mask group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Artifacts Replicas</span>
+          </a>
+        </li>
+        <!-- Merchandise -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="merchandise.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-tshirt group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Branded Merchandise</span>
+          </a>
+        </li>
+        <!-- Books -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="books.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-book group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Books & Publications</span>
+          </a>
+        </li>
+        <!-- Digital -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="digital.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-file-arrow-down group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Digital Products</span>
+          </a>
+        </li>
+        <!-- Cultural Tours -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="tour.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-map-location-dot group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Cultural Tour Packages</span>
+          </a>
+        </li>
+        <!-- Hotels -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="hotels.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-hotel group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Hotels</span>
+          </a>
+        </li>
+        <!-- Transport -->
+        <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
+          <a href="transport.html" class="flex items-center space-x-3 text-white">
+            <i class="fa-solid fa-truck group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Transportations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+      </h1>
+
+      <div class="flex items-center space-x-4">
+        <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+        <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fa-solid fa-bell text-gray-800 dark:text-gray-200"></i>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button id="darkToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+          <i id="darkIcon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="relative">
+        <img id="profileBtn" src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10 cursor-pointer">
+        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+          <a href="transportbooking" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+          <a href="transportbooking" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!-- Booking Page -->
+<div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8 border dark:border-gray-700">
+
+  <!-- Title -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+      <i class="fa-solid fa-car text-purple-600"></i>
+      Vehicle Booking
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 mt-2">
+      Complete the form below to reserve your vehicle. Prices are calculated per day.
+    </p>
+  </div>
+
+  <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Vehicle Dropdown -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Selected Vehicle
+      </label>
+      <select id="vehicleSelect"
+              class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+        <option value="" disabled selected>-- Choose a Vehicle --</option>
+
+        <!-- SUVs -->
+        <optgroup label="Top SUVs">
+          <option value="Toyota Land Cruiser" data-price="250">Toyota Land Cruiser - $250/Day</option>
+          <option value="Toyota HardTop Safari" data-price="190">Toyota HardTop Safari - $190/Day</option>
+          <option value="Nissan Patrol" data-price="140">Nissan Patrol - $140/Day</option>
+          <option value="Jeep Wrangler" data-price="130">Jeep Wrangler - $130/Day</option>
+          <option value="Toyota Prado" data-price="145">Toyota Prado - $145/Day</option>
+          <option value="Ford Explorer" data-price="135">Ford Explorer - $135/Day</option>
+          <option value="Land Rover Defender 110" data-price="160">Land Rover Defender 110 - $160/Day</option>
+          <option value="Mitsubishi Pajero" data-price="138">Mitsubishi Pajero - $138/Day</option>
+          <option value="Chevrolet Tahoe" data-price="140">Chevrolet Tahoe - $140/Day</option>
+          <option value="Toyota Fortuner" data-price="130">Toyota Fortuner - $130/Day</option>
+          <option value="Range Rover SV" data-price="128">Range Rover SV - $128/Day</option>
+        </optgroup>
+
+        <!-- Mini SUVs -->
+        <optgroup label="Top Mini SUVs">
+          <option value="Mazda CX-5" data-price="120">Mazda CX-5 - $120/Day</option>
+          <option value="Nissan X-Trail" data-price="100">Nissan X-Trail - $100/Day</option>
+          <option value="Audi Q5" data-price="190">Audi Q5 - $190/Day</option>
+        </optgroup>
+
+        <!-- Sedans -->
+        <optgroup label="Top Sedans">
+          <option value="Toyota Crown" data-price="80">Toyota Crown - $80/Day</option>
+        </optgroup>
+
+        <!-- Vans -->
+        <optgroup label="Top Vans">
+          <option value="Toyota Hiace" data-price="100">Toyota Hiace - $100/Day</option>
+        </optgroup>
+
+        <!-- Buses -->
+        <optgroup label="Top Buses">
+          <option value="Coaster Bus" data-price="200">Coaster Bus - $200/Day</option>
+        </optgroup>
+
+      </select>
+    </div>
+
+    <!-- Price -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Price Per Day
+      </label>
+      <input id="vehiclePrice" type="text" readonly
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    </div>
+
+    <!-- Full Name -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Full Name
+      </label>
+      <input type="text" required
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    </div>
+
+    <!-- Phone -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Phone Number
+      </label>
+      <input type="tel" required
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Email
+      </label>
+      <input type="email"
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    </div>
+
+    <!-- Pickup Location -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Pickup Location
+      </label>
+      <input type="text" placeholder="City or Airport"
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    </div>
+
+    <!-- Pickup Date -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Pickup Date
+      </label>
+      <input id="pickupDate" type="date"
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    </div>
+
+    <!-- Return Date -->
+    <div>
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Return Date
+      </label>
+      <input id="returnDate" type="date"
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    </div>
+
+    <!-- Total Cost -->
+    <div class="md:col-span-2">
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Total Estimated Cost
+      </label>
+      <input id="totalPrice" type="text" readonly
+             class="w-full mt-2 px-4 py-2 rounded-lg border dark:border-gray-600 dark:bg-gray-700 dark:text-white font-semibold">
+    </div>
+
+    <!-- Button -->
+    <div class="md:col-span-2">
+      <button type="submit"
+              class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-semibold transition">
+        Confirm Booking
+      </button>
+    </div>
+    
+
+  </form>
+  
+
+</div>
+
+<script>
+const vehicleSelect = document.getElementById('vehicleSelect');
+const vehiclePrice = document.getElementById('vehiclePrice');
+const pickupDate = document.getElementById('pickupDate');
+const returnDate = document.getElementById('returnDate');
+const totalPrice = document.getElementById('totalPrice');
+
+vehicleSelect.addEventListener('change', () => {
+  const selectedOption = vehicleSelect.selectedOptions[0];
+  vehiclePrice.value = `$${selectedOption.dataset.price}/Day`;
+  calculateTotal();
+});
+
+function calculateTotal() {
+  const pricePerDay = parseFloat(vehicleSelect.selectedOptions[0]?.dataset.price || 0);
+  const pickup = new Date(pickupDate.value);
+  const drop = new Date(returnDate.value);
+  if (pickup && drop && drop >= pickup) {
+    const diffTime = Math.abs(drop - pickup);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // include pickup day
+    totalPrice.value = `$${pricePerDay * diffDays}`;
+  } else {
+    totalPrice.value = '';
+  }
+}
+
+pickupDate.addEventListener('change', calculateTotal);
+returnDate.addEventListener('change', calculateTotal);
+</script>
+
+<!-- Transport Booking Workflow -->
+<div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-700 mb-14">
+  <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+    <i class="fa-solid fa-truck text-purple-600"></i>
+    Transport Booking Workflow
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+
+    <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-xl">
+      <i class="fa-solid fa-car-side text-purple-600 text-xl mb-3"></i>
+      <p class="font-semibold">Select Vehicle</p>
+      <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">
+        Customer chooses the desired vehicle and rental duration.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-xl">
+      <i class="fa-solid fa-calendar-check text-purple-600 text-xl mb-3"></i>
+      <p class="font-semibold">Booking Request</p>
+      <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">
+        Customer submits a booking request with pickup and return details.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-xl">
+      <i class="fa-solid fa-circle-check text-green-500 text-xl mb-3"></i>
+      <p class="font-semibold">Confirmation</p>
+      <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">
+        Staff verifies availability and confirms the booking with the customer.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-xl">
+      <i class="fa-solid fa-pen-to-square text-red-500 text-xl mb-3"></i>
+      <p class="font-semibold">Modification / Cancellation</p>
+      <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">
+        Customer can modify or cancel the booking according to policy.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- Chat Button -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="chatToggle" class="bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center gap-2">
+    <i class="fa-solid fa-comment-dots"></i>
+    Chat With Us
+  </button>
+</div>
+
+<!-- Centered Chat Modal -->
+<div id="chatBox" class="fixed inset-0 bg-black/30 flex items-center justify-center hidden z-50">
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-96 md:w-[500px] h-[550px] flex flex-col">
+    
+    <!-- Header -->
+    <div class="bg-purple-600 dark:bg-purple-700 text-white p-4 flex justify-between items-center rounded-t-2xl">
+      <span class="font-semibold">Customer Support</span>
+      <button id="chatClose" class="text-white hover:text-gray-200">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-gray-900 dark:text-gray-100">
+      <div class="text-sm text-gray-500 dark:text-gray-400">Hello! How can we assist you today?</div>
+    </div>
+
+    <!-- Input -->
+    <div class="border-t border-gray-200 dark:border-gray-700 p-3 flex flex-col gap-2">
+      <input type="text" id="chatInput" placeholder="Type your message..." class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white">
+      
+      <div class="flex gap-2 items-center">
+        <input type="file" id="chatFile" class="text-sm text-gray-500 dark:text-gray-400">
+        <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+          <i class="fa-solid fa-paper-plane"></i> Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const chatClose = document.getElementById('chatClose');
+const sendChat = document.getElementById('sendChat');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const chatFile = document.getElementById('chatFile');
+
+// Open chat modal
+chatToggle.addEventListener('click', () => {
+  chatBox.classList.remove('hidden');
+});
+
+// Close chat modal
+chatClose.addEventListener('click', () => {
+  chatBox.classList.add('hidden');
+});
+
+// Add message
+function createMessage(content, sender = 'user', file = null) {
+  const div = document.createElement('div');
+  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  div.className = `p-2 rounded-lg text-sm break-words max-w-[75%] ${sender==='user'?'bg-purple-100 dark:bg-purple-700 text-purple-900 dark:text-white ml-auto':'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100'}`;
+
+  if(file){
+    const filePreview = document.createElement('div');
+    if(file.type.startsWith('image/')){
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.className='max-w-full rounded mt-1';
+      filePreview.appendChild(img);
+    } else if(file.type==='application/pdf'){
+      filePreview.innerHTML=`<a href="${URL.createObjectURL(file)}" target="_blank" class="underline text-blue-600">${file.name}</a>`;
+    } else {
+      filePreview.textContent=`[File: ${file.name}]`;
+    }
+    div.appendChild(document.createTextNode(content));
+    div.appendChild(filePreview);
+  } else {
+    div.textContent = content;
+  }
+
+  const timeSpan = document.createElement('div');
+  timeSpan.className='text-xs text-gray-400 dark:text-gray-300 mt-1 text-right';
+  timeSpan.textContent = timestamp;
+
+  div.appendChild(timeSpan);
+
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Simulate staff reply
+function staffResponse(message){
+  setTimeout(() => {
+    createMessage(`Support: We received your message "${message}" and will get back shortly.`, 'staff');
+  }, 1000);
+}
+
+// Send chat
+sendChat.addEventListener('click', () => {
+  const message = chatInput.value.trim();
+  const file = chatFile.files[0];
+  if(!message && !file) return;
+
+  createMessage(message || '', 'user', file);
+  if(message) staffResponse(message);
+
+  chatInput.value = '';
+  chatFile.value = '';
+});
+
+// Enter key sends message
+chatInput.addEventListener('keypress',(e)=>{
+  if(e.key==='Enter') sendChat.click();
+});
+</script>
+
+    <!-- Scripts -->
+<script>
+  // Sidebar Profile Dropdown
+  const profileBtn = document.getElementById('profileBtn');
+  const profileMenu = document.getElementById('profileMenu');
+  profileBtn.addEventListener('click', () => profileMenu.classList.toggle('hidden'));
+  document.addEventListener('click', (e) => {
+    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) profileMenu.classList.add('hidden');
+  });
+
+  // Dark/Light Toggle
+  const darkToggle = document.getElementById('darkToggle');
+  const darkIcon = document.getElementById('darkIcon');
+  darkToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if(document.documentElement.classList.contains('dark')){
+      darkIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      darkIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+  });
+</script>
+</body>
+</html>

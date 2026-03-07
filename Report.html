@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCL Reading Board | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="description" content="SCL Digital Museum & Archive preserving Tanzania’s cultural heritage through digital collections, exhibitions, and research.">
+  <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
+  <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+</head>
+
+<body>
+<div class="container">
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html" class="logo">
+                    <img src="1000186051.png" alt=" Logo">
+                    <span class="nav-item">SCL PORTAL </span>
+                </a>
+            </li>
+
+            <li><a href="Dashboard.html"><i class="fas fa-home"></i><span class="nav-item">Home</span></a></li>
+            <li><a href="Course.html"><i class="fas fa-book"></i><span class="nav-item">Course</span></a></li>
+            <li><a href="Report.html" class="active"><i class="fas fa-database"></i><span class="nav-item">Reports</span></a></li>
+            <li><a href="subscription.html"><i class="fas fa-credit-card"></i><span class="nav-item">Subscription</span></a></li>
+            <li><a href="Setting.html"><i class="fas fa-cog"></i><span class="nav-item">Settings</span></a></li>
+            <li><a href="Biometric.html"><i class="fas fa-fingerprint"></i><span class="nav-item">Biometric</span></a></li>
+            <li><a href="registration.html"><i class="fas fa-list"></i><span class="nav-item">Register</span></a></li>
+            <li><a href="login.html" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item">Logout</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <main class="main">
+
+        <div class="main-top">
+            <h1>Faculty of Arts and Social Sciences (FASS)</h1>
+            <i class="fas fa-user-cog"></i>
+        </div>
+
+        <!-- Batch 1 -->
+        <section class="attendance">
+            <div class="attendance-list">
+                <h1>Batch 1 Student Reports</h1>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Batch</th>
+                            <th>Region</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Makene Ngoroma</td>
+                            <td>Batch 1</td>
+                            <td>Morogoro - Vidunda</td>
+                            <td class="status submitted">Submitted</td>
+                            <td><button class="btn-download" onclick="openReport('Makene Ngoroma','Morogoro - Vidunda')">View Report</button></td>
+
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Aktari Sabiha</td>
+                            <td>Batch 1</td>
+                            <td>Mtwara - Newala</td>
+                            <td class="status submitted">Submitted</td>
+                            <td><button class="btn-download" onclick="openReport('Aktari Sabiha','Mtwara - Newala')">View Report</button></td>
+
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>Elihaki Yonazi</td>
+                            <td>Batch 1</td>
+                            <td>Kilimanjaro - Same</td>
+                            <td class="status submitted">Submitted</td>
+                            <td><button class="btn-download" onclick="openReport('Elihaki','Kilimanjaro - Same')">View Report</button></td>
+
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>Davison Nasari</td>
+                            <td>Batch 1</td>
+                            <td>Arusha - Meru</td>
+                            <td class="status submitted">Submitted</td>
+                            <td><button class="btn-download" onclick="openReport('Davison Nasari','Arusha - Meru')">View Report</button></td>
+
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>Alex Maungo</td>
+                            <td>Batch 1</td>
+                            <td>Mwanza - Kisesa</td>
+                            <td class="status submitted">Submitted</td>
+                            <td><button class="btn-download" onclick="openReport('Alex Maungo','Mwanza - Kisesa')">View Report</button></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Batch 2 -->
+        <section class="attendance">
+            <div class="attendance-list">
+                <h1>Batch 2 Student Reports</h1>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Batch</th>
+                            <th>Region</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Yamungu Mashaka Jumanne</td>
+                            <td>Batch 2</td>
+                            <td>Dodoma - Mchemba</td>
+                            <td class="status progress">In Progress</td>
+                            <td><button class="btn-pending">Pending</button></td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Mugini Jacob Mwera</td>
+                            <td>Batch 2</td>
+                            <td>Mara - Tarime</td>
+                            <td class="status progress">In Progress</td>
+                            <td><button class="btn-pending">Pending</button></td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>Yokshani Charles Mlyashuma</td>
+                            <td>Batch 2</td>
+                            <td>Bukoba - Kagera</td>
+                            <td class="status progress">In Progress</td>
+                            <td><button class="btn-pending">Pending</button></td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>Orpa Daniel Kijanda</td>
+                            <td>Batch 2</td>
+                            <td>Ruvuma - Tunduru</td>
+                            <td class="status progress">In Progress</td>
+                            <td><button class="btn-pending">Pending</button></td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>Abubakari Mohamedi Emilian</td>
+                            <td>Batch 2</td>
+                            <td>Lindi - Mtama</td>
+                            <td class="status progress">In Progress</td>
+                            <td><button class="btn-pending">Pending</button></td>
+                        </tr>
+                        <tr>
+                            <td>06</td>
+                            <td>Rotiken Torenti</td>
+                            <td>Batch 2</td>
+                            <td>Arusha - ***</td>
+                            <td class="status progress">In Progress</td>
+                            <td><button class="btn-pending">Pending</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+<!-- Report Modal -->
+<div id="reportModal" class="report-modal">
+  <div class="report-content">
+    <span class="close-btn" onclick="closeReport()">&times;</span>
+    <h2 id="studentName"></h2>
+    <p><strong>Field Location:</strong> <span id="studentRegion"></span></p>
+
+    <h3>Field Report Summary</h3>
+    <p>
+      This student conducted field research focusing on cultural heritage, 
+      local traditions, and community engagement. The report includes interviews, 
+      documentation of artifacts, and analysis of social transformation.
+    </p>
+
+    <h3>Supervisor Remarks</h3>
+    <p>Excellent field engagement and proper documentation.</p>
+
+    <button class="btn-download">
+    <i class="fas fa-file-download"></i> Download PDF
+    </button>
+  </div>
+</div>
+<script>
+function openReport(name, region){
+  document.getElementById("studentName").innerText = name;
+  document.getElementById("studentRegion").innerText = region;
+  document.getElementById("reportModal").style.display = "flex";
+}
+
+function closeReport(){
+  document.getElementById("reportModal").style.display = "none";
+}
+</script>
+</body>
+</html>

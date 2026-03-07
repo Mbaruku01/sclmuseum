@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCL Reading Board | Dashboard Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="description" content="SCL Digital Museum & Archive preserving Tanzania’s cultural heritage through digital collections, exhibitions, and research.">
+  <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
+  <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html" class="logo">
+                        <img src="1000186051.png" alt="Logo">
+                        <span class="nav-item">SCL PORTAL </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Course.html">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item">Course</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Report.html">
+                        <i class="fas fa-database"></i>
+                        <span class="nav-item">Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="subscription.html">
+    <i class="fas fa-credit-card"></i>
+    <span class="nav-item">Subscription</span>
+</a>
+
+                </li>
+                <li>
+                    <a href="Setting.html">
+                        <i class="fas fa-cog"></i>
+                        <span class="nav-item">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Biometric.html">
+                        <i class="fas fa-fingerprint"></i>
+                        <span class="nav-item">Scan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="registration.html">
+                        <i class="fas fa-list"></i>
+                        <span class="nav-item">Register</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="index.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+                <section class="main">
+
+            <div class="main-top">
+                <h1>Cultural Echoes Field Project – Application</h1>
+                <i class="fas fa-user-plus"></i>
+            </div>
+
+            <section class="attendance">
+                <div class="attendance-list">
+
+                    <h1>Student Registration Form</h1>
+
+                    <form action="submit_application.php" method="POST" class="registration-form">
+
+                        <!-- PERSONAL -->
+                        <h3>Personal Information</h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="fullname" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select name="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Date of Birth</label>
+                                <input type="date" name="dob">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nationality</label>
+                                <input type="text" name="nationality">
+                            </div>
+
+                            <div class="form-group full">
+                                <label>National ID / Passport</label>
+                                <input type="text" name="id_passport">
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONTACT -->
+                        <h3>Contact Information</h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Country</label>
+                                <input type="text" name="country">
+                            </div>
+
+                            <div class="form-group">
+                                <label>City / Region</label>
+                                <input type="text" name="city">
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACADEMIC -->
+                        <h3>Academic Information</h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label>University / Institution</label>
+                                <input type="text" name="university">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Registration Number</label>
+                                <input type="text" name="university">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Program</label>
+                                <input type="text" name="program">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Level</label>
+                                <select name="level">
+                                    <option>Diploma</option>
+                                    <option>Bachelor</option>
+                                    <option>Masters</option>
+                                    <option>PhD</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Year</label>
+                                <input type="number" name="year">
+                            </div>
+
+                        </div>
+
+
+                        <!-- RESEARCH -->
+                        <h3>Research Interest</h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label>Preferred Region</label>
+                                <input type="text" name="region">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Languages</label>
+                                <input type="text" name="languages">
+                            </div>
+
+                            <div class="form-group full">
+                                <label>Cultural Interest</label>
+                                <textarea name="cultural_interest"></textarea>
+                            </div>
+
+                        </div>
+
+
+                        <!-- EXPERIENCE -->
+                        <h3>Skills & Experience</h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group full">
+                                <label>Fieldwork Experience</label>
+                                <textarea name="experience"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Digital Skills</label>
+                                <input type="text" name="digital_skills">
+                            </div>
+
+                        </div>
+
+
+                        <!-- MOTIVATION -->
+                        <h3>Motivation</h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group full">
+                                <label>Why do you want to join?</label>
+                                <textarea name="motivation" required></textarea>
+                            </div>
+
+                        </div>
+
+
+                        <button class="submit-btn">Submit Application</button>
+
+                    </form>
+
+                </div>
+            </section>
+
+        </section>
+    </div>
+</body>
+</html>
