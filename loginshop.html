@@ -1,98 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SCL Login</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- FAVICON -->
-  <link rel="icon" type="image/x-icon" href="1000186051.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="apple-touch-icon" href="1000186051.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCL Login</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- FAVICON -->
+<link rel="icon" type="image/x-icon" href="1000186051.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="1000186051.png">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
-  <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-4xl">
+<div class="flex flex-col-reverse md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-4xl">
 
-    <!-- Left: Login Form -->
-    <div class="md:w-1/2 p-10 flex flex-col justify-center">
-      <h2 class="text-2xl font-semibold mb-4">Hello Again!</h2>
-      <p class="text-gray-500 mb-6">Welcome back, please login to your account.</p>
+  <!-- LEFT SIDE: Login Form -->
+  <div class="w-full md:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
 
-      <form id="loginForm" class="flex flex-col space-y-4">
-        <input type="text" id="username" placeholder="Username" required
-               class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
-        <input type="password" id="password" placeholder="Password" required
-               class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
-        <button type="submit" class="bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition font-semibold">Sign In</button>
-      </form>
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-3">Hello Again!</h2>
+    <p class="text-gray-500 mb-6 text-sm sm:text-base">
+      Welcome back, please login to your account.
+    </p>
 
-      <div class="flex justify-between items-center mt-4 text-gray-500 text-sm">
-        <a href="#" id="forgotPassword" class="hover:text-purple-700">Forgot password?</a>
-        <a href="#" id="signUp" class="hover:text-purple-700">Sign up</a>
-      </div>
+    <form id="loginForm" class="flex flex-col space-y-4">
+      <input type="text" id="username" placeholder="Username" required
+             class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+      <input type="password" id="password" placeholder="Password" required
+             class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+      <button type="submit" class="w-full bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition font-semibold">
+        Sign In
+      </button>
+    </form>
 
-      <!-- Social Login Buttons -->
-      <div class="flex justify-center items-center mt-6 space-x-4">
-        <button id="googleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-5 h-5">
-        </button>
-        <button id="appleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="w-5 h-5">
-        </button>
-        <button id="facebookLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="w-5 h-5">
-        </button>
-      </div>
+    <div class="flex justify-between items-center mt-4 text-gray-500 text-sm">
+      <a href="#" id="forgotPassword" class="hover:text-purple-700">Forgot password?</a>
+      <a href="#" id="signUp" class="hover:text-purple-700">Sign up</a>
     </div>
 
-    <!-- Right: Illustration/Image -->
-    <div class="md:w-1/2 hidden md:block">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
-           alt="Login Illustration" class="w-full h-full object-cover">
+    <!-- SOCIAL LOGIN -->
+    <div class="flex justify-center items-center mt-6 space-x-4">
+      <button id="googleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-5 h-5">
+      </button>
+      <button id="appleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="w-5 h-5">
+      </button>
+      <button id="facebookLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="w-5 h-5">
+      </button>
     </div>
 
   </div>
 
-  <!-- Scripts -->
-  <script>
-    const form = document.getElementById('loginForm');
+  <!-- RIGHT SIDE: Illustration/Image -->
+  <div class="w-full md:w-1/2 h-48 md:h-auto">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+         alt="Login Illustration" class="w-full h-full object-cover">
+  </div>
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+</div>
 
-      // Check credentials
-      if(username === 'ADMIN' && password === '12345'){
-        // Go to shop.html
-        window.location.href = 'shop.html';
-      } else {
-        alert('Invalid credentials. Please try again.');
-      }
-    });
+<script>
+const form = document.getElementById('loginForm');
 
-    // Sign Up / Forgot Password simulation
-    document.getElementById('signUp').addEventListener('click', () => {
-      alert('Redirecting to Sign Up page (simulation).');
-    });
-    document.getElementById('forgotPassword').addEventListener('click', () => {
-      alert('Redirecting to Forgot Password page (simulation).');
-    });
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-    // Social Logins simulation
-    document.getElementById('googleLogin').addEventListener('click', () => {
-      alert('Google login clicked (simulation).');
-    });
-    document.getElementById('appleLogin').addEventListener('click', () => {
-      alert('Apple login clicked (simulation).');
-    });
-    document.getElementById('facebookLogin').addEventListener('click', () => {
-      alert('Facebook login clicked (simulation).');
-    });
-  </script>
+  if(username === 'ADMIN' && password === '12345'){
+    window.location.href = 'shop.html';
+  } else {
+    alert('Invalid credentials. Please try again.');
+  }
+});
+
+document.getElementById('signUp').addEventListener('click', () => {
+  alert('Redirecting to Sign Up page (simulation).');
+});
+document.getElementById('forgotPassword').addEventListener('click', () => {
+  alert('Redirecting to Forgot Password page (simulation).');
+});
+document.getElementById('googleLogin').addEventListener('click', () => {
+  alert('Google login clicked (simulation).');
+});
+document.getElementById('appleLogin').addEventListener('click', () => {
+  alert('Apple login clicked (simulation).');
+});
+document.getElementById('facebookLogin').addEventListener('click', () => {
+  alert('Facebook login clicked (simulation).');
+});
+</script>
 
 </body>
 </html>
