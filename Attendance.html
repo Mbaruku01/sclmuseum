@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription | Industrial Training Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="https://sis.out.ac.tz/" class="logo">
+                        <img src="pic/logo.png" alt="Logo">
+                        <span class="nav-item">Admin</span>
+                    </a>
+                </li>
+                <li><a href="Dashboard.html"><i class="fas fa-home"></i><span class="nav-item">Home</span></a></li>
+                <li><a href="Course.html"><i class="fas fa-book"></i><span class="nav-item">Course</span></a></li>
+                <li><a href="Report.html"><i class="fas fa-database"></i><span class="nav-item">Report</span></a></li>
+                <li><a href="Attendance.html"><i class="fas fa-chart-bar"></i><span class="nav-item">Attendance</span></a></li>
+                <li><a href="Setting.html" class="active"><i class="fas fa-cog"></i><span class="nav-item">Settings</span></a></li>
+                <li><a href="Biometric.html"><i class="fas fa-fingerprint"></i><span class="nav-item">Scan</span></a></li>
+                <li><a href="registration.html"><i class="fas fa-list"></i><span class="nav-item">Form</span></a></li>
+                <li><a href="login.html" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item">Log out</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="main-top">
+                <h1>Subscription & Payment Dashboard</h1>
+                <i class="fas fa-user-cog"></i>
+            </div>
+
+            <!-- Subscription Plans -->
+            <section class="subscription">
+                <h2>Choose Your Plan</h2>
+                <div class="plans">
+                    <div class="plan-card">
+                        <h3>Day Pass</h3>
+                        <p class="price">$5/day</p>
+                        <ul>
+                            <li>Access to limited features</li>
+                            <li>24 hours access</li>
+                            <li>Basic support</li>
+                        </ul>
+                        <button class="subscribe-btn">Subscribe</button>
+                    </div>
+
+                    <div class="plan-card">
+                        <h3>Weekly Pass</h3>
+                        <p class="price">$20/week</p>
+                        <ul>
+                            <li>Access to all features</li>
+                            <li>7 days access</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <button class="subscribe-btn">Subscribe</button>
+                    </div>
+
+                    <div class="plan-card">
+                        <h3>Monthly Pass</h3>
+                        <p class="price">$60/month</p>
+                        <ul>
+                            <li>Full platform access</li>
+                            <li>30 days access</li>
+                            <li>24/7 Support</li>
+                        </ul>
+                        <button class="subscribe-btn">Subscribe</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Form -->
+            <section class="payment-form">
+                <h2>Payment Details</h2>
+                <form action="process_payment.php" method="post">
+                    <div class="form-group">
+                        <label for="plan">Selected Plan:</label>
+                        <select id="plan" name="plan" required>
+                            <option value="">-- Select Plan --</option>
+                            <option value="day">Day Pass - $5</option>
+                            <option value="week">Weekly Pass - $20</option>
+                            <option value="month">Monthly Pass - $60</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card">Card Number:</label>
+                        <input type="text" id="card" name="card" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date:</label>
+                        <input type="month" id="expiry" name="expiry" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="XXX" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Pay Now</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
