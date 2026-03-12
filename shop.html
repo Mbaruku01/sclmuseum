@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCL Museum Shop Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/shopstyle.css">
 
   <!-- FAVICON -->
   <link rel="icon" type="image/x-icon" href="1000186051.png">
@@ -102,36 +103,72 @@
   <main class="flex-1 p-8">
 
     <!-- Header -->
-    <div class="flex justify-between items-center mb-8">
-      <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-        Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
-      </h1>
+    <!-- PROFESSIONAL HEADER -->
+<header class="dashboard-header mb-8">
 
-      <div class="flex items-center space-x-4">
-        <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+<div class="header-container">
 
-        <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <i class="fa-solid fa-bell text-gray-800 dark:text-gray-200"></i>
-        </button>
+<!-- Title -->
+<div class="header-title text-gray-900 dark:text-gray-100">
+Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+</div>
 
-        <!-- Dark/Light Toggle -->
-        <button id="darkToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-          <i id="darkIcon" class="fa-solid fa-moon"></i>
-        </button>
-      </div>
+<!-- Actions -->
+<div class="header-actions">
 
-      <!-- Profile Dropdown -->
-      <div class="relative">
-        <img id="profileBtn" src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10 cursor-pointer">
-        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
-          <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
-          <a href="ShopSetting.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
-          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
-        </div>
-      </div>
-    </div>
+<!-- Search -->
+<input
+type="text"
+placeholder="Search products..."
+class="search-field px-4 py-2 rounded-lg border border-gray-300
+dark:border-gray-600 bg-white dark:bg-gray-800
+text-gray-900 dark:text-gray-200 focus:outline-none
+focus:ring-2 focus:ring-purple-500">
 
-    <!-- MOBILE SIDEBAR -->
+<!-- Notification -->
+<button class="icon-btn">
+<i class="fa-solid fa-bell text-gray-700 dark:text-gray-200"></i>
+</button>
+
+<!-- Dark Mode -->
+<button id="darkToggle" class="icon-btn">
+<i id="darkIcon" class="fa-solid fa-moon text-gray-700 dark:text-gray-200"></i>
+</button>
+
+<!-- Profile -->
+<div class="relative">
+<img id="profileBtn"
+src="https://i.pravatar.cc/40"
+class="w-10 h-10 rounded-full cursor-pointer ring-2 ring-purple-500">
+
+<div id="profileMenu"
+class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800
+border border-gray-200 dark:border-gray-700
+rounded-xl shadow-xl hidden z-50">
+
+<a href="profile.html"
+class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+Profile
+</a>
+
+<a href="ShopSetting.html"
+class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+Settings
+</a>
+
+<a href="index.html"
+class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+Logout
+</a>
+
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
+<!-- MOBILE SIDEBAR -->
 <div id="mobileSidebar"
 class="fixed top-0 left-0 h-full w-64 bg-purple-700 dark:bg-purple-900 text-white
 transform -translate-x-full transition-transform duration-300 z-40 md:hidden">
@@ -512,34 +549,34 @@ new Chart(visitorsCtx, {
 <div class="fixed bottom-6 right-6 z-50">
   <button id="chatToggle" class="bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center gap-2">
     <i class="fa-solid fa-comment-dots"></i>
-    Chat With Us
+    Chat With AI
   </button>
 </div>
 
-<!-- Centered Chat Modal -->
+<!-- Chat Modal -->
 <div id="chatBox" class="fixed inset-0 bg-black/30 flex items-center justify-center hidden z-50">
   <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-96 md:w-[500px] h-[550px] flex flex-col">
     
     <!-- Header -->
-    <div class="bg-purple-600 dark:bg-purple-700 text-white p-4 flex justify-between items-center rounded-t-2xl">
-      <span class="font-semibold">Customer Support</span>
-      <button id="chatClose" class="text-white hover:text-gray-200">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+    <div class="bg-purple-600 text-white p-4 flex justify-between items-center rounded-t-2xl">
+      <span class="font-semibold">SCL AI Assistant</span>
+      <button id="chatClose"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
     <!-- Messages -->
     <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-gray-900 dark:text-gray-100">
-      <div class="text-sm text-gray-500 dark:text-gray-400">Hello! How can we assist you today?</div>
+      <div class="text-sm text-gray-500">
+        Hello! I am the SCL AI assistant. Ask me about tours, transport, artifacts, or products.
+      </div>
     </div>
 
     <!-- Input -->
-    <div class="border-t border-gray-200 dark:border-gray-700 p-3 flex flex-col gap-2">
-      <input type="text" id="chatInput" placeholder="Type your message..." class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white">
+    <div class="border-t p-3 flex flex-col gap-2">
+      <input type="text" id="chatInput" placeholder="Ask something..." class="w-full px-4 py-2 rounded-lg border dark:bg-gray-700">
       
       <div class="flex gap-2 items-center">
-        <input type="file" id="chatFile" class="text-sm text-gray-500 dark:text-gray-400">
-        <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+        <input type="file" id="chatFile">
+        <button id="sendChat" class="bg-purple-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
           <i class="fa-solid fa-paper-plane"></i> Send
         </button>
       </div>
@@ -547,7 +584,13 @@ new Chart(visitorsCtx, {
   </div>
 </div>
 
-<script>
+<script type="module">
+
+import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm";
+
+let engine;
+
+// DOM elements
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
 const chatClose = document.getElementById('chatClose');
@@ -556,74 +599,104 @@ const chatInput = document.getElementById('chatInput');
 const chatMessages = document.getElementById('chatMessages');
 const chatFile = document.getElementById('chatFile');
 
-// Open chat modal
-chatToggle.addEventListener('click', () => {
-  chatBox.classList.remove('hidden');
-});
+// Toggle chat modal
+chatToggle.onclick = () => chatBox.classList.remove("hidden");
+chatClose.onclick = () => chatBox.classList.add("hidden");
 
-// Close chat modal
-chatClose.addEventListener('click', () => {
-  chatBox.classList.add('hidden');
-});
-
-// Add message
-function createMessage(content, sender = 'user', file = null) {
+// Create chat message
+function createMessage(content, sender='user', file=null) {
   const div = document.createElement('div');
-  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-  div.className = `p-2 rounded-lg text-sm break-words max-w-[75%] ${sender==='user'?'bg-purple-100 dark:bg-purple-700 text-purple-900 dark:text-white ml-auto':'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100'}`;
+  div.className = `p-2 rounded-lg text-sm max-w-[75%] break-words ${
+    sender==='user' ? 'bg-purple-100 dark:bg-purple-700 ml-auto' : 'bg-gray-100 dark:bg-gray-700'
+  }`;
 
   if(file){
-    const filePreview = document.createElement('div');
     if(file.type.startsWith('image/')){
       const img = document.createElement('img');
       img.src = URL.createObjectURL(file);
-      img.className='max-w-full rounded mt-1';
-      filePreview.appendChild(img);
-    } else if(file.type==='application/pdf'){
-      filePreview.innerHTML=`<a href="${URL.createObjectURL(file)}" target="_blank" class="underline text-blue-600">${file.name}</a>`;
+      img.className = "max-w-full rounded mt-1";
+      div.appendChild(img);
+    } else if(file.type==="application/pdf"){
+      div.innerHTML = `<a href="${URL.createObjectURL(file)}" target="_blank">${file.name}</a>`;
     } else {
-      filePreview.textContent=`[File: ${file.name}]`;
+      div.textContent = file.name;
     }
-    div.appendChild(document.createTextNode(content));
-    div.appendChild(filePreview);
   } else {
     div.textContent = content;
   }
-
-  const timeSpan = document.createElement('div');
-  timeSpan.className='text-xs text-gray-400 dark:text-gray-300 mt-1 text-right';
-  timeSpan.textContent = timestamp;
-
-  div.appendChild(timeSpan);
 
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// Simulate staff reply
-function staffResponse(message){
-  setTimeout(() => {
-    createMessage(`Support: We received your message "${message}" and will get back shortly.`, 'staff');
-  }, 1000);
+// Initialize lightweight AI engine
+async function initAI() {
+  chatMessages.innerHTML = `<div class="text-gray-500">Loading AI model...</div>`;
+
+  // Use lightweight model for faster responses
+  engine = await CreateMLCEngine("MPT-7B-Instruct-mini");
+
+  // Warm up engine for instant response
+  await engine.chat.completions.create({
+    messages:[{role:"system",content:"Warm-up call"}]
+  });
+
+  chatMessages.innerHTML = `<div class="text-gray-500">Hello! I am your AI assistant.</div>`;
 }
 
-// Send chat
-sendChat.addEventListener('click', () => {
+// Ask AI
+async function askAI(message) {
+  // Show instant typing placeholder
+  createMessage("Typing...","ai");
+
+  const reply = await engine.chat.completions.create({
+    messages:[
+      {
+        role:"system",
+        content:`You are an assistant for the SCL Digital Museum platform.
+Help visitors with:
+- artifacts
+- tours
+- transport
+- merchandise
+- museum information
+Answer clearly and politely.`
+      },
+      {role:"user",content:message}
+    ],
+    max_tokens: 200 // optional: shorter responses = faster
+  });
+
+  // Remove typing placeholder
+  chatMessages.lastChild.remove();
+
+  // Show AI response
+  createMessage(reply.choices[0].message.content,"ai");
+}
+
+// Send chat message
+sendChat.onclick = () => {
   const message = chatInput.value.trim();
   const file = chatFile.files[0];
+
   if(!message && !file) return;
 
-  createMessage(message || '', 'user', file);
-  if(message) staffResponse(message);
+  createMessage(message,'user',file);
 
   chatInput.value = '';
   chatFile.value = '';
-});
+
+  if(message) askAI(message);
+}
 
 // Enter key sends message
-chatInput.addEventListener('keypress',(e)=>{
-  if(e.key==='Enter') sendChat.click();
+chatInput.addEventListener("keypress", (e) => {
+  if(e.key==="Enter") sendChat.click();
 });
+
+// Initialize AI engine on page load
+initAI();
+
 </script>
 
 <!-- Scripts -->
@@ -648,5 +721,7 @@ chatInput.addEventListener('keypress',(e)=>{
     }
   });
 </script>
+
+
 </body>
 </html>

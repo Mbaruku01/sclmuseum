@@ -76,12 +76,7 @@ Entrance → History → Culture → Arts → Digital → Archive → Courtyard
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // ---------------- PAYMENT CHECK ----------------
-  const paid = localStorage.getItem('paid');
-  if(paid !== 'true') {
-    alert("Please complete payment first!");
-    window.location.href = "payment.html"; // redirect if not paid
-    return;
-  }
+  
 
   // ---------------- INFO POPUP ----------------
   window.show = (txt) => {
