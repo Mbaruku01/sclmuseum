@@ -11,6 +11,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="1000186051.png">
+
+<!-- Icons (CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
@@ -40,17 +44,27 @@
     </div>
 
     <!-- SOCIAL LOGIN -->
-    <div class="flex justify-center items-center mt-6 space-x-4">
-      <button id="googleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-5 h-5">
-      </button>
-      <button id="appleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="w-5 h-5">
-      </button>
-      <button id="facebookLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="w-5 h-5">
-      </button>
-    </div>
+<div class="flex justify-center items-center mt-6 space-x-4">
+
+  <!-- Google -->
+  <button id="googleLogin"
+    class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+    <i class="fa-brands fa-google text-red-500 text-lg"></i>
+  </button>
+
+  <!-- Apple -->
+  <button id="appleLogin"
+    class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+    <i class="fa-brands fa-apple text-black text-lg"></i>
+  </button>
+
+  <!-- Facebook -->
+  <button id="facebookLogin"
+    class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+    <i class="fa-brands fa-facebook-f text-blue-600 text-lg"></i>
+  </button>
+
+</div>
 
   </div>
 
@@ -93,6 +107,14 @@ document.getElementById('facebookLogin').addEventListener('click', () => {
   alert('Facebook login clicked (simulation).');
 });
 </script>
+<!-- FLOATING BUTTONS WRAPPER -->
+<div class="fixed bottom-6 right-6 z-50 flex gap-4">
 
+  <!-- HOME BUTTON -->
+  <a href="index.html"
+   class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-purple-700/10 border border-purple-400/30 shadow-lg hover:scale-110 transition">
+  <i class="fa-solid fa-house text-purple-400 text-xl"></i>
+</a>
+  </div>
 </body>
 </html>
