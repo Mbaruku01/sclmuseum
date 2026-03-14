@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Shop Admin - Worker Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="flex h-screen overflow-hidden bg-[var(--body-bg)]">
+
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+  <aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+    <h1>SCL Admin</h1>
+    <nav class="flex-1 overflow-y-auto py-4">
+  <div class="px-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Management</div>
+  <a href="staff.html" class="nav-link active">
+    <i class="fa-solid fa-address-card"></i>
+    <span>Staff Directory Dashboard</span>
+  </a>
+
+  <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Inventory & Services</div>
+  <a href="artifactsdashboard.html" class="nav-link">
+    <i class="fa-solid fa-monument"></i>
+    <span>Artifacts Replicas</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-tshirt"></i>
+    <span>Branded Merchandise</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-book-open"></i>
+    <span>Books & Publications</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-laptop-code"></i>
+    <span>Digital Products</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-map-location-dot"></i>
+    <span>Cultural Tour Packages</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-hotel"></i>
+    <span>Hotels</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-bus"></i>
+    <span>Transportations</span>
+  </a>
+
+  <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Customer Experience</div>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-shopping-cart"></i>
+    <span>Cart</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-user-circle"></i>
+    <span>Customer Profile</span>
+  </a>
+  <a href="#" class="nav-link">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span>Reviews & Comments</span>
+  </a>
+</nav>
+    <a href="#" class="p-6 text-red-400 hover:text-red-300 mt-auto"><i class="fa-solid fa-right-from-bracket mr-2"></i>Logout</a>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+    
+    <header class="sticky top-0 z-20 flex justify-between items-center px-4 md:px-8 py-4 border-b border-[var(--border-color)] bg-[var(--header-bg)] shadow-sm">
+  <div class="flex items-center gap-4">
+    <button id="mobileMenuBtn" class="lg:hidden text-[var(--text-main)] p-2">
+      <i class="fa-solid fa-bars text-xl"></i>
+    </button>
+    <h2 class="text-lg md:text-xl font-bold text-[var(--text-main)] truncate">Worker Profile Detail</h2>
+  </div>
+
+  <div class="flex items-center gap-3 md:gap-4">
+    <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base">
+      <i class="fa-solid fa-moon"></i>
+      <span id="themeText" class="hidden sm:inline">Dark Mode</span>
+    </button>
+
+    <a href="admindashboard.html" id="adminLink" onclick="return checkAdminAccess(event)" class="no-underline">
+  <button type="button" class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base font-semibold hover:bg-blue-200 dark:hover:bg-blue-900/50">
+    <i class="fa-solid fa-users-gear"></i>
+    <span class="hidden sm:inline">Employee's Update</span>
+  </button>
+</a>
+  </div>
+</header>
+
+    <main class="flex-1 overflow-y-auto p-4 md:p-8">
+      <div class="max-w-5xl mx-auto profile-card rounded-xl md:rounded-2xl shadow-xl p-6 md:p-10">
+        
+        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 mb-10 pb-10 border-b border-[var(--border-color)]">
+          <div class="relative">
+            <img src="https://via.placeholder.com/150" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-[#3b4f91]">
+            <button class="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full text-xs shadow-lg hover:bg-blue-700 transition">
+                <i class="fa-solid fa-camera"></i>
+            </button>
+          </div>
+          <div class="text-center md:text-left">
+            <h2 class="text-2xl md:text-3xl font-bold text-[var(--text-main)]">Hamisi Mbaruku</h2>
+            <p class="text-blue-600 font-medium">Administrator | IT & Digital Department</p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-2 text-xs md:text-sm text-[var(--text-muted)]">
+                <span><i class="fa-solid fa-hashtag mr-1"></i> EMP-001</span>
+                <span><i class="fa-solid fa-calendar-day mr-1"></i> Joined March 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="space-y-10 md:space-y-12">
+          
+          <section>
+            <h3 class="section-title text-lg md:text-xl mb-6">1. Personal Identification</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              <div><label class="label-text">Full Name</label><input type="text" class="form-input" placeholder="Full Name"></div>
+              <div><label class="label-text">Date of Birth (DOB)</label><input type="date" class="form-input"></div>
+              <div><label class="label-text">Gender</label>
+                <select class="form-input">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+              </div>
+              <div><label class="label-text">Marital Status</label>
+                <select class="form-input">
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                </select>
+              </div>
+              <div><label class="label-text">Nationality</label><input type="text" class="form-input" value="Tanzanian"></div>
+              <div><label class="label-text">National ID (NIDA)</label><input type="text" class="form-input" placeholder="NIDA Number"></div>
+              <div class="sm:col-span-2 md:col-span-1"><label class="label-text">Passport Number (Optional)</label><input type="text" class="form-input" placeholder="Passport No."></div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="section-title text-lg md:text-xl mb-6">2. Employment Details</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              <div><label class="label-text">Employee ID / Index No</label><input type="text" class="form-input" placeholder="EMP-000"></div>
+              <div><label class="label-text">Position / Job Title</label><input type="text" class="form-input" placeholder="Job Title"></div>
+              <div><label class="label-text">Department</label><input type="text" class="form-input" placeholder="e.g. IT, Sales"></div>
+              <div><label class="label-text">Date of Appointment</label><input type="date" class="form-input"></div>
+              <div><label class="label-text">Employment Status</label>
+                <select class="form-input">
+                    <option>Permanent</option>
+                    <option>Contract</option>
+                    <option>Freelance</option>
+                </select>
+              </div>
+              <div><label class="label-text">Work Location / Station</label><input type="text" class="form-input" placeholder="Office Location"></div>
+              <div class="sm:col-span-2 md:col-span-3"><label class="label-text">Reporting Manager</label><input type="text" class="form-input" placeholder="Manager Name"></div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="section-title text-lg md:text-xl mb-6">3. Contact Information</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              <div><label class="label-text">Mobile Number (Primary)</label><input type="text" class="form-input" placeholder="+255..."></div>
+              <div><label class="label-text">Alternative Number</label><input type="text" class="form-input" placeholder="+255..."></div>
+              <div><label class="label-text">Official Email Address</label><input type="email" class="form-input" placeholder="name@sclmuseum.com"></div>
+              <div><label class="label-text">Personal Email Address</label><input type="email" class="form-input" placeholder="personal@gmail.com"></div>
+              <div class="sm:col-span-2"><label class="label-text">Physical Residential Address</label><input type="text" class="form-input" placeholder="Street, City"></div>
+              <div class="sm:col-span-2"><label class="label-text">Postal Address (P.O. Box)</label><input type="text" class="form-input" placeholder="P.O. Box"></div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="section-title text-lg md:text-xl mb-6">4. Emergency & Medical</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              <div><label class="label-text">Next of Kin Name</label><input type="text" class="form-input" placeholder="Name"></div>
+              <div><label class="label-text">Relationship to Next of Kin</label><input type="text" class="form-input" placeholder="e.g. Spouse"></div>
+              <div><label class="label-text">Next of Kin Contact Number</label><input type="text" class="form-input" placeholder="+255..."></div>
+              <div><label class="label-text">Blood Group</label><input type="text" class="form-input" placeholder="e.g. O+"></div>
+              <div class="sm:col-span-2"><label class="label-text">Health Insurance Provider & Number</label><input type="text" class="form-input" placeholder="NHIF / Strategy No."></div>
+              <div class="col-span-1 sm:col-span-2 md:col-span-3"><label class="label-text">Known Allergies / Medical Conditions</label><textarea class="form-input h-20" placeholder="List any medical alerts..."></textarea></div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="section-title text-lg md:text-xl mb-6">5. Education & Professional Background</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              <div><label class="label-text">Highest Academic Qualification</label><input type="text" class="form-input" placeholder="Degree/Diploma"></div>
+              <div><label class="label-text">Awarding Institution</label><input type="text" class="form-input" placeholder="University/College"></div>
+              <div><label class="label-text">Professional Certifications</label><input type="text" class="form-input" placeholder="e.g. CPA, PMP"></div>
+              <div><label class="label-text">Key Technical Skills</label><input type="text" class="form-input" placeholder="e.g. Adobe Premiere Pro, Graphic Design"></div>
+              <div class="sm:col-span-2"><label class="label-text">Language Proficiency</label><input type="text" class="form-input" placeholder="e.g. Swahili, English"></div>
+            </div>
+          </section>
+
+          <section class="statutory-box p-6 md:p-8 rounded-xl">
+            <h3 class="text-base md:text-lg font-bold mb-6 text-[var(--primary-blue)] dark:text-blue-300">
+                <i class="fa-solid fa-piggy-bank mr-2"></i>6. Statutory & Payroll Details
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              <div><label class="label-text">Tax Identification Number (TIN)</label><input type="text" class="form-input" placeholder="TIN"></div>
+              <div><label class="label-text">Social Security Number (PSSSF / NSSF)</label><input type="text" class="form-input" placeholder="Social Security No."></div>
+              <div><label class="label-text">Bank Name & Branch</label><input type="text" class="form-input" placeholder="Bank Name"></div>
+              <div><label class="label-text">Bank Account Number</label><input type="text" class="form-input" placeholder="Account Number"></div>
+            </div>
+          </section>
+
+          <div class="flex flex-col-reverse sm:flex-row justify-end gap-3 md:gap-4 pt-4">
+            <button type="button" class="w-full sm:w-auto px-8 py-2.5 border border-[var(--border-color)] text-[var(--text-main)] rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition">Discard Changes</button>
+            <button type="submit" class="w-full sm:w-auto btn-save shadow-lg">Save Worker Record</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="css/dashboardscript.js"></script>
+</body>
+</html>

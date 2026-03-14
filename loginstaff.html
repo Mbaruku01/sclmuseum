@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Login - SCL Museum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-[#0b1b3a] flex items-center justify-center min-h-screen">
+
+  <div class="w-full max-w-md bg-white dark:bg-[#1a1b2e] rounded-3xl shadow-lg p-8">
+    
+    <!-- Logo -->
+    <div class="flex justify-center mb-4">
+      <img src="1000186051.png" alt="SCL Museum Logo" class="w-24 h-24">
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-2xl font-bold text-center text-black dark:text-white mb-6">Staff Login</h2>
+    
+    <!-- Login Form -->
+    <form id="staffLoginForm" class="flex flex-col space-y-4">
+      <input type="text" id="staffUsername" placeholder="Username" required
+             class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#3b4f91] dark:bg-[#0b1b3a] dark:text-white">
+      
+      <input type="password" id="staffPassword" placeholder="Password" required
+             class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#3b4f91] dark:bg-[#0b1b3a] dark:text-white">
+      
+      <button type="submit" 
+              class="w-full bg-[#3b4f91] hover:bg-[#5b6fc0] text-white py-3 rounded-lg transition font-semibold">
+        Login
+      </button>
+
+      <p class="text-sm text-gray-500 dark:text-gray-300 text-center mt-2">
+        Forgot your password? <a href="forgotpasswordshop.html" class="text-[#3b4f91] dark:text-[#5b6fc0] underline">Reset here</a>
+      </p>
+    </form>
+
+    <div class="mt-6 text-center">
+      <a href="loginshop.html" class="text-[#3b4f91] dark:text-[#5b6fc0] hover:underline">Back to Admin Login</a>
+    </div>
+  </div>
+
+  <!-- JS Login Logic -->
+  <script>
+    document.getElementById('staffLoginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('staffUsername').value.trim();
+      const password = document.getElementById('staffPassword').value.trim();
+
+      // Hardcoded credentials
+      if(username === 'STAFF' && password === '00000'){
+        alert('Login successful! Redirecting to Staff Dashboard...');
+        window.location.href = 'admin/staff.html'; // replace with your dashboard page
+      } else {
+        alert('Invalid username or password!');
+      }
+    });
+  </script>
+
+</body>
+</html>
