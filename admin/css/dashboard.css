@@ -264,3 +264,74 @@ input.w-full:focus {
   color: var(--primary-blue);
   opacity: 1;
 }
+/* Custom styling for the Vehicle Search focus */
+input[placeholder*="Plate, Model"]:focus {
+  border-color: #10b981 !important; /* emerald-500 */
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1) !important;
+}
+
+/* Fix for mobile: Ensure the toggle buttons don't look squashed */
+@media (max-width: 1280px) {
+  .xl\:flex-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  /* Ensure search takes full width on tablets/phones */
+  .max-w-md {
+    max-width: 100% !important;
+  }
+}
+
+/* Transition for toggle buttons */
+.flex.bg-\[var\(--card-bg\)\] button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure sticky header stays solid and has a subtle shadow on scroll */
+.sticky.top-0 {
+    background-color: var(--body-bg) !important;
+    padding-top: 1rem; /* Added space so it doesn't touch the browser top */
+    margin-top: -1rem;
+}
+
+/* Fix for mobile: Ensure tabs don't squash the search bar */
+@media (max-width: 768px) {
+    .sticky.top-0 {
+        position: relative !important; /* Disables sticky on very small phones to save screen space */
+        flex-direction: column;
+    }
+    
+    .md\:w-64 {
+        width: 100% !important;
+    }
+}
+
+/* Tab hover effect */
+a[href^="#"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Financial Search Focus */
+input[placeholder*="Transaction"]:focus {
+  border-color: #4f46e5 !important; /* Indigo-600 */
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1) !important;
+}
+
+/* Ensure buttons don't shrink on mobile */
+@media (max-width: 1280px) {
+  .xl\:flex-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .max-w-lg {
+    max-width: 100% !important;
+  }
+}
+
+/* Button haptic feedback for mobile */
+button:active {
+  transform: scale(0.96);
+}

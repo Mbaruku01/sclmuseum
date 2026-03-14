@@ -100,17 +100,28 @@
 
     <main class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar bg-[#fcfcfc]">
 
-  <div class="mb-10 flex flex-col md:flex-row justify-between items-end gap-6">
-    <div>
-      <h2 class="text-3xl font-black text-gray-900 tracking-tight">Vehicle Listing Requests</h2>
-      <p class="text-sm font-medium text-gray-500">Review new owner submissions for the fleet gallery.</p>
-    </div>
-    <div class="flex bg-white p-1 rounded-2xl border border-gray-100 shadow-sm">
-      <button class="px-6 py-2 bg-emerald-600 text-white rounded-xl text-[10px] font-black uppercase shadow-md">New Submissions (5)</button>
-      <button class="px-6 py-2 text-gray-400 rounded-xl text-[10px] font-black uppercase">Published Fleet</button>
+  <div class="mb-10 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-6">
+  <div class="flex-1">
+    <h2 class="text-3xl font-black text-[var(--text-main)] tracking-tight">Vehicle Listing Requests</h2>
+    <p class="text-sm font-medium text-[var(--text-muted)] mb-6">Review new owner submissions for the fleet gallery.</p>
+    
+    <div class="relative max-w-md group">
+      <i class="fa-solid fa-car-side absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-xs opacity-60 group-focus-within:text-emerald-600 transition-colors"></i>
+      <input type="text" 
+             placeholder="Search by Plate, Model or Owner name..." 
+             class="w-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-sm rounded-2xl py-3 pl-11 pr-4 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/5 transition-all shadow-sm">
     </div>
   </div>
 
+  <div class="flex bg-[var(--card-bg)] p-1.5 rounded-2xl border border-[var(--border-color)] shadow-sm w-full xl:w-auto">
+    <button class="px-6 py-2.5 bg-emerald-600 text-white rounded-xl text-[10px] font-black uppercase shadow-md flex-1 xl:flex-none">
+      New Submissions (5)
+    </button>
+    <button class="px-6 py-2.5 text-[var(--text-muted)] hover:text-[var(--text-main)] rounded-xl text-[10px] font-black uppercase flex-1 xl:flex-none transition-colors">
+      Published Fleet
+    </button>
+  </div>
+</div>
   <section class="space-y-12">
     
     <div class="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden border-t-8 border-t-emerald-500">

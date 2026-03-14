@@ -100,14 +100,26 @@
     
 <main class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
 
-  <div class="mb-8 flex flex-wrap gap-4 border-b border-[var(--border-color)] pb-6 sticky top-0 bg-[var(--main-bg)] z-10">
-    <a href="#bookings" class="px-6 py-2 bg-blue-600 text-white rounded-full text-xs font-black shadow-lg">
+ <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-color)] pb-6 sticky top-0 bg-[var(--body-bg)] z-30">
+  
+  <div class="flex flex-wrap gap-3">
+    <a href="#bookings" class="px-6 py-2.5 bg-blue-600 text-white rounded-full text-[10px] font-black shadow-lg flex items-center tracking-widest">
       <i class="fa-solid fa-hotel mr-2"></i> BOOKING QUEUE
     </a>
-    <a href="#submissions" class="px-6 py-2 bg-white border border-[var(--border-color)] text-[var(--text-main)] rounded-full text-xs font-black">
+    <a href="#submissions" class="px-6 py-2.5 bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] rounded-full text-[10px] font-black flex items-center tracking-widest hover:bg-gray-50 transition-colors">
       <i class="fa-solid fa-cloud-arrow-up mr-2 text-orange-500"></i> PROPERTY UPLOADS
     </a>
   </div>
+
+  <div class="relative w-full md:w-64 group">
+    <i class="fa-solid fa-filter absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-[10px] opacity-70 group-focus-within:text-blue-600"></i>
+    <input type="text" 
+           placeholder="Quick filter..." 
+           class="w-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-xs rounded-full py-2.5 pl-10 pr-4 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/5 transition-all"
+    >
+  </div>
+
+</div>
 
   <section id="bookings" class="space-y-10 scroll-mt-24">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-2">
