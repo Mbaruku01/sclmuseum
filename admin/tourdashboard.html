@@ -117,9 +117,9 @@
 <main class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
 
   <div class="mb-10 relative">
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+  <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-6">
     
-    <div class="relative">
+    <div class="relative flex-1">
       <div class="flex items-center gap-3 mb-2">
         <div class="w-2 h-8 bg-[#3b4f91] rounded-full"></div> 
         <h2 class="text-3xl font-black tracking-tight text-[var(--text-main)]">
@@ -130,22 +130,29 @@
           <span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
         </span>
       </div>
-      <p class="text-[var(--text-muted)] text-sm font-medium flex items-center gap-2">
+      <p class="text-[var(--text-muted)] text-sm font-medium flex items-center gap-2 mb-6">
         <i class="fa-solid fa-clipboard-check text-blue-500/70"></i>
         Currently reviewing <span class="text-[var(--text-main)] font-bold">5 Priority Specialist Assignments</span>
       </p>
+
+      <div class="relative max-w-xl group">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-xs transition-colors group-focus-within:text-[#3b4f91]"></i>
+        <input type="text" 
+               placeholder="Filter queue by Booking ID, Client or Status..." 
+               class="w-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-sm rounded-2xl py-3.5 pl-11 pr-4 outline-none focus:border-[#3b4f91] focus:ring-4 focus:ring-[#3b4f91]/5 transition-all shadow-sm">
+      </div>
     </div>
 
-    <div class="flex gap-4">
-      <div class="bg-[var(--card-bg)] border border-[var(--border-color)] px-5 py-3 rounded-2xl shadow-sm">
+    <div class="flex flex-wrap sm:flex-nowrap gap-4 shrink-0">
+      <div class="bg-[var(--card-bg)] border border-[var(--border-color)] px-5 py-3 rounded-2xl shadow-sm flex-1 sm:flex-initial">
         <p class="text-[10px] uppercase font-black text-[var(--text-muted)] tracking-tighter">Total Pending</p>
         <p class="text-xl font-black text-[#3b4f91]">11</p>
       </div>
-      <div class="bg-[var(--card-bg)] border border-[var(--border-color)] px-5 py-3 rounded-2xl shadow-sm">
+      <div class="bg-[var(--card-bg)] border border-[var(--border-color)] px-5 py-3 rounded-2xl shadow-sm flex-1 sm:flex-initial">
         <p class="text-[10px] uppercase font-black text-[var(--text-muted)] tracking-tighter">Needs Alert</p>
         <p class="text-xl font-black text-orange-500">05</p>
       </div>
-      <div class="bg-[#3b4f91] px-5 py-3 rounded-2xl shadow-lg shadow-blue-900/20">
+      <div class="bg-[#3b4f91] px-5 py-3 rounded-2xl shadow-lg shadow-blue-900/20 flex-1 sm:flex-initial">
         <p class="text-[10px] uppercase font-black text-blue-100 tracking-tighter">Est. Revenue</p>
         <p class="text-xl font-black text-white">$2,750</p>
       </div>
