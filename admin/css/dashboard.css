@@ -171,3 +171,96 @@
 .shrink-0 {
     flex-shrink: 0;
 }
+
+/* --- Add this to your existing CSS --- */
+
+/* 1. BUTTON STATES & ENHANCEMENTS */
+button, .btn-action {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Primary "Invite Vendor" style button */
+.bg-\[\#3b4f91\] {
+  background-color: var(--primary-blue) !important;
+  box-shadow: 0 4px 12px rgba(59, 79, 145, 0.2);
+}
+
+.bg-\[\#3b4f91\]:hover {
+  background-color: #2d3d70 !important;
+  box-shadow: 0 6px 15px rgba(59, 79, 145, 0.3);
+}
+
+/* Table Action Buttons (Approve/Reject) */
+.table-action-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* 2. TABLE RESPONSIVENESS (Crucial for Mobile) */
+/* This ensures your tables don't break the layout on small screens */
+.overflow-hidden {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  min-width: 650px; /* Forces scroll on mobile instead of squishing columns */
+  width: 100%;
+}
+
+/* 3. SEARCH BAR ENHANCEMENT */
+input.w-full {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+input.w-full:focus {
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 3px rgba(59, 79, 145, 0.1);
+}
+
+/* 4. MODAL ANIMATION */
+#rejectionModal:not(.hidden) {
+  display: flex !important;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 5. TOAST NOTIFICATION */
+#approvalToast {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 6. RESPONSIVE GRID ADJUSTMENTS */
+@media (max-width: 640px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  
+  header .flex-col {
+    align-items: stretch !important;
+  }
+}
+
+/* Highlighting the active nav item in the sidebar */
+.nav-link.active i {
+  color: var(--primary-blue);
+  opacity: 1;
+}
