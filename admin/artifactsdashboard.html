@@ -7,276 +7,314 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    /* Ensure the sidebar and main content handle the screen height correctly */
+    body {
+      min-height: 100vh;
+      display: flex;
+    }
+    @media (max-width: 1024px) {
+      body {
+        flex-direction: column;
+      }
+    }
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+    }
+  </style>
 </head>
-<body class="flex h-screen overflow-hidden bg-[var(--body-bg)]">
+<body class="bg-[var(--body-bg)]">
 
   <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
 
-  <aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
-    <h1>SCL Admin</h1>
+  <aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col h-screen bg-[var(--header-bg)] border-r border-[var(--border-color)]">
+    <h1 class="p-6 text-xl font-bold text-[var(--text-main)]">SCL Admin</h1>
+    
     <nav class="flex-1 overflow-y-auto py-4">
-  <div class="px-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Management</div>
-  <a href="staff.html" class="nav-link active">
-    <i class="fa-solid fa-address-card"></i>
-    <span>Staff Directory Dashboard</span>
-  </a>
+      <div class="px-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Management</div>
+      <a href="staff.html" class="nav-link active">
+        <i class="fa-solid fa-address-card"></i>
+        <span>Staff Directory Dashboard</span>
+      </a>
 
-  <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Inventory & Services</div>
-  <a href="artifactsdashboard.html" class="nav-link">
-    <i class="fa-solid fa-monument"></i>
-    <span>Artifacts Replicas</span>
-  </a>
-  <a href="merchandisedashboard.html" class="nav-link">
-    <i class="fa-solid fa-tshirt"></i>
-    <span>Branded Merchandise</span>
-  </a>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-book-open"></i>
-    <span>Books & Publications</span>
-  </a>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-laptop-code"></i>
-    <span>Digital Products</span>
-  </a>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-map-location-dot"></i>
-    <span>Cultural Tour Packages</span>
-  </a>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-hotel"></i>
-    <span>Hotels</span>
-  </a>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-bus"></i>
-    <span>Transportations</span>
-  </a>
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Inventory & Services</div>
+      <a href="artifactsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-monument"></i>
+        <span>Artifacts Replicas</span>
+      </a>
+      <a href="merchandisedashboard.html" class="nav-link">
+        <i class="fa-solid fa-tshirt"></i>
+        <span>Branded Merchandise</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Books & Publications</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>Digital Products</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>Cultural Tour Packages</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-hotel"></i>
+        <span>Hotels</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-bus"></i>
+        <span>Transportations</span>
+      </a>
 
-  <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Customer Experience</div>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-shopping-cart"></i>
-    <span>Cart</span>
-  </a>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-user-circle"></i>
-    <span>Customer Profile</span>
-  </a>
-  <a href="#" class="nav-link">
-    <i class="fa-solid fa-comment-dots"></i>
-    <span>Reviews & Comments</span>
-  </a>
-</nav>
-    <a href="#" class="p-6 text-red-400 hover:text-red-300 mt-auto"><i class="fa-solid fa-right-from-bracket mr-2"></i>Logout</a>
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Customer Experience</div>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span>Cart</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-user-circle"></i>
+        <span>Customer Profile</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>Reviews & Comments</span>
+      </a>
+    </nav>
+    
+    <a href="#" class="p-6 text-red-400 hover:text-red-300 mt-auto border-t border-[var(--border-color)] flex items-center">
+      <i class="fa-solid fa-right-from-bracket mr-2"></i>Logout
+    </a>
   </aside>
 
-  <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+  <div class="flex-1 flex flex-col min-w-0 h-screen">
     
     <header class="sticky top-0 z-20 flex justify-between items-center px-4 md:px-8 py-4 border-b border-[var(--border-color)] bg-[var(--header-bg)] shadow-sm">
-  <div class="flex items-center gap-4">
-    <button id="mobileMenuBtn" class="lg:hidden text-[var(--text-main)] p-2">
-      <i class="fa-solid fa-bars text-xl"></i>
-    </button>
-    <h2 class="text-lg md:text-xl font-bold text-[var(--text-main)] truncate">Worker Profile Detail</h2>
+      <div class="flex items-center gap-4">
+        <button id="mobileMenuBtn" class="lg:hidden text-[var(--text-main)] p-2">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h2 class="text-lg md:text-xl font-bold text-[var(--text-main)] truncate">Worker Profile Detail</h2>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4">
+        <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base">
+          <i class="fa-solid fa-moon"></i>
+          <span id="themeText" class="hidden sm:inline">Dark Mode</span>
+        </button>
+
+        <a href="admindashboard.html" id="adminLink" onclick="return checkAdminAccess(event)" class="no-underline">
+          <button type="button" class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base font-semibold hover:bg-blue-200 dark:hover:bg-blue-900/50">
+            <i class="fa-solid fa-users-gear"></i>
+            <span class="hidden sm:inline">Employee's Update</span>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-4 md:p-8">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <div>
+          <h2 class="text-2xl font-bold text-[var(--text-main)]">Artifacts Replicas</h2>
+          <p class="text-[var(--text-muted)] text-sm">Manage inventory and details for museum shop replicas.</p>
+        </div>
+        <button class="bg-[#3b4f91] text-white px-6 py-2.5 rounded-lg flex items-center gap-2 hover:bg-blue-800 transition shadow-lg w-full md:w-auto justify-center">
+          <i class="fa-solid fa-plus"></i>
+          <span>Add New Artifact</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+          <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Total Items</p>
+          <h3 class="text-2xl font-bold text-[var(--text-main)]">124</h3>
+        </div>
+        <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+          <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Low Stock</p>
+          <h3 class="text-2xl font-bold text-orange-500">12</h3>
+        </div>
+        <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+          <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Total Value</p>
+          <h3 class="text-2xl font-bold text-[var(--text-main)]">TSh 4.2M</h3>
+        </div>
+        <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+          <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Sold (MTD)</p>
+          <h3 class="text-2xl font-bold text-green-500">45</h3>
+        </div>
+      </div>
+
+      <div class="bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] shadow-xl overflow-hidden">
+        <div class="p-6 border-b border-[var(--border-color)] flex flex-col sm:flex-row justify-between items-center gap-4">
+          <h3 class="font-bold text-[var(--text-main)]">Current Inventory</h3>
+          <div class="flex gap-2 w-full sm:w-auto">
+            <input type="text" placeholder="Search artifacts..." class="form-input text-sm py-2 px-4 border rounded-lg bg-transparent flex-1">
+            <button class="p-2 border border-[var(--border-color)] rounded-lg text-[var(--text-muted)] hover:bg-gray-100 transition">
+              <i class="fa-solid fa-filter"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse min-w-[800px]">
+            <thead class="bg-gray-50 dark:bg-gray-800/50 text-[var(--text-muted)] text-xs uppercase font-bold">
+              <tr>
+                <th class="px-6 py-4">Item Details</th>
+                <th class="px-6 py-4">Category</th>
+                <th class="px-6 py-4">Price (TSh)</th>
+                <th class="px-6 py-4">Stock Status</th>
+                <th class="px-6 py-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border-color)] text-[var(--text-main)]">
+              
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+                <td class="px-6 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-amber-100 rounded flex items-center justify-center text-amber-700"><i class="fa-solid fa-mask"></i></div>
+                    <div>
+                      <div class="font-bold">Tribal Mask Replica</div>
+                      <div class="text-xs text-[var(--text-muted)]">ID: ART-MSK-01</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 text-sm">Ceremonial Art</td>
+                <td class="px-6 py-4 font-semibold">115,000</td>
+                <td class="px-6 py-4">
+                  <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (12)</span>
+                </td>
+                <td class="px-6 py-4 text-right space-x-2">
+                  <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
+                  <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+                <td class="px-6 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-orange-100 rounded flex items-center justify-center text-orange-700"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div>
+                      <div class="font-bold">Ceremonial Staff Replica</div>
+                      <div class="text-xs text-[var(--text-muted)]">ID: ART-STF-05</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 text-sm">Woodwork</td>
+                <td class="px-6 py-4 font-semibold">100,000</td>
+                <td class="px-6 py-4">
+                  <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (8)</span>
+                </td>
+                <td class="px-6 py-4 text-right space-x-2">
+                  <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
+                  <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+                <td class="px-6 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-stone-100 rounded flex items-center justify-center text-stone-700"><i class="fa-solid fa-jar"></i></div>
+                    <div>
+                      <div class="font-bold">Ceramic Pot Replica</div>
+                      <div class="text-xs text-[var(--text-muted)]">ID: ART-POT-22</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 text-sm">Pottery</td>
+                <td class="px-6 py-4 font-semibold">88,000</td>
+                <td class="px-6 py-4">
+                  <span class="px-2 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-xs rounded-full font-medium">Low Stock (3)</span>
+                </td>
+                <td class="px-6 py-4 text-right space-x-2">
+                  <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
+                  <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+                <td class="px-6 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-yellow-100 rounded flex items-center justify-center text-yellow-700"><i class="fa-solid fa-mask"></i></div>
+                    <div>
+                      <div class="font-bold">Wooden Mask Replica</div>
+                      <div class="text-xs text-[var(--text-muted)]">ID: ART-WMS-09</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 text-sm">Woodwork</td>
+                <td class="px-6 py-4 font-semibold">125,000</td>
+                <td class="px-6 py-4">
+                  <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (25)</span>
+                </td>
+                <td class="px-6 py-4 text-right space-x-2">
+                  <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
+                  <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+                <td class="px-6 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded flex items-center justify-center text-blue-700"><i class="fa-solid fa-gem"></i></div>
+                    <div>
+                      <div class="font-bold">Traditional Necklace Replica</div>
+                      <div class="text-xs text-[var(--text-muted)]">ID: ART-JW-14</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 text-sm">Beadwork</td>
+                <td class="px-6 py-4 font-semibold">63,000</td>
+                <td class="px-6 py-4">
+                  <span class="px-2 py-1 bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-xs rounded-full font-medium">Out of Stock</span>
+                </td>
+                <td class="px-6 py-4 text-right space-x-2">
+                  <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
+                  <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+                <td class="px-6 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-slate-100 rounded flex items-center justify-center text-slate-700"><i class="fa-solid fa-screwdriver"></i></div>
+                    <div>
+                      <div class="font-bold">Ceremonial Dagger Replica</div>
+                      <div class="text-xs text-[var(--text-muted)]">ID: ART-WPN-02</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 text-sm">Metalwork</td>
+                <td class="px-6 py-4 font-semibold">150,000</td>
+                <td class="px-6 py-4">
+                  <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (5)</span>
+                </td>
+                <td class="px-6 py-4 text-right space-x-2">
+                  <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
+                  <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <div class="flex items-center gap-3 md:gap-4">
-    <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base">
-      <i class="fa-solid fa-moon"></i>
-      <span id="themeText" class="hidden sm:inline">Dark Mode</span>
-    </button>
+  <script src="css/dashboardscript.js"></script>
+  <script>
+    // Mobile menu toggle logic
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
 
-    <a href="admindashboard.html" id="adminLink" onclick="return checkAdminAccess(event)" class="no-underline">
-  <button type="button" class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base font-semibold hover:bg-blue-200 dark:hover:bg-blue-900/50">
-    <i class="fa-solid fa-users-gear"></i>
-    <span class="hidden sm:inline">Employee's Update</span>
-  </button>
-</a>
-  </div>
-</header>
+    function toggleMenu() {
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
 
-<main class="flex-1 overflow-y-auto p-4 md:p-8">
-  
-  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-    <div>
-      <h2 class="text-2xl font-bold text-[var(--text-main)]">Artifacts Replicas</h2>
-      <p class="text-[var(--text-muted)] text-sm">Manage inventory and details for museum shop replicas.</p>
-    </div>
-    <button class="bg-[#3b4f91] text-white px-6 py-2.5 rounded-lg flex items-center gap-2 hover:bg-blue-800 transition shadow-lg">
-      <i class="fa-solid fa-plus"></i>
-      <span>Add New Artifact</span>
-    </button>
-  </div>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
-      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Total Items</p>
-      <h3 class="text-2xl font-bold text-[var(--text-main)]">124</h3>
-    </div>
-    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
-      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Low Stock</p>
-      <h3 class="text-2xl font-bold text-orange-500">12</h3>
-    </div>
-    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
-      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Total Value</p>
-      <h3 class="text-2xl font-bold text-[var(--text-main)]">TSh 4.2M</h3>
-    </div>
-    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
-      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Sold (MTD)</p>
-      <h3 class="text-2xl font-bold text-green-500">45</h3>
-    </div>
-  </div>
-
-  <div class="bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] shadow-xl overflow-hidden">
-    <div class="p-6 border-b border-[var(--border-color)] flex justify-between items-center">
-      <h3 class="font-bold text-[var(--text-main)]">Current Inventory</h3>
-      <div class="flex gap-2">
-        <input type="text" placeholder="Search artifacts..." class="form-input text-sm py-2">
-        <button class="p-2 border border-[var(--border-color)] rounded-lg text-[var(--text-muted)]"><i class="fa-solid fa-filter"></i></button>
-      </div>
-    </div>
-
-    <div class="overflow-x-auto">
-      <table class="w-full text-left border-collapse">
-        <thead class="bg-gray-50 dark:bg-gray-800/50 text-[var(--text-muted)] text-xs uppercase">
-          <tr>
-            <th class="px-6 py-4">Item Details</th>
-            <th class="px-6 py-4">Category</th>
-            <th class="px-6 py-4">Price (TSh)</th>
-            <th class="px-6 py-4">Stock Status</th>
-            <th class="px-6 py-4 text-right">Actions</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-[var(--border-color)] text-[var(--text-main)]">
-  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
-    <td class="px-6 py-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-amber-100 rounded flex items-center justify-center text-amber-700"><i class="fa-solid fa-mask"></i></div>
-        <div>
-          <div class="font-bold">Tribal Mask Replica</div>
-          <div class="text-xs text-[var(--text-muted)]">ID: ART-MSK-01</div>
-        </div>
-      </div>
-    </td>
-    <td class="px-6 py-4 text-sm">Ceremonial Art</td>
-    <td class="px-6 py-4 font-semibold">115,000</td>
-    <td class="px-6 py-4">
-      <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (12)</span>
-    </td>
-    <td class="px-6 py-4 text-right space-x-2">
-      <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
-      <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
-    </td>
-  </tr>
-
-  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
-    <td class="px-6 py-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-orange-100 rounded flex items-center justify-center text-orange-700"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-        <div>
-          <div class="font-bold">Ceremonial Staff Replica</div>
-          <div class="text-xs text-[var(--text-muted)]">ID: ART-STF-05</div>
-        </div>
-      </div>
-    </td>
-    <td class="px-6 py-4 text-sm">Woodwork</td>
-    <td class="px-6 py-4 font-semibold">100,000</td>
-    <td class="px-6 py-4">
-      <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (8)</span>
-    </td>
-    <td class="px-6 py-4 text-right space-x-2">
-      <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
-      <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
-    </td>
-  </tr>
-
-  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
-    <td class="px-6 py-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-stone-100 rounded flex items-center justify-center text-stone-700"><i class="fa-solid fa-jar"></i></div>
-        <div>
-          <div class="font-bold">Ceramic Pot Replica</div>
-          <div class="text-xs text-[var(--text-muted)]">ID: ART-POT-22</div>
-        </div>
-      </div>
-    </td>
-    <td class="px-6 py-4 text-sm">Pottery</td>
-    <td class="px-6 py-4 font-semibold">88,000</td>
-    <td class="px-6 py-4">
-      <span class="px-2 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-xs rounded-full font-medium">Low Stock (3)</span>
-    </td>
-    <td class="px-6 py-4 text-right space-x-2">
-      <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
-      <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
-    </td>
-  </tr>
-
-  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
-    <td class="px-6 py-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-yellow-100 rounded flex items-center justify-center text-yellow-700"><i class="fa-solid fa-mask"></i></div>
-        <div>
-          <div class="font-bold">Wooden Mask Replica</div>
-          <div class="text-xs text-[var(--text-muted)]">ID: ART-WMS-09</div>
-        </div>
-      </div>
-    </td>
-    <td class="px-6 py-4 text-sm">Woodwork</td>
-    <td class="px-6 py-4 font-semibold">125,000</td>
-    <td class="px-6 py-4">
-      <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (25)</span>
-    </td>
-    <td class="px-6 py-4 text-right space-x-2">
-      <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
-      <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
-    </td>
-  </tr>
-
-  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
-    <td class="px-6 py-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-blue-100 rounded flex items-center justify-center text-blue-700"><i class="fa-solid fa-gem"></i></div>
-        <div>
-          <div class="font-bold">Traditional Necklace Replica</div>
-          <div class="text-xs text-[var(--text-muted)]">ID: ART-JW-14</div>
-        </div>
-      </div>
-    </td>
-    <td class="px-6 py-4 text-sm">Beadwork</td>
-    <td class="px-6 py-4 font-semibold">63,000</td>
-    <td class="px-6 py-4">
-      <span class="px-2 py-1 bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-xs rounded-full font-medium">Out of Stock</span>
-    </td>
-    <td class="px-6 py-4 text-right space-x-2">
-      <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
-      <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
-    </td>
-  </tr>
-
-  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
-    <td class="px-6 py-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-slate-100 rounded flex items-center justify-center text-slate-700"><i class="fa-solid fa-screwdriver"></i></div>
-        <div>
-          <div class="font-bold">Ceremonial Dagger Replica</div>
-          <div class="text-xs text-[var(--text-muted)]">ID: ART-WPN-02</div>
-        </div>
-      </div>
-    </td>
-    <td class="px-6 py-4 text-sm">Metalwork</td>
-    <td class="px-6 py-4 font-semibold">150,000</td>
-    <td class="px-6 py-4">
-      <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs rounded-full font-medium">In Stock (5)</span>
-    </td>
-    <td class="px-6 py-4 text-right space-x-2">
-      <button class="text-blue-500 hover:underline text-sm font-medium">Edit</button>
-      <button class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
-    </td>
-  </tr>
-</tbody>
-      </table>
-    </div>
-  </div>
-</main>
-
-<script src="css/dashboardscript.js"></script>
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+  </script>
 </body>
 </html>
