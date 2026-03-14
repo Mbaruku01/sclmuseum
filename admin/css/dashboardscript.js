@@ -61,3 +61,8 @@ function checkAdminAccess(event) {
         return false;
     }
 }
+
+function togglePaymentStructure() {
+    const modal = document.getElementById('paymentModal');
+    modal.classList.toggle('hidden');
+}

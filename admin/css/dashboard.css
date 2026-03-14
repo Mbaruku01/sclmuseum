@@ -335,3 +335,20 @@ input[placeholder*="Transaction"]:focus {
 button:active {
   transform: scale(0.96);
 }
+
+/* Ensure modal doesn't collapse on mobile */
+#paymentModal:not(.hidden) {
+    display: flex !important;
+}
+
+/* Modal styling for dark mode */
+.dark #paymentModal .bg-gray-50 {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+/* Animations */
+.animate-in {
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}

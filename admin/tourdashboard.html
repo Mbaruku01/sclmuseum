@@ -116,50 +116,100 @@
 
 <main class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
 
-  <div class="mb-10 relative">
-  <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-6">
+  <div class="mb-10 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-6 border-b border-[var(--border-color)] pb-8">
+  <div class="flex-1 w-full">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-2 h-8 bg-indigo-600 rounded-full"></div>
+      <h2 class="text-3xl font-black text-[var(--text-main)] tracking-tight">Financial Checkout Manager</h2>
+    </div>
     
-    <div class="relative flex-1">
-      <div class="flex items-center gap-3 mb-2">
-        <div class="w-2 h-8 bg-[#3b4f91] rounded-full"></div> 
-        <h2 class="text-3xl font-black tracking-tight text-[var(--text-main)]">
-          Active Booking Queue
-        </h2>
-        <span class="flex h-3 w-3 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
-        </span>
-      </div>
-      <p class="text-[var(--text-muted)] text-sm font-medium flex items-center gap-2 mb-6">
-        <i class="fa-solid fa-clipboard-check text-blue-500/70"></i>
-        Currently reviewing <span class="text-[var(--text-main)] font-bold">5 Priority Specialist Assignments</span>
-      </p>
+    <div class="flex items-center gap-2 mb-6">
+      <p class="text-sm font-medium text-[var(--text-muted)]">Order ID: #SCL-88291 | TSh</p>
+      <span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[9px] font-black uppercase rounded-md border border-amber-200">Pending Verification</span>
+    </div>
 
-      <div class="relative max-w-xl group">
-        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-xs transition-colors group-focus-within:text-[#3b4f91]"></i>
+    <div class="flex flex-col sm:flex-row items-center gap-3 max-w-2xl">
+      <div class="relative flex-1 w-full group">
+        <i class="fa-solid fa-file-invoice-dollar absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-xs opacity-60 group-focus-within:text-indigo-600 transition-colors"></i>
         <input type="text" 
-               placeholder="Filter queue by Booking ID, Client or Status..." 
-               class="w-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-sm rounded-2xl py-3.5 pl-11 pr-4 outline-none focus:border-[#3b4f91] focus:ring-4 focus:ring-[#3b4f91]/5 transition-all shadow-sm">
+               placeholder="Search by Transaction, Control No..." 
+               class="w-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-sm rounded-2xl py-3.5 pl-11 pr-4 outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-600/5 transition-all shadow-sm">
+      </div>
+      
+      <button onclick="togglePaymentStructure()" class="flex items-center gap-2 px-5 py-3.5 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-2xl text-xs font-bold hover:bg-indigo-100 transition whitespace-nowrap w-full sm:w-auto justify-center">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Fee Structure</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap sm:flex-nowrap gap-3 w-full xl:w-auto">
+    <button class="bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-[10px] font-black px-6 py-4 rounded-2xl uppercase hover:bg-gray-50 transition flex-1 sm:flex-none">
+      Export Tax Report
+    </button>
+    <button class="bg-indigo-600 text-white text-[10px] font-black px-6 py-4 rounded-2xl uppercase shadow-lg shadow-indigo-100 hover:scale-[1.02] active:scale-95 transition flex-1 sm:flex-none">
+      Generate GePG Control No.
+    </button>
+  </div>
+</div>
+
+<div id="paymentModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+  <div class="bg-[var(--card-bg)] w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+    <div class="p-6 border-b border-[var(--border-color)] flex justify-between items-center">
+      <h3 class="font-black text-[var(--text-main)] uppercase tracking-tight">Cultural Tour Payment Structure</h3>
+      <button onclick="togglePaymentStructure()" class="text-[var(--text-muted)] hover:text-red-500"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="p-6 space-y-6">
+  <div class="space-y-2">
+    <div class="flex justify-between items-end">
+      <p class="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">Fee Distribution</p>
+      <p class="text-[10px] font-bold text-indigo-600">Total 100%</p>
+    </div>
+    <div class="w-full h-3 bg-gray-100 rounded-full flex overflow-hidden border border-gray-200/50">
+      <div style="width: 49%" class="h-full bg-indigo-500 shadow-inner" title="Specialist"></div>
+      <div style="width: 37.8%" class="h-full bg-indigo-300" title="SCL"></div>
+      <div style="width: 13.2%" class="h-full bg-orange-400" title="Taxes & Fees"></div>
+    </div>
+  </div>
+
+  <div class="space-y-3">
+    <div class="bg-gray-50/50 rounded-2xl border border-[var(--border-color)] overflow-hidden">
+      <div class="px-4 py-2 bg-gray-100/50 border-b border-[var(--border-color)]">
+        <p class="text-[9px] font-black uppercase text-gray-500 tracking-tighter">Statutory & Regulatory</p>
+      </div>
+      <div class="p-4 space-y-3">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-semibold text-[var(--text-main)]">Ada (Regulatory)</span>
+          <span class="text-xs font-black text-[var(--text-main)]">0.054%</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-semibold text-[var(--text-main)]">Tozo (Levy)</span>
+          <span class="text-xs font-black text-[var(--text-main)]">11.14%</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-semibold text-[var(--text-main)]">VAT</span>
+          <span class="text-xs font-black text-[var(--text-main)]">2.01%</span>
+        </div>
       </div>
     </div>
 
-    <div class="flex flex-wrap sm:flex-nowrap gap-4 shrink-0">
-      <div class="bg-[var(--card-bg)] border border-[var(--border-color)] px-5 py-3 rounded-2xl shadow-sm flex-1 sm:flex-initial">
-        <p class="text-[10px] uppercase font-black text-[var(--text-muted)] tracking-tighter">Total Pending</p>
-        <p class="text-xl font-black text-[#3b4f91]">11</p>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100">
+        <p class="text-[9px] font-black text-indigo-400 uppercase tracking-tighter mb-1">Specialist</p>
+        <p class="text-xl font-black text-indigo-700">49%</p>
       </div>
-      <div class="bg-[var(--card-bg)] border border-[var(--border-color)] px-5 py-3 rounded-2xl shadow-sm flex-1 sm:flex-initial">
-        <p class="text-[10px] uppercase font-black text-[var(--text-muted)] tracking-tighter">Needs Alert</p>
-        <p class="text-xl font-black text-orange-500">05</p>
-      </div>
-      <div class="bg-[#3b4f91] px-5 py-3 rounded-2xl shadow-lg shadow-blue-900/20 flex-1 sm:flex-initial">
-        <p class="text-[10px] uppercase font-black text-blue-100 tracking-tighter">Est. Revenue</p>
-        <p class="text-xl font-black text-white">$2,750</p>
+      <div class="p-4 bg-indigo-600 rounded-2xl shadow-lg shadow-indigo-200">
+        <p class="text-[9px] font-black text-indigo-200 uppercase tracking-tighter mb-1">SHIMULIMULI COMPANY LIMITED Share</p>
+        <p class="text-xl font-black text-white">37.8%</p>
       </div>
     </div>
   </div>
 
-  <div class="mt-8 w-full h-[1px] bg-gradient-to-r from-[var(--border-color)] via-transparent to-transparent"></div>
+  <p class="text-center text-[9px] text-[var(--text-muted)] font-medium italic">
+    * All percentages are calculated based on the gross booking value.
+  </p>
+</div>
+  </div>
 </div>
 
 
