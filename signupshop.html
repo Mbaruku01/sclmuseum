@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCL Signup</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" type="image/x-icon" href="1000186051.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+<div class="flex flex-col-reverse md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-5xl">
+
+  <!-- LEFT SIDE: Signup Form -->
+  <div class="w-full md:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
+
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-3">Create Account</h2>
+    <p class="text-gray-500 mb-6 text-sm sm:text-base">
+      Fill in the information below to get started.
+    </p>
+
+    <form id="signupForm" class="flex flex-col space-y-4">
+
+      <!-- Row 1: Full Name / Username / Email -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <input type="text" id="fullName" placeholder="Full Name" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <input type="text" id="username" placeholder="Username" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <input type="email" id="email" placeholder="Email" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+
+      <!-- Row 2: Phone / DOB / Gender -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <input type="tel" id="phone" placeholder="Phone Number" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <input type="date" id="dob" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <select id="gender" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="">Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          
+        </select>
+      </div>
+
+      <!-- Row 3: Role / Street / City -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <select id="role" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="">Role</option>
+          <option value="Customer">Customer</option>
+          <option value="Admin">Admin</option>
+        </select>
+        <input type="text" id="street" placeholder="Street Address" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <input type="text" id="city" placeholder="City" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+
+      <!-- Row 4: Region / Country / Empty -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <input type="text" id="region" placeholder="Region / State" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <input type="text" id="country" placeholder="Country" required
+               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <div></div> <!-- Empty placeholder to keep spacing -->
+      </div>
+
+      <!-- Row 5: Password / Confirm Password / Empty -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+  <input type="password" id="password" placeholder="Create Password" required
+         class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+  <input type="password" id="confirmPassword" placeholder="Confirm Password" required
+         class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
+  <div></div> <!-- Empty placeholder to keep spacing -->
+</div>
+
+      <button type="submit" class="w-full bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition font-semibold">
+        Sign Up
+      </button>
+    </form>
+
+    <div class="flex justify-center mt-4 text-gray-500 text-sm">
+      Already have an account? <a href="loginshop.html" class="ml-1 text-purple-700 hover:underline">Login</a>
+    </div>
+
+    <!-- SOCIAL LOGIN -->
+    <div class="flex justify-center items-center mt-6 space-x-4">
+      <button id="googleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+        <i class="fa-brands fa-google text-red-500 text-lg"></i>
+      </button>
+      <button id="appleLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+        <i class="fa-brands fa-apple text-black text-lg"></i>
+      </button>
+      <button id="facebookLogin" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+        <i class="fa-brands fa-facebook-f text-blue-600 text-lg"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE: Illustration/Image -->
+  <div class="w-full md:w-1/2 h-48 md:h-auto">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+         alt="Signup Illustration" class="w-full h-full object-cover">
+  </div>
+
+</div>
+
+<script>
+const signupForm = document.getElementById('signupForm');
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+
+  if(password !== confirmPassword){
+    alert("Passwords do not match! Please check.");
+    return;
+  }
+
+  const userData = {
+    fullName: document.getElementById('fullName').value,
+    username: document.getElementById('username').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    dob: document.getElementById('dob').value,
+    gender: document.getElementById('gender').value,
+    role: document.getElementById('role').value,
+    street: document.getElementById('street').value,
+    city: document.getElementById('city').value,
+    region: document.getElementById('region').value,
+    country: document.getElementById('country').value,
+    password: password
+  };
+
+  console.log('User Data:', userData);
+  alert(`Account created for ${userData.fullName} (${userData.role})!`);
+  signupForm.reset();
+});
+document.getElementById('googleLogin').addEventListener('click', () => alert('Google signup clicked.'));
+document.getElementById('appleLogin').addEventListener('click', () => alert('Apple signup clicked.'));
+document.getElementById('facebookLogin').addEventListener('click', () => alert('Facebook signup clicked.'));
+</script>
+
+<div class="fixed bottom-6 right-6 z-50">
+  <a href="index.html" class="w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-xl bg-purple-700/10 border border-purple-400/30 shadow-lg hover:scale-110 transition">
+    <i class="fa-solid fa-house text-purple-400 text-xl"></i>
+  </a>
+</div>
+
+</body>
+</html>
