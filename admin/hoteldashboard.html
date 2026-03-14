@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Shop Admin - Worker Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    body { min-height: 100vh; display: flex; }
+    @media (max-width: 1024px) { body { flex-direction: column; } }
+    .sidebar { width: 260px; flex-shrink: 0; }
+  </style>
+</head>
+<body class="bg-[var(--body-bg)]">
+
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+  <aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col h-screen bg-[var(--header-bg)] border-r border-[var(--border-color)]">
+    <h1 class="p-6 text-xl font-bold text-[var(--text-main)]">SCL Admin</h1>
+    <nav class="flex-1 overflow-y-auto py-4">
+      <div class="px-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Management</div>
+      <a href="staff.html" class="nav-link active">
+        <i class="fa-solid fa-address-card"></i>
+        <span>Staff Directory Dashboard</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Inventory & Services</div>
+      <a href="artifactsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-monument"></i>
+        <span>Artifacts Replicas</span>
+      </a>
+      <a href="merchandisedashboard.html" class="nav-link">
+        <i class="fa-solid fa-tshirt"></i>
+        <span>Branded Merchandise</span>
+      </a>
+      <a href="booksdashboard.html" class="nav-link">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Books & Publications</span>
+      </a>
+      <a href="digitalproductsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>Digital Products</span>
+      </a>
+      <a href="tourdashboard.html" class="nav-link">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>Cultural Tour Packages</span>
+      </a>
+      <a href="hoteldashboard.html" class="nav-link">
+        <i class="fa-solid fa-hotel"></i>
+        <span>Hotels</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-bus"></i>
+        <span>Transportations</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Customer Experience</div>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span>Cart</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-user-circle"></i>
+        <span>Customer Profile</span>
+      </a>
+      <a href="#" class="nav-link">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>Reviews & Comments</span>
+      </a>
+    </nav>
+    <a href="index.html" class="p-6 text-red-400 hover:text-red-300 mt-auto border-t border-[var(--border-color)] flex items-center">
+      <i class="fa-solid fa-right-from-bracket mr-2"></i>Logout
+    </a>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0 h-screen">
+    <header class="sticky top-0 z-20 flex justify-between items-center px-4 md:px-8 py-4 border-b border-[var(--border-color)] bg-[var(--header-bg)] shadow-sm">
+      <div class="flex items-center gap-4">
+        <button id="mobileMenuBtn" class="lg:hidden text-[var(--text-main)] p-2">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h2 class="text-lg md:text-xl font-bold text-[var(--text-main)] truncate">Worker Profile Detail</h2>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4">
+        <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base">
+          <i class="fa-solid fa-moon"></i>
+          <span id="themeText" class="hidden sm:inline">Dark Mode</span>
+        </button>
+        <a href="admindashboard.html" id="adminLink" onclick="return checkAdminAccess(event)" class="no-underline">
+          <button type="button" class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base font-semibold hover:bg-blue-200 dark:hover:bg-blue-900/50">
+            <i class="fa-solid fa-users-gear"></i>
+            <span class="hidden sm:inline">Employee's Update</span>
+          </button>
+        </a>
+      </div>
+    </header>
+    
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+
+  <div class="mb-10 relative">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-2">
+          <div class="w-2 h-8 bg-blue-600 rounded-full"></div> 
+          <h2 class="text-3xl font-black tracking-tight text-[var(--text-main)]">Hotel Booking Queue</h2>
+          <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-[9px] font-black uppercase">5 Priority Reviews</span>
+        </div>
+        <p class="text-[var(--text-muted)] text-sm font-medium">Reviewing Dar es Salaam & Arusha premium hotel reservations.</p>
+      </div>
+    </div>
+    <div class="mt-6 w-full h-[1px] bg-gradient-to-r from-[var(--border-color)] via-transparent to-transparent"></div>
+  </div>
+
+  <div class="space-y-6">
+
+    <div class="bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] overflow-hidden shadow-sm hover:shadow-md transition-all border-l-4 border-l-blue-600">
+      <div class="px-8 py-4 border-b border-[var(--border-color)] flex justify-between items-center bg-gray-50/30">
+        <div>
+          <h3 class="font-black text-[var(--text-main)]">Hyatt Regency Dar es Salaam</h3>
+          <p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest">Dar es Salaam • US$150 Base</p>
+        </div>
+        <div class="text-right">
+          <p class="text-[10px] font-black text-[var(--text-muted)] uppercase tracking-tighter">Rate per Night</p>
+          <p class="text-lg font-black text-emerald-600">TSh 390,000</p>
+        </div>
+      </div>
+      <div class="p-6 grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div class="text-xs space-y-2">
+          <p class="text-[9px] font-black text-blue-500 uppercase border-b pb-1">Guest Identity</p>
+          <p><span class="text-[var(--text-muted)]">Name:</span> <span class="font-bold">Baraka Mshana</span></p>
+          <p><span class="text-[var(--text-muted)]">Contact:</span> +255 711 000 111</p>
+          <p><span class="text-[var(--text-muted)]">Address:</span> 12 Masaki, Dar es Salaam</p>
+        </div>
+        <div class="text-xs space-y-2">
+          <p class="text-[9px] font-black text-blue-500 uppercase border-b pb-1">Stay Schedule</p>
+          <p><span class="text-[var(--text-muted)]">Check-in:</span> 15 Mar 2026</p>
+          <p><span class="text-[var(--text-muted)]">Check-out:</span> 18 Mar 2026</p>
+          <p class="font-bold text-blue-600">3 Nights — 2 Guests</p>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="grid grid-cols-3 gap-1">
+            <button onclick="sendAlert('Email')" class="bg-white border text-[9px] font-bold py-2 rounded-lg hover:bg-gray-50 flex flex-col items-center gap-1"><i class="fa-solid fa-envelope text-blue-500"></i> EMAIL</button>
+            <button onclick="sendAlert('SMS')" class="bg-white border text-[9px] font-bold py-2 rounded-lg hover:bg-gray-50 flex flex-col items-center gap-1"><i class="fa-solid fa-comment-sms text-green-500"></i> SMS</button>
+            <button onclick="sendAlert('WhatsApp')" class="bg-white border text-[9px] font-bold py-2 rounded-lg hover:bg-gray-50 flex flex-col items-center gap-1"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WA</button>
+          </div>
+          <button onclick="triggerApproval()" class="bg-[#3b4f91] text-white text-[10px] font-black py-3 rounded-lg uppercase tracking-widest shadow-md">Confirm Booking</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-600">
+      <div class="px-8 py-4 border-b border-[var(--border-color)] flex justify-between items-center bg-gray-50/30">
+        <div><h3 class="font-black text-[var(--text-main)]">Serena Hotel</h3><p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest">Dar es Salaam • US$160 Base</p></div>
+        <div class="text-right">
+          <p class="text-[10px] font-black text-[var(--text-muted)] uppercase tracking-tighter">Rate per Night</p>
+          <p class="text-lg font-black text-emerald-600">TSh 416,000</p>
+        </div>
+      </div>
+      <div class="p-6 grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div class="text-xs space-y-2">
+          <p class="text-[9px] font-black text-blue-500 uppercase border-b pb-1">Guest Identity</p>
+          <p><span class="text-[var(--text-muted)] font-bold">Amina Juma</span> | @amina_j</p>
+          <p>amina.j@gmail.com | +255 788 222 333</p>
+        </div>
+        <div class="text-xs space-y-2">
+          <p class="text-[9px] font-black text-blue-500 uppercase border-b pb-1">Stay Schedule</p>
+          <p>19 Mar - 21 Mar | <span class="text-blue-600 font-bold">2 Nights</span></p>
+          <p>Female | Standard Guest</p>
+        </div>
+        <div class="flex flex-col gap-2">
+            <div class="grid grid-cols-3 gap-1">
+                <button class="bg-white border text-[9px] font-bold py-2 rounded-lg flex flex-col items-center gap-1"><i class="fa-solid fa-envelope text-blue-500"></i> EMAIL</button>
+                <button class="bg-white border text-[9px] font-bold py-2 rounded-lg flex flex-col items-center gap-1"><i class="fa-solid fa-comment-sms text-green-500"></i> SMS</button>
+                <button class="bg-white border text-[9px] font-bold py-2 rounded-lg flex flex-col items-center gap-1"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WA</button>
+            </div>
+            <button onclick="triggerApproval()" class="bg-[#3b4f91] text-white text-[10px] font-black py-3 rounded-lg uppercase tracking-widest shadow-md">Confirm Booking</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-600">
+      <div class="px-8 py-4 border-b border-[var(--border-color)] flex justify-between items-center bg-gray-50/30">
+        <div><h3 class="font-black text-[var(--text-main)]">Four Points by Sheraton</h3><p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest">Dar es Salaam • US$190 Base</p></div>
+        <div class="text-right">
+          <p class="text-[10px] font-black text-[var(--text-muted)] uppercase tracking-tighter">Rate per Night</p>
+          <p class="text-lg font-black text-emerald-600">TSh 494,000</p>
+        </div>
+      </div>
+      <div class="p-6 text-center text-[10px] text-[var(--text-muted)] font-black italic uppercase tracking-widest">Awaiting Customer Data for Sheraton Assignment...</div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-600">
+      <div class="px-8 py-4 border-b border-[var(--border-color)] flex justify-between items-center bg-gray-50/30">
+        <div><h3 class="font-black text-[var(--text-main)]">Mount Meru Hotel</h3><p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest">Arusha • US$160 Base</p></div>
+        <div class="text-right">
+          <p class="text-[10px] font-black text-[var(--text-muted)] uppercase tracking-tighter">Rate per Night</p>
+          <p class="text-lg font-black text-emerald-600">TSh 416,000</p>
+        </div>
+      </div>
+      <div class="p-6 text-center text-[10px] text-[var(--text-muted)] font-black italic uppercase tracking-widest">Awaiting Customer Data for Arusha Assignment...</div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-600">
+      <div class="px-8 py-4 border-b border-[var(--border-color)] flex justify-between items-center bg-gray-50/30">
+        <div><h3 class="font-black text-[var(--text-main)]">New Africa Hotel</h3><p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest">Dar es Salaam • US$170 Base</p></div>
+        <div class="text-right">
+          <p class="text-[10px] font-black text-[var(--text-muted)] uppercase tracking-tighter">Rate per Night</p>
+          <p class="text-lg font-black text-emerald-600">TSh 442,000</p>
+        </div>
+      </div>
+      <div class="p-6 text-center text-[10px] text-[var(--text-muted)] font-black italic uppercase tracking-widest">Awaiting Customer Data for New Africa Assignment...</div>
+    </div>
+
+  </div>
+</main>
+
+<script src="css/dashboardscript.js"></script>
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    function toggleMenu() { sidebar.classList.toggle('-translate-x-full'); overlay.classList.toggle('hidden'); }
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+  </script>
+</body>
+</html>
