@@ -2,27 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCL 3D Archive | Mercedes Benz</title>
-    <link rel="stylesheet" href="css/viewer.css">
+    <title>SCL Museum | 360 Virtual Tour</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="canvas-container"></div>
 
-    <div class="info-overlay glass">
-        <h2>Digital Product: Mercedes Benz</h2>
-        <p>Format: GLB (High Fidelity)</p>
-        <button onclick="location.href='admindashboard.html'">Back to Dashboard</button>
-    </div>
+    <div id="panorama"></div>
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <script type="module" src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
