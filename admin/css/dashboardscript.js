@@ -92,25 +92,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Configuration
-const globalSecretKey = "MjEyMQ=="; // "2121" in Base64
-
-document.addEventListener('click', (event) => {
-    // 1. Identify what was clicked
-    const target = event.target;
-
-    // 2. Ask for the password
-    const message = "Action Restricted: Please enter the Authorization Code to proceed:";
-    const userInput = prompt(message);
-
-    // 3. Validate
-    if (userInput && btoa(userInput) === globalSecretKey) {
-        // Correct password - allow the click to happen
-        console.log("Access granted for action.");
-    } else {
-        // Wrong password or Cancel - STOP the click completely
-        event.preventDefault();
-        event.stopPropagation();
-        alert("Access Denied: Action cancelled.");
-    }
-}, true); // The 'true' here is key: it catches the click during the "Capture" phase
