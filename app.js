@@ -1,6 +1,6 @@
 pannellum.viewer('panorama', {
     "type": "equirectangular",
-    "panorama": "PXL_20260315_040404775.PHOTOSPHERE.jpg", 
+    "panorama": "PXL_20260315_042428263.PHOTOSPHERE.jpg", 
     "autoLoad": true,
     "autoRotate": -2, // Slowly rotates the room for a museum feel
     "title": "SCL Museum Interior",
