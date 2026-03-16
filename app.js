@@ -10,7 +10,7 @@ pannellum.viewer('panorama', {
             "pitch": -10,
             "yaw": 20,
             "type": "info",
-            "text": "View Mercedes Benz 3D Model",
+            "text": "View Mengwana Home 3D Model",
             "URL": "view.html" // Link back to your benz.glb page!
         }
     ]
