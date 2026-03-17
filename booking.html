@@ -1,126 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCL Museum Shop - Tour Booking</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<script>
-  tailwind.config = { darkMode: 'class' }
-</script>
-<style>
-/* ===== Animations ===== */
-@keyframes pulse-shadow { 0%,100%{box-shadow:0 0 0 rgba(0,0,0,0);} 50%{box-shadow:0 0 15px rgba(124,58,237,0.5);} }
-.animate-pulse-shadow { animation: pulse-shadow 2s infinite; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Museum Shop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-/* Specialist photo */
-#specialistPhoto { transition: all 0.4s ease; border-width: 4px; border-color: #7c3aed; box-shadow: 0 4px 15px rgba(124,58,237,0.3); }
-
-/* Floating Chat Button */
-#chatToggle { position: fixed; bottom: 1.5rem; right: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 50px; padding: 12px 18px; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; z-index:50; }
-#chatToggle:hover { transform: scale(1.1); background-color: #5b21b6; }
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .flex-col-mobile { flex-direction: column; align-items: center; gap: 1rem; }
-}
-</style>
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+  
+  <script>
+    tailwind.config = { 
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    purple: {
+                        550: '#8b2cf5',
+                    }
+                }
+            }
+        }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes slide-in { 
+        from { transform: translateX(-100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; } 
+    }
+    .animate-slide-in { animation: slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { 
+        background: rgba(255, 255, 255, 0.2); 
+        border-radius: 20px; 
+    }
+    
+    .glass-header {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    
+    .nav-item-active {
+        background: rgba(255, 255, 255, 0.15);
+        border-left: 4px solid white;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-500">
+<body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-950 font-sans text-gray-900 dark:text-gray-100">
 
-<div class="flex min-h-screen">
+<div class="flex min-h-screen relative">
 
-  <!-- Desktop Sidebar -->
-  <aside class="hidden md:flex w-64 bg-purple-700 dark:bg-purple-900 text-white flex-col sticky top-0 h-screen shadow-xl">
-    <div class="flex items-center p-6 space-x-3">
-      <img src="1000186051.png" alt="SCL Logo" class="h-10 w-10 rounded-full shadow-md">
-      <span class="text-2xl font-bold tracking-wide">SCL Shop</span>
-    </div>
-    <nav class="flex-1 px-4 overflow-auto">
-      <ul class="space-y-4">
-        <li><a href="shop.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
-        <li><a href="artifacts.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-mask"></i> Artifacts Replicas</a></li>
-        <li><a href="merchandise.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-tshirt"></i> Branded Merchandise</a></li>
-        <li><a href="books.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-book"></i> Books & Publications</a></li>
-        <li><a href="digital.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-file-arrow-down"></i> Digital Products</a></li>
-        <li><a href="tour.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-map-location-dot"></i> Cultural Tour Packages</a></li>
-        <li><a href="hotels.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-hotel"></i> Hotels</a></li>
-        <li><a href="transport.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-xl transition"><i class="fa-solid fa-truck"></i> Transportations</a></li>
-      </ul>
-    </nav>
-  </aside>
-
-  <!-- Mobile Sidebar -->
-  <div id="mobileSidebar" class="fixed top-0 left-0 h-full w-64 bg-purple-700 dark:bg-purple-900 text-white transform -translate-x-full transition-transform duration-300 z-40 md:hidden">
-    <div class="flex items-center p-6 space-x-3 border-b border-purple-500">
-      <img src="1000186051.png" class="h-10 w-10 rounded-full shadow-md">
-      <span class="text-2xl font-bold">SCL Shop</span>
-    </div>
-    <nav class="px-4 py-6 overflow-auto">
-      <ul class="space-y-4">
-        <li><a href="shop.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
-        <li><a href="artifacts.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-mask"></i> Artifacts Replicas</a></li>
-        <li><a href="merchandise.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-tshirt"></i> Branded Merchandise</a></li>
-        <li><a href="books.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-book"></i> Books & Publications</a></li>
-        <li><a href="digital.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-file-arrow-down"></i> Digital Products</a></li>
-        <li><a href="tour.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-map-location-dot"></i> Cultural Tour Packages</a></li>
-        <li><a href="hotels.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-hotel"></i> Hotels</a></li>
-        <li><a href="transport.html" class="flex items-center gap-3 p-2 hover:bg-purple-600 rounded-lg"><i class="fa-solid fa-truck"></i> Transportations</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="flex-1 flex flex-col">
-
-    <!-- PROFESSIONAL HEADER -->
-    <header class="sticky top-0 z-30 bg-white dark:bg-gray-900 shadow-sm">
-  <div class="flex flex-wrap justify-between items-center px-4 md:px-10 py-4 gap-2">
-
-    <div class="text-lg md:text-xl font-semibold text-gray-900 dark:text-gray-100 flex-shrink-0">
-      Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+  <aside class="hidden md:flex w-72 bg-gradient-to-b from-purple-700 to-indigo-900 dark:from-purple-950 dark:to-black text-white flex-col sticky top-0 h-screen shadow-2xl overflow-hidden animate-slide-in z-50">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <i class="fa-solid fa-pattern text-9xl absolute -bottom-10 -right-10"></i>
     </div>
 
-    <input type="text" placeholder="Search products..."
-      class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800
-             text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500
-             transition flex-1 min-w-[120px] md:w-64">
-
-    <div class="flex items-center gap-2 flex-shrink-0">
-      <button class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-        <i class="fa-solid fa-bell text-gray-700 dark:text-gray-200"></i>
-      </button>
-      <button id="darkToggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-        <i id="darkIcon" class="fa-solid fa-moon text-gray-700 dark:text-gray-200"></i>
-      </button>
-      <div class="relative">
-        <img id="profileBtn" src="https://i.pravatar.cc/40" class="w-10 h-10 rounded-full cursor-pointer ring-2 ring-purple-500">
-        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl hidden z-50">
-          <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
-          <a href="ShopSetting.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
-          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
-        </div>
+    <div class="flex items-center p-8 space-x-4 relative z-10">
+      <div class="p-1 bg-white/20 rounded-2xl backdrop-blur-md">
+        <img src="1000186051.png" alt="SCL Logo" class="h-12 w-12 rounded-xl shadow-lg object-cover">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-black tracking-tighter">SCL SHOP</span>
+        <span class="text-[10px] uppercase tracking-[0.3em] opacity-60">Museum Retail</span>
       </div>
     </div>
 
-  </div>
-</header>
+    <nav class="flex-1 px-4 py-4 overflow-y-auto custom-scrollbar relative z-10">
+      <ul class="space-y-2">
+        <li>
+          <a href="shop.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-gauge-high text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="artifacts.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-mask text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Artifacts Replicas</span>
+          </a>
+        </li>
+        <li>
+          <a href="merchandise.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-tshirt text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Branded Merchandise</span>
+          </a>
+        </li>
+        <li>
+          <a href="books.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-book text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Books & Publications</span>
+          </a>
+        </li>
+        <li>
+          <a href="digital.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-file-arrow-down text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Digital Products</span>
+          </a>
+        </li>
+        <li class="pt-4 pb-2">
+            <span class="px-4 text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Services</span>
+        </li>
+        <li>
+          <a href="tour.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-map-location-dot text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Cultural Tours</span>
+          </a>
+        </li>
+        <li>
+          <a href="hotels.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-hotel text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Hotels</span>
+          </a>
+        </li>
+        <li>
+          <a href="transport.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-truck text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Transportations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-4 md:p-10 overflow-auto">
+    <div class="p-6 bg-black/20 backdrop-blur-xl relative z-10">
+        <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-purple-300">
+            <span>SCL v4.0</span>
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        </div>
+    </div>
+  </aside>
 
-      <!-- Mobile Hamburger -->
-      <button id="mobileSidebarBtn" class="md:hidden fixed top-5 left-5 z-50 bg-white/30 dark:bg-black/30 border border-white/40 w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition">
-        <i id="mobileSidebarIcon" class="fa-solid fa-bars text-xl text-purple-700"></i>
+  <div id="mobileSidebar" class="fixed inset-y-0 left-0 w-80 bg-purple-900 text-white transform -translate-x-full transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) z-[100] md:hidden shadow-2xl border-r border-white/10">
+    <div class="flex items-center justify-between p-8 border-b border-white/10">
+      <div class="flex items-center space-x-3">
+        <img src="1000186051.png" class="h-10 w-10 rounded-xl shadow-lg">
+        <span class="text-2xl font-black tracking-tighter">SCL Shop</span>
+      </div>
+      <button id="closeMobileBtn" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-red-500 transition-colors">
+        <i class="fa-solid fa-xmark"></i>
       </button>
+    </div>
+    <nav class="p-4 space-y-2 overflow-y-auto h-[calc(100vh-120px)] custom-scrollbar">
+        <a href="shop.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-gauge-high w-6"></i><span>Dashboard</span></a>
+        <a href="artifacts.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-mask w-6"></i><span>Artifacts</span></a>
+        <a href="merchandise.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-tshirt w-6"></i><span>Merchandise</span></a>
+        <a href="books.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-book w-6"></i><span>Publications</span></a>
+        <a href="digital.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-file-arrow-down w-6"></i><span>Digital Assets</span></a>
+        <div class="h-px bg-white/10 my-4 mx-4"></div>
+        <a href="tour.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-map-location-dot w-6"></i><span>Tours</span></a>
+        <a href="hotels.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-hotel w-6"></i><span>Hotels</span></a>
+        <a href="transport.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-truck w-6"></i><span>Transport</span></a>
+    </nav>
+  </div>
 
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">Tour Booking</h1>
+  <div class="flex-1 flex flex-col min-w-0">
+    
+    <header class="sticky top-0 z-40 w-full glass-header bg-white/70 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+      <div class="px-4 py-4 md:px-10 flex items-center justify-between">
+        <div class="flex items-center gap-6">
+          <button id="mobileSidebarBtn" class="md:hidden text-purple-700 dark:text-purple-400 text-2xl p-2 bg-purple-50 dark:bg-purple-900/30 rounded-xl hover:scale-105 active:scale-95 transition">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+          <div class="flex flex-col">
+            <h1 class="hidden sm:block text-2xl font-black text-gray-900 dark:text-white tracking-tight">
+                Welcome, <span class="text-purple-600 dark:text-purple-400">Customer</span>
+            </h1>
+            <p class="hidden lg:block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Heritage Shop Portal</p>
+          </div>
+        </div>
 
-      <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-10 space-y-6 transition-all duration-500">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Book Your Cultural Tour</h2>
-        <div class="flex flex-col md:flex-row items-start md:items-center gap-4 flex-col-mobile">
-          <img id="specialistPhoto" src="pic/makene.jpg" class="w-24 h-24 rounded-full object-cover animate-pulse-shadow">
-          <select id="specialist" onchange="changeSpecialistPhoto()" class="w-full md:w-auto border rounded-lg p-3 dark:bg-gray-700 dark:border-gray-600 text-gray-900 dark:text-gray-200 transition">
+        <div class="flex items-center space-x-2 md:space-x-6">
+          <div class="relative hidden lg:block group">
+            <input type="text" placeholder="Search heritage artifacts..." class="w-72 pl-12 pr-4 py-2.5 rounded-2xl border-2 border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50 focus:bg-white dark:focus:bg-gray-800 focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all dark:text-white font-medium text-sm">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400 group-focus-within:text-purple-500 transition-colors"></i>
+          </div>
+          
+          <button class="relative p-2.5 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all hover:rotate-6">
+            <i class="fa-solid fa-bell text-xl"></i>
+            <span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-gray-900"></span>
+          </button>
+
+          <button id="darkToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:shadow-lg hover:shadow-purple-500/20 transition-all active:scale-90">
+            <i id="darkIcon" class="fa-solid fa-moon text-xl"></i>
+          </button>
+
+          <div class="relative group">
+            <div id="profileBtn" class="flex items-center gap-3 p-1.5 pr-4 rounded-2xl bg-gray-100 dark:bg-gray-800 border-2 border-transparent hover:border-purple-500 transition-all cursor-pointer">
+                <img src="https://i.pravatar.cc/40?img=12" class="rounded-xl w-9 h-9 object-cover shadow-md">
+                <div class="hidden xl:flex flex-col items-start leading-none">
+                    <span class="text-xs font-black dark:text-white">Account</span>
+                    <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest mt-1">Verified</span>
+                </div>
+                <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 ml-1"></i>
+            </div>
+            
+            <div id="profileMenu" class="absolute right-0 mt-3 w-56 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-3xl shadow-2xl hidden transform origin-top-right transition-all duration-300 p-2 z-50">
+              <div class="p-4 border-b border-gray-50 dark:border-gray-700 mb-2">
+                  <p class="text-xs font-black uppercase text-gray-400 tracking-widest">Active Session</p>
+                  <p class="text-sm font-bold dark:text-white truncate">customer@scl-heritage.com</p>
+              </div>
+              <a href="profile.html" class="flex items-center space-x-3 px-4 py-3 hover:bg-purple-50 dark:hover:bg-purple-900/30 rounded-2xl dark:text-white transition-colors">
+                  <i class="fa-solid fa-user-circle text-purple-600"></i>
+                  <span class="font-bold text-sm tracking-tight">Profile Detail</span>
+              </a>
+              <a href="ShopSetting.html" class="flex items-center space-x-3 px-4 py-3 hover:bg-purple-50 dark:hover:bg-purple-900/30 dark:text-white rounded-2xl transition-colors">
+                  <i class="fa-solid fa-sliders text-purple-600"></i>
+                  <span class="font-bold text-sm tracking-tight">Store Settings</span>
+              </a>
+              <div class="my-2 h-px bg-gray-100 dark:border-gray-700"></div>
+              <a href="index.html" class="flex items-center space-x-3 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500 rounded-2xl transition-colors">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <span class="font-bold text-sm tracking-tight">Logout System</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+<main class="flex-1 p-4 md:p-10 overflow-auto bg-gray-50 dark:bg-gray-900 min-h-screen">
+
+  <button id="mobileSidebarBtn" class="md:hidden fixed top-5 left-5 z-50 bg-white/30 dark:bg-black/30 backdrop-blur-md border border-white/40 w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition duration-300">
+    <i id="mobileSidebarIcon" class="fa-solid fa-bars text-xl text-purple-700 dark:text-purple-400"></i>
+  </button>
+
+  <div class="max-w-3xl mx-auto pt-12 md:pt-0">
+    <h1 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-2 tracking-tighter">Tour Booking</h1>
+    <p class="text-gray-500 dark:text-gray-400 font-medium mb-10 uppercase tracking-[0.2em] text-xs">Secure your Tanzanian cultural journey</p>
+
+    <div class="bg-white dark:bg-gray-800 rounded-[2.5rem] shadow-2xl p-6 md:p-12 space-y-8 transition-all duration-500 border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+      
+      <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/5 rounded-full -mr-16 -mt-16"></div>
+
+      <h2 class="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-3">
+        <span class="w-2 h-8 bg-purple-600 rounded-full"></span>
+        Book Your Cultural Tour
+      </h2>
+
+      <div class="flex flex-col md:flex-row items-center gap-6 p-6 bg-gray-50 dark:bg-gray-900/50 rounded-3xl border border-gray-100 dark:border-gray-700">
+        <div class="relative">
+          <img id="specialistPhoto" src="pic/makene.jpg" class="w-28 h-28 rounded-2xl object-cover shadow-2xl transition-all duration-500 animate-pulse-shadow border-4 border-white dark:border-gray-800">
+          <div class="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-white dark:border-gray-800"></div>
+        </div>
+        
+        <div class="flex-1 w-full">
+          <label class="block mb-2 text-[10px] font-black uppercase tracking-widest text-gray-400">Choose Your Cultural Specialist</label>
+          <select id="specialist" onchange="changeSpecialistPhoto()" class="w-full bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-4 text-gray-900 dark:text-gray-100 font-bold focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all appearance-none cursor-pointer">
             <option value="makene.jpg">Makene Ngoroma - Morogoro</option>
             <option value="aktari.jpg">Aktari Sabihi - Mtwara</option>
             <option value="elihaki.jpg">Elihaki Yonazi - Kilimanjaro</option>
@@ -134,42 +281,54 @@
             <option value="rotiken.jpg">Rotiken Torenti - Arusha</option>
           </select>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block mb-2 text-gray-700 dark:text-gray-300">Number of Days</label>
-            <input id="days" type="number" value="1" min="1" oninput="calculateTotal()" class="w-full border rounded-lg p-3 dark:bg-gray-700 dark:border-gray-600">
-          </div>
-          <div>
-            <label class="block mb-2 text-gray-700 dark:text-gray-300">Number of Individuals</label>
-            <input id="people" type="number" value="1" min="1" oninput="calculateTotal()" class="w-full border rounded-lg p-3 dark:bg-gray-700 dark:border-gray-600">
-          </div>
-        </div>
-
-        <div class="price-box bg-purple-100 dark:bg-purple-900 p-6 rounded-xl transition-all duration-500">
-          <p class="text-gray-700 dark:text-gray-200 mb-2">Tour Fee: <strong>$250 per day / person</strong></p>
-          <p class="text-xl md:text-2xl font-bold text-purple-700 dark:text-purple-300">Total Price: $<span id="totalPrice">250</span></p>
-        </div>
-
-        <button onclick="simulateBooking(this)" class="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl transition transform hover:scale-105">Confirm Booking</button>
-
-        <div id="loadingOverlay" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
-          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col items-center gap-4">
-            <div class="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-            <p class="text-gray-900 dark:text-gray-100 font-semibold">Processing your booking...</p>
-          </div>
-        </div>
-
       </div>
-    </main>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="block text-xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Number of Days</label>
+          <div class="relative">
+            <i class="fa-solid fa-calendar-day absolute left-4 top-1/2 -translate-y-1/2 text-purple-600"></i>
+            <input id="days" type="number" value="1" min="1" oninput="calculateTotal()" class="w-full border-2 border-gray-100 dark:border-gray-700 rounded-2xl p-4 pl-12 dark:bg-gray-900 dark:text-white font-black focus:border-purple-500 outline-none transition-all">
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="block text-xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Number of Individuals</label>
+          <div class="relative">
+            <i class="fa-solid fa-users absolute left-4 top-1/2 -translate-y-1/2 text-purple-600"></i>
+            <input id="people" type="number" value="1" min="1" oninput="calculateTotal()" class="w-full border-2 border-gray-100 dark:border-gray-700 rounded-2xl p-4 pl-12 dark:bg-gray-900 dark:text-white font-black focus:border-purple-500 outline-none transition-all">
+          </div>
+        </div>
+      </div>
+
+      <div class="price-box bg-gradient-to-br from-purple-600 to-indigo-700 p-8 rounded-[2rem] transition-all duration-500 shadow-xl shadow-purple-200 dark:shadow-none relative overflow-hidden">
+        <i class="fa-solid fa-tags absolute -right-4 -bottom-4 text-8xl text-white/10 -rotate-12"></i>
+        <p class="text-purple-100 font-bold uppercase tracking-widest text-[10px] mb-2">Investment in Culture</p>
+        <p class="text-white/80 text-sm mb-4">Tour Fee: <strong class="text-white">$250 per day / person</strong></p>
+        <div class="flex items-end gap-2">
+            <span class="text-white text-lg font-bold mb-1">$</span>
+            <span id="totalPrice" class="text-5xl font-black text-white tracking-tighter leading-none">250</span>
+        </div>
+      </div>
+
+      <button onclick="simulateBooking(this)" class="w-full bg-gray-900 dark:bg-white dark:text-gray-900 text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs transition-all hover:bg-purple-600 hover:text-white dark:hover:bg-purple-500 dark:hover:text-white transform hover:scale-[1.02] active:scale-[0.98] shadow-xl">
+        Confirm Booking
+      </button>
+
+      <div id="loadingOverlay" class="fixed inset-0 bg-gray-900/80 backdrop-blur-md flex items-center justify-center hidden z-[100]">
+        <div class="bg-white dark:bg-gray-800 p-10 rounded-[3rem] shadow-2xl flex flex-col items-center gap-6 border border-white/10">
+          <div class="relative">
+            <div class="w-16 h-16 border-4 border-purple-500/20 border-t-purple-600 rounded-full animate-spin"></div>
+            <i class="fa-solid fa-earth-africa absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-purple-600 animate-pulse"></i>
+          </div>
+          <p class="text-gray-900 dark:text-gray-100 font-black uppercase tracking-widest text-xs">Processing Journey...</p>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+</main>
 
 <script>
-const pricePerDay = 250;
-const mobileBtn = document.getElementById("mobileSidebarBtn");
-const mobileSidebar = document.getElementById("mobileSidebar");
-const mobileIcon = document.getElementById("mobileSidebarIcon");
 
 mobileBtn.addEventListener("click", () => {
   mobileSidebar.classList.toggle("-translate-x-full");
@@ -184,13 +343,18 @@ function calculateTotal() {
   const days = Number(document.getElementById("days").value);
   const people = Number(document.getElementById("people").value);
   const total = days * people * pricePerDay;
-  document.getElementById("totalPrice").innerText = total;
+  document.getElementById("totalPrice").innerText = total.toLocaleString();
 }
 
 function changeSpecialistPhoto() {
   const select = document.getElementById("specialist");
   const photo = document.getElementById("specialistPhoto");
-  photo.src = "pic/" + select.value;
+  // Added a small fade effect during photo swap
+  photo.style.opacity = '0';
+  setTimeout(() => {
+    photo.src = "pic/" + select.value;
+    photo.style.opacity = '1';
+  }, 200);
 }
 
 function simulateBooking(button) {
@@ -200,23 +364,215 @@ function simulateBooking(button) {
   button.classList.add("opacity-50", "cursor-not-allowed");
   setTimeout(() => { window.location.href = 'tourreceipt.html'; }, 2000);
 }
+</script>
 
-// Dark Mode Toggle
-const darkToggle = document.getElementById('darkToggle');
-const darkIcon = document.getElementById('darkIcon');
-darkToggle.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  darkIcon.classList.toggle('fa-moon');
-  darkIcon.classList.toggle('fa-sun');
+<style>
+@keyframes pulse-shadow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(126, 34, 206, 0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(126, 34, 206, 0); }
+}
+.animate-pulse-shadow {
+  animation: pulse-shadow 3s infinite;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+</style>
+
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="chatToggle" class="bg-purple-600 text-white px-5 py-4 rounded-2xl shadow-[0_10px_30px_rgba(126,34,206,0.3)] hover:bg-purple-700 active:scale-95 transition-all flex items-center gap-3 group scale-90 md:scale-100">
+    <i class="fa-solid fa-comment-dots text-lg"></i>
+    <span class="hidden sm:inline font-bold uppercase tracking-widest text-[10px]">Chat Support</span>
+  </button>
+</div>
+
+<div id="chatBox" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex items-center justify-center hidden z-[100] p-4">
+  <div class="bg-white dark:bg-gray-800 rounded-[2rem] shadow-2xl w-full max-w-[450px] aspect-square flex flex-col overflow-hidden border border-white/10 relative">
+    
+    <div class="bg-purple-600 dark:bg-purple-700 text-white p-5 flex justify-between items-center flex-shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
+            <i class="fa-solid fa-headset text-white"></i>
+          </div>
+          <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 border-2 border-purple-600 rounded-full animate-pulse"></div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-sm tracking-tight">Support Specialist</span>
+          <span class="text-[9px] uppercase tracking-widest opacity-80 font-black">Concierge Service</span>
+        </div>
+      </div>
+      <button id="chatClose" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-500 hover:rotate-90 transition-all duration-300">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+    
+    <div id="chatMessages" class="flex-1 p-5 overflow-y-auto space-y-4 bg-gray-50/50 dark:bg-gray-900/50 custom-scrollbar">
+      <div class="flex items-start gap-2">
+        <div class="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none shadow-sm text-xs border border-gray-100 dark:border-gray-700 max-w-[80%] leading-relaxed dark:text-gray-100">
+          <span class="font-black text-[9px] uppercase text-purple-600 block mb-1">Guide</span>
+          Habari! How can we help you plan your Tanzanian cultural journey today?
+        </div>
+      </div>
+    </div>
+    
+    <div class="p-5 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
+      <div class="flex flex-col gap-3">
+        <input type="text" id="chatInput" placeholder="Write a message..." class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/10 outline-none dark:bg-gray-900 dark:text-white text-sm transition-all">
+        
+        <div class="flex justify-between items-center">
+          <label class="cursor-pointer flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-purple-600 transition-colors">
+            <i class="fa-solid fa-paperclip text-sm"></i>
+            <span class="text-[10px] font-bold uppercase tracking-widest">Attach File</span>
+            <input type="file" id="chatFile" class="hidden">
+          </label>
+          <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-xl font-bold text-[10px] uppercase tracking-widest flex items-center gap-2 transition-all shadow-lg shadow-purple-500/20 active:scale-95">
+            Send <i class="fa-solid fa-paper-plane text-[10px]"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile Sidebar Toggle & Icon Management
+const mobileBtn = document.getElementById("mobileSidebarBtn");
+const mobileSidebar = document.getElementById("mobileSidebar");
+const mobileIcon = document.getElementById("mobileSidebarIcon");
+const closeMobileBtn = document.getElementById("closeMobileBtn"); // Dedicated X button in sidebar
+
+// Function to handle the toggle state
+function toggleSidebar(forceClose = false) {
+  if (forceClose) {
+    mobileSidebar.classList.add("-translate-x-full");
+  } else {
+    mobileSidebar.classList.toggle("-translate-x-full");
+  }
+
+  const isOpen = !mobileSidebar.classList.contains("-translate-x-full");
+
+  // Update Icon Class
+  if (mobileIcon) {
+    mobileIcon.className = isOpen 
+      ? "fa-solid fa-xmark text-xl text-white" 
+      : "fa-solid fa-bars text-xl text-purple-700 dark:text-purple-400";
+  }
+
+  // Update Button Class (Maintains your glassmorphism and purple-800 styles)
+  mobileBtn.className = isOpen 
+    ? "md:hidden fixed top-5 left-5 z-50 bg-purple-800 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300" 
+    : "md:hidden fixed top-5 left-5 z-50 backdrop-blur-lg bg-white/30 dark:bg-black/30 border border-white/40 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300";
+}
+
+// Event Listeners
+mobileBtn.addEventListener("click", () => toggleSidebar());
+
+// Added logic for the internal "X" button to ensure it functions correctly
+if (closeMobileBtn) {
+  closeMobileBtn.addEventListener("click", () => toggleSidebar(true));
+}
+
+// Optional: Close sidebar when clicking outside on mobile
+document.addEventListener("click", (e) => {
+  const isOpen = !mobileSidebar.classList.contains("-translate-x-full");
+  if (isOpen && !mobileSidebar.contains(e.target) && !mobileBtn.contains(e.target)) {
+    toggleSidebar(true);
+  }
 });
 
-// Profile Dropdown
-const profileBtn = document.getElementById('profileBtn');
-const profileMenu = document.getElementById('profileMenu');
-profileBtn.addEventListener('click', () => profileMenu.classList.toggle('hidden'));
-window.addEventListener('click', (e) => {
-  if(!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) profileMenu.classList.add('hidden');
-});
+  // Dark Mode Persistence
+  const darkToggle = document.getElementById('darkToggle');
+  const darkIcon = document.getElementById('darkIcon');
+  
+  darkToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    darkIcon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+  });
+
+  // Profile Dropdown
+  const profileBtn = document.getElementById('profileBtn');
+  const profileMenu = document.getElementById('profileMenu');
+  profileBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    profileMenu.classList.toggle('hidden');
+  });
+  document.addEventListener('click', () => profileMenu.classList.add('hidden'));
+
+  // Chat Functionality
+  const chatToggle = document.getElementById('chatToggle');
+  const chatBox = document.getElementById('chatBox');
+  const chatClose = document.getElementById('chatClose');
+  const sendChat = document.getElementById('sendChat');
+  const chatInput = document.getElementById('chatInput');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatFile = document.getElementById('chatFile');
+
+  chatToggle.addEventListener('click', () => chatBox.classList.remove('hidden'));
+  chatClose.addEventListener('click', () => chatBox.classList.add('hidden'));
+
+  function createMessage(content, sender = 'user', file = null) {
+    const div = document.createElement('div');
+    const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    
+    div.className = `p-4 rounded-2xl text-sm shadow-sm max-w-[85%] ${sender === 'user' 
+      ? 'bg-purple-600 text-white ml-auto rounded-tr-none' 
+      : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border dark:border-gray-700 rounded-tl-none'}`;
+
+    if(file){
+      const fileContainer = document.createElement('div');
+      fileContainer.className = 'mt-2 p-2 bg-black/10 rounded-lg flex items-center gap-2';
+      if(file.type.startsWith('image/')){
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
+        img.className='max-w-full rounded-md mt-1 mb-2';
+        div.appendChild(img);
+      }
+      fileContainer.innerHTML = `<i class="fa-solid fa-file-lines"></i> <span class="truncate text-xs font-mono">${file.name}</span>`;
+      div.appendChild(fileContainer);
+    }
+
+    if(content) {
+      const textPara = document.createElement('p');
+      textPara.textContent = content;
+      div.prepend(textPara);
+    }
+
+    const timeSpan = document.createElement('div');
+    timeSpan.className=`text-[10px] mt-2 text-right ${sender==='user'?'text-purple-200':'text-gray-400'}`;
+    timeSpan.textContent = timestamp;
+    div.appendChild(timeSpan);
+    
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  sendChat.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    const file = chatFile.files[0];
+    if(!message && !file) return;
+
+    createMessage(message, 'user', file);
+    
+    if(message || file) {
+      setTimeout(() => {
+        createMessage("Specialist: Asante for reaching out! We are reviewing your details regarding the tour package and will update you shortly.", 'staff');
+      }, 1200);
+    }
+
+    chatInput.value = '';
+    chatFile.value = '';
+  });
+
+  chatInput.addEventListener('keypress', (e) => { if(e.key==='Enter') sendChat.click(); });
 </script>
 
 </body>
