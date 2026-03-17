@@ -12,28 +12,31 @@
   <link rel="apple-touch-icon" href="1000186051.png">
   
   <script>
-    tailwind.config = { darkMode: 'class' }
+    tailwind.config = { darkMode: 'class' } // Enable class-based dark mode
   </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     @keyframes slide-in { to { transform: translateX(0); } }
     .animate-slide-in { animation: slide-in 0.5s ease-out forwards; }
-    .custom-scrollbar::-webkit-scrollbar { height: 6px; width: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background: #7e22ce; border-radius: 10px; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-900 font-sans">
 
 <div class="flex min-h-screen">
 
-  <aside class="hidden md:flex w-64 bg-purple-700 dark:bg-purple-900 text-white flex-col sticky top-0 h-screen rounded-r-3xl shadow-xl overflow-hidden transform -translate-x-64 animate-slide-in z-50">
+  <aside class="hidden md:flex w-64 bg-purple-700 dark:bg-purple-900 text-white flex flex-col sticky top-0 h-screen rounded-r-3xl shadow-xl overflow-hidden transform -translate-x-64 animate-slide-in">
     <div class="flex items-center p-6 space-x-3">
       <img src="1000186051.png" alt="SCL Logo" class="h-10 w-10 rounded-full shadow-md">
       <span class="text-2xl font-bold tracking-wide">SCL Shop</span>
     </div>
 
-    <nav class="flex-1 px-4 overflow-auto custom-scrollbar">
+    <nav class="flex-1 px-4 overflow-auto">
       <ul class="space-y-4">
         <li class="group p-2 transition-all duration-300 hover:bg-purple-600 dark:hover:bg-purple-800 hover:scale-105 hover:rounded-xl">
           <a href="shop.html" class="flex items-center space-x-3 text-white">
@@ -87,431 +90,129 @@
     </nav>
   </aside>
 
-  <div id="mobileSidebar" class="fixed top-0 left-0 h-full w-72 bg-purple-700 dark:bg-purple-900 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden shadow-2xl">
-    <div class="flex items-center justify-between p-6 border-b border-purple-500">
-      <div class="flex items-center space-x-3">
-        <img src="1000186051.png" class="h-10 w-10 rounded-full">
-        <span class="text-2xl font-bold">SCL Shop</span>
-      </div>
-      <button id="closeMobileBtn" class="text-white text-2xl">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-    <nav class="p-4 space-y-2 overflow-y-auto h-[calc(100vh-100px)]">
-       <a href="shop.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a>
-       <a href="artifacts.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-mask"></i><span>Artifacts</span></a>
-       <a href="merchandise.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-tshirt"></i><span>Merchandise</span></a>
-       <a href="books.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-book"></i><span>Publications</span></a>
-       <a href="digital.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-file-arrow-down"></i><span>Digital Assets</span></a>
-       <a href="tour.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-map-location-dot"></i><span>Tours</span></a>
-       <a href="hotels.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-hotel"></i><span>Hotels</span></a>
-       <a href="transport.html" class="flex items-center space-x-4 p-4 rounded-xl hover:bg-purple-600 transition"><i class="fa-solid fa-truck"></i><span>Transport</span></a>
-    </nav>
-  </div>
-
-  <div class="flex-1 flex flex-col min-w-0">
-    
-    <header class="sticky top-0 z-40 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
-      <div class="px-4 py-3 md:px-8 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <button id="mobileSidebarBtn" class="md:hidden text-purple-700 dark:text-purple-400 text-2xl p-2">
-            <i class="fa-solid fa-bars-staggered"></i>
-          </button>
-          <h1 class="hidden sm:block text-xl font-bold text-gray-800 dark:text-white">
-            Welcome, <span class="text-purple-600">Customer</span>
-          </h1>
-        </div>
-
-        <div class="flex items-center space-x-3 md:space-x-6">
-          <div class="relative hidden lg:block w-64">
-            <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-purple-500 outline-none transition dark:text-white">
-            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400"></i>
-          </div>
-          
-          <button class="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
-            <i class="fa-solid fa-bell"></i>
-          </button>
-
-          <button id="darkToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:scale-110 transition">
-            <i id="darkIcon" class="fa-solid fa-moon"></i>
-          </button>
-
-          <div class="relative">
-            <img id="profileBtn" src="https://i.pravatar.cc/40" class="rounded-full w-9 h-9 border-2 border-purple-500 cursor-pointer">
-            <div id="profileMenu" class="absolute right-0 mt-3 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl hidden">
-              <a href="profile.html" class="block px-5 py-3 hover:bg-purple-50 dark:hover:bg-purple-900/30 rounded-t-2xl dark:text-white">Profile</a>
-              <a href="ShopSetting.html" class="block px-5 py-3 hover:bg-purple-50 dark:hover:bg-purple-900/30 dark:text-white">Settings</a>
-              <hr class="dark:border-gray-700">
-              <a href="index.html" class="block px-5 py-3 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500 rounded-b-2xl">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
-<main class="flex-1 p-6 md:p-10 overflow-auto flex flex-col bg-gray-50 dark:bg-gray-950 font-sans">
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-    
-    <div class="group bg-white dark:bg-gray-800 p-8 rounded-[2rem] shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between relative overflow-hidden">
-      <div class="relative z-10">
-        <p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-1">Total Orders</p>
-        <h2 id="totalOrders" class="text-4xl font-black text-gray-900 dark:text-white tracking-tighter">0</h2>
-        <div class="mt-2 flex items-center text-green-500 text-xs font-bold">
-            <i class="fa-solid fa-arrow-up mr-1"></i> +12% this month
-        </div>
-      </div>
-      <div class="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-        <i class="fa-solid fa-box-open text-purple-600 dark:text-purple-400 text-2xl"></i>
-      </div>
-    </div>
-
-    <div class="group bg-white dark:bg-gray-800 p-8 rounded-[2rem] shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between relative overflow-hidden">
-      <div class="relative z-10">
-        <p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-1">Total Revenue</p>
-        <div class="flex items-baseline">
-            <span class="text-2xl font-black text-purple-600 mr-1">$</span>
-            <h2 id="totalRevenue" class="text-4xl font-black text-gray-900 dark:text-white tracking-tighter">0</h2>
-        </div>
-        <div class="mt-2 flex items-center text-green-500 text-xs font-bold">
-            <i class="fa-solid fa-arrow-up mr-1"></i> +8.4%
-        </div>
-      </div>
-      <div class="bg-indigo-100 dark:bg-indigo-900/30 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-        <i class="fa-solid fa-dollar-sign text-indigo-600 dark:text-indigo-400 text-2xl"></i>
-      </div>
-    </div>
-
-    <div class="group bg-white dark:bg-gray-800 p-8 rounded-[2rem] shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between relative overflow-hidden">
-      <div class="relative z-10">
-        <p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-1">Unique Visitors</p>
-        <h2 id="uniqueVisitors" class="text-4xl font-black text-gray-900 dark:text-white tracking-tighter">0</h2>
-        <div class="mt-2 flex items-center text-purple-500 text-xs font-bold">
-            <i class="fa-solid fa-bolt mr-1"></i> Live now
-        </div>
-      </div>
-      <div class="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-        <i class="fa-solid fa-users text-blue-600 dark:text-blue-400 text-2xl"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-    <div class="bg-white dark:bg-gray-800 p-8 rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-gray-700">
-      <div class="flex items-center justify-between mb-8">
-          <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-widest text-sm flex items-center">
-            <span class="w-2 h-6 bg-purple-600 rounded-full mr-3"></span> Sales Trend
-          </h3>
-          <select class="text-xs font-bold bg-gray-50 dark:bg-gray-700 border-none rounded-lg px-3 py-1 text-gray-500 focus:ring-0">
-              <option>Monthly</option>
-              <option>Weekly</option>
-          </select>
-      </div>
-      <div class="relative h-72 w-full">
-        <canvas id="salesChart"></canvas>
-      </div>
-    </div>
-
-    <div class="bg-white dark:bg-gray-800 p-8 rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-gray-700">
-        <div class="flex items-center justify-between mb-8">
-            <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-widest text-sm flex items-center">
-              <span class="w-2 h-6 bg-indigo-600 rounded-full mr-3"></span> Visitors Trend
-            </h3>
-            <div class="flex gap-2">
-                <span class="w-3 h-3 bg-indigo-500 rounded-full"></span>
-                <span class="w-3 h-3 bg-gray-200 rounded-full"></span>
-            </div>
-        </div>
-      <div class="relative h-72 w-full">
-        <canvas id="visitorsChart"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="mb-16">
-    <div class="flex items-end justify-between mb-10 border-b border-gray-100 dark:border-gray-800 pb-6">
-      <div>
-        <h2 class="text-3xl font-black text-gray-900 dark:text-white tracking-tighter">Featured <span class="text-purple-600">Products</span></h2>
-        <p class="text-gray-400 text-sm font-medium mt-1">Exclusive artifacts and publications from SCL.</p>
-      </div>
-      <a href="#" class="text-xs font-black uppercase tracking-widest text-purple-600 hover:text-purple-700 transition-colors flex items-center gap-2">
-        View All Fleet <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      <div class="group bg-white dark:bg-gray-800 rounded-[2rem] p-5 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500">
-        <div class="relative overflow-hidden rounded-[1.5rem] mb-6 aspect-square">
-          <img src="pic/artifact.JPG" alt="Artifact" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-          <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black uppercase text-purple-600 shadow-sm">Hot</div>
-        </div>
-        <div class="flex items-start justify-between mb-2">
-          <h3 class="font-black text-gray-900 dark:text-white text-lg tracking-tight">Artifact Replica</h3>
-          <i class="fa-solid fa-mask text-purple-600 opacity-30"></i>
-        </div>
-        <p class="text-purple-600 font-black text-xl mb-5">$49.99</p>
-        <button class="w-full bg-gray-900 dark:bg-purple-600 text-white py-4 rounded-xl hover:bg-purple-700 transition-all font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 shadow-lg active:scale-95">
-          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+  <main class="flex-1 p-8">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        Welcome, <span class="text-purple-700 dark:text-purple-400">Our Customer</span>
+      </h1>
+      <div class="flex items-center space-x-4">
+        <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+        <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fa-solid fa-bell text-gray-800 dark:text-gray-200"></i>
+        </button>
+        <button id="darkToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+          <i id="darkIcon" class="fa-solid fa-moon"></i>
         </button>
       </div>
-
-      <div class="group bg-white dark:bg-gray-800 rounded-[2rem] p-5 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500">
-        <div class="relative overflow-hidden rounded-[1.5rem] mb-6 aspect-square">
-          <img src="pic/branded.png" alt="Merchandise" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+      <div class="relative">
+        <img id="profileBtn" src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10 cursor-pointer">
+        <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+          <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+          <a href="ShopSetting.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
         </div>
-        <div class="flex items-start justify-between mb-2">
-          <h3 class="font-black text-gray-900 dark:text-white text-lg tracking-tight">Branded Merch</h3>
-          <i class="fa-solid fa-tshirt text-purple-600 opacity-30"></i>
-        </div>
-        <p class="text-purple-600 font-black text-xl mb-5">$29.99</p>
-        <button class="w-full bg-gray-900 dark:bg-purple-600 text-white py-4 rounded-xl hover:bg-purple-700 transition-all font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 shadow-lg active:scale-95">
-          <i class="fa-solid fa-cart-plus"></i> Add to Cart
-        </button>
-      </div>
-
-      <div class="group bg-white dark:bg-gray-800 rounded-[2rem] p-5 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500">
-        <div class="relative overflow-hidden rounded-[1.5rem] mb-6 aspect-square">
-          <img src="pic/chura.png" alt="Book" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-        </div>
-        <div class="flex items-start justify-between mb-2">
-          <h3 class="font-black text-gray-900 dark:text-white text-lg tracking-tight">Publications</h3>
-          <i class="fa-solid fa-book text-purple-600 opacity-30"></i>
-        </div>
-        <p class="text-purple-600 font-black text-xl mb-5">$19.99</p>
-        <button class="w-full bg-gray-900 dark:bg-purple-600 text-white py-4 rounded-xl hover:bg-purple-700 transition-all font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 shadow-lg active:scale-95">
-          <i class="fa-solid fa-cart-plus"></i> Add to Cart
-        </button>
-      </div>
-
-      <div class="group bg-white dark:bg-gray-800 rounded-[2rem] p-5 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500">
-        <div class="relative overflow-hidden rounded-[1.5rem] mb-6 aspect-square">
-          <img src="pic/hardtop.jpg" alt="Transportation" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-        </div>
-        <div class="flex items-start justify-between mb-2">
-          <h3 class="font-black text-gray-900 dark:text-white text-lg tracking-tight">Transportation</h3>
-          <i class="fa-solid fa-truck text-purple-600 opacity-30"></i>
-        </div>
-        <p class="text-purple-600 font-black text-xl mb-5">$299.49</p>
-        <button class="w-full bg-gray-900 dark:bg-purple-600 text-white py-4 rounded-xl hover:bg-purple-700 transition-all font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 shadow-lg active:scale-95">
-          <i class="fa-solid fa-cart-plus"></i> Add to Cart
-        </button>
       </div>
     </div>
-  </div>
 
-  <div class="mt-12">
-    <div class="flex items-center gap-4 mb-10">
-        <div class="w-12 h-12 bg-purple-700 rounded-2xl flex items-center justify-center text-white shadow-lg">
-            <i class="fa-solid fa-comments text-xl"></i>
-        </div>
-        <h2 class="text-3xl font-black text-gray-900 dark:text-white tracking-tighter">Customer <span class="text-purple-600">Feedback</span></h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition flex items-center justify-between">
+        <div><p class="text-gray-500 dark:text-gray-400">Total Orders</p><h2 id="totalOrders" class="text-2xl font-bold mt-2 text-gray-900 dark:text-gray-100">0</h2></div>
+        <i class="fa-solid fa-box-open text-purple-700 text-3xl"></i>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition flex items-center justify-between">
+        <div><p class="text-gray-500 dark:text-gray-400">Total Revenue</p><h2 id="totalRevenue" class="text-2xl font-bold mt-2 text-gray-900 dark:text-gray-100">0</h2></div>
+        <i class="fa-solid fa-dollar-sign text-purple-700 text-3xl"></i>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition flex items-center justify-between">
+        <div><p class="text-gray-500 dark:text-gray-400">Unique Visitors</p><h2 id="uniqueVisitors" class="text-2xl font-bold mt-2 text-gray-900 dark:text-gray-100">0</h2></div>
+        <i class="fa-solid fa-users text-purple-700 text-3xl"></i>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        
-        <div class="lg:col-span-1 bg-white dark:bg-gray-800 rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-            <h3 class="text-lg font-black text-gray-900 dark:text-white uppercase tracking-widest mb-6">Leave a Review</h3>
-            <form class="space-y-5">
-                <div>
-                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
-                    <input type="text" placeholder="Your Name" class="w-full mt-2 bg-gray-50 dark:bg-gray-900 border-none rounded-2xl px-5 py-4 dark:text-white focus:ring-2 focus:ring-purple-500 transition-all outline-none font-bold">
-                </div>
-                
-                <div>
-                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Your Rating</label>
-                    <div class="flex items-center space-x-2 text-gray-200 dark:text-gray-700 mt-2 px-1 text-xl">
-                        <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition-colors"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition-colors"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition-colors"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition-colors"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition-colors"></i>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Comment</label>
-                    <textarea placeholder="Tell us about your experience..." rows="4" class="w-full mt-2 bg-gray-50 dark:bg-gray-900 border-none rounded-2xl px-5 py-4 dark:text-white focus:ring-2 focus:ring-purple-500 transition-all outline-none font-medium leading-relaxed"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-purple-700 text-white py-5 rounded-2xl hover:bg-purple-800 transition-all font-black uppercase tracking-widest text-xs shadow-xl active:scale-95">
-                    Post Review
-                </button>
-            </form>
-        </div>
-
-        <div class="lg:col-span-2 space-y-6">
-            <div class="bg-white dark:bg-gray-800 rounded-[2rem] p-8 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="h-14 w-14 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg">AK</div>
-                        <div>
-                            <h4 class="font-black text-gray-900 dark:text-white text-lg tracking-tight">Amina K.</h4>
-                            <p class="text-[10px] font-black text-purple-600 uppercase tracking-widest">Verified Explorer</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 flex gap-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed font-medium italic text-lg">
-                    "Amazing artifact replicas! The quality is really good and delivery was fast. Perfect for my study of Tanzanian history."
-                </p>
-            </div>
-
-            <div class="bg-white dark:bg-gray-800 rounded-[2rem] p-8 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="h-14 w-14 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg">JM</div>
-                        <div>
-                            <h4 class="font-black text-gray-900 dark:text-white text-lg tracking-tight">James M.</h4>
-                            <p class="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Culture Enthusiast</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 flex gap-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-gray-300"></i>
-                    </div>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed font-medium italic text-lg">
-                    "I bought the museum book collection and it was very informative. Highly recommended for anyone interested in the local culture!"
-                </p>
-            </div>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h3 class="font-semibold mb-4 text-gray-900 dark:text-gray-100">Sales Trend</h3>
+        <canvas id="salesChart" class="w-full h-48"></canvas>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h3 class="font-semibold mb-4 text-gray-900 dark:text-gray-100">Visitors Trend</h3>
+        <canvas id="visitorsChart" class="w-full h-48"></canvas>
+      </div>
     </div>
-  </div>
-</main>
 
-<script>
-// ----- Professional Animate Metrics Counters -----
-function animateValue(id, end, duration) {
-  let obj = document.getElementById(id);
-  if (!obj) return;
-  let start = 0;
-  let startTime = null;
-  function step(timestamp) {
-    if (!startTime) startTime = timestamp;
-    let progress = Math.min((timestamp - startTime) / duration, 1);
-    // Easing function for smoother finish
-    let easedProgress = 1 - Math.pow(1 - progress, 3); 
-    let val = Math.floor(easedProgress * end);
-    obj.innerText = val.toLocaleString();
-    if (progress < 1) window.requestAnimationFrame(step);
-  }
-  window.requestAnimationFrame(step);
-}
-
-window.addEventListener('load', () => {
-  animateValue('totalOrders', 1245, 1500);
-  animateValue('totalRevenue', 12890, 1800);
-  animateValue('uniqueVisitors', 8430, 2000);
-});
-
-// ----- Chart.js with Modern Aesthetics -----
-const commonOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-  interaction: { intersect: false, mode: 'index' },
-  plugins: { legend: { display: false } },
-  scales: { 
-    y: { 
-        beginAtZero: true, 
-        grid: { color: 'rgba(150, 150, 150, 0.05)', drawBorder: false },
-        ticks: { color: '#9ca3af', font: { weight: 'bold', size: 10 } }
-    },
-    x: { 
-        grid: { display: false },
-        ticks: { color: '#9ca3af', font: { weight: 'bold', size: 10 } }
-    }
-  }
-};
-
-const salesCtx = document.getElementById('salesChart').getContext('2d');
-new Chart(salesCtx, {
-  type: 'line',
-  data: {
-    labels: ['Week 1','Week 2','Week 3','Week 4'],
-    datasets: [{
-      data: [300, 500, 400, 650],
-      borderColor: '#8b5cf6',
-      backgroundColor: (context) => {
-          const gradient = context.chart.ctx.createLinearGradient(0, 0, 0, 400);
-          gradient.addColorStop(0, 'rgba(139, 92, 246, 0.2)');
-          gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
-          return gradient;
-      },
-      tension: 0.4,
-      fill: true,
-      borderWidth: 4,
-      pointBackgroundColor: '#fff',
-      pointBorderColor: '#8b5cf6',
-      pointBorderWidth: 3,
-      pointRadius: 6,
-      pointHoverRadius: 8
-    }]
-  },
-  options: commonOptions
-});
-
-const visitorsCtx = document.getElementById('visitorsChart').getContext('2d');
-new Chart(visitorsCtx, {
-  type: 'line',
-  data: {
-    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
-    datasets: [{
-      data: [120, 150, 100, 200, 180, 220, 190],
-      borderColor: '#4f46e5',
-      backgroundColor: (context) => {
-          const gradient = context.chart.ctx.createLinearGradient(0, 0, 0, 400);
-          gradient.addColorStop(0, 'rgba(79, 70, 229, 0.2)');
-          gradient.addColorStop(1, 'rgba(79, 70, 229, 0)');
-          return gradient;
-      },
-      tension: 0.4,
-      fill: true,
-      borderWidth: 4,
-      pointBackgroundColor: '#fff',
-      pointBorderColor: '#4f46e5',
-      pointBorderWidth: 3,
-      pointRadius: 6,
-      pointHoverRadius: 8
-    }]
-  },
-  options: commonOptions
-});
-</script>
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Featured Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+          <img src="pic/artifact.JPG" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+          <div class="flex items-center justify-between mb-2"><h3 class="font-semibold text-gray-900 dark:text-gray-100">Artifact Replica</h3><i class="fa-solid fa-mask text-purple-700 dark:text-purple-400"></i></div>
+          <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">$49.99</p>
+          <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block"><i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart</a>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+          <img src="pic/branded.png" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+          <div class="flex items-center justify-between mb-2"><h3 class="font-semibold text-gray-900 dark:text-gray-100">Branded Merchandise</h3><i class="fa-solid fa-tshirt text-purple-700 dark:text-purple-400"></i></div>
+          <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">Black T-Shirt $29.99</p>
+          <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block"><i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart</a>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+          <img src="pic/chura.png" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+          <div class="flex items-center justify-between mb-2"><h3 class="font-semibold text-gray-900 dark:text-gray-100">Book & Publications</h3><i class="fa-solid fa-book text-purple-700 dark:text-purple-400"></i></div>
+          <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">Mrembo Chura $19.99</p>
+          <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block"><i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart</a>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg p-4 transition flex flex-col">
+          <img src="pic/hardtop.jpg" alt="Artifact" class="rounded h-40 w-full object-cover mb-2">
+          <div class="flex items-center justify-between mb-2"><h3 class="font-semibold text-gray-900 dark:text-gray-100">Transportation</h3><i class="fa-solid fa-truck text-purple-700 dark:text-purple-400"></i></div>
+          <p class="text-gray-500 dark:text-gray-300 text-sm mb-2">LC HardTop 70'S $299.49</p>
+          <a href="cart.html" class="mt-auto w-full text-center bg-purple-700 dark:bg-purple-600 text-white py-2 rounded hover:bg-purple-800 dark:hover:bg-purple-500 transition inline-block"><i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
 
 <div class="fixed bottom-6 right-6 z-50">
-  <button id="chatToggle" class="bg-purple-600 text-white px-5 py-3 rounded-full shadow-2xl hover:bg-purple-700 transition flex items-center gap-2 scale-90 md:scale-100">
-    <i class="fa-solid fa-comment-dots"></i> <span class="hidden sm:inline">Chat Support</span>
+  <button id="chatToggle" class="bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center gap-2">
+    <i class="fa-solid fa-comment-dots"></i>
+    Chat With Us
   </button>
 </div>
 
-<div id="chatBox" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl w-full max-w-lg h-[600px] flex flex-col overflow-hidden">
-    <div class="bg-purple-600 dark:bg-purple-700 text-white p-5 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        <span class="font-bold tracking-tight">Support Specialist</span>
-      </div>
-      <button id="chatClose" class="hover:rotate-90 transition duration-300"><i class="fa-solid fa-xmark text-xl"></i></button>
-    </div>
+<div id="chatBox" class="fixed inset-0 bg-black/30 flex items-center justify-center hidden z-50">
+  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl w-96 md:w-[500px] h-[600px] flex flex-col overflow-hidden">
     
-    <div id="chatMessages" class="flex-1 p-6 overflow-y-auto space-y-4 text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-900/50">
-      <div class="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm border dark:border-gray-700 max-w-[85%]">
-        Habari! How can we help you plan your Tanzanian cultural journey today?
+    <div class="bg-gradient-to-r from-purple-500 to-purple-700 text-white p-5 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 bg-green-400 rounded-full border border-white animate-pulse"></span>
+        <span class="font-bold text-lg">Support Specialist</span>
+      </div>
+      <button id="chatClose" class="text-white hover:bg-white/20 p-1 rounded-full transition">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+    </div>
+
+    <div id="chatMessages" class="flex-1 p-6 overflow-y-auto space-y-4 bg-gray-50 dark:bg-gray-900/50">
+      <div class="flex justify-start">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-gray-700 dark:text-gray-200">
+          Habari! How can we help you plan your Tanzanian cultural journey today?
+        </div>
       </div>
     </div>
-    
-    <div class="p-4 bg-white dark:bg-gray-800 border-t dark:border-gray-700">
-      <div class="flex flex-col gap-3">
-        <input type="text" id="chatInput" placeholder="Write a message..." class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-purple-500 dark:bg-gray-900 dark:text-white outline-none transition">
+
+    <div class="p-5 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
+      <div class="flex flex-col gap-4">
+        <input type="text" id="chatInput" placeholder="Write a message..." 
+               class="w-full px-5 py-4 rounded-2xl border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white">
+        
         <div class="flex justify-between items-center">
-          <label class="cursor-pointer text-purple-600 dark:text-purple-400 hover:text-purple-700 flex items-center gap-2 text-sm font-medium">
-            <i class="fa-solid fa-paperclip"></i> <span>Attach File</span>
+          <label for="chatFile" class="cursor-pointer flex items-center gap-2 text-purple-600 dark:text-purple-400 font-medium hover:underline text-sm">
+            <i class="fa-solid fa-paperclip rotate-45"></i>
+            Attach File
             <input type="file" id="chatFile" class="hidden">
           </label>
-          <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-xl font-bold transition flex items-center gap-2">
+          
+          <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2.5 rounded-xl flex items-center gap-2 transition-all shadow-md active:scale-95">
             Send <i class="fa-solid fa-paper-plane text-xs"></i>
           </button>
         </div>
@@ -521,104 +222,198 @@ new Chart(visitorsCtx, {
 </div>
 
 <script>
-  // Mobile Sidebar Toggle
-  const mobileBtn = document.getElementById("mobileSidebarBtn");
-  const mobileSidebar = document.getElementById("mobileSidebar");
-  const mobileIcon = document.getElementById("mobileSidebarIcon");
-  
-  mobileBtn.addEventListener("click", () => {
-    mobileSidebar.classList.toggle("-translate-x-full");
-    const isOpen = !mobileSidebar.classList.contains("-translate-x-full");
-    mobileIcon.className = isOpen ? "fa-solid fa-xmark text-xl text-white" : "fa-solid fa-bars text-xl text-purple-700 dark:text-purple-400";
-    mobileBtn.className = isOpen ? "md:hidden fixed top-5 left-5 z-50 bg-purple-800 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300" : "md:hidden fixed top-5 left-5 z-50 backdrop-blur-lg bg-white/30 dark:bg-black/30 border border-white/40 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300";
-  });
+// --- Dashboard Logic ---
+window.addEventListener('load', () => {
+  animateValue('totalOrders', 0, 1245, 2000);
+  animateValue('totalRevenue', 0, 12890, 2000);
+  animateValue('uniqueVisitors', 0, 8430, 2000);
+});
 
-  // Dark Mode Persistence
-  const darkToggle = document.getElementById('darkToggle');
-  const darkIcon = document.getElementById('darkIcon');
-  
-  darkToggle.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    const isDark = document.documentElement.classList.contains('dark');
-    darkIcon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
-  });
-
-  // Profile Dropdown
-  const profileBtn = document.getElementById('profileBtn');
-  const profileMenu = document.getElementById('profileMenu');
-  profileBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    profileMenu.classList.toggle('hidden');
-  });
-  document.addEventListener('click', () => profileMenu.classList.add('hidden'));
-
-  // Chat Functionality
-  const chatToggle = document.getElementById('chatToggle');
-  const chatBox = document.getElementById('chatBox');
-  const chatClose = document.getElementById('chatClose');
-  const sendChat = document.getElementById('sendChat');
-  const chatInput = document.getElementById('chatInput');
-  const chatMessages = document.getElementById('chatMessages');
-  const chatFile = document.getElementById('chatFile');
-
-  chatToggle.addEventListener('click', () => chatBox.classList.remove('hidden'));
-  chatClose.addEventListener('click', () => chatBox.classList.add('hidden'));
-
-  function createMessage(content, sender = 'user', file = null) {
-    const div = document.createElement('div');
-    const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-    
-    div.className = `p-4 rounded-2xl text-sm shadow-sm max-w-[85%] ${sender === 'user' 
-      ? 'bg-purple-600 text-white ml-auto rounded-tr-none' 
-      : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border dark:border-gray-700 rounded-tl-none'}`;
-
-    if(file){
-      const fileContainer = document.createElement('div');
-      fileContainer.className = 'mt-2 p-2 bg-black/10 rounded-lg flex items-center gap-2';
-      if(file.type.startsWith('image/')){
-        const img = document.createElement('img');
-        img.src = URL.createObjectURL(file);
-        img.className='max-w-full rounded-md mt-1 mb-2';
-        div.appendChild(img);
-      }
-      fileContainer.innerHTML = `<i class="fa-solid fa-file-lines"></i> <span class="truncate text-xs font-mono">${file.name}</span>`;
-      div.appendChild(fileContainer);
-    }
-
-    if(content) {
-      const textPara = document.createElement('p');
-      textPara.textContent = content;
-      div.prepend(textPara);
-    }
-
-    const timeSpan = document.createElement('div');
-    timeSpan.className=`text-[10px] mt-2 text-right ${sender==='user'?'text-purple-200':'text-gray-400'}`;
-    timeSpan.textContent = timestamp;
-    div.appendChild(timeSpan);
-    
-    chatMessages.appendChild(div);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+function animateValue(id, start, end, duration) {
+  let obj = document.getElementById(id);
+  let range = end - start;
+  let startTime = null;
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    let progress = timestamp - startTime;
+    let val = Math.min(Math.floor(start + (range * (progress / duration))), end);
+    obj.innerText = val.toLocaleString();
+    if (progress < duration) window.requestAnimationFrame(step);
   }
+  window.requestAnimationFrame(step);
+}
 
-  sendChat.addEventListener('click', () => {
-    const message = chatInput.value.trim();
-    const file = chatFile.files[0];
-    if(!message && !file) return;
+// Charts
+const salesCtx = document.getElementById('salesChart').getContext('2d');
+new Chart(salesCtx, {
+  type: 'line',
+  data: {
+    labels: ['Week 1','Week 2','Week 3','Week 4'],
+    datasets: [{ label: 'Sales', data: [300, 500, 400, 650], borderColor: 'rgb(139, 92, 246)', tension: 0.4, fill: true }]
+  }
+});
+const visitorsCtx = document.getElementById('visitorsChart').getContext('2d');
+new Chart(visitorsCtx, {
+  type: 'line',
+  data: {
+    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    datasets: [{ label: 'Visitors', data: [120, 150, 100, 200, 180, 220, 190], borderColor: 'rgb(79, 70, 229)', tension: 0.4, fill: true }]
+  }
+});
 
-    createMessage(message, 'user', file);
-    
-    if(message || file) {
-      setTimeout(() => {
-        createMessage("Specialist: Asante for reaching out! We are reviewing your details regarding the tour package and will update you shortly.", 'staff');
-      }, 1200);
+// --- Chat Logic ---
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const chatClose = document.getElementById('chatClose');
+const sendChat = document.getElementById('sendChat');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const chatFile = document.getElementById('chatFile');
+
+chatToggle.addEventListener('click', () => chatBox.classList.remove('hidden'));
+chatClose.addEventListener('click', () => chatBox.classList.add('hidden'));
+
+function createMessage(content, sender = 'user', file = null) {
+  const wrapper = document.createElement('div');
+  wrapper.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+  const bubbleClasses = sender === 'user' 
+    ? 'bg-purple-600 text-white rounded-2xl rounded-tr-none' 
+    : 'bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-100 rounded-2xl rounded-tl-none shadow-sm';
+  const div = document.createElement('div');
+  div.className = `p-4 text-sm break-words max-w-[85%] ${bubbleClasses}`;
+
+  if(file){
+    if(file.type.startsWith('image/')){
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.className='max-w-full rounded-lg mt-2';
+      div.appendChild(img);
+    } else {
+      const link = document.createElement('div');
+      link.className = 'mt-2 p-2 bg-black/10 rounded text-xs';
+      link.textContent = `File: ${file.name}`;
+      div.appendChild(link);
     }
+  }
+  if(content) {
+    const text = document.createElement('p');
+    text.textContent = content;
+    div.prepend(text);
+  }
+  wrapper.appendChild(div);
+  chatMessages.appendChild(wrapper);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
-    chatInput.value = '';
-    chatFile.value = '';
-  });
+function createAIBubble() {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'flex justify-start';
+  const div = document.createElement('div');
+  div.className = 'bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 p-4 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-800 dark:text-gray-100 max-w-[85%]';
+  const textSpan = document.createElement('span');
+  div.appendChild(textSpan);
+  wrapper.appendChild(div);
+  chatMessages.appendChild(wrapper);
+  return textSpan;
+}
 
-  chatInput.addEventListener('keypress', (e) => { if(e.key==='Enter') sendChat.click(); });
+// Ollama Integration with System Instructions
+const conversationHistory = [
+  { 
+    role: 'system', 
+    content: `You are a helpful customer support assistant for SCL(Shimulimuli Company Limited) Museum Shop and SCL Digital Museum & Archive.
+
+ABOUT SCL DIGITAL MUSEUM & ARCHIVE
+Organization: SCL Digital Museum & Archive
+Managed by: Shimulimuli Company Limited
+Location: Dar es Salaam
+The SCL Digital Museum & Archive is an online platform that preserves and shares African cultural heritage, especially from Tanzania. It provides digital access to archives, exhibitions, research materials, and educational resources for visitors, students, and researchers worldwide.
+The platform combines culture, technology, and education to protect heritage and make it accessible globally.
+
+RULES:
+1. DO NOT MENTION THAT YOU ARE AI.
+2. WHEN YOU DO NOT KNOW SOMETHING, JUST SAY I DO NOT KNOW.
+3. USE EMOJIS WHEN NECESSARY.
+
+PLATFORM STRUCTURE:
+Collections: Digital archives (photos, oral histories, films).
+Exhibitions: Digital, past, upcoming, and 3D virtual tours.
+Research Archive: Academic resources, artifact metadata.
+Student Reports: Downloadable research reports.
+Museum Shop: Store for cultural products.
+News & Events: Heritage activities, tourism, restoration updates.
+Featured Collections: Highlighted materials, "Artifact of the Week".
+Collaborations: Partners like Open University of Tanzania.
+
+MISSION: Preserve African heritage, promote Tanzanian history, provide resources, and use technology for knowledge sharing.
+
+SHOP PRODUCTS: Artifact replicas, Branded merchandise, Books, Digital products, Cultural tour packages, Hotels, and transportation services.
+
+YOUR ROLE: Help users find materials, answer questions about content, provide navigation, explain the mission, and assist with shop orders.
+
+BUILDING TRUST:
+1. Learn about visitor interests.
+2. Build friendly natural relationships.
+
+EDUCATIONAL PARTNERSHIP: SCL collaborates with Open University of Tanzania. Students participate in fieldwork and documentation. The university allocated ~TZS 70 million for this initiative.`
+  }
+];
+
+async function askOllama(userMessage) {
+  conversationHistory.push({ role: 'user', content: userMessage });
+  sendChat.disabled = true;
+  try {
+    const response = await fetch('http://localhost:11434/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'llama3.2', messages: conversationHistory, stream: true })
+    });
+    const textSpan = createAIBubble();
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let fullReply = '';
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      const lines = decoder.decode(value).split('\n').filter(l => l.trim());
+      for (const line of lines) {
+        const json = JSON.parse(line);
+        if (json.message?.content) {
+          fullReply += json.message.content;
+          textSpan.textContent = fullReply;
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      }
+    }
+    conversationHistory.push({ role: 'assistant', content: fullReply });
+  } catch (err) {
+    console.error(err);
+  } finally {
+    sendChat.disabled = false;
+  }
+}
+
+sendChat.addEventListener('click', () => {
+  const message = chatInput.value.trim();
+  const file = chatFile.files[0];
+  if (!message && !file) return;
+  createMessage(message, 'user', file);
+  if (message) askOllama(message);
+  chatInput.value = '';
+  chatFile.value = '';
+});
+
+chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendChat.click(); });
+
+// Dark Mode & Profile Toggle
+const darkToggle = document.getElementById('darkToggle');
+darkToggle.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  document.getElementById('darkIcon').classList.toggle('fa-moon');
+  document.getElementById('darkIcon').classList.toggle('fa-sun');
+});
+const profileBtn = document.getElementById('profileBtn');
+profileBtn.addEventListener('click', () => document.getElementById('profileMenu').classList.toggle('hidden'));
 </script>
-
 </body>
 </html>
