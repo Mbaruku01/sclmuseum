@@ -257,45 +257,34 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 });
 </script>
 
-<!-- INTRO -->
-<section class="pt-44 pb-24 px-6 text-center">
-  <h1 class="font-serif text-5xl md:text-6xl">SCL Digital Collections</h1>
-  <p class="mt-8 text-lg text-white/75 max-w-4xl mx-auto">
+<section class="pt-44 pb-24 px-6 text-center bg-gradient-to-b from-black/20 to-transparent">
+  <h1 class="font-serif text-5xl md:text-6xl tracking-tight text-white">SCL Digital Collections</h1>
+  <p class="mt-8 text-lg text-white/75 max-w-4xl mx-auto leading-relaxed">
     Structured digital collections preserving audiovisual, documentary,
     oral, visual, and virtual heritage across regions and generations.
   </p>
 </section>
 
-<!-- FILTER BAR -->
-<!-- FILTER BUTTONS -->
 <section class="max-w-7xl mx-auto px-6 pb-16">
   <div class="flex flex-wrap gap-4 justify-center sm:justify-start text-sm">
-    
-    <!-- Button Template -->
-    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+    <button class="filter-btn active rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2 border border-white/5">
       <i class="fa-solid fa-border-all"></i>All
     </button>
-
-    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2 border border-white/5">
       <i class="fa-solid fa-film"></i>Video
     </button>
-
-    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2 border border-white/5">
       <i class="fa-solid fa-image"></i>Images
     </button>
-
-    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2 border border-white/5">
       <i class="fa-solid fa-microphone-lines"></i>Audio
     </button>
-
-    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2 border border-white/5">
       <i class="fa-solid fa-file-lines"></i>Documents
     </button>
-
-    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2">
+    <button class="filter-btn rounded-full px-5 py-2 bg-white/10 hover:bg-gradient-to-r hover:from-sclCyan/40 hover:to-sclBlue/40 text-white transition duration-300 flex items-center gap-2 border border-white/5">
       <i class="fa-solid fa-cube"></i>3D & Virtual
     </button>
-
   </div>
 </section>
 
@@ -305,83 +294,370 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
     color: #0b1f2a;
     font-weight: 500;
   }
-
-  .filter-btn i {
-    transition: transform 0.3s;
-  }
-
-  .filter-btn:hover i {
-    transform: scale(1.2);
-  }
+  .filter-btn i { transition: transform 0.3s; }
+  .filter-btn:hover i { transform: scale(1.2); }
+  .photo-thumb { transition: all 0.4s ease; }
+  .photo-thumb:hover { transform: translateY(-5px); filter: brightness(1.1); }
 </style>
-
-<!-- COLLECTION SECTIONS -->
 
 <section class="max-w-7xl mx-auto px-6 pb-32 space-y-32">
 
-<!-- PHOTOGRAPHY -->
-<div>
-  <h2 class="font-serif text-3xl mb-6">
-    <i class="fa-solid fa-image text-sclCyan mr-3"></i>Photographs
-  </h2>
+  <div>
+    <h2 class="font-serif text-3xl mb-6 flex items-center">
+      <i class="fa-solid fa-image text-sclCyan mr-3"></i>Photographs
+    </h2>
+    <p class="text-white/70 max-w-4xl mb-10">
+      Visual documentation of national milestones, leadership, daily life, ceremonies, and regional identity.
+    </p>
 
-  <p class="text-white/70 max-w-4xl mb-10">
-    Visual documentation of national milestones, leadership,
-    daily life, ceremonies, and regional identity.
-  </p>
+    <div id="gallery">
+      <div class="gallery-page transition-opacity duration-500">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <img src="assests/Images/chocho.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/allan.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/jando.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/foodsame.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/5.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/6.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/7.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/8.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+        </div>
+      </div>
 
+      <div class="gallery-page hidden transition-opacity duration-500">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <img src="assests/Images/9.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/10.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/11.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/12.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/13.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/14.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/15.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+          <img src="assests/Images/16.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer shadow-lg border border-white/5">
+        </div>
+      </div>
+    </div>
 
- <!-- IMAGE GRID -->
-<div id="gallery">
-  <!-- PAGE 1 -->
-  <div class="gallery-page">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <img src="assests/Images/chocho.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/allan.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/jando.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/foodsame.webp" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/5.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/6.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/7.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/8.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
+    <div class="flex justify-center mt-12 gap-4">
+      <button id="prevPage" class="px-6 py-2 bg-gray-700/50 text-white rounded-lg hover:bg-gray-600 transition border border-white/10">
+        Previous
+      </button>
+      <button id="nextPage" class="px-6 py-2 bg-sclCyan text-black font-semibold rounded-lg hover:scale-105 transition shadow-lg shadow-sclCyan/20">
+        Next
+      </button>
     </div>
   </div>
 
-  <!-- PAGE 2 -->
-  <div class="gallery-page hidden">
+  <div>
+    <h2 class="font-serif text-3xl mb-6">
+      <i class="fa-solid fa-video text-sclCyan mr-3"></i>Film & Video Archive
+    </h2>
+    <p class="text-white/70 max-w-4xl mb-10">
+      Visual documentation of national milestones, leadership, daily life, ceremonies, and regional identity.
+    </p>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/daudi.webp" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Independence & Nationhood">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/daudi.mp4">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/daudi2.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Mr Daudi · Sculpture</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">SCULPTURE - MTWARA (NEWALA)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/zaitun.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Independence & Nationhood">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/zaitun.mp4">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/zaitun.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Zaituni Mnahonda · Traditional Doctor</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">TRADITIONAL TECHNIQUES - MTWARA (NEWALA)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/5.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/5.mov">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/5.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Pare Traditional Dance</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">TRADITIONAL DANCE - KILIMANJARO (SAME)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/6.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/6.mov">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/6.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Animal Husbandry</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">LIVESTOCKING KEEPING - KILIMANJARO - (SAME)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/7.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/7.mov">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/7.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Pare Food Preparation</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">TRADITIONAL FOOD PREPARATION - KILIMANJARO (SAME)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/8.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/8.mov">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/8.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Kwizu Mountains</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">KWIZU MOUNTAINS - KILIMANJARO (SAME)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/9.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/9.mov">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/9.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Hidden Waterfall</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">A HIDDEN WATERFALL - MOROGORO (VIDUNDA)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/12.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="assests/videos/12.mov">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/12.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Donkey-Assisted Transport</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">TRANSPORTATION USING DONKEYS - KILIMANJARO (SAME)</h3>
+        <p class="text-sm text-white/60">Motion footage and Audio Preview.</p>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl border border-white/5">
+          <img src="assests/Images/allan2.webp" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex gap-3 items-center">
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="video" data-src="https://youtu.be/FhKYhNsoMkM">
+              <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="media-btn p-2 bg-white/10 rounded-full hover:bg-sclCyan hover:text-black transition" data-type="audio" data-src="assests/audio/allan.mp3">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <span class="text-xs text-white/90 font-medium">Mr Allan · Lake Duluti</span>
+          </div>
+        </div>
+        <h3 class="mt-4 font-serif text-xl text-white">THE HISTORY OF CRATER LAKE - ARUSHA (MERU)</h3>
+        <p class="text-sm text-white/60">Historic images and motion footage.</p>
+      </article>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="font-serif text-3xl mb-6">
+      <i class="fa-solid fa-microphone-lines text-sclCyan mr-3"></i>Oral History & Audio
+    </h2>
+    <p class="text-white/70 max-w-4xl mb-10">
+      Recorded testimonies, songs, interviews, rituals, and spoken history from diverse communities.
+    </p>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="audio-card group relative h-40 bg-white/5 rounded-2xl flex flex-col items-center justify-center cursor-pointer border border-white/10 hover:bg-white/10 transition shadow-lg" 
+           data-audio="asseSts/audio/nringe.mp3" 
+           data-desc="MERU TRIBE TRADITIONL CEREMONIAL SONG">
+        <i class="fa-solid fa-play text-2xl text-white/40 group-hover:text-sclCyan transition"></i>
+        <span class="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-white/60 uppercase">NRINGERINGE - MERU</span>
+      </div>
+
+      <div class="audio-card group relative h-40 bg-white/5 rounded-2xl flex flex-col items-center justify-center cursor-pointer border border-white/10 hover:bg-white/10 transition shadow-lg" 
+           data-audio="assests/audio/davison.mp3" 
+           data-desc="ORIGIN OF MERU TRIBE">
+        <i class="fa-solid fa-play text-2xl text-white/40 group-hover:text-sclCyan transition"></i>
+        <span class="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-white/60 uppercase">DAVISON NASSAR - RESEARCHER</span>
+      </div>
+
+      <div class="audio-card group relative h-40 bg-white/5 rounded-2xl flex flex-col items-center justify-center cursor-pointer border border-white/10 hover:bg-white/10 transition shadow-lg" 
+           data-audio="assests/audio/jando.mp3" 
+           data-desc="JANDO NA UNYAGO PRACTICE">
+        <i class="fa-solid fa-play text-2xl text-white/40 group-hover:text-sclCyan transition"></i>
+        <span class="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-white/60 uppercase">JANDO RITUALS - NEWALA</span>
+      </div>
+
+      <div class="audio-card group relative h-40 bg-white/5 rounded-2xl flex flex-col items-center justify-center cursor-pointer border border-white/10 hover:bg-white/10 transition shadow-lg" 
+           data-audio="assests/audio/parefood.mp3" 
+           data-desc="PARE FOOD PREPARATION">
+        <i class="fa-solid fa-play text-2xl text-white/40 group-hover:text-sclCyan transition"></i>
+        <span class="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-white/60 uppercase">PARE FOOD PREPARATION</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="font-serif text-3xl mb-6">
+      <i class="fa-solid fa-file-lines text-sclCyan mr-3"></i>Documents & Records
+    </h2>
+    <p class="text-white/70 max-w-4xl mb-10">
+      Colonial records, post-independence administration, letters, reports, and policy documents.
+    </p>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <button class="doc-btn group h-48 bg-white/5 rounded-2xl flex flex-col items-center justify-center border border-white/10 hover:bg-white/10 transition shadow-xl" data-file="assests/documents/notification.pdf" data-title="Colonial Records">
+        <i class="fa-solid fa-file-pdf text-3xl text-white/40 mb-2 group-hover:text-red-400 transition"></i>
+        <span class="text-sm font-medium text-white/70">Colonial Records</span>
+      </button>
+
+      <button class="doc-btn group h-48 bg-white/5 rounded-2xl flex flex-col items-center justify-center border border-white/10 hover:bg-white/10 transition shadow-xl" data-file="assests/documents/notification.pdf" data-title="Post-Independence Letters">
+        <i class="fa-solid fa-file-pdf text-3xl text-white/40 mb-2 group-hover:text-red-400 transition"></i>
+        <span class="text-sm font-medium text-white/70">Post-Independence Letters</span>
+      </button>
+
+      <button class="doc-btn group h-48 bg-white/5 rounded-2xl flex flex-col items-center justify-center border border-white/10 hover:bg-white/10 transition shadow-xl" data-file="assests/documents/notification.pdf" data-title="Policy Reports">
+        <i class="fa-solid fa-file-pdf text-3xl text-white/40 mb-2 group-hover:text-red-400 transition"></i>
+        <span class="text-sm font-medium text-white/70">Policy Reports</span>
+      </button>
+
+      <button class="doc-btn group h-48 bg-white/5 rounded-2xl flex flex-col items-center justify-center border border-white/10 hover:bg-white/10 transition shadow-xl" data-file="assests/documents/notification.pdf" data-title="Letters & Memoranda">
+        <i class="fa-solid fa-file-pdf text-3xl text-white/40 mb-2 group-hover:text-red-400 transition"></i>
+        <span class="text-sm font-medium text-white/70">Letters & Memoranda</span>
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="font-serif text-3xl mb-6">
+      <i class="fa-solid fa-cube text-sclCyan mr-3"></i>3D & Virtual Heritage
+    </h2>
+    <p class="text-white/70 max-w-4xl mb-10">
+      Digitized cultural objects reconstructed for interactive exploration beyond physical access.
+    </p>
+
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <img src="assests/Images/9.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/10.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/11.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/12.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/13.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/14.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/15.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
-      <img src="assests/Images/16.png" class="photo-thumb h-64 md:h-72 w-full object-cover rounded-2xl cursor-pointer">
+      <a href="viewer.html" class="object-thumb group h-64 md:h-72 w-full bg-white/5 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-sclBlue hover:bg-white/10 transition shadow-2xl" data-desc="Artifact 1: Historical sculpture from Mtwara">
+        <i class="fa-solid fa-cube text-white/20 text-4xl group-hover:text-sclCyan transition-all group-hover:rotate-12"></i>
+        <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Launch 3D Tour</span>
+      </a>
+
+      <a href="viewer2.html" class="object-thumb group h-64 md:h-72 w-full bg-white/5 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-sclBlue hover:bg-white/10 transition shadow-2xl" data-desc="Artifact 2: Traditional Kilimanjaro mask">
+        <i class="fa-solid fa-cube text-white/20 text-4xl group-hover:text-sclCyan transition-all group-hover:rotate-12"></i>
+        <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">View Artifact</span>
+      </a>
+
+      <a href="viewer.html" class="object-thumb group h-64 md:h-72 w-full bg-white/5 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-sclBlue hover:bg-white/10 transition shadow-2xl" data-desc="Artifact 3: Arusha ceremonial tool">
+        <i class="fa-solid fa-cube text-white/20 text-4xl group-hover:text-sclCyan transition-all group-hover:rotate-12"></i>
+        <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">View Artifact</span>
+      </a>
+
+      <a href="viewer.html" class="object-thumb group h-64 md:h-72 w-full bg-white/5 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-sclBlue hover:bg-white/10 transition shadow-2xl" data-desc="Artifact 4: Mwanza fishing heritage artifact">
+        <i class="fa-solid fa-cube text-white/20 text-4xl group-hover:text-sclCyan transition-all group-hover:rotate-12"></i>
+        <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">View Artifact</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="pipViewer" class="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
+  <div class="relative w-full max-w-4xl">
+    <img id="pipImage" src="" class="max-h-[90vh] max-w-full mx-auto rounded-2xl shadow-2xl border border-white/10">
+    <button onclick="closePIP()" class="absolute -top-10 right-0 text-white text-4xl font-light hover:text-sclCyan transition">&times;</button>
+  </div>
+</div>
+
+<div id="mediaModal" class="fixed inset-0 bg-black/95 flex items-center justify-center hidden z-[9999] p-4 backdrop-blur-md">
+  <div class="relative w-full max-w-4xl">
+    <button id="mediaClose" class="absolute -top-12 right-0 text-white text-2xl hover:text-red-400 transition">✕ Close Archive</button>
+    <div class="bg-black/50 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+      <video id="videoPlayer" class="w-full hidden" controls></video>
+      <div id="audioVisualizer" class="hidden p-20 flex flex-col items-center justify-center">
+        <i class="fa-solid fa-waveform text-6xl text-sclCyan mb-6"></i>
+        <audio id="audioPlayer" class="w-full" controls></audio>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Pagination -->
-<div class="flex justify-center mt-12 gap-4">
-  <button id="prevPage" class="px-6 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
-    Previous
-  </button>
-  <button id="nextPage" class="px-6 py-2 bg-sclCyan text-black rounded-lg hover:scale-105 transition">
-    Next
-  </button>
-</div>
-
-<!-- PIP / Lightbox Overlay -->
-<div id="pipViewer" class="fixed inset-0 bg-black/70 flex items-center justify-center hidden z-50">
-  <div class="relative">
-    <img id="pipImage" src="" class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl">
-    <button onclick="closePIP()" class="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
+<div id="ndaModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center hidden p-4">
+  <div class="bg-gray-900 border border-white/10 rounded-2xl max-w-md w-full p-8 text-white shadow-2xl">
+    <h3 class="text-2xl font-serif mb-4 text-sclCyan">DOWNLOAD DOCUMENT</h3>
+    <p class="mb-8 text-sm text-white/60 leading-relaxed">
+      By downloading this document, you agree to our NDA, privacy policy, and usage rights. The content is for personal research and educational purposes only.
+    </p>
+    <div class="flex justify-end gap-4">
+      <button id="ndaCancel" class="px-6 py-2 bg-white/5 rounded-lg hover:bg-white/10 transition border border-white/5">Cancel</button>
+      <button id="ndaAgree" class="px-6 py-2 bg-sclCyan text-black font-bold rounded-lg hover:bg-sclBlue transition shadow-lg shadow-sclCyan/20">Agree & Download</button>
+    </div>
   </div>
 </div>
 
 <script>
-  /* PAGINATION */
+  /* 1. PAGINATION */
   const pages = document.querySelectorAll(".gallery-page");
   const nextBtn = document.getElementById("nextPage");
   const prevBtn = document.getElementById("prevPage");
@@ -391,6 +667,8 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
     pages.forEach((page, i) => {
       page.classList.toggle("hidden", i !== index);
     });
+    prevBtn.style.opacity = index === 0 ? "0.3" : "1";
+    prevBtn.style.pointerEvents = index === 0 ? "none" : "auto";
   }
 
   nextBtn.onclick = () => {
@@ -403,16 +681,16 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
     showPage(currentPage);
   };
 
-  /* PIP / LIGHTBOX */
+  /* 2. PIP / LIGHTBOX */
   const pipViewer = document.getElementById("pipViewer");
   const pipImage = document.getElementById("pipImage");
   const thumbnails = document.querySelectorAll(".photo-thumb");
 
   thumbnails.forEach(img => {
-    img.addEventListener("click", () => {
+    img.onclick = () => {
       pipImage.src = img.src;
       pipViewer.classList.remove("hidden");
-    });
+    };
   });
 
   function closePIP() {
@@ -420,502 +698,71 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
     pipImage.src = "";
   }
 
-  // Close when clicking outside the image
-  pipViewer.addEventListener("click", e => {
-    if (e.target === pipViewer) closePIP();
+  pipViewer.onclick = (e) => { if (e.target === pipViewer) closePIP(); };
+
+  /* 3. MEDIA PLAYER */
+  const mediaButtons = document.querySelectorAll(".media-btn, .audio-card");
+  const modal = document.getElementById("mediaModal");
+  const videoPlayer = document.getElementById("videoPlayer");
+  const audioVisualizer = document.getElementById("audioVisualizer");
+  const audioPlayer = document.getElementById("audioPlayer");
+  const closeBtn = document.getElementById("mediaClose");
+
+  mediaButtons.forEach(btn => {
+    btn.onclick = () => {
+      const type = btn.dataset.type || (btn.classList.contains('audio-card') ? 'audio' : '');
+      const src = btn.dataset.src || btn.dataset.audio;
+
+      modal.classList.remove("hidden");
+      videoPlayer.classList.add("hidden");
+      audioVisualizer.classList.add("hidden");
+
+      if (type === "video") {
+        videoPlayer.src = src;
+        videoPlayer.classList.remove("hidden");
+        videoPlayer.play();
+      } else {
+        audioPlayer.src = src;
+        audioVisualizer.classList.remove("hidden");
+        audioPlayer.play();
+      }
+    };
   });
-</script>
 
-<!-- HISTORICAL VIDEOS -->
-<div>
-  <h2 class="font-serif text-3xl mb-6">
-    <i class="fa-solid fa-video text-sclCyan mr-3"></i>Film & Video Archive
-  </h2>
+  closeBtn.onclick = () => {
+    modal.classList.add("hidden");
+    videoPlayer.pause(); videoPlayer.src = "";
+    audioPlayer.pause(); audioPlayer.src = "";
+  };
 
-  <p class="text-white/70 max-w-4xl mb-10">
-    Visual documentation of national milestones, leadership, daily life, ceremonies, and regional identity.
-  </p>
+  /* 4. DOCUMENTS / NDA */
+  const docButtons = document.querySelectorAll(".doc-btn");
+  const ndaModal = document.getElementById("ndaModal");
+  const ndaCancel = document.getElementById("ndaCancel");
+  const ndaAgree = document.getElementById("ndaAgree");
+  let selectedFile = "";
 
-  <!-- VIDEO GRID -->
-  <section class="max-w-7xl mx-auto px-6 pb-28">
-  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  docButtons.forEach(btn => {
+    btn.onclick = () => {
+      selectedFile = btn.dataset.file;
+      ndaModal.classList.remove("hidden");
+    };
+  });
 
-    <!-- CARD 1 -->
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/daudi.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
+  ndaCancel.onclick = () => { ndaModal.classList.add("hidden"); selectedFile = ""; };
 
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/daudi.mp4">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/daudi2.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Mr Daudi · Sculpture</span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">SCULPTURE - MTWARA (NEWALA)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/zaitun.png"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/zaitun.mp4">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/zaitun.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Zaituni Mnahonda · Traditional Doctor </span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">TRADITIONAL TECHNIQUES - MTWARA (NEWALA)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/5.png"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/5.mov">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/5.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Pare Traditional Dance </span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">TRADITIONAL DANCE - KILIMANJARO (SAME)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/6.png"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/6.mov">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/6.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80"> Animal Husbandry</span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">LIVESTOCKING KEEPING - KILIMANJARO - (SAME)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/7.png"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/7.mov">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/7.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Pare Food Preparation</span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">TRADITIONAL FOOD PREPARATION - KILIMANJARO (SAME)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/8.png"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/8.mov">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/8.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Kwizu Mountains </span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">KWIZU MOUNTAINS - KILIMANJARO (SAME)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/9.png"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/9.mov">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/9.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Hidden Waterfall </span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">A HIDDEN WATERFALL - MOROGORO (VIDUNDA)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/12.png"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/12.mov">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/12.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Donkey-Assisted Transport</span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">TRANSPORTATION USING DONKEYS - KILIMANJARO (SAME)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
-    </article>
-
-    <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
-        <img src="assests/Images/allan2.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-             alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="https://youtu.be/FhKYhNsoMkM">
-            <i class="fa-solid fa-video"></i>
-          </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/allan.mp3">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <span class="text-sm text-white/80">Mr Allan · Lake Duluti</span>
-        </div>
-      </div>
-
-      <h3 class="mt-4 font-serif text-xl">THE HISTORY OF CRATER LAKE - ARUSHA (MERU)</h3>
-      <p class="text-sm text-white/70">Historic images and motion footage.</p>
-    </article>
-     </div>
-</section>
- 
-<!-- MEDIA PLAYER MODAL -->
-<div id="mediaModal" class="fixed inset-0 bg-black/90 hidden z-[9999] flex items-center justify-center p-4">
-  <div class="relative w-full max-w-4xl">
-
-    <button id="mediaClose" class="absolute -top-10 right-0 text-white text-2xl hover:text-red-400">✕</button>
-
-    <video id="videoPlayer" class="w-full rounded-xl hidden" controls></video>
-    <audio id="audioPlayer" class="w-full hidden" controls></audio>
-
-  </div>
-</div>
-
-<script>
-const mediaButtons = document.querySelectorAll(".media-btn");
-const modal = document.getElementById("mediaModal");
-const videoPlayer = document.getElementById("videoPlayer");
-const audioPlayer = document.getElementById("audioPlayer");
-const closeBtn = document.getElementById("mediaClose");
-
-mediaButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const type = btn.dataset.type;
-    const src = btn.dataset.src;
-
-    modal.classList.remove("hidden");
-    videoPlayer.classList.add("hidden");
-    audioPlayer.classList.add("hidden");
-
-    if (type === "video") {
-      videoPlayer.src = src;
-      videoPlayer.classList.remove("hidden");
-      videoPlayer.play();
-    } else {
-      audioPlayer.src = src;
-      audioPlayer.classList.remove("hidden");
-      audioPlayer.play();
+  ndaAgree.onclick = () => {
+    ndaModal.classList.add("hidden");
+    if (selectedFile) {
+      const a = document.createElement("a");
+      a.href = selectedFile;
+      a.download = "";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
-  });
-});
-
-closeBtn.onclick = () => {
-  modal.classList.add("hidden");
-  videoPlayer.pause();
-  audioPlayer.pause();
-  videoPlayer.src = "";
-  audioPlayer.src = "";
-};
+  };
 </script>
-
-  <!-- AUDIO / ORAL HISTORY -->
-<div>
-  <h2 class="font-serif text-3xl mb-6">
-    <i class="fa-solid fa-microphone-lines text-sclCyan mr-3"></i>Oral History & Audio
-  </h2>
-  <p class="text-white/70 max-w-4xl mb-10">
-    Recorded testimonies, songs, interviews, rituals, and spoken history from diverse communities.
-  </p>
-
-  <!-- AUDIO GRID -->
-  <div class="grid md:grid-cols-4 gap-8">
-    
-    <!-- CARD 1 -->
-    <div class="audio-card relative h-40 bg-white/10 rounded-2xl flex items-center justify-center cursor-pointer" 
-         data-audio="asseSts/audio/nringe.mp3" 
-         data-desc="MERU TRIBE TRADITIONL CEREMONIAL SONG">
-      <i class="fa-solid fa-play text-2xl text-white/60"></i>
-      <span class="absolute bottom-2 left-2 text-sm text-white/80">NRINGERINGE - MERU</span>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="audio-card relative h-40 bg-white/10 rounded-2xl flex items-center justify-center cursor-pointer" 
-         data-audio="assests/audio/davison.mp3" 
-         data-desc="ORIGIN OF MERU TRIBE">
-      <i class="fa-solid fa-play text-2xl text-white/60"></i>
-      <span class="absolute bottom-2 left-2 text-sm text-white/80">DAVISON NASSAR - RESEARCHER</span>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="audio-card relative h-40 bg-white/10 rounded-2xl flex items-center justify-center cursor-pointer" 
-         data-audio="assests/audio/jando.mp3" 
-         data-desc="JANDO NA UNYAGO PRACTICE">
-      <i class="fa-solid fa-play text-2xl text-white/60"></i>
-      <span class="absolute bottom-2 left-2 text-sm text-white/80">JANDO RITUALS - NEWALA</span>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="audio-card relative h-40 bg-white/10 rounded-2xl flex items-center justify-center cursor-pointer" 
-         data-audio="assests/audio/parefood.mp3" 
-         data-desc="PARE FOOD PREPARATION">
-      <i class="fa-solid fa-play text-2xl text-white/60"></i>
-      <span class="absolute bottom-2 left-2 text-sm text-white/80">PARE FOOD PREPARATION</span>
-    </div>
-
-  </div>
-</div>
-
-<!-- AUDIO PIP OVERLAY -->
-<div id="audioPIP" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center hidden p-4">
-  <div class="relative w-full max-w-lg flex flex-col items-center">
-
-    <!-- CLOSE BUTTON -->
-    <button id="audioClose" class="absolute top-4 right-4 text-white text-2xl hover:text-red-400 transition z-50">✕</button>
-
-    <!-- AUDIO PLAYER -->
-    <audio id="pipAudio" class="w-full mt-10" controls></audio>
-
-    <!-- DESCRIPTION -->
-    <p id="audioDesc" class="mt-4 text-white/80 text-center max-w-3xl text-sm md:text-base"></p>
-  </div>
-</div>
-
-<!-- SCRIPT -->
-<script>
-const audioCards = document.querySelectorAll(".audio-card");
-const audioPIP = document.getElementById("audioPIP");
-const pipAudio = document.getElementById("pipAudio");
-const audioDesc = document.getElementById("audioDesc");
-const audioClose = document.getElementById("audioClose");
-
-audioCards.forEach(card => {
-  card.addEventListener("click", () => {
-    const src = card.dataset.audio;
-    const desc = card.dataset.desc;
-
-    pipAudio.src = src;
-    pipAudio.play();
-    audioDesc.textContent = desc;
-    audioPIP.classList.remove("hidden");
-  });
-});
-
-audioClose.addEventListener("click", () => {
-  pipAudio.pause();
-  pipAudio.src = "";
-  audioPIP.classList.add("hidden");
-});
-</script>
-
-
-  <!-- DOCUMENTS & RECORDS -->
-<div>
-  <h2 class="font-serif text-3xl mb-6">
-    <i class="fa-solid fa-file-lines text-sclCyan mr-3"></i>Documents & Records
-  </h2>
-  <p class="text-white/70 max-w-4xl mb-10">
-    Colonial records, post-independence administration,
-    letters, reports, and policy documents.
-  </p>
-
-  <!-- GRID -->
-  <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-    <!-- DOCUMENT 1 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Colonial Records">
-      <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
-      <span class="text-sm text-white/70 text-center">Colonial Records</span>
-    </button>
-
-    <!-- DOCUMENT 2 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Post-Independence Letters">
-      <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
-      <span class="text-sm text-white/70 text-center">Post-Independence Letters</span>
-    </button>
-
-    <!-- DOCUMENT 3 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Policy Reports">
-      <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
-      <span class="text-sm text-white/70 text-center">Policy Reports</span>
-    </button>
-
-    <!-- DOCUMENT 4 -->
-    <button class="doc-btn h-48 bg-white/10 rounded-2xl flex flex-col items-center justify-center transition hover:bg-white/20" data-file="assests/documents/notification.pdf" data-title="Letters & Memoranda">
-      <i class="fa-solid fa-file-pdf text-3xl text-white/60 mb-2"></i>
-      <span class="text-sm text-white/70 text-center">Letters & Memoranda</span>
-    </button>
-  </div>
-</div>
-
-<!-- NDA POPUP MODAL -->
-<div id="ndaModal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center hidden p-4">
-  <div class="bg-sclDeep rounded-2xl max-w-md w-full p-6 text-white">
-    <h3 class="text-xl font-semibold mb-4">DOWNLOAD DOCUMENT</h3>
-    <p class="mb-6 text-sm text-white/80">
-      By downloading this document, you agree to our NDA, privacy policy, and usage rights. The content is for personal research and educational purposes only.
-    </p>
-    <div class="flex justify-end gap-4">
-      <button id="ndaCancel" class="px-4 py-2 bg-white/20 rounded hover:bg-white/30 transition">Cancel</button>
-      <button id="ndaAgree" class="px-4 py-2 bg-sclCyan text-black rounded hover:bg-sclBlue transition">Agree & Download</button>
-    </div>
-  </div>
-</div>
-
-<!-- SCRIPT -->
-<script>
-const docButtons = document.querySelectorAll(".doc-btn");
-const ndaModal = document.getElementById("ndaModal");
-const ndaCancel = document.getElementById("ndaCancel");
-const ndaAgree = document.getElementById("ndaAgree");
-
-let selectedFile = "";
-
-// Open NDA modal
-docButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    selectedFile = btn.dataset.file;
-    ndaModal.classList.remove("hidden");
-  });
-});
-
-// Cancel download
-ndaCancel.addEventListener("click", () => {
-  ndaModal.classList.add("hidden");
-  selectedFile = "";
-});
-
-// Agree & Download
-ndaAgree.addEventListener("click", () => {
-  ndaModal.classList.add("hidden");
-  if (selectedFile) {
-    const a = document.createElement("a");
-    a.href = selectedFile;
-    a.download = "";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-});
-</script>
-
-<!-- 3D & VIRTUAL HERITAGE -->
-<div>
-  <h2 class="font-serif text-3xl mb-6">
-    <i class="fa-solid fa-cube text-sclCyan mr-3"></i>3D & Virtual Heritage
-  </h2>
-
-  <p class="text-white/70 max-w-4xl mb-10">
-    Digitized cultural objects reconstructed for interactive exploration beyond physical access.
-  </p>
-
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-  
-  <a href="viewer.html" class="object-thumb group h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-blue-500/50 transition-all shadow-xl" data-desc="Artifact 1: Historical sculpture from Mtwara">
-    <i class="fa-solid fa-cube text-white/40 text-4xl group-hover:text-blue-400 transition-colors"></i>
-    <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Launch 3D Tour</span>
-  </a>
-
-  <a href="viewer2.html" class="object-thumb group h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-blue-500/50 transition-all shadow-xl" data-desc="Artifact 2: Traditional Kilimanjaro mask">
-    <i class="fa-solid fa-cube text-white/40 text-4xl group-hover:text-blue-400 transition-colors"></i>
-    <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">View Artifact</span>
-  </a>
-
-  <a href="viewer.html" class="object-thumb group h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-blue-500/50 transition-all shadow-xl" data-desc="Artifact 3: Arusha ceremonial tool">
-    <i class="fa-solid fa-cube text-white/40 text-4xl group-hover:text-blue-400 transition-colors"></i>
-    <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">View Artifact</span>
-  </a>
-
-  <a href="viewer.html" class="object-thumb group h-64 md:h-72 w-full bg-white/10 rounded-2xl cursor-pointer flex flex-col items-center justify-center border border-white/5 hover:border-blue-500/50 transition-all shadow-xl" data-desc="Artifact 4: Mwanza fishing heritage artifact">
-    <i class="fa-solid fa-cube text-white/40 text-4xl group-hover:text-blue-400 transition-colors"></i>
-    <span class="text-white/30 mt-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">View Artifact</span>
-  </a>
-
-</div>
-</div>
-
-
-
-</section>
 
 <!-- FOOTER -->
 <footer class="bg-[#0f2b3a] text-white">
