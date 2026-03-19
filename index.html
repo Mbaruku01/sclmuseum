@@ -296,7 +296,10 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 
   <!-- Content -->
   <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-    
+     <span class="mb-6 px-4 py-1 border border-white/10 rounded-full font-black uppercase tracking-[0.4em] bg-white/5 backdrop-blur-md text-sclCyan"
+          style="font-size: clamp(8px, 0.8vw, 10px);">
+      SCL Digital Museum
+    </span>
     <h1 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
       Preserving Cultural Heritage<br/>for Future Generations
     </h1>
@@ -323,404 +326,492 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 
 
 
-<!-- STATS -->
-<section class="bg-[#0f2b3a] py-12 md:py-16">
-  <div id="statsSection" class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 text-center gap-6 md:gap-8 px-4 sm:px-6">
+<section class="relative bg-[#0b2a3a] py-20 overflow-hidden border-t border-white/5">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle,rgba(46,230,200,0.05)_0%,transparent_70%)]"></div>
 
-    <div class="stat opacity-0 translate-y-10 transition duration-700">
-      <i class="fa-solid fa-box-archive text-sclCyan text-2xl mb-2"></i>
-      <div class="font-serif text-2xl md:text-3xl counter" data-target="500">0</div>
-      <p class="text-xs md:text-sm">Archived Items</p>
+  <div id="statsSection" class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-6 relative z-10">
+    
+    <div class="stat-card group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-sclCyan/30 transition-all duration-500 text-center">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-sclCyan/10 text-sclCyan mb-6 group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-box-archive text-2xl"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-serif text-4xl md:text-5xl text-white mb-2">
+          <span class="counter" data-target="500">0</span><span class="text-sclCyan">+</span>
+        </span>
+        <p class="text-white/50 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Archived Items</p>
+      </div>
     </div>
 
-    <div class="stat opacity-0 translate-y-10 transition duration-700">
-      <i class="fa-solid fa-layer-group text-sclCyan text-2xl mb-2"></i>
-      <div class="font-serif text-2xl md:text-3xl counter" data-target="800">0</div>
-      <p class="text-xs md:text-sm">Collections</p>
+    <div class="stat-card group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-sclCyan/30 transition-all duration-500 text-center">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-sclCyan/10 text-sclCyan mb-6 group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-layer-group text-2xl"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-serif text-4xl md:text-5xl text-white mb-2">
+          <span class="counter" data-target="800">0</span>
+        </span>
+        <p class="text-white/50 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Collections</p>
+      </div>
     </div>
 
-    <div class="stat opacity-0 translate-y-10 transition duration-700">
-      <i class="fa-solid fa-clock-rotate-left text-sclCyan text-2xl mb-2"></i>
-      <div class="font-serif text-2xl md:text-3xl counter" data-target="8">0</div>
-      <p class="text-xs md:text-sm">Years</p>
+    <div class="stat-card group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-sclCyan/30 transition-all duration-500 text-center">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-sclCyan/10 text-sclCyan mb-6 group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-serif text-4xl md:text-5xl text-white mb-2">
+          <span class="counter" data-target="8">0</span>
+        </span>
+        <p class="text-white/50 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Years Record</p>
+      </div>
     </div>
 
-    <div class="stat opacity-0 translate-y-10 transition duration-700">
-      <i class="fa-solid fa-globe text-sclCyan text-2xl mb-2"></i>
-      <div class="font-serif text-2xl md:text-3xl">Global</div>
-      <p class="text-xs md:text-sm">Access</p>
+    <div class="stat-card group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-sclCyan/30 transition-all duration-500 text-center">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-sclCyan/10 text-sclCyan mb-6 group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-globe text-2xl"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-serif text-3xl md:text-4xl text-white mb-2 pt-2">Global</span>
+        <p class="text-white/50 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Open Access</p>
+      </div>
     </div>
 
   </div>
 </section>
-
-<!-- NEWS BOARD -->
-<section class="w-full px-6 py-20 md:py-28 bg-[#0b2a3a] relative">
-
-
-  <!-- Section Title -->
-  <h2 class="font-serif text-3xl md:text-4xl mb-8 text-center text-white tracking-wide">
-    Board of News & Events
-  </h2>
-
-  <!-- BREAKING NEWS MARQUEE -->
-<div class="overflow-hidden relative h-10 mb-12 border-b border-white/20">
-  <div id="breakingTicker" class="absolute whitespace-nowrap animate-marquee text-yellow-400 font-bold">
-    ⚡ Breaking: Zanzibar signs $12M heritage restoration partnership! &nbsp;&nbsp;&nbsp;
-    ⚡ Government: Ministry of Sports calls for national youth sports development. &nbsp;&nbsp;&nbsp;
-    ⚡ Private: Tanzanian startup launches clean cooking solutions nationwide. &nbsp;&nbsp;&nbsp;
-  </div>
-</div>
-
-  <!-- FILTER BUTTONS -->
-  <div class="flex justify-center gap-4 mb-12 flex-wrap">
-    <button class="filter-btn px-6 py-2 rounded-full bg-gradient-to-r from-sclBlue to-sclCyan text-black font-semibold hover:scale-105 transition" data-filter="all">All</button>
-    <button class="filter-btn px-6 py-2 rounded-full border border-white/30 text-white font-semibold hover:scale-105 transition" data-filter="government">Government</button>
-    <button class="filter-btn px-6 py-2 rounded-full border border-white/30 text-white font-semibold hover:scale-105 transition" data-filter="private">Private Sector</button>
-  </div>
-
-  <!-- News Grid -->
-  <div id="newsGrid" class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-    <!-- Zanzibar heritage restoration initiative -->
-    <div class="news-card bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition" data-type="government">
-      <div class="flex items-center gap-3 mb-3">
-        <i class="fa-solid fa-landmark text-sclCyan text-2xl"></i>
-        <span class="text-white/80 text-sm">19 Feb 2026</span>
-      </div>
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Zanzibar Signs Heritage Restoration Deal</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        The Revolutionary Government of Zanzibar partners with Infinity Developments on a $12 million restoration of key historic sites to boost tourism and cultural preservation. :contentReference[oaicite:0]{index=0}
-      </p>
-      <a href="assets/documents/zanzibar_heritage_deal.pdf" target="_blank" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Watch News →
-      </a>
-    </div>
-
-    <!-- Sports development call by government -->
-    <div class="news-card bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition" data-type="government">
-      <div class="flex items-center gap-3 mb-3">
-        <i class="fa-solid fa-landmark text-sclCyan text-2xl"></i>
-        <span class="text-white/80 text-sm">18 Feb 2026</span>
-      </div>
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Government Encourages Sports Growth</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Minister Paul Makonda urges the National Sports Council to intensify development across Tanzanian sports disciplines for international competitiveness. :contentReference[oaicite:1]{index=1}
-      </p>
-      <a href="assets/documents/sports_development.pdf" target="_blank" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Watch News →
-      </a>
-    </div>
-
-    <!-- Honey sector research push -->
-    <div class="news-card bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition" data-type="government">
-      <div class="flex items-center gap-3 mb-3">
-        <i class="fa-solid fa-landmark text-sclCyan text-2xl"></i>
-        <span class="text-white/80 text-sm">17 Feb 2026</span>
-      </div>
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Boosting Honey Production</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Tanzania calls for intensified research to increase honey output and exports, strengthening rural incomes and economic growth. :contentReference[oaicite:2]{index=2}
-      </p>
-      <a href="assets/documents/honey_research.pdf" target="_blank" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Watch News →
-      </a>
-    </div>
-
-    <!-- Private sector innovation in clean cooking -->
-    <div class="news-card bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition" data-type="private">
-      <div class="flex items-center gap-3 mb-3">
-        <i class="fa-solid fa-briefcase text-sclCyan text-2xl"></i>
-        <span class="text-white/80 text-sm">15 Feb 2026</span>
-      </div>
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Business Accelerates Clean Cooking Shift</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Innovations by private businesses are helping Tanzania transition to clean cooking solutions, lowering emissions and household costs. :contentReference[oaicite:3]{index=3}
-      </p>
-      <a href="assets/documents/clean_cooking_innovations.pdf" target="_blank" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Watch News →
-      </a>
-    </div>
-
-    <!-- Industrial investment momentum -->
-    <div class="news-card bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition" data-type="private">
-      <div class="flex items-center gap-3 mb-3">
-        <i class="fa-solid fa-briefcase text-sclCyan text-2xl"></i>
-        <span class="text-white/80 text-sm">14 Feb 2026</span>
-      </div>
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Industrial Investment Gains Momentum</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        The industrial sector in Tanzania sees increased investment and productivity, attracting both local and international stakeholders. :contentReference[oaicite:4]{index=4}
-      </p>
-      <a href="assets/documents/industrial_growth.pdf" target="_blank" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Watch News →
-      </a>
-    </div>
-
-    <!-- Tourism boost from cruise visits -->
-    <div class="news-card bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition" data-type="private">
-      <div class="flex items-center gap-3 mb-3">
-        <i class="fa-solid fa-briefcase text-sclCyan text-2xl"></i>
-        <span class="text-white/80 text-sm">20 Feb 2026</span>
-      </div>
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Tourism Reaps Cruise Revenue</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Over 600 tourists from the luxury Seven Seas Voyager cruise contribute a significant boost to Tanzania’s tourism revenue. :contentReference[oaicite:5]{index=5}
-      </p>
-      <a href="assets/documents/tourism_boost.pdf" target="_blank" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Watch News →
-      </a>
-    </div>
-
-    <!-- Regional trade & investment outreach -->
-    <div class="news-card bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition" data-type="private">
-      <div class="flex items-center gap-3 mb-3">
-        <i class="fa-solid fa-briefcase text-sclCyan text-2xl"></i>
-        <span class="text-white/80 text-sm">09 Feb 2026</span>
-      </div>
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Tanzania Touts Investment Abroad</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Government and private delegations highlight investment opportunities during outreach with Swedish partners. :contentReference[oaicite:6]{index=6}
-      </p>
-      <a href="assets/documents/investment_outreach.pdf" target="_blank" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Watch News →
-      </a>
-    </div>
-
-</div>
-</section>
-
-<!-- Marquee Animation -->
-<!-- ENDLESS NEWS CARDS -->
-<section class="bg-[#0b2a3a] py-4 px-6 rounded-xl mb-8 overflow-hidden relative">
-  <div class="overflow-hidden relative h-16">
-
-    <div class="flex gap-4 animate-marquee-cards">
-      <!-- CARD 1 -->
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap blink">
-        🔔 Breaking: Zanzibar signs $12M heritage restoration deal
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap">
-        🏢 Private: Tanzanian startup launches clean cooking solutions
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap">
-        📄 PDF: <a href="assets/documents/honey_research.pdf" class="underline text-sclCyan">Download Honey Production Report</a>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap">
-        🏥 Ministry of Health: Malaria prevention campaign update
-      </div>
-
-      <!-- Repeat cards for endless effect -->
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap blink">
-        🔔 Breaking: Zanzibar signs $12M heritage restoration deal
-      </div>
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap">
-        🏢 Private: Tanzanian startup launches clean cooking solutions
-      </div>
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap">
-        📄 PDF: <a href="assets/documents/honey_research.pdf" class="underline text-sclCyan">Download Honey Production Report</a>
-      </div>
-      <div class="bg-[#1a1a1a] px-4 py-2 rounded-lg border border-white/20 text-white font-semibold whitespace-nowrap">
-        🏥 Ministry of Health: Malaria prevention campaign update
-      </div>
-
-    </div>
-  </div>
-</section>
-<style>
-/* Blinking text for urgent news */
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-.blink { animation: blink 1s infinite; }
-
-/* Marquee animation */
-#breakingTicker {
-  display: flex;
-  animation: marquee 40s linear infinite; /* slower = bigger number */
-}
-
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* half because we duplicated items */
-}
-
-/* Optional: links styling */
-#breakingTicker a {
-  color: #2EE6C8;
-  font-weight: bold;
-}
-</style>
-<style>
-/* Blinking important cards */
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-.blink { animation: blink 1s infinite; color: #f4d03f; }
-
-/* Endless marquee cards animation */
-@keyframes marquee-cards {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* move by half width since duplicated */
-}
-.animate-marquee-cards {
-  display: flex;
-  gap: 1rem;
-  animation: marquee-cards 40s linear infinite; /* slower scroll */
-}
-</style>
-
 
 <script>
-// FILTER FUNCTIONALITY
-const filterButtons = document.querySelectorAll(".filter-btn");
-const newsCards = document.querySelectorAll(".news-card");
+/**
+ * Intersection Observer for Counter Animation
+ */
+const observerOptions = {
+    threshold: 0.5
+};
 
-filterButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const filter = btn.getAttribute("data-filter");
-    
-    newsCards.forEach(card => {
-      if(filter === "all" || card.dataset.type === filter){
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+            observer.unobserve(entry.target);
+        }
     });
+}, observerOptions);
 
-    // Highlight active button
-    filterButtons.forEach(b => b.classList.remove("bg-gradient-to-r", "from-sclBlue", "to-sclCyan", "text-black"));
-    btn.classList.add("bg-gradient-to-r", "from-sclBlue", "to-sclCyan", "text-black");
+document.addEventListener("DOMContentLoaded", () => {
+    const statsSection = document.getElementById('statsSection');
+    if (statsSection) observer.observe(statsSection);
+});
+</script>
+
+<style>
+/* Custom animation for stat card entry */
+.stat-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: statFadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes statFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered Delay for items */
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+</style>
+
+<section class="w-full px-6 py-20 md:py-28 bg-[#0b2a3a] relative overflow-hidden">
+  
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-sclCyan/10 blur-[120px] rounded-full"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-sclBlue/10 blur-[120px] rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="font-serif text-4xl md:text-5xl mb-4 text-white tracking-tight">
+        Board of News & Events
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-sclBlue to-sclCyan mx-auto rounded-full"></div>
+    </div>
+
+    <div class="mb-12 group cursor-pointer">
+      <div class="flex items-center bg-black/30 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden h-14">
+        <div class="bg-red-600 text-white px-6 h-full flex items-center font-black uppercase tracking-tighter italic z-20 shadow-[10px_0_20px_rgba(0,0,0,0.5)]">
+          Live
+        </div>
+        <div class="relative flex-1 overflow-hidden flex items-center">
+          <div class="flex whitespace-nowrap animate-marquee py-2 items-center">
+            <span class="text-yellow-400 font-bold mx-8 flex items-center gap-2"><i class="fa-solid fa-circle-dot animate-pulse"></i> President Samia receives 284-point Tax Reform Report.</span>
+            <span class="text-white font-bold mx-8 flex items-center gap-2"><i class="fa-solid fa-bolt"></i> Stanbic facilitates Sh200bn Tanzania-China trade deals.</span>
+            <span class="text-sclCyan font-bold mx-8 flex items-center gap-2"><i class="fa-solid fa-seedling"></i> National Clean Cooking Strategy reaches 23% coverage.</span>
+            <span class="text-yellow-400 font-bold mx-8 flex items-center gap-2"><i class="fa-solid fa-circle-dot animate-pulse"></i> President Samia receives 284-point Tax Reform Report.</span>
+            <span class="text-white font-bold mx-8 flex items-center gap-2"><i class="fa-solid fa-bolt"></i> Stanbic facilitates Sh200bn Tanzania-China trade deals.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="filter-container" class="flex justify-center gap-3 mb-16 flex-wrap">
+      <button class="filter-btn active px-8 py-2.5 rounded-full border border-sclCyan/50 text-white font-bold transition-all duration-300" data-filter="all">All Updates</button>
+      <button class="filter-btn px-8 py-2.5 rounded-full border border-white/10 text-white/60 font-bold transition-all duration-300" data-filter="government">Government</button>
+      <button class="filter-btn px-8 py-2.5 rounded-full border border-white/10 text-white/60 font-bold transition-all duration-300" data-filter="private">Private Sector</button>
+    </div>
+
+    <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div class="news-card group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-xl transition-all duration-500" data-type="government">
+        <div class="relative h-48 overflow-hidden">
+          <img src="news/mamasamia.jpg" alt="Tax Reform" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a3a] to-transparent"></div>
+          <div class="absolute bottom-4 left-6 p-2 rounded-xl bg-sclCyan text-black"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        </div>
+        <div class="p-8">
+          <span class="text-white/40 text-xs font-mono tracking-widest uppercase block mb-3">19 Mar 2026</span>
+          <h3 class="font-serif text-2xl mb-4 text-white leading-tight group-hover:text-sclCyan transition-colors">President Samia Receives Tax Reform Report</h3>
+          <p class="text-white/60 mb-8 text-base leading-relaxed">The Sefue Commission proposes 284 reforms to modernize the tax system for the 2050 Vision.</p>
+          <a href="https://thechanzo.com/2026/03/19/sweeping-284-point-tax-overhaul-proposed/" target="_blank" class="flex items-center gap-2 text-sclCyan font-bold tracking-wide group-hover:gap-4 transition-all">VISIT SOURCE <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+
+      <div class="news-card group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-xl transition-all duration-500" data-type="private">
+        <div class="relative h-48 overflow-hidden">
+          <img src="news/stanbic.jpg" alt="Trade" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a3a] to-transparent"></div>
+          <div class="absolute bottom-4 left-6 p-2 rounded-xl bg-sclBlue text-black"><i class="fa-solid fa-handshake"></i></div>
+        </div>
+        <div class="p-8">
+          <span class="text-white/40 text-xs font-mono tracking-widest uppercase block mb-3">19 Mar 2026</span>
+          <h3 class="font-serif text-2xl mb-4 text-white leading-tight group-hover:text-sclBlue transition-colors">Stanbic Bank Seals Sh200bn Trade Deal</h3>
+          <p class="text-white/60 mb-8 text-base leading-relaxed">New Tanzania-China trade window facilitates massive cross-border industrial investments.</p>
+          <a href="https://www.thecitizen.co.tz/tanzania/news/national" target="_blank" class="flex items-center gap-2 text-sclBlue font-bold tracking-wide group-hover:gap-4 transition-all">VISIT SOURCE <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+
+      <div class="news-card group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-xl transition-all duration-500" data-type="government">
+  <div class="relative h-48 overflow-hidden">
+    <img src="assests/meetings/aika1.jpg" alt="OUT and SCL Meeting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a3a] to-transparent"></div>
+    <div class="absolute bottom-4 left-6 p-2 rounded-xl bg-sclCyan text-black"><i class="fa-solid fa-handshake-angle"></i></div>
+  </div>
+  <div class="p-8">
+    <span class="text-white/40 text-xs font-mono tracking-widest uppercase block mb-3">19 Mar 2026</span>
+    <h3 class="font-serif text-2xl mb-4 text-white leading-tight group-hover:text-sclCyan transition-colors">OUT & SCL Conduct Project Evaluation</h3>
+    <p class="text-white/60 mb-8 text-base leading-relaxed">
+      The Open University of Tanzania and Shimulimuli Company Ltd reviewed the "Tanzania’s Traditional Culture Data Profiling" progress, focusing on digital heritage documentation.
+    </p>
+    <a href="https://out.ac.tz/news-and-events/announcements/call-for-fass-fieldwork-sponsorship-2025" target="_blank" class="flex items-center gap-2 text-sclCyan font-bold tracking-wide group-hover:gap-4 transition-all">
+      VIEW PROJECT DETAILS <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+  </div>
+</div>
+
+      <div class="news-card group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-xl transition-all duration-500" data-type="government">
+        <div class="relative h-48 overflow-hidden">
+          <img src="news/makonda.avif" alt="VAR Sports" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a3a] to-transparent"></div>
+          <div class="absolute bottom-4 left-6 p-2 rounded-xl bg-sclCyan text-black"><i class="fa-solid fa-medal"></i></div>
+        </div>
+        <div class="p-8">
+          <span class="text-white/40 text-xs font-mono tracking-widest uppercase block mb-3">18 Mar 2026</span>
+          <h3 class="font-serif text-2xl mb-4 text-white leading-tight group-hover:text-sclCyan transition-colors">Paul Makonda Fast-tracks Stadium VAR</h3>
+          <p class="text-white/60 mb-8 text-base leading-relaxed">Minister orders immediate tech installation for Benjamin Mkapa Stadium to meet 2027 AFCON standards.</p>
+          <a href="https://dailynews.co.tz/sports" target="_blank" class="flex items-center gap-2 text-sclCyan font-bold tracking-wide group-hover:gap-4 transition-all">VISIT SOURCE <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+
+      <div class="news-card group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-xl transition-all duration-500" data-type="private">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&q=80&w=800" alt="Tourism" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a3a] to-transparent"></div>
+          <div class="absolute bottom-4 left-6 p-2 rounded-xl bg-sclBlue text-black"><i class="fa-solid fa-landmark"></i></div>
+        </div>
+        <div class="p-8">
+          <span class="text-white/40 text-xs font-mono tracking-widest uppercase block mb-3">18 Mar 2026</span>
+          <h3 class="font-serif text-2xl mb-4 text-white leading-tight group-hover:text-sclBlue transition-colors">Zanzibar Heritage Restoration Begins</h3>
+          <p class="text-white/60 mb-8 text-base leading-relaxed">The $12M partnership with Infinity Developments officially kicks off restoration of the Old Fort.</p>
+          <a href="https://thechanzo.com/news" target="_blank" class="flex items-center gap-2 text-sclBlue font-bold tracking-wide group-hover:gap-4 transition-all">VISIT SOURCE <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+
+      <div class="news-card group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-xl transition-all duration-500" data-type="private">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800" alt="Clean Energy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a3a] to-transparent"></div>
+          <div class="absolute bottom-4 left-6 p-2 rounded-xl bg-sclBlue text-black"><i class="fa-solid fa-fire-burner"></i></div>
+        </div>
+        <div class="p-8">
+          <span class="text-white/40 text-xs font-mono tracking-widest uppercase block mb-3">17 Mar 2026</span>
+          <h3 class="font-serif text-2xl mb-4 text-white leading-tight group-hover:text-sclBlue transition-colors">Clean Cooking Strategy Hits 23% Reach</h3>
+          <p class="text-white/60 mb-8 text-base leading-relaxed">Private sector electric and bio-ethanol solutions see rapid adoption across urban Tanzania.</p>
+          <a href="https://www.thecitizen.co.tz/tanzania/news" target="_blank" class="flex items-center gap-2 text-sclBlue font-bold tracking-wide group-hover:gap-4 transition-all">VISIT SOURCE <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="w-full bg-black py-6 border-y border-white/10 overflow-hidden relative">
+  <div class="flex gap-6 animate-marquee-cards hover:[animation-play-state:paused] cursor-pointer">
+    <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-xl border border-white/10 whitespace-nowrap">
+      <i class="fa-solid fa-circle-check text-red-500"></i>
+      <p class="text-white font-medium text-sm">Zanzibar: $12M Heritage Deal Active</p>
+    </div>
+    <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-xl border border-white/10 whitespace-nowrap">
+      <i class="fa-solid fa-file-pdf text-sclCyan"></i>
+      <p class="text-white font-medium text-sm">Download: NBS Macro-Economic Report 2026</p>
+    </div>
+    <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-xl border border-white/10 whitespace-nowrap">
+      <i class="fa-solid fa-briefcase text-sclBlue"></i>
+      <p class="text-white font-medium text-sm">Private: Stanbic Trade Hub Now Open</p>
+    </div>
+    <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-xl border border-white/10 whitespace-nowrap">
+      <i class="fa-solid fa-circle-check text-red-500"></i>
+      <p class="text-white font-medium text-sm">Zanzibar: $12M Heritage Deal Active</p>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 30s linear infinite; }
+@keyframes marquee-cards { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee-cards { animation: marquee-cards 50s linear infinite; }
+
+.filter-btn.active {
+  background: linear-gradient(to right, #0072ff, #2EE6C8);
+  color: black;
+  border-color: transparent;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.news-card { animation: fadeInScale 0.6s ease-out forwards; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".news-card");
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active", "border-sclCyan/50"));
+      filterBtns.forEach(b => b.classList.add("border-white/10", "text-white/60"));
+      btn.classList.add("active");
+      btn.classList.remove("border-white/10", "text-white/60");
+
+      const filterValue = btn.getAttribute("data-filter");
+      cards.forEach(card => {
+        if (filterValue === "all" || card.getAttribute("data-type") === filterValue) {
+          card.classList.remove("hidden");
+          card.classList.add("block");
+        } else {
+          card.classList.add("hidden");
+          card.classList.remove("block");
+        }
+      });
+    });
   });
 });
 </script>
 
+<section class="relative max-w-7xl mx-auto px-6 py-24 md:py-32 overflow-hidden">
+  
+  <div class="text-center mb-20 relative z-10">
+    <h2 class="font-serif text-4xl md:text-5xl text-white mb-6 tracking-tight">
+      Featured National <span class="text-sclCyan italic">Collections</span>
+    </h2>
+    <div class="w-24 h-1 bg-gradient-to-r from-sclBlue to-sclCyan mx-auto rounded-full"></div>
+  </div>
 
-<!-- FEATURED COLLECTIONS -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28">
-  <h2 class="font-serif text-3xl md:text-4xl mb-14 text-center">
-    Featured National Collections
-  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
 
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+    <a href="historical-photography.html" class="collection-card group relative">
+      <div class="relative h-full rounded-[2rem] p-8 md:p-10 bg-[#0b2a3a]/80 backdrop-blur-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-sclCyan/50 hover:shadow-[0_20px_50px_rgba(0,114,255,0.15)]">
+        
+        <div class="absolute -right-8 -top-8 w-32 h-32 bg-sclCyan/5 rounded-full blur-3xl group-hover:bg-sclCyan/20 transition-colors duration-500"></div>
+        
+        <div class="relative z-10">
+          <div class="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 text-sclCyan group-hover:text-white group-hover:bg-sclCyan group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+            <i class="fa-solid fa-camera-retro text-3xl"></i>
+          </div>
 
-    <!-- CARD 1 -->
-    <a href="historical-photography.html"
-      class="group relative rounded-3xl p-[1px] bg-gradient-to-br from-sclBlue/40 to-sclCyan/20 
-      hover:from-sclCyan hover:to-sclBlue transition duration-500">
+          <h3 class="font-serif text-2xl md:text-3xl text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">
+            SCL Gallery
+          </h3>
 
-      <div class="h-full rounded-3xl bg-white/5 backdrop-blur-xl p-8 md:p-10 
-      group-hover:bg-white/10 transition duration-500 transform group-hover:-translate-y-2">
+          <p class="text-white/60 leading-relaxed mb-8 group-hover:text-white/80 transition-colors">
+            Digitized national photographs documenting communities, leaders, ceremonies, and the intricate threads of everyday life.
+          </p>
 
-        <i class="fa-solid fa-camera-retro text-sclCyan/50 text-3xl mb-6 
-        opacity-60 group-hover:opacity-100 
-        group-hover:text-white group-hover:scale-125 
-        group-hover:drop-shadow-[0_0_15px_rgba(0,255,255,0.7)]
-        transition duration-500"></i>
-
-        <h3 class="font-serif text-xl md:text-2xl mb-4">
-          SCL Gallery
-        </h3>
-
-        <p class="text-sm text-white/70 leading-relaxed">
-          Digitized national photographs documenting communities, leaders,
-          ceremonies, and everyday life.
-        </p>
+          <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-sclCyan">
+            Explore Archives <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+          </div>
+        </div>
       </div>
     </a>
 
+    <a href="3D.html" class="collection-card group relative">
+      <div class="relative h-full rounded-[2rem] p-8 md:p-10 bg-[#0b2a3a]/80 backdrop-blur-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-sclCyan/50 hover:shadow-[0_20px_50px_rgba(0,114,255,0.15)]">
+        
+        <div class="absolute -right-8 -top-8 w-32 h-32 bg-sclBlue/5 rounded-full blur-3xl group-hover:bg-sclBlue/20 transition-colors duration-500"></div>
 
-    <!-- CARD 2 -->
-    <a href="payment.html"
-      class="group relative rounded-3xl p-[1px] bg-gradient-to-br from-sclBlue/40 to-sclCyan/20 
-      hover:from-sclCyan hover:to-sclBlue transition duration-500">
+        <div class="relative z-10">
+          <div class="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 text-sclCyan group-hover:text-white group-hover:bg-sclBlue group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
+            <i class="fa-solid fa-cube text-3xl"></i>
+          </div>
 
-      <div class="h-full rounded-3xl bg-white/5 backdrop-blur-xl p-8 md:p-10 
-      group-hover:bg-white/10 transition duration-500 transform group-hover:-translate-y-2">
+          <h3 class="font-serif text-2xl md:text-3xl text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">
+            3D Virtual Tour
+          </h3>
 
-        <i class="fa-solid fa-cube text-sclCyan/50 text-3xl mb-6 
-        opacity-60 group-hover:opacity-100 
-        group-hover:text-white group-hover:scale-125 
-        group-hover:drop-shadow-[0_0_15px_rgba(0,255,255,0.7)]
-        transition duration-500"></i>
+          <p class="text-white/60 leading-relaxed mb-8 group-hover:text-white/80 transition-colors">
+            Step inside immersive digital environments and navigate cultural heritage spaces remotely with cutting-edge photosphere tech.
+          </p>
 
-        <h3 class="font-serif text-xl md:text-2xl mb-4">
-          3D Virtual Tour
-        </h3>
-
-        <p class="text-sm text-white/70 leading-relaxed">
-          Explore immersive digital environments and navigate cultural
-          heritage spaces remotely in real time.
-        </p>
+          <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-sclCyan">
+            Enter Museum <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+          </div>
+        </div>
       </div>
     </a>
 
+    <a href="collections.html" class="collection-card group relative">
+      <div class="relative h-full rounded-[2rem] p-8 md:p-10 bg-[#0b2a3a]/80 backdrop-blur-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-sclCyan/50 hover:shadow-[0_20px_50px_rgba(0,114,255,0.15)]">
+        
+        <div class="absolute -right-8 -top-8 w-32 h-32 bg-sclCyan/5 rounded-full blur-3xl group-hover:bg-sclCyan/20 transition-colors duration-500"></div>
 
-    <!-- CARD 3 -->
-    <a href="collections.html"
-      class="group relative rounded-3xl p-[1px] bg-gradient-to-br from-sclBlue/40 to-sclCyan/20 
-      hover:from-sclCyan hover:to-sclBlue transition duration-500">
+        <div class="relative z-10">
+          <div class="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 text-sclCyan group-hover:text-white group-hover:bg-sclCyan group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+            <i class="fa-solid fa-film text-3xl"></i>
+          </div>
 
-      <div class="h-full rounded-3xl bg-white/5 backdrop-blur-xl p-8 md:p-10 
-      group-hover:bg-white/10 transition duration-500 transform group-hover:-translate-y-2">
+          <h3 class="font-serif text-2xl md:text-3xl text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">
+            Film & Audio
+          </h3>
 
-        <i class="fa-solid fa-film text-sclCyan/50 text-3xl mb-6 
-        opacity-60 group-hover:opacity-100 
-        group-hover:text-white group-hover:scale-125 
-        group-hover:drop-shadow-[0_0_15px_rgba(0,255,255,0.7)]
-        transition duration-500"></i>
+          <p class="text-white/60 leading-relaxed mb-8 group-hover:text-white/80 transition-colors">
+            National audiovisual materials preserved specifically for cross-generational education and global academic research.
+          </p>
 
-        <h3 class="font-serif text-xl md:text-2xl mb-4">
-          Film & Audio Heritage
-        </h3>
-
-        <p class="text-sm text-white/70 leading-relaxed">
-          National audiovisual materials preserved for education,
-          research, and public access.
-        </p>
+          <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-sclCyan">
+            Listen & Watch <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+          </div>
+        </div>
       </div>
     </a>
 
   </div>
 </section>
 
-<!-- FEATURED ARTIFACT OF THE WEEK -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 bg-[#0b2a3a] rounded-3xl text-center">
-  
-  <!-- Section Heading -->
-  <h2 class="font-serif text-2xl md:text-3xl mb-12 text-white"></h2>
-  
-  <!-- Flex Container -->
-  <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+<style>
+  /* Entrance Animation */
+  .collection-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Stagger delays for the grid items */
+  .collection-card:nth-child(1) { animation-delay: 0.1s; }
+  .collection-card:nth-child(2) { animation-delay: 0.2s; }
+  .collection-card:nth-child(3) { animation-delay: 0.3s; }
+</style>
+
+<section class="max-w-7xl mx-auto px-6 py-20 md:py-32">
+  <div class="relative group overflow-hidden rounded-[40px] bg-gradient-to-br from-[#113344] to-[#0b2a3a] border border-white/10 shadow-2xl">
     
-    <!-- Artifact Image -->
-    <div class="w-full md:w-1/3 flex justify-center">
-      <img src="assests/thumbnails/IMG_3450.webp" alt="Featured Artifact" class="w-full max-w-xs md:max-w-full rounded-2xl shadow-xl object-cover">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-sclCyan/10 blur-[100px] rounded-full group-hover:bg-sclCyan/20 transition-colors duration-700"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-sclBlue/10 blur-[100px] rounded-full group-hover:bg-sclBlue/20 transition-colors duration-700"></div>
+
+    <div class="relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 p-8 md:p-16">
+      
+      <div class="w-full lg:w-2/5 relative">
+        <div class="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 aspect-[4/5]">
+          <img src="assests/thumbnails/IMG_3450.webp" alt="Featured Artifact" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000">
+          
+          <div class="absolute top-6 left-6 bg-black/60 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full">
+            <span class="text-sclCyan text-xs font-black tracking-widest uppercase">Spotlight</span>
+          </div>
+        </div>
+        
+        <div class="absolute inset-0 bg-sclCyan/20 blur-3xl rounded-full scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+      </div>
+
+      <div class="w-full lg:w-3/5 text-center lg:text-left">
+        <div class="inline-block mb-6">
+          <h2 class="text-sclCyan font-black tracking-[0.3em] uppercase text-sm mb-2">Artifact of the Week</h2>
+          <div class="w-12 h-1 bg-sclCyan rounded-full"></div>
+        </div>
+
+        <h3 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+          Sculpting History: <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/40">Dinosaurs from Metal Waste</span>
+        </h3>
+
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8">
+          <div class="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-xl border border-white/10">
+            <i class="fa-solid fa-hourglass-start text-sclCyan text-xs"></i>
+            <span class="text-white/80 text-xs font-bold uppercase tracking-wider">Triassic Period</span>
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-xl border border-white/10">
+            <i class="fa-solid fa-location-dot text-sclCyan text-xs"></i>
+            <span class="text-white/80 text-xs font-bold uppercase tracking-wider">National Museum of Tanzania</span>
+          </div>
+        </div>
+
+        <p class="text-lg text-white/70 leading-relaxed mb-10 font-light max-w-2xl">
+          Metal wastes were carefully collected and repurposed to create a welded sculpture in the shape of a dinosaur. This approach transforms discarded materials into a striking piece of art, serving as a <strong>tangible preservation of history</strong>—connecting viewers with the prehistoric past in a modern, sustainable form.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
+          <button class="px-10 py-4 bg-sclCyan text-black font-black uppercase tracking-widest text-xs rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_10px_20px_rgba(46,230,200,0.2)]">
+            Explore Collection
+          </button>
+          <div class="flex items-center gap-3 text-white/40 hover:text-white transition-colors cursor-pointer group/link">
+             <span class="text-xs font-bold uppercase tracking-widest">Read Full Story</span>
+             <i class="fa-solid fa-arrow-right-long group-hover/link:translate-x-2 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
     </div>
-    
-    <!-- Artifact Description -->
-    <div class="w-full md:w-2/3 max-w-xl text-center md:text-left text-white">
-      <h2 class="font-serif text-2xl md:text-3xl mb-12 text-white"> ARTIFACT OF THE WEEK</h2>
-      <h3 class="font-serif text-xl md:text-2xl mb-4">Sculpting History: Dinosaurs from Metal Waste</h3>
-      <p class="text-white/70 mb-3 font-medium">
-        <strong>Origin:</strong> TRIASSIC PERIOD, 245 - 230 Million Years Ago | 
-        <strong>Location:</strong> National Museum of Tanzania
-      </p>
-      <p class="text-sm text-white/70 leading-relaxed">
-        Metal wastes were carefully collected and repurposed to create a welded sculpture in the shape of a dinosaur. This approach not only transforms discarded materials into a striking piece of art but also serves as a tangible preservation of history, connecting viewers with the prehistoric past in a modern, sustainable form. Each welded piece reflects both creativity and conservation, highlighting how cultural memory and environmental awareness can come together in artistic expression.
-      </p>
-    </div>
-    
   </div>
 </section>
+
+<style>
+  /* Custom Serif Font Handling - Ensuring look is consistent */
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+</style>
 
 
 
@@ -791,90 +882,159 @@ filterButtons.forEach(btn => {
 
 
 
-<!-- RESEARCH & DOWNLOAD PORTAL -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28 bg-[#0b2a3a] rounded-3xl">
-  <!-- Section Heading -->
-  <h2 class="font-serif text-3xl md:text-4xl mb-12 text-center text-white tracking-wide">
-    Research & Downloads
-  </h2>
+<section class="max-w-7xl mx-auto px-6 py-20 md:py-32 bg-[#0b2a3a] rounded-[3rem] relative overflow-hidden shadow-2xl">
+  
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-sclCyan/5 blur-[120px] rounded-full"></div>
 
-  <!-- Grid of Resources -->
-  <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="relative z-10 text-center mb-16">
+    <h2 class="font-serif text-4xl md:text-5xl text-white mb-4 tracking-tight">
+      Research & <span class="text-sclCyan">Downloads</span>
+    </h2>
+    <div class="w-20 h-1.5 bg-gradient-to-r from-sclBlue to-sclCyan mx-auto rounded-full"></div>
+  </div>
 
-    <!-- CARD 1 -->
-    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition duration-500">
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Student Report Documents</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Download curated documents for academic research and historical studies.
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+
+    <div class="group bg-white/5 backdrop-blur-2xl p-8 md:p-10 rounded-[2rem] border border-white/10 hover:border-sclCyan/40 hover:bg-white/10 transition-all duration-500 shadow-xl">
+      <div class="flex justify-between items-start mb-8">
+        <div class="w-14 h-14 rounded-2xl bg-sclCyan/10 flex items-center justify-center text-sclCyan group-hover:bg-sclCyan group-hover:text-black transition-all duration-500">
+          <i class="fa-solid fa-file-pdf text-2xl"></i>
+        </div>
+        <span class="text-[10px] font-black tracking-widest uppercase py-1 px-3 bg-white/5 rounded-full text-white/40 border border-white/10">Doc Archive</span>
+      </div>
+      
+      <h3 class="font-serif text-2xl mb-4 text-white group-hover:text-sclCyan transition-colors">Student Report Documents</h3>
+      <p class="text-white/60 mb-10 text-base leading-relaxed">
+        Download curated datasets and fieldwork documents for advanced academic research and Tanzanian historical studies.
       </p>
-      <a href="Dashboard.html" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Read →
+      
+      <a href="Dashboard.html" class="flex items-center gap-2 text-sclCyan font-bold tracking-widest text-xs uppercase group/link hover:gap-4 transition-all">
+        Access Portal <i class="fa-solid fa-arrow-right-long transition-transform"></i>
       </a>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition duration-500">
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Artifact Metadata</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Access detailed archival information and structured metadata about artifacts.
+    <div class="group bg-white/5 backdrop-blur-2xl p-8 md:p-10 rounded-[2rem] border border-white/10 hover:border-sclBlue/40 hover:bg-white/10 transition-all duration-500 shadow-xl">
+      <div class="flex justify-between items-start mb-8">
+        <div class="w-14 h-14 rounded-2xl bg-sclBlue/10 flex items-center justify-center text-sclBlue group-hover:bg-sclBlue group-hover:text-white transition-all duration-500">
+          <i class="fa-solid fa-database text-2xl"></i>
+        </div>
+        <span class="text-[10px] font-black tracking-widest uppercase py-1 px-3 bg-white/5 rounded-full text-white/40 border border-white/10">Metadata</span>
+      </div>
+      
+      <h3 class="font-serif text-2xl mb-4 text-white group-hover:text-sclBlue transition-colors">Artifact Metadata</h3>
+      <p class="text-white/60 mb-10 text-base leading-relaxed">
+        Access detailed archival information, technical specifications, and structured provenance data about national artifacts.
       </p>
-      <a href="explorearchieve.html" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Explore →
+      
+      <a href="explorearchieve.html" class="flex items-center gap-2 text-sclBlue font-bold tracking-widest text-xs uppercase group/link hover:gap-4 transition-all">
+        Explore Data <i class="fa-solid fa-arrow-right-long transition-transform"></i>
       </a>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-white/10 transition duration-500">
-      <h3 class="font-serif text-xl md:text-2xl mb-3 text-white">Audio & Video Archives</h3>
-      <p class="text-white/70 mb-4 text-sm md:text-base leading-relaxed">
-        Explore educational audiovisual materials preserved for research and learning.
+    <div class="group bg-white/5 backdrop-blur-2xl p-8 md:p-10 rounded-[2rem] border border-white/10 hover:border-sclCyan/40 hover:bg-white/10 transition-all duration-500 shadow-xl">
+      <div class="flex justify-between items-start mb-8">
+        <div class="w-14 h-14 rounded-2xl bg-sclCyan/10 flex items-center justify-center text-sclCyan group-hover:bg-sclCyan group-hover:text-black transition-all duration-500">
+          <i class="fa-solid fa-photo-film text-2xl"></i>
+        </div>
+        <span class="text-[10px] font-black tracking-widest uppercase py-1 px-3 bg-white/5 rounded-full text-white/40 border border-white/10">Media</span>
+      </div>
+      
+      <h3 class="font-serif text-2xl mb-4 text-white group-hover:text-sclCyan transition-colors">Audio & Video Archives</h3>
+      <p class="text-white/60 mb-10 text-base leading-relaxed">
+        Stream and download educational audiovisual materials preserved specifically for cross-disciplinary learning.
       </p>
-      <a href="collections.html" class="inline-block text-sclCyan font-semibold hover:text-sclBlue hover:underline transition duration-300">
-        Explore →
+      
+      <a href="collections.html" class="flex items-center gap-2 text-sclCyan font-bold tracking-widest text-xs uppercase group/link hover:gap-4 transition-all">
+        Browse Library <i class="fa-solid fa-arrow-right-long transition-transform"></i>
       </a>
     </div>
 
   </div>
 </section>
 
-<!-- COLLABORATION & SPONSORS -->
-<section class="bg-sclDeep py-20 md:py-28 text-center px-4 sm:px-6">
+<style>
+  /* Subtle glow animation for the border on hover */
+  .group:hover {
+    box-shadow: 0 0 30px -10px rgba(46, 230, 200, 0.2);
+  }
+</style>
 
-  <i class="fa-solid fa-handshake text-sclCyan text-3xl mb-6"></i>
+<section class="relative bg-[#0b2a3a] py-24 md:py-32 overflow-hidden border-t border-white/5">
+  
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-5 pointer-events-none">
+    <i class="fa-solid fa-handshake text-[20rem] text-sclCyan absolute -top-20 -left-20 rotate-12"></i>
+  </div>
 
-  <h2 class="font-serif text-2xl md:text-3xl">Collaboration & Sponsors</h2>
+  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+    
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-sclCyan/10 text-sclCyan mb-8">
+      <i class="fa-solid fa-handshake-simple text-3xl"></i>
+    </div>
+    
+    <h2 class="font-serif text-4xl md:text-5xl text-white mb-6 tracking-tight">
+      Collaboration & <span class="text-sclCyan italic">Sponsors</span>
+    </h2>
+    
+    <p class="mt-6 max-w-2xl mx-auto text-white/50 text-lg leading-relaxed font-light">
+      Uniting academic excellence with digital innovation to advance the preservation of Tanzania's cultural heritage.
+    </p>
 
-  <p class="mt-6 max-w-2xl mx-auto text-white/60 text-sm md:text-base">
-    Strategic collaboration advancing digital heritage preservation.
-  </p>
+    <div class="mt-20 relative max-w-4xl mx-auto">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-sclCyan/10 blur-[100px] rounded-full"></div>
 
-  <!-- BIG PARTNER LOGO -->
-<div class="mt-14 flex flex-col items-center justify-center">
+      <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-12 md:p-16 transition-all duration-500 hover:border-sclCyan/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] group">
+        
+        <div class="flex flex-col items-center">
+          <div class="bg-white/5 p-6 rounded-3xl mb-8 border border-white/5 group-hover:bg-white/10 transition-colors duration-500">
+            <img src="assests/thumbnails/out-logo.png" 
+                 alt="The Open University of Tanzania" 
+                 class="h-28 md:h-36 lg:h-40 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transform group-hover:scale-105 transition-transform duration-700">
+          </div>
 
-  <img src="assests/thumbnails/out-logo.png"
-       alt="The Open University of Tanzania"
-       class="h-24 md:h-32 lg:h-36 object-contain opacity-90 hover:opacity-100 hover:scale-105 transition duration-300">
+          <div class="space-y-2">
+            <span class="text-sclCyan text-xs font-black uppercase tracking-[0.3em]">Principal Academic Partner</span>
+            <h3 class="text-2xl md:text-3xl font-serif text-white">
+              The Open University of Tanzania
+            </h3>
+          </div>
 
- <!-- Partner Name -->
-<h3 class="mt-6 text-lg md:text-xl font-semibold tracking-wide text-white">
-  The Open University of Tanzania
-</h3>
+          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="partner-details.html" 
+               class="px-10 py-4 bg-sclCyan text-black font-black uppercase tracking-widest text-xs rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_10px_20px_rgba(46,230,200,0.2)]">
+              View Partnership Details
+            </a>
+            
+            <div class="h-10 w-[1px] bg-white/10 hidden sm:block"></div>
+            
+            <p class="text-white/40 text-xs font-bold uppercase tracking-wider">
+              Established 2022
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<!-- Button -->
-<a href="partner-details.html" 
-   class="mt-4 inline-block bg-sclCyan text-white font-medium px-6 py-2 rounded-lg shadow-lg hover:bg-sclCyan/90 transition duration-300">
-   See More
-</a>
+    <div class="mt-20 flex flex-col items-center opacity-30">
+      <div class="w-12 h-[1px] bg-white/20 mb-6"></div>
+      <p class="text-white/40 text-[10px] uppercase tracking-[0.5em] font-black">
+        Global Network Expanding
+      </p>
+    </div>
 
-</div>
-
-  <!-- FUTURE -->
-  <p class="mt-12 text-white/30 text-xs uppercase tracking-widest">
-    ...
-  </p>
-
+  </div>
 </section>
 
+<style>
+  /* Entrance animation for the partner card */
+  .partnership-card-animate {
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 
 <!-- FOOTER -->
 <footer class="bg-[#0f2b3a] text-white">
@@ -1057,53 +1217,6 @@ agreeBtn.addEventListener("click", () => {
       window.location.href = "research.html";
     }
   }, 300);
-});
-</script>
-
-<script>
-// Scroll animation + counter
-const statsSection = document.getElementById("statsSection");
-const stats = document.querySelectorAll(".stat");
-const counters = document.querySelectorAll(".counter");
-
-let started = false;
-
-function startStats() {
-  if (started) return;
-  started = true;
-
-  // reveal animation
-  stats.forEach((el, i) => {
-    setTimeout(() => {
-      el.classList.remove("opacity-0", "translate-y-10");
-    }, i * 150);
-  });
-
-  // number counter
-  counters.forEach(counter => {
-    const target = +counter.getAttribute("data-target");
-    let count = 0;
-    const speed = target / 60;
-
-    const update = () => {
-      count += speed;
-      if (count < target) {
-        counter.innerText = Math.ceil(count);
-        requestAnimationFrame(update);
-      } else {
-        counter.innerText = target + (target === 500 ? "+" : "");
-      }
-    };
-    update();
-  });
-}
-
-// trigger when visible
-window.addEventListener("scroll", () => {
-  const rect = statsSection.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 100) {
-    startStats();
-  }
 });
 </script>
 

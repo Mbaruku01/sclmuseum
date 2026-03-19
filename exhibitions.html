@@ -274,350 +274,319 @@ document.querySelectorAll(".mobile-group > button").forEach(btn=>{
 });
 </script>
 
-<!-- HERO -->
-<section class="pt-40 pb-24 px-6 text-center">
-<h1 class="font-serif text-5xl">Digital Exhibitions</h1>
-<p class="mt-6 text-white/70 max-w-2xl mx-auto">
-Curated digital exhibitions that thoughtfully explore the richness of history, the depth of collective memory, and the vibrant tapestry of culture, offering visitors an engaging journey through the past and its enduring stories
-</p>
+<section class="pt-40 pb-24 px-6 text-center bg-[#050a10]">
+  <h1 class="font-serif tracking-tight text-white" 
+      style="font-size: clamp(32px, 5vw, 48px);">
+    Digital Exhibitions
+  </h1>
+  <p class="mt-6 text-white/50 max-w-2xl mx-auto font-light leading-relaxed" 
+     style="font-size: clamp(14px, 1.2vw, 16px);">
+    Curated digital exhibitions that thoughtfully explore the richness of history, the depth of collective memory, and the vibrant tapestry of culture, offering visitors an engaging journey through the past and its enduring stories
+  </p>
 </section>
 
-<!-- ARTIFACT CARDS GRID -->
 <section class="max-w-7xl mx-auto px-6 pb-28">
-  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
 
-    <!-- CARD 1 -->
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/thumb01.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Independence & Nationhood">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
 
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/daudi.mp4">
-            <i class="fa-solid fa-video"></i>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-sclCyan/20 backdrop-blur-md border border-sclCyan/40 text-sclCyan hover:bg-sclCyan hover:text-black transition-all flex items-center justify-center" data-type="video" data-src="assests/videos/daudi.mp4">
+            <i class="fa-solid fa-video text-xs"></i>
           </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/daudi.mp3">
-            <i class="fa-solid fa-headphones"></i>
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="audio" data-src="assests/audio/daudi.mp3">
+            <i class="fa-solid fa-headphones text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">Mr Daudi · Sculpture</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">Mr Daudi · Sculpture</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">SCULPTURE - MTWARA (NEWALA)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">SCULPTURE - MTWARA (NEWALA)</h3>
+      <p class="mt-2 text-[12px] text-white/40 uppercase tracking-widest font-medium">Motion footage and Audio Preview.</p>
     </article>
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/klara.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/klara.mp4">
-            <i class="fa-solid fa-video"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-sclCyan/20 backdrop-blur-md border border-sclCyan/40 text-sclCyan hover:bg-sclCyan hover:text-black transition-all flex items-center justify-center" data-type="video" data-src="assests/videos/klara.mp4">
+            <i class="fa-solid fa-video text-xs"></i>
           </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/klara.mp3">
-            <i class="fa-solid fa-headphones"></i>
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="audio" data-src="assests/audio/klara.mp3">
+            <i class="fa-solid fa-headphones text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">Klara Kisetu · Traditional Dance</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">Klara Kisetu · Traditional Dance</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">NRINGERINGE - ARUSHA (MERU)</h3>
-      <p class="text-sm text-white/70">Motion footage and Audio Preview.</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">NRINGERINGE - ARUSHA (MERU)</h3>
+      <p class="mt-2 text-[12px] text-white/40 uppercase tracking-widest font-medium">Motion footage and Audio Preview.</p>
     </article>
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/peter.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Independence & Nationhood">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/peter.mp4">
-            <i class="fa-solid fa-video"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-sclCyan/20 backdrop-blur-md border border-sclCyan/40 text-sclCyan hover:bg-sclCyan hover:text-black transition-all flex items-center justify-center" data-type="video" data-src="assests/videos/peter.mp4">
+            <i class="fa-solid fa-video text-xs"></i>
           </button>
-          <button class="media-btn" data-type="audio" data-src="assests/audio/peter.mp3">
-            <i class="fa-solid fa-headphones"></i>
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="audio" data-src="assests/audio/peter.mp3">
+            <i class="fa-solid fa-headphones text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">Peter Nkwanembo · Vidunda History</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">Peter Nkwanembo · Vidunda History</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">THE HISTORY OF VIDUNDA</h3>
-      <p class="text-sm text-white/70">Historic images and motion footage.</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">THE HISTORY OF VIDUNDA</h3>
+      <p class="mt-2 text-[12px] text-white/40 uppercase tracking-widest font-medium">Historic images and motion footage.</p>
     </article>
 
 
-    <!-- CARD 2 -->
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/magdarena.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Voices of the People">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="audio" data-src="assests/audio/weaving.mp3">
-            <i class="fa-solid fa-headphones"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="audio" data-src="assests/audio/weaving.mp3">
+            <i class="fa-solid fa-headphones text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">WEAVING TECHNIQUE</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">WEAVING TECHNIQUE</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">MAGDARENA WILLIAM</h3>
-      <p class="text-sm text-white/70">MOROGORO - VIDUNDA</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">MAGDARENA WILLIAM</h3>
+      <p class="mt-2 text-[12px] text-sclCyan uppercase tracking-widest font-black">MOROGORO - VIDUNDA</p>
     </article> 
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/mfumwa.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Voices of the People">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="audio" data-src="assests/audio/same.mp3">
-            <i class="fa-solid fa-headphones"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="audio" data-src="assests/audio/same.mp3">
+            <i class="fa-solid fa-headphones text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">ORIGIN OF SAME TRIBE</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">ORIGIN OF SAME TRIBE</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">MFUMWA WAJANI KIBACHA</h3>
-      <p class="text-sm text-white/70"> KILIMANJARO - SAME</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">MFUMWA WAJANI KIBACHA</h3>
+      <p class="mt-2 text-[12px] text-sclCyan uppercase tracking-widest font-black"> KILIMANJARO - SAME</p>
     </article>  
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/faraji.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Voices of the People">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="audio" data-src="assests/audio/shimo.mp3">
-            <i class="fa-solid fa-headphones"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="audio" data-src="assests/audio/shimo.mp3">
+            <i class="fa-solid fa-headphones text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">SHIMO LA MUNGU</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">SHIMO LA MUNGU</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">MR. FARAJI HAMIS</h3>
-      <p class="text-sm text-white/70">MTWARA - NEWALA </p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">MR. FARAJI HAMIS</h3>
+      <p class="mt-2 text-[12px] text-sclCyan uppercase tracking-widest font-black">MTWARA - NEWALA </p>
     </article>
 
-    <!-- CARD 3 -->
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-950 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/3D1.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
              alt="Cultural Objects in 3D">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="virtual">
-            <i class="fa-solid fa-cube"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-sclCyan/20 backdrop-blur-md border border-sclCyan/40 text-sclCyan hover:bg-sclCyan hover:text-black transition-all flex items-center justify-center" data-type="virtual">
+            <i class="fa-solid fa-cube text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">3D · Virtual</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">3D · Virtual</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">AUSTRALOPITHECUS AFRICANUS</h3>
-      <p class="text-sm text-white/70">Year: 2.3 Million Years Ago</p>
-      <p class="text-sm text-white/70">Preserved: University of Witwatersrand</p>
-      <p class="text-sm text-white/70">Place: Johannesburg - South Africa</p>
-      <p class="text-sm text-white/70">Kept: National Museum of Tanzania</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">AUSTRALOPITHECUS AFRICANUS</h3>
+      <div class="mt-4 space-y-1 text-[11px] text-white/40 uppercase tracking-widest font-bold">
+        <p>Year: 2.3 Million Years Ago</p>
+        <p>Preserved: University of Witwatersrand</p>
+        <p>Place: Johannesburg - South Africa</p>
+        <p>Kept: National Museum of Tanzania</p>
+      </div>
     </article>
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-950 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/3D4.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
              alt="Cultural Objects in 3D">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="virtual">
-            <i class="fa-solid fa-cube"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-sclCyan/20 backdrop-blur-md border border-sclCyan/40 text-sclCyan hover:bg-sclCyan hover:text-black transition-all flex items-center justify-center" data-type="virtual">
+            <i class="fa-solid fa-cube text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">3D · Virtual</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">3D · Virtual</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">LATE, MWL. JULIUS K. NYERERE</h3>
-      <p class="text-sm text-white/70">Born: April, 1922 - Passed: October, 1999</p>
-      <p class="text-sm text-white/70">First President of Tanzania</p>
-      <p class="text-sm text-white/70">Car Collection</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">LATE, MWL. JULIUS K. NYERERE</h3>
+      <div class="mt-4 space-y-1 text-[11px] text-white/40 uppercase tracking-widest font-bold">
+        <p>Born: April, 1922 - Passed: October, 1999</p>
+        <p>First President of Tanzania</p>
+        <p>Car Collection</p>
+      </div>
     </article>
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-950 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/3D5.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
              alt="Cultural Objects in 3D">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="virtual">
-            <i class="fa-solid fa-cube"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-sclCyan/20 backdrop-blur-md border border-sclCyan/40 text-sclCyan hover:bg-sclCyan hover:text-black transition-all flex items-center justify-center" data-type="virtual">
+            <i class="fa-solid fa-cube text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">3D · Virtual</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">3D · Virtual</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">CERATOTHERIUM PRAECOX SKULL</h3>
-      <p class="text-sm text-white/70">Year: 2.7 Million Years Ago</p>
-      <p class="text-sm text-white/70">Preserved: National Museum of Tanzania</p>
-      <p class="text-sm text-white/70">Place: Dar es Salaam - Tanzania</p>
-      <p class="text-sm text-white/70">Kept: National Museum of Tanzania</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">CERATOTHERIUM PRAECOX SKULL</h3>
+      <div class="mt-4 space-y-1 text-[11px] text-white/40 uppercase tracking-widest font-bold">
+        <p>Year: 2.7 Million Years Ago</p>
+        <p>Preserved: National Museum of Tanzania</p>
+        <p>Place: Dar es Salaam - Tanzania</p>
+        <p>Kept: National Museum of Tanzania</p>
+      </div>
     </article>
 
-    <!-- CARD 4 -->
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/maria.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Colonial Records">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="document" data-src="assests/documents/notification.pdf">
-            <i class="fa-solid fa-file-lines"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="document" data-src="assests/documents/notification.pdf">
+            <i class="fa-solid fa-file-lines text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">Documents</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">Documents</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">MAMA. MARIA NYERERE</h3>
-      <p class="text-sm text-white/70">1970's</p>
-      <p class="text-sm text-white/70">Playing BAO with Elders of TANU</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">MAMA. MARIA NYERERE</h3>
+      <div class="mt-4 space-y-1 text-[11px] text-white/40 uppercase tracking-widest font-bold">
+        <p>1970's</p>
+        <p>Playing BAO with Elders of TANU</p>
+      </div>
     </article>
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/samora.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Colonial Records">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="document" data-src="assests/documents/notification.pdf">
-            <i class="fa-solid fa-file-lines"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="document" data-src="assests/documents/notification.pdf">
+            <i class="fa-solid fa-file-lines text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">Documents</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">Documents</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">SAMORA MICHEAL</h3>
-      <p class="text-sm text-white/70">1960's - 1970's</p>
-      <p class="text-sm text-white/70">Motorcycle Used  by President of FRELIMO</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">SAMORA MICHEAL</h3>
+      <div class="mt-4 space-y-1 text-[11px] text-white/40 uppercase tracking-widest font-bold">
+        <p>1960's - 1970's</p>
+        <p>Motorcycle Used  by President of FRELIMO</p>
+      </div>
     </article>
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/mandera.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Colonial Records">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="document" data-src="assests/documents/notification.pdf">
-            <i class="fa-solid fa-file-lines"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all flex items-center justify-center" data-type="document" data-src="assests/documents/notification.pdf">
+            <i class="fa-solid fa-file-lines text-xs"></i>
           </button>
-          <span class="text-sm text-white/80">Documents</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">Documents</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">NELSON MANDELA</h3>
-      <p class="text-sm text-white/70">1918 - 2013</p>
-      <p class="text-sm text-white/70">The First President of South Africa</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">NELSON MANDELA</h3>
+      <div class="mt-4 space-y-1 text-[11px] text-white/40 uppercase tracking-widest font-bold">
+        <p>1918 - 2013</p>
+        <p>The First President of South Africa</p>
+      </div>
     </article>
 
-    <!-- CARD 5 -->
+
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/african.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Life & Landscape">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-2 items-center text-white/80">
-          <i class="fa-solid fa-camera-retro"></i>
-          <span>Photography</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-2 items-center text-white/80">
+          <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+            <i class="fa-solid fa-camera-retro text-[10px]"></i>
+          </div>
+          <span class="text-[11px] font-bold tracking-widest uppercase">Photography</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">AFRICAN LIBERATION HERITAGE CENTER - DAR ES SALAAM</h3>
-      <p class="text-sm text-white/70">Cultural visual records.</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">AFRICAN LIBERATION HERITAGE CENTER - DAR ES SALAAM</h3>
+      <p class="mt-2 text-[12px] text-white/40 uppercase tracking-widest font-medium">Cultural visual records.</p>
     </article>
 
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/meet.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Life & Landscape">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-2 items-center text-white/80">
-          <i class="fa-solid fa-camera-retro"></i>
-          <span>Photography</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-2 items-center text-white/80">
+          <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+            <i class="fa-solid fa-camera-retro text-[10px]"></i>
+          </div>
+          <span class="text-[11px] font-bold tracking-widest uppercase">Photography</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">MEETING OFFICE USED BY MWL. JULIUS K. NYERERE - DAR ES SALAAM</h3>
-      <p class="text-sm text-white/70">Cultural visual records.</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">MEETING OFFICE USED BY MWL. JULIUS K. NYERERE - DAR ES SALAAM</h3>
+      <p class="mt-2 text-[12px] text-white/40 uppercase tracking-widest font-medium">Cultural visual records.</p>
     </article>
 
-    <!-- CARD 6 -->
+
     <article class="group">
-      <div class="relative h-64 rounded-2xl overflow-hidden">
+      <div class="relative h-72 rounded-[2rem] overflow-hidden bg-slate-900 ring-1 ring-white/10 shadow-2xl">
         <img src="assests/thumbnails/nmt.webp"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
              alt="Contemporary Heritage">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-        <div class="absolute bottom-4 left-4 flex gap-3 items-center">
-          <button class="media-btn" data-type="video" data-src="assests/videos/chance.mp4">
-            <i class="fa-solid fa-star"></i>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 flex gap-3 items-center">
+          <button class="media-btn w-10 h-10 rounded-full bg-sclCyan/20 backdrop-blur-md border border-sclCyan/40 text-sclCyan hover:bg-sclCyan hover:text-black transition-all flex items-center justify-center" data-type="video" data-src="assests/videos/chance.mp4">
+            <i class="fa-solid fa-star text-[10px]"></i>
           </button>
-          <span class="text-sm text-white/80">Special Exhibition</span>
+          <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase">Special Exhibition</span>
         </div>
       </div>
-
-      <h3 class="mt-4 font-serif text-xl">CHANCE EZEKIEL</h3>
-      <p class="text-sm text-white/70">Head of Marketing and Public Relation</p>
+      <h3 class="mt-6 font-serif text-white/90 tracking-wide" style="font-size: clamp(16px, 1.5vw, 18px);">CHANCE EZEKIEL</h3>
+      <p class="mt-2 text-[12px] text-sclCyan uppercase tracking-widest font-black">Head of Marketing and Public Relation</p>
     </article>
 
   </div>
 </section>
 
-<!-- MODAL -->
-<div id="mediaModal" class="fixed inset-0 hidden items-center justify-center bg-black/80 z-50">
-<div class="relative w-[90%] max-w-4xl bg-black rounded-2xl overflow-hidden">
-<button id="closeModal" class="absolute top-3 right-4 text-2xl">&times;</button>
-<div id="mediaContainer" class="p-6"></div>
-</div>
+<div id="mediaModal" class="fixed inset-0 hidden items-center justify-center bg-black/95 backdrop-blur-xl z-[9999] transition-all duration-300">
+  <div class="relative w-[95%] md:w-[90%] max-w-5xl bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(0,255,255,0.1)] border border-white/5">
+    <button id="closeModal" class="absolute top-6 right-8 text-white/40 hover:text-white text-4xl transition-colors z-[100]">&times;</button>
+    <div id="mediaContainer" class="p-4 md:p-12 min-h-[40vh] flex items-center justify-center"></div>
+  </div>
 </div>
 
 <script>
@@ -625,29 +594,28 @@ const modal=document.getElementById('mediaModal');
 const container=document.getElementById('mediaContainer');
 
 document.querySelectorAll('.media-btn').forEach(btn=>{
-btn.onclick=()=>{
-const t=btn.dataset.type,s=btn.dataset.src;
-container.innerHTML='';
-if(t==='video')container.innerHTML=`<video controls autoplay class="w-full"><source src="${s}"></video>`;
-if(t==='audio')container.innerHTML=`<audio controls autoplay class="w-full"><source src="${s}"></audio>`;
-if(t==='document')container.innerHTML=`<iframe src="${s}" class="w-full h-[70vh]"></iframe>`;
-if(t==='virtual')container.innerHTML=`<div class="text-center py-20"><i class="fa-solid fa-cube text-4xl text-sclCyan"></i><p class="mt-4">3D Viewer Coming Soon</p></div>`;
-if(t==='special')container.innerHTML=`<video controls autoplay class="w-full"><source src="${s}"></video>`;
-modal.classList.remove('hidden');modal.classList.add('flex');
-}
+  btn.onclick=()=>{
+    const t=btn.dataset.type,s=btn.dataset.src;
+    container.innerHTML='';
+    if(t==='video')container.innerHTML=`<video controls autoplay class="w-full rounded-2xl shadow-2xl aspect-video"><source src="${s}"></video>`;
+    if(t==='audio')container.innerHTML=`<div class="w-full max-w-md bg-white/5 p-8 rounded-3xl border border-white/10"><i class="fa-solid fa-headphones text-sclCyan text-3xl mb-4 block text-center"></i><audio controls autoplay class="w-full custom-audio"><source src="${s}"></audio></div>`;
+    if(t==='document')container.innerHTML=`<iframe src="${s}" class="w-full h-[75vh] rounded-xl border border-white/10 bg-white"></iframe>`;
+    if(t==='virtual')container.innerHTML=`<div class="text-center py-24"><i class="fa-solid fa-cube text-6xl text-sclCyan animate-bounce"></i><p class="mt-6 font-serif text-xl tracking-wide text-white">3D Environment Loading...</p><p class="text-[10px] text-white/30 uppercase tracking-[0.4em] mt-2">Interactive Viewer Coming Soon</p></div>`;
+    if(t==='special')container.innerHTML=`<video controls autoplay class="w-full rounded-2xl aspect-video"><source src="${s}"></video>`;
+    modal.classList.remove('hidden');modal.classList.add('flex');
+  }
 });
 
 document.getElementById('closeModal').onclick=()=>{
-modal.classList.add('hidden');modal.classList.remove('flex');container.innerHTML='';
+  modal.classList.add('hidden');modal.classList.remove('flex');container.innerHTML='';
 };
 
 modal.onclick=e=>{
-if(e.target===modal){
-modal.classList.add('hidden');modal.classList.remove('flex');container.innerHTML='';
-}
+  if(e.target===modal){
+    modal.classList.add('hidden');modal.classList.remove('flex');container.innerHTML='';
+  }
 };
 </script>
-
 <!-- FOOTER -->
 <footer class="bg-[#0f2b3a] text-white">
   <div class="max-w-7xl mx-auto px-6 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">

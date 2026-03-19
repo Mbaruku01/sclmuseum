@@ -3,330 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Information | Industrial Training Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Industrial Training Report</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <meta name="description" content="SCL Digital Museum & Archive preserving Tanzania’s cultural heritage through digital collections, exhibitions, and research.">
-  <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
-  <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
+    <link rel="stylesheet" href="css/style.css">
 
-  <!-- FAVICON -->
-  <link rel="icon" type="image/x-icon" href="1000186051.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="apple-touch-icon" href="1000186051.png">
+    <meta name="description" content="SCL Digital Museum & Archive preserving Tanzania’s cultural heritage through digital collections, exhibitions, and research.">
+    <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
+    <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
+
+    <link rel="icon" type="image/x-icon" href="1000186051.png">
+    <link rel="apple-touch-icon" href="1000186051.png">
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html" class="logo">
-                        <img src="1000186051.png" alt="Logo">
-                        <span class="nav-item">SCL PORTAL </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Dashboard.html">
-                        <i class="fas fa-home"></i>
-                        <span class="nav-item">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="course.html">
-                        <i class="fas fa-book"></i>
-                        <span class="nav-item">Course</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="report.html">
-                        <i class="fas fa-database"></i>
-                        <span class="nav-item">Report</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="subscription.html">
-                        <i class="fas fa-credit-card"></i>
-                        <span class="nav-item">Subscription</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="setting.html">
-                        <i class="fas fa-cog"></i>
-                        <span class="nav-item">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Biometric.html">
-                        <i class="fas fa-fingerprint"></i>
-                        <span class="nav-item">Scan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="registration.html">
-                        <i class="fas fa-list"></i>
-                        <span class="nav-item">Register</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
 
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html" class="logo">
+                    <img src="1000186051.png" alt="Logo">
+                    <span class="nav-item">SCL PORTAL</span>
+                </a>
+            </li>
+            <li><a href="Dashboard.html"><i class="fas fa-home"></i><span class="nav-item">Home</span></a></li>
+            <li><a href="course.html"><i class="fas fa-book"></i><span class="nav-item">Course</span></a></li>
+            <li><a href="report.html"><i class="fas fa-database"></i><span class="nav-item">Report</span></a></li>
+            <li><a href="subscription.html"><i class="fas fa-credit-card"></i><span class="nav-item">Subscription</span></a></li>
+            <li><a href="setting.html"><i class="fas fa-cog"></i><span class="nav-item">Settings</span></a></li>
+            <li><a href="Biometric.html"><i class="fas fa-fingerprint"></i><span class="nav-item">Scan</span></a></li>
+            <li><a href="registration.html"><i class="fas fa-list"></i><span class="nav-item">Register</span></a></li>
+            <li><a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item">Log out</span></a></li>
+        </ul>
+    </nav>
 
-        <section class="main">
-            <div class="main-top">
-                <h1>Faculty of Arts and Social Sciences (FASS) </h1>
-                <i class="fas fa-user-cog"></i>
+    <section class="main">
+        <div class="main-top hidden-down" id="headerSection">
+            <h1>Faculty of Arts and Social Sciences (FASS)</h1>
+            <i class="fas fa-user-cog"></i>
+        </div>
+
+        <div class="users" id="facultyGrid">
+            <div class="card hidden-down">
+                <img src="pic/makulilo.avif" alt="Prof. Alex B. Makulilo">
+                <h4>Prof. Alex B. Makulilo</h4>
+                <p>Vice Chancellor</p>
+                <a href="https://www.out.ac.tz/about-our-website/vc-message" class="profile-button">Profile</a>
             </div>
 
-            <div class="users">
-    <div class="card">
-        <img src="pic/makulilo.avif" alt="Prof. Alex B. Makulilo">
-        <h4>Prof. Alex B. Makulilo</h4>
-        <p>Vice Chancellor</p>
-        <div class="per"></div>
-        <a href="https://www.out.ac.tz/about-our-website/vc-message" class="profile-button">Profile</a>
-    </div>
+            <div class="card hidden-down">
+                <img src="pic/ochieng.avif" alt="Dr. Dunlop O. Ochieng">
+                <h4>Dr. Dunlop O. Ochieng</h4>
+                <p>Dean, Faculty of Arts and Social Sciences</p>
+                <a href="#" class="profile-button">Profile</a>
+            </div>
 
-    <div class="card">
-        <img src="pic/ochieng.avif" alt="Dr. Dunlop O. Ochieng">
-        <h4>Dr. Dunlop O. Ochieng</h4>
-        <p>Dean, Faculty of Arts and Social Sciences</p>
-        <div class="per"></div>
-        <a href="#" class="profile-button">Profile</a>
-    </div>
+            <div class="card hidden-down">
+                <img src="pic/lisakafu.jpg" alt="Dr. Jacob Lisakafu">
+                <h4>Dr. Jacob Lisakafu</h4>
+                <p>HOD, Political Science and Public Administration</p>
+                <a href="#" class="profile-button">Profile</a>
+            </div>
 
-    <div class="card">
-        <img src="pic/lisakafu.jpg" alt="Dr. Jacob Lisakafu">
-        <h4>Dr. Jacob Lisakafu</h4>
-        <p>HOD, Political Science and Public Administration</p>
-        <div class="per"></div>
-        <a href="#" class="profile-button">Profile</a>
-    </div>
-
-    <div class="card">
-        <img src="pic/Mariana-Makuu.webp" alt="Dr. Mariana Makuu">
-        <h4>Dr. Mariana Makuu</h4>
-        <p>HOD, Sociology and Social Work</p>
-        <div class="per"></div>
-        <a href="#" class="profile-button">Profile</a>
-    </div>
-</div>
-
-<!-- Dashboard Statistics -->
-<div class="dashboard-stats">
-
-    <div class="stat-card">
-        <i class="fas fa-user-graduate"></i>
-        <div>
-            <h2>11</h2>
-            <p>Total Students</p>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <i class="fas fa-check-circle"></i>
-        <div>
-            <h2>5</h2>
-            <p>Reports Submitted</p>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <i class="fas fa-clock"></i>
-        <div>
-            <h2>6</h2>
-            <p>In Progress</p>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <i class="fas fa-globe-africa"></i>
-        <div>
-            <h2>5</h2>
-            <p>Regions Covered</p>
-        </div>
-    </div>
-
-</div>
-
-<!-- Cultural Echoes Field Overview -->
-<section class="project-overview">
-    <h2>Cultural Echoes Field Project 2025</h2>
-
-    <div class="overview-grid">
-
-        <div class="overview-card">
-            <h3>Research Areas</h3>
-            <p>Vidunda, Makonde, Pare, Meru, Sukuma</p>
+            <div class="card hidden-down">
+                <img src="pic/Mariana-Makuu.webp" alt="Dr. Mariana Makuu">
+                <h4>Dr. Mariana Makuu</h4>
+                <p>HOD, Sociology and Social Work</p>
+                <a href="#" class="profile-button">Profile</a>
+            </div>
         </div>
 
-        <div class="overview-card">
-            <h3>Objective</h3>
-            <p>To document indigenous knowledge, traditions, and cultural heritage across Tanzania.</p>
+        <div class="dashboard-stats" id="statsGrid">
+            <div class="stat-card hidden-down">
+                <i class="fas fa-user-graduate"></i>
+                <div><h2>11</h2><p>Total Students</p></div>
+            </div>
+            <div class="stat-card hidden-down">
+                <i class="fas fa-check-circle"></i>
+                <div><h2>5</h2><p>Reports Submitted</p></div>
+            </div>
+            <div class="stat-card hidden-down">
+                <i class="fas fa-clock"></i>
+                <div><h2>6</h2><p>In Progress</p></div>
+            </div>
+            <div class="stat-card hidden-down">
+                <i class="fas fa-globe-africa"></i>
+                <div><h2>5</h2><p>Regions Covered</p></div>
+            </div>
         </div>
 
-        <div class="overview-card">
-            <h3>Methodology</h3>
-            <p>Ethnographic fieldwork, interviews, observation, and digital documentation.</p>
-        </div>
-
-        <div class="overview-card">
-            <h3>Impact</h3>
-            <p>Supports national heritage preservation and digital transformation.</p>
-        </div>
-
-    </div>
-</section>
-
-<section class="project-overview">
-    <h2>Cultural Echoes Field Project 2026</h2>
-
-    <div class="overview-grid">
-
-        <div class="overview-card">
-            <h3>Research Areas</h3>
-            <p>Mchemba, Tarime, Kagera, Mtama, Tunduru</p>
-        </div>
-
-        <div class="overview-card">
-            <h3>Objective</h3>
-            <p>To document indigenous knowledge, traditions, and cultural heritage across Tanzania.</p>
-        </div>
-
-        <div class="overview-card">
-            <h3>Methodology</h3>
-            <p>Ethnographic fieldwork, interviews, observation, and digital documentation.</p>
-        </div>
-
-        <div class="overview-card">
-            <h3>Impact</h3>
-            <p>Supports national heritage preservation and digital transformation.</p>
-        </div>
-
-    </div>
-</section>
-            
-            <section class="attendance">
-    <div class="attendance-list">
-        <h1>Student Reports</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Batch</th>
-                    <th>Region</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead> 
-            
-            <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>Makene Ngoroma</td>
-                    <td>Batch 1</td>
-                    <td>Morogoro - Vidunda</td>
-                    <td>Submitted</td>
-                    <td><a href="Report.html"><button>View Report</button></a></td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>Aktari Sabiha</td>
-                    <td>Batch 1</td>
-                    <td>Mtwara - Newala</td>
-                    <td>Submitted</td>
-                    <td><a href="Report.html"><button>View Report</button></a></td>
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td>Elihaki</td>
-                    <td>Batch 1</td>
-                    <td>Kilimanjaro - Same</td>
-                    <td>Submitted</td>
-                    <td><a href="Report.html"><button>View Report</button></a></td>
-                </tr>
-                <tr>
-                    <td>04</td>
-                    <td>Davison Nasari</td>
-                    <td>Batch 1</td>
-                    <td>Arusha - Meru</td>
-                    <td>Submitted</td>
-                    <td><a href="Report.html"><button>View Report</button></a></td>
-                </tr>
-                <tr>
-                    <td>05</td>
-                    <td>Alex Maungo</td>
-                    <td>Batch 1</td>
-                    <td>Mwanza - Kisesa</td>
-                    <td>Submitted</td>
-                    <td><a href="Report.html"><button>View Report</button></a></td>
-                </tr>
-                    
-                        <tr>
-                            <td>01</td>
-                            <td>Yamungu Mashaka Jumanne</td>
-                            <td>Batch 2</td>
-                            <td>Dodoma - Mchemba</td>
-                            <td class="status progress">In Progress</td>
-                            <td><button class="btn-pending">Pending</button></td>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>Mugini Jacob Mwera</td>
-                            <td>Batch 2</td>
-                            <td>Mara - Tarime</td>
-                            <td class="status progress">In Progress</td>
-                            <td><button class="btn-pending">Pending</button></td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>Yokshani Charles Mlyashuma</td>
-                            <td>Batch 2</td>
-                            <td>Bukoba - Kagera</td>
-                            <td class="status progress">In Progress</td>
-                            <td><button class="btn-pending">Pending</button></td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>Orpa Daniel Kijanda</td>
-                            <td>Batch 2</td>
-                            <td>Ruvuma - Tunduru</td>
-                            <td class="status progress">In Progress</td>
-                            <td><button class="btn-pending">Pending</button></td>
-                        </tr>
-                        <tr>
-                            <td>05</td>
-                            <td>Abubakari Mohamedi Emilian</td>
-                            <td>Batch 2</td>
-                            <td>Lindi - Mtama</td>
-                            <td class="status progress">In Progress</td>
-                            <td><button class="btn-pending">Pending</button></td>
-                        </tr>
-                        <tr>
-                            <td>06</td>
-                            <td>Rotiken Torenti</td>
-                            <td>Batch 2</td>
-                            <td>Arusha - ***</td>
-                            <td class="status progress">In Progress</td>
-                            <td><button class="btn-pending">Pending</button></td>
-                        </tr>
-                    
-            </tbody>
-        </table>
-        
-    </div>
-</section>
-
-            
+        <section class="project-overview hidden-down" id="p2025">
+            <h2>Cultural Echoes Field Project 2025</h2>
+            <div class="overview-grid">
+                <div class="overview-card"><h3>Research Areas</h3><p>Vidunda, Makonde, Pare, Meru, Sukuma</p></div>
+                <div class="overview-card"><h3>Objective</h3><p>To document indigenous knowledge, traditions, and cultural heritage across Tanzania.</p></div>
+                <div class="overview-card"><h3>Methodology</h3><p>Ethnographic fieldwork, interviews, observation, and digital documentation.</p></div>
+                <div class="overview-card"><h3>Impact</h3><p>Supports national heritage preservation and digital transformation.</p></div>
+            </div>
         </section>
-    </div>
-    
+
+        <section class="project-overview hidden-down" id="p2026">
+            <h2>Cultural Echoes Field Project 2026</h2>
+            <div class="overview-grid">
+                <div class="overview-card"><h3>Research Areas</h3><p>Mchemba, Tarime, Kagera, Mtama, Tunduru</p></div>
+                <div class="overview-card"><h3>Objective</h3><p>To document indigenous knowledge, traditions, and cultural heritage across Tanzania.</p></div>
+                <div class="overview-card"><h3>Methodology</h3><p>Ethnographic fieldwork, interviews, observation, and digital documentation.</p></div>
+                <div class="overview-card"><h3>Impact</h3><p>Supports national heritage preservation and digital transformation.</p></div>
+            </div>
+        </section>
+            
+        <section class="attendance hidden-down" id="reportsTable">
+            <div class="attendance-list">
+                <h1>Student Reports</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Batch</th>
+                            <th>Region</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <tr><td>01</td><td><b>Makene Ngoroma</b></td><td>Batch 1</td><td>Morogoro - Vidunda</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
+                        <tr><td>02</td><td><b>Aktari Sabiha</b></td><td>Batch 1</td><td>Mtwara - Newala</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
+                        <tr><td>03</td><td><b>Elihaki</b></td><td>Batch 1</td><td>Kilimanjaro - Same</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
+                        <tr><td>04</td><td><b>Davison Nasari</b></td><td>Batch 1</td><td>Arusha - Meru</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
+                        <tr><td>05</td><td><b>Alex Maungo</b></td><td>Batch 1</td><td>Mwanza - Kisesa</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
+                        <tr><td>01</td><td><b>Yamungu Mashaka Jumanne</b></td><td>Batch 2</td><td>Dodoma - Mchemba</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
+                        <tr><td>02</td><td><b>Mugini Jacob Mwera</b></td><td>Batch 2</td><td>Mara - Tarime</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
+                        <tr><td>03</td><td><b>Yokshani Charles Mlyashuma</b></td><td>Batch 2</td><td>Bukoba - Kagera</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
+                        <tr><td>04</td><td><b>Orpa Daniel Kijanda</b></td><td>Batch 2</td><td>Ruvuma - Tunduru</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
+                        <tr><td>05</td><td><b>Abubakari Mohamedi Emilian</b></td><td>Batch 2</td><td>Lindi - Mtama</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
+                        <tr><td>06</td><td><b>Rotiken Torenti</b></td><td>Batch 2</td><td>Arusha - ***</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+    <script src="studentreportscript.js"></script>
 </body>
 </html>
