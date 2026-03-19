@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Museum Shop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="icon" type="image/x-icon" href="1000186051.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="1000186051.png">
+  
+  <script>
+    tailwind.config = { 
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    purple: {
+                        550: '#8b2cf5',
+                    }
+                }
+            }
+        }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes slide-in { 
+        from { transform: translateX(-100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; } 
+    }
+    .animate-slide-in { animation: slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { 
+        background: rgba(255, 255, 255, 0.2); 
+        border-radius: 20px; 
+    }
+    
+    .glass-header {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    
+    .nav-item-active {
+        background: rgba(255, 255, 255, 0.15);
+        border-left: 4px solid white;
+    }
+  </style>
+</head>
+<body class="transition-colors duration-500 bg-gray-50 dark:bg-gray-950 font-sans text-gray-900 dark:text-gray-100">
+
+<div class="flex min-h-screen relative">
+
+  <aside class="hidden md:flex w-72 bg-gradient-to-b from-purple-700 to-indigo-900 dark:from-purple-950 dark:to-black text-white flex-col sticky top-0 h-screen shadow-2xl overflow-hidden animate-slide-in z-50">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <i class="fa-solid fa-pattern text-9xl absolute -bottom-10 -right-10"></i>
+    </div>
+
+    <div class="flex items-center p-8 space-x-4 relative z-10">
+      <div class="p-1 bg-white/20 rounded-2xl backdrop-blur-md">
+        <img src="1000186051.png" alt="SCL Logo" class="h-12 w-12 rounded-xl shadow-lg object-cover">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-black tracking-tighter">SCL SHOP</span>
+        <span class="text-[10px] uppercase tracking-[0.3em] opacity-60">Museum Retail</span>
+      </div>
+    </div>
+
+    <nav class="flex-1 px-4 py-4 overflow-y-auto custom-scrollbar relative z-10">
+      <ul class="space-y-2">
+        <li>
+          <a href="shop.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-gauge-high text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="artifacts.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-mask text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Artifacts Replicas</span>
+          </a>
+        </li>
+        <li>
+          <a href="merchandise.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-tshirt text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Branded Merchandise</span>
+          </a>
+        </li>
+        <li>
+          <a href="books.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-book text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Books & Publications</span>
+          </a>
+        </li>
+        <li>
+          <a href="digital.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-file-arrow-down text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Digital Products</span>
+          </a>
+        </li>
+        <li class="pt-4 pb-2">
+            <span class="px-4 text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Services</span>
+        </li>
+        <li>
+          <a href="tour.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-map-location-dot text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Cultural Tours</span>
+          </a>
+        </li>
+        <li>
+          <a href="hotels.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-hotel text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Hotels</span>
+          </a>
+        </li>
+        <li>
+          <a href="transport.html" class="group flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:translate-x-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 group-hover:bg-purple-500 transition-colors">
+                <i class="fa-solid fa-truck text-sm"></i>
+            </div>
+            <span class="font-bold text-sm tracking-tight text-purple-100">Transportations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="p-6 bg-black/20 backdrop-blur-xl relative z-10">
+        <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-purple-300">
+            <span>SCL v4.0</span>
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        </div>
+    </div>
+  </aside>
+
+  <div id="mobileSidebar" class="fixed inset-y-0 left-0 w-80 bg-purple-900 text-white transform -translate-x-full transition-transform duration-500 z-[100] md:hidden shadow-2xl border-r border-white/10">
+    <div class="flex items-center justify-between p-8 border-b border-white/10">
+      <div class="flex items-center space-x-3">
+        <img src="1000186051.png" class="h-10 w-10 rounded-xl shadow-lg">
+        <span class="text-2xl font-black tracking-tighter">SCL Shop</span>
+      </div>
+      <button id="closeMobileBtn" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-red-500 transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="p-4 space-y-2 overflow-y-auto h-[calc(100vh-120px)] custom-scrollbar">
+        <a href="shop.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-gauge-high w-6"></i><span>Dashboard</span></a>
+        <a href="artifacts.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-mask w-6"></i><span>Artifacts</span></a>
+        <a href="merchandise.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-tshirt w-6"></i><span>Merchandise</span></a>
+        <a href="books.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-book w-6"></i><span>Publications</span></a>
+        <a href="digital.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-file-arrow-down w-6"></i><span>Digital Assets</span></a>
+        <div class="h-px bg-white/10 my-4 mx-4"></div>
+        <a href="tour.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-map-location-dot w-6"></i><span>Tours</span></a>
+        <a href="hotels.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-hotel w-6"></i><span>Hotels</span></a>
+        <a href="transport.html" class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-white/10 transition font-bold"><i class="fa-solid fa-truck w-6"></i><span>Transport</span></a>
+    </nav>
+  </div>
+
+  <div class="flex-1 flex flex-col min-w-0">
+    
+    <header class="sticky top-0 z-40 w-full glass-header bg-white/70 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+      <div class="px-4 py-4 md:px-10 flex items-center justify-between">
+        <div class="flex items-center gap-6">
+          <button id="mobileSidebarBtn" class="md:hidden text-purple-700 dark:text-purple-400 text-2xl p-2 bg-purple-50 dark:bg-purple-900/30 rounded-xl hover:scale-105 active:scale-95 transition">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+          <div class="flex flex-col">
+            <h1 class="hidden sm:block text-2xl font-black text-gray-900 dark:text-white tracking-tight">
+                Welcome, <span class="text-purple-600 dark:text-purple-400">Customer</span>
+            </h1>
+            <p class="hidden lg:block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Heritage Shop Portal</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2 md:space-x-6">
+          <div class="relative hidden lg:block group">
+            <input type="text" placeholder="Search heritage artifacts..." class="w-72 pl-12 pr-4 py-2.5 rounded-2xl border-2 border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50 focus:bg-white dark:focus:bg-gray-800 focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all dark:text-white font-medium text-sm">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400 group-focus-within:text-purple-500 transition-colors"></i>
+          </div>
+          
+          <button class="relative p-2.5 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all hover:rotate-6">
+            <i class="fa-solid fa-bell text-xl"></i>
+            <span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-gray-900"></span>
+          </button>
+
+          <button id="darkToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:shadow-lg hover:shadow-purple-500/20 transition-all active:scale-90">
+            <i id="darkIcon" class="fa-solid fa-moon text-xl"></i>
+          </button>
+
+          <div class="relative group">
+            <div id="profileBtn" class="flex items-center gap-3 p-1.5 pr-4 rounded-2xl bg-gray-100 dark:bg-gray-800 border-2 border-transparent hover:border-purple-500 transition-all cursor-pointer">
+                <img src="https://i.pravatar.cc/40?img=12" class="rounded-xl w-9 h-9 object-cover shadow-md">
+                <div class="hidden xl:flex flex-col items-start leading-none">
+                    <span class="text-xs font-black dark:text-white">Account</span>
+                    <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest mt-1">Verified</span>
+                </div>
+                <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 ml-1"></i>
+            </div>
+            
+            <div id="profileMenu" class="absolute right-0 mt-3 w-56 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-3xl shadow-2xl hidden transform origin-top-right transition-all duration-300 p-2 z-50">
+              <div class="p-4 border-b border-gray-50 dark:border-gray-700 mb-2">
+                  <p class="text-xs font-black uppercase text-gray-400 tracking-widest">Active Session</p>
+                  <p class="text-sm font-bold dark:text-white truncate">customer@scl-heritage.com</p>
+              </div>
+              <a href="profile.html" class="flex items-center space-x-3 px-4 py-3 hover:bg-purple-50 dark:hover:bg-purple-900/30 rounded-2xl dark:text-white transition-colors">
+                  <i class="fa-solid fa-user-circle text-purple-600"></i>
+                  <span class="font-bold text-sm tracking-tight">Profile Detail</span>
+              </a>
+              <a href="ShopSetting.html" class="flex items-center space-x-3 px-4 py-3 hover:bg-purple-50 dark:hover:bg-purple-900/30 dark:text-white rounded-2xl transition-colors">
+                  <i class="fa-solid fa-sliders text-purple-600"></i>
+                  <span class="font-bold text-sm tracking-tight">Store Settings</span>
+              </a>
+              <div class="my-2 h-px bg-gray-100 dark:border-gray-700"></div>
+              <a href="index.html" class="flex items-center space-x-3 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500 rounded-2xl transition-colors">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <span class="font-bold text-sm tracking-tight">Logout System</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+<main class="flex-1 p-6 md:p-12 bg-gray-50 dark:bg-gray-900 min-h-screen">
+  <div class="max-w-6xl mx-auto mb-8">
+    <a href="tour.html" class="inline-flex items-center gap-2 text-sm font-bold text-purple-600 uppercase tracking-widest hover:gap-4 transition-all">
+      <i class="fa-solid fa-arrow-left"></i> Back to Specialists
+    </a>
+  </div>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+    
+    <div class="lg:col-span-1 space-y-8">
+      <div class="sticky top-12">
+        <div class="relative group">
+          <img src="pic/rotiken.jpg" alt="Rotiken Torenti" class="w-full aspect-[4/5] object-cover rounded-[3rem] shadow-2xl border-8 border-white dark:border-gray-800">
+          <div class="absolute -bottom-4 -right-4 bg-purple-600 text-white p-6 rounded-3xl shadow-xl">
+            <p class="text-[10px] uppercase tracking-widest font-black opacity-80">Daily Rate</p>
+            <p class="text-3xl font-black">$250</p>
+          </div>
+        </div>
+
+        <div class="mt-10 space-y-4">
+          <h1 class="text-4xl font-black text-gray-900 dark:text-white leading-tight">Rotiken Torenti</h1>
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-[10px] font-black uppercase tracking-widest rounded-full">SCL-2026-011</span>
+            <span class="text-gray-500 dark:text-gray-400 font-bold text-sm">Arusha</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+            A cultural ambassador for the Maasai community in the Arusha region. Rotiken specializes in the oral histories of the Maa people, the significance of traditional beadwork patterns, and the ecological knowledge used for livestock management in the northern plains.
+          </p>
+          <a href="booking.html" class="block w-full text-center bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-purple-600 hover:text-white transition-all shadow-xl">
+            Book This Journey
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-2 space-y-12">
+      
+      <section>
+        <h2 class="text-xl font-black text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-2 h-6 bg-purple-600 rounded-full"></span>
+          Video Experience
+        </h2>
+        <div class="aspect-video w-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-4 border-white dark:border-gray-800 relative">
+          <video 
+            controls 
+            class="w-full h-full object-cover"
+            poster="arusha/arusha7.jpg">
+            <source src="video/rotiken-tour.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-black text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-2 h-6 bg-purple-600 rounded-full"></span>
+          Cultural Gallery
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="col-span-2 row-span-2">
+            <img src="arusha/arusha1.jpg" onclick="openPip(this.src, 'image')" class="w-full h-full object-cover rounded-[2rem] hover:scale-[1.02] transition-all cursor-pointer shadow-md">
+          </div>
+          <img src="arusha/arusha2.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha3.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha4.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha5.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          
+          <div class="col-span-2">
+             <img src="arusha/arusha6.jpg" onclick="openPip(this.src, 'image')" class="w-full h-48 object-cover rounded-[2rem] hover:scale-[1.02] transition-all cursor-pointer shadow-md">
+          </div>
+          <img src="arusha/arusha7.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha8.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha9.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha10.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+
+          <img src="arusha/arusha11.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha12.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha13.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha14.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha15.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha16.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha17.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha18.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha19.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+          <img src="arusha/arusha20.jpg" onclick="openPip(this.src, 'image')" class="w-full aspect-square object-cover rounded-3xl hover:scale-105 transition-all cursor-pointer shadow-md">
+        </div>
+      </section>
+
+      <section class="bg-white dark:bg-gray-800 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-700 shadow-sm">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
+                <div class="flex gap-4">
+                  <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-purple-600 shrink-0">
+                    <i class="fa-solid fa-language"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white text-sm">Languages</h4>
+                    <p class="text-xs text-gray-500 mt-1">Swahili, Maa, English</p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-purple-600 shrink-0">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white text-sm">Key Locations</h4>
+                    <p class="text-xs text-gray-500 mt-1">Monduli, Ngorongoro Highlands</p>
+                  </div>
+                </div>
+            </div>
+            <button onclick="openPip('assets/documents/rotiken.pdf', 'pdf')" class="whitespace-nowrap bg-purple-600 text-white px-6 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-purple-700 transition-all shadow-lg">
+                <i class="fa-solid fa-file-pdf mr-2"></i> View PDF
+            </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+<div id="pipModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-gray-900/90 backdrop-blur-md" onclick="closePip()"></div>
+  <div class="relative bg-white dark:bg-gray-800 w-full max-w-4xl h-[80vh] rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col">
+    <button onclick="closePip()" class="absolute top-5 right-5 z-20 bg-black/50 text-white w-10 h-10 rounded-full hover:bg-red-500 transition-all">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div id="pipBody" class="w-full h-full flex items-center justify-center p-4">
+      </div>
+  </div>
+</div>
+
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="chatToggle" class="bg-purple-600 text-white px-5 py-4 rounded-2xl shadow-[0_10px_30px_rgba(126,34,206,0.3)] hover:bg-purple-700 active:scale-95 transition-all flex items-center gap-3 group scale-90 md:scale-100">
+    <i class="fa-solid fa-comment-dots text-lg"></i>
+    <span class="hidden sm:inline font-bold uppercase tracking-widest text-[10px]">Chat Support</span>
+  </button>
+</div>
+
+<div id="chatBox" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex items-center justify-center hidden z-[100] p-4">
+  <div class="bg-white dark:bg-gray-800 rounded-[2rem] shadow-2xl w-full max-w-[450px] aspect-square flex flex-col overflow-hidden border border-white/10 relative">
+    
+    <div class="bg-purple-600 dark:bg-purple-700 text-white p-5 flex justify-between items-center flex-shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
+            <i class="fa-solid fa-headset text-white"></i>
+          </div>
+          <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 border-2 border-purple-600 rounded-full animate-pulse"></div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-sm tracking-tight">Support Specialist</span>
+          <span class="text-[9px] uppercase tracking-widest opacity-80 font-black">Concierge Service</span>
+        </div>
+      </div>
+      <button id="chatClose" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-500 hover:rotate-90 transition-all duration-300">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+    
+    <div id="chatMessages" class="flex-1 p-5 overflow-y-auto space-y-4 bg-gray-50/50 dark:bg-gray-900/50 custom-scrollbar">
+      <div class="flex items-start gap-2">
+        <div class="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none shadow-sm text-xs border border-gray-100 dark:border-gray-700 max-w-[80%] leading-relaxed dark:text-gray-100">
+          <span class="font-black text-[9px] uppercase text-purple-600 block mb-1">Guide</span>
+          Habari! How can we help you plan your Tanzanian cultural journey today?
+        </div>
+      </div>
+    </div>
+    
+    <div class="p-5 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
+      <div class="flex flex-col gap-3">
+        <input type="text" id="chatInput" placeholder="Write a message..." class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/10 outline-none dark:bg-gray-900 dark:text-white text-sm transition-all">
+        
+        <div class="flex justify-between items-center">
+          <label class="cursor-pointer flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-purple-600 transition-colors">
+            <i class="fa-solid fa-paperclip text-sm"></i>
+            <span class="text-[10px] font-bold uppercase tracking-widest">Attach File</span>
+            <input type="file" id="chatFile" class="hidden">
+          </label>
+          <button id="sendChat" class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-xl font-bold text-[10px] uppercase tracking-widest flex items-center gap-2 transition-all shadow-lg shadow-purple-500/20 active:scale-95">
+            Send <i class="fa-solid fa-paper-plane text-[10px]"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Sidebar logic
+  const mobileBtn = document.getElementById("mobileSidebarBtn");
+  const mobileSidebar = document.getElementById("mobileSidebar");
+  const closeMobileBtn = document.getElementById("closeMobileBtn");
+
+  function toggleSidebar(forceClose = false) {
+    if (forceClose) {
+      mobileSidebar.classList.add("-translate-x-full");
+    } else {
+      mobileSidebar.classList.toggle("-translate-x-full");
+    }
+  }
+
+  mobileBtn.addEventListener("click", () => toggleSidebar());
+  if (closeMobileBtn) {
+    closeMobileBtn.addEventListener("click", () => toggleSidebar(true));
+  }
+
+  // Dark Mode
+  const darkToggle = document.getElementById('darkToggle');
+  const darkIcon = document.getElementById('darkIcon');
+  darkToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    darkIcon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+  });
+
+  // Profile Menu
+  const profileBtn = document.getElementById('profileBtn');
+  const profileMenu = document.getElementById('profileMenu');
+  profileBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    profileMenu.classList.toggle('hidden');
+  });
+  document.addEventListener('click', () => profileMenu.classList.add('hidden'));
+
+  // Chat logic
+  const chatToggle = document.getElementById('chatToggle');
+  const chatBox = document.getElementById('chatBox');
+  const chatClose = document.getElementById('chatClose');
+  const sendChat = document.getElementById('sendChat');
+  const chatInput = document.getElementById('chatInput');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatFile = document.getElementById('chatFile');
+
+  chatToggle.addEventListener('click', () => chatBox.classList.remove('hidden'));
+  chatClose.addEventListener('click', () => chatBox.classList.add('hidden'));
+
+  function createMessage(content, sender = 'user', file = null) {
+    const div = document.createElement('div');
+    const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    div.className = `p-4 rounded-2xl text-sm shadow-sm max-w-[85%] ${sender === 'user' ? 'bg-purple-600 text-white ml-auto rounded-tr-none' : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border dark:border-gray-700 rounded-tl-none'}`;
+    if(file){
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.className='max-w-full rounded-md mt-1 mb-2';
+      div.appendChild(img);
+    }
+    if(content) {
+      const textPara = document.createElement('p');
+      textPara.textContent = content;
+      div.prepend(textPara);
+    }
+    const timeSpan = document.createElement('div');
+    timeSpan.className=`text-[10px] mt-2 text-right ${sender==='user'?'text-purple-200':'text-gray-400'}`;
+    timeSpan.textContent = timestamp;
+    div.appendChild(timeSpan);
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  sendChat.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    const file = chatFile.files[0];
+    if(!message && !file) return;
+    createMessage(message, 'user', file);
+    setTimeout(() => {
+      createMessage("Specialist: Asante for reaching out! We are reviewing your request.", 'staff');
+    }, 1200);
+    chatInput.value = '';
+    chatFile.value = '';
+  });
+</script>
+<script>
+    function openPip(src, type) {
+  const modal = document.getElementById('pipModal');
+  const body = document.getElementById('pipBody');
+  body.innerHTML = ''; // Clear old content
+
+  if (type === 'image') {
+    body.innerHTML = `<img src="${src}" class="max-w-full max-h-full object-contain rounded-xl shadow-lg">`;
+  } else if (type === 'pdf') {
+    body.innerHTML = `<iframe src="${src}#toolbar=0" class="w-full h-full rounded-xl"></iframe>`;
+  }
+
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePip() {
+  document.getElementById('pipModal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+</script>
+</body>
+</html>
