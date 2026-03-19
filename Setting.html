@@ -3,178 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings | Industrial Training Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Industrial Training Report</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <meta name="description" content="SCL Digital Museum & Archive preserving Tanzania’s cultural heritage through digital collections, exhibitions, and research.">
-  <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
-  <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
+    <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
+    <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
 
-  <!-- FAVICON -->
-  <link rel="icon" type="image/x-icon" href="1000186051.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="apple-touch-icon" href="1000186051.png">
+    <link rel="icon" type="image/x-icon" href="1000186051.png">
+    <link rel="apple-touch-icon" href="1000186051.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden; 
+            background-color: #f8fafc; /* Subtle grey-blue to make white cards stand out */
+        }
+        .hidden-down { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .animate-in { opacity: 1 !important; transform: translateY(0) !important; }
+        
+        /* Custom scrollbar for a "SaaS" feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        /* Card Separation Glow */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html" class="logo">
-                        <img src="1000186051.png" alt="Logo">
-                        <span class="nav-item">SCL PORTAL</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Dashboard.html">
-                        <i class="fas fa-home"></i>
-                        <span class="nav-item">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Course.html">
-                        <i class="fas fa-book"></i>
-                        <span class="nav-item">Course</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Report.html">
-                        <i class="fas fa-database"></i>
-                        <span class="nav-item">Report</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="subscription.html">
-                        <i class="fas fa-credit-card"></i>
-                        <span class="nav-item">Subscription</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Setting.html" class="active">
-                        <i class="fas fa-cog"></i>
-                        <span class="nav-item">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Biometric.html">
-                        <i class="fas fa-fingerprint"></i>
-                        <span class="nav-item">Scan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="registration.html">
-                        <i class="fas fa-list"></i>
-                        <span class="nav-item">Register</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="login.html" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+<body class="text-slate-900">
 
-        <section class="main">
-            <div class="main-top">
-                <h1>Settings</h1>
-                <i class="fas fa-cogs"></i>
-            </div>
+    <header class="md:hidden fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-[100] px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img src="1000186051.png" alt="SCL Logo" class="w-8">
+            <span class="font-bold tracking-tight text-sm">SCL PORTAL</span>
+        </div>
+        <button onclick="toggleMobileMenu()" class="text-slate-600 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </header>
 
-            <div class="settings-options">
-                <div class="setting-item">
-                    <i class="fas fa-user"></i>
-                    <h2>User Account Settings</h2>
-                    <p>Manage profile details, email, password, and personal information.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h2>Security Settings</h2>
-                    <p>Two-factor authentication, login history, access control.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-user-secret"></i>
-                    <h2>Privacy Settings</h2>
-                    <p>Data sharing preferences, visibility, privacy policy review.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-bell"></i>
-                    <h2>Notification Settings</h2>
-                    <p>Preferences for email, SMS, and in-app notifications.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-paint-brush"></i>
-                    <h2>Appearance/Theme Settings</h2>
-                    <p>Choose themes, fonts, and layout preferences.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-globe"></i>
-                    <h2>Language and Region Settings</h2>
-                    <p>Set preferred language and regional formats.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-edit"></i>
-                    <h2>Content Management</h2>
-                    <p>Add, edit, or delete website content.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-credit-card"></i>
-                    <h2>Subscription and Billing</h2>
-                    <p>Manage subscriptions, payment methods, and billing history.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-database"></i>
-                    <h2>Backup and Restore</h2>
-                    <p>Create and restore data backups.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-universal-access"></i>
-                    <h2>Accessibility</h2>
-                    <p>Screen reader support, text size, and contrast adjustments.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-link"></i>
-                    <h2>Connected Accounts</h2>
-                    <p>Link/unlink social media and third-party services.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-file-import"></i>
-                    <h2>Data Export/Import</h2>
-                    <p>Export personal data or import from other services.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-plug"></i>
-                    <h2>API Settings</h2>
-                    <p>Manage API keys and third-party integrations.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-cogs"></i>
-                    <h2>System Settings</h2>
-                    <p>Time zone, system updates, default settings.</p>
-                </div>
-                
-                <div class="setting-item">
-                    <i class="fas fa-file-contract"></i>
-                    <h2>Terms of Service</h2>
-                    <p>Review and agree to terms of service.</p>
-                </div>
+   <nav id="sidebar" class="fixed inset-y-0 left-0 z-[200] w-72 bg-white/90 backdrop-blur-xl border-r border-slate-200 p-6 flex flex-col transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out">
+    
+    <div class="flex items-center justify-between mb-10 px-2">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="p-2 bg-teal-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <img src="1000186051.png" alt="SCL Logo" class="w-8">
             </div>
-        </section>
+            <div class="flex flex-col">
+                <span class="font-black text-lg tracking-tight text-slate-800 leading-none">SCL PORTAL</span>
+                <span class="text-[10px] font-bold text-teal-600 tracking-widest uppercase mt-1">Management</span>
+            </div>
+        </a>
+        <button onclick="toggleMobileMenu()" class="md:hidden w-8 h-8 flex items-center justify-center rounded-lg bg-slate-50 text-slate-400">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
+
+    <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-4">Main Menu</p>
+        <ul class="space-y-1.5">
+            <li>
+                <a href="Dashboard.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-home w-5 opacity-90"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="course.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-book w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Course</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="report.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-database w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Report</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="subscription.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-credit-card w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Subscription</span>
+                </a>
+            </li>
+
+            <div class="my-6 border-t border-slate-100 mx-4"></div>
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-4">System</p>
+
+            <li>
+                <a href="Biometric.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-fingerprint w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Biometric Scan</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="registration.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-user-plus w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Registration</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="setting.html" class="flex items-center gap-4 px-4 py-3 bg-teal-600 text-white rounded-xl shadow-lg shadow-teal-600/20 transition-all font-semibold text-sm">
+                    <i class="fas fa-cog w-5 group-hover:rotate-45 transition-transform"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+            
+        </ul>
+    </div>
+
+    <div class="mt-auto pt-6 border-t border-slate-100">
+        <a href="index.html" class="flex items-center gap-4 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl transition-all font-bold text-sm group">
+            <div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <span>Sign Out</span>
+        </a>
+    </div>
+</nav>
+
+    <div id="overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[150] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <main class="md:ml-72 min-h-screen pt-24 md:pt-12 px-6 md:px-12 pb-20">
+        
+        <header class="sticky top-0 z-50 w-full bg-slate-50/80 backdrop-blur-md border-b border-slate-200/60 px-4 py-4 mb-8 transition-all duration-300" id="headerSection">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-4">
+            <div class="hidden md:flex w-12 h-12 bg-teal-600 rounded-2xl items-center justify-center text-white shadow-lg shadow-teal-600/20">
+                <i class="fas fa-university text-lg"></i>
+            </div>
+            <div>
+                <h1 class="text-xl md:text-2xl font-black tracking-tight text-slate-900 leading-none">
+                    Faculty of Arts and Social Sciences <span class="text-teal-600">(FASS)</span>
+                </h1>
+                <div class="flex items-center gap-2 mt-1.5">
+                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">SCL Portal • SETTINGS</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="relative group">
+                <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200 text-slate-400 cursor-pointer group-hover:text-teal-600 group-hover:border-teal-200 transition-all duration-300">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 border-2 border-white rounded-full"></span>
+            </div>
+
+            <div class="flex items-center gap-3 bg-white pl-1 pr-4 py-1 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-200 transition-all cursor-pointer group">
+                <div class="w-9 h-9 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                    <i class="fas fa-user-cog"></i>
+                </div>
+                <span class="text-xs font-black text-slate-700 uppercase tracking-wider hidden sm:block font-sans">Admin Panel</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+      
+<section class="main p-8 bg-slate-50 min-h-screen">
+
+    <div class="space-y-12">
+        
+        <div>
+            <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 ml-2">User & Security</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-user text-lg"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-slate-900 mb-2">User Account</h2>
+                    <p class="text-sm text-slate-500 leading-relaxed">Manage profile details, email, password, and personal info.</p>
+                </div>
+
+                <div class="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-shield-alt text-lg"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-slate-900 mb-2">Security</h2>
+                    <p class="text-sm text-slate-500 leading-relaxed">Two-factor authentication, login history, and access control.</p>
+                </div>
+
+                <div class="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-teal-500/10 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-user-secret text-lg"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-slate-900 mb-2">Privacy</h2>
+                    <p class="text-sm text-slate-500 leading-relaxed">Data sharing preferences and visibility control.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 ml-2">System & Experience</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="group bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <i class="fas fa-bell text-slate-400 mb-4 block group-hover:text-teal-500"></i>
+                    <h2 class="font-bold text-slate-900 mb-1">Notifications</h2>
+                    <p class="text-xs text-slate-500">Email, SMS, and Alerts.</p>
+                </div>
+
+                <div class="group bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <i class="fas fa-paint-brush text-slate-400 mb-4 block group-hover:text-teal-500"></i>
+                    <h2 class="font-bold text-slate-900 mb-1">Appearance</h2>
+                    <p class="text-xs text-slate-500">Themes, fonts, and layout.</p>
+                </div>
+
+                <div class="group bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <i class="fas fa-globe text-slate-400 mb-4 block group-hover:text-teal-500"></i>
+                    <h2 class="font-bold text-slate-900 mb-1">Language</h2>
+                    <p class="text-xs text-slate-500">Region and formats.</p>
+                </div>
+
+                <div class="group bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <i class="fas fa-universal-access text-slate-400 mb-4 block group-hover:text-teal-500"></i>
+                    <h2 class="font-bold text-slate-900 mb-1">Accessibility</h2>
+                    <p class="text-xs text-slate-500">Screen reader & contrast.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bg-slate-900 rounded-[3rem] p-10">
+            <h3 class="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-8">Management & Advanced</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <a href="#" class="block group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center group-hover:bg-teal-500 transition-colors">
+                            <i class="fas fa-edit text-slate-400 group-hover:text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Content Management</h4>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Website Editor</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="block group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center group-hover:bg-teal-500 transition-colors">
+                            <i class="fas fa-credit-card text-slate-400 group-hover:text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Subscriptions</h4>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Billing History</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="block group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center group-hover:bg-teal-500 transition-colors">
+                            <i class="fas fa-database text-slate-400 group-hover:text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Backup & Restore</h4>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Cloud Sync</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="block group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center group-hover:bg-teal-500 transition-colors">
+                            <i class="fas fa-plug text-slate-400 group-hover:text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">API Settings</h4>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Integrations</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-slate-800 flex flex-wrap gap-8">
+                <div class="flex items-center gap-2 text-slate-400 hover:text-white cursor-pointer transition-colors">
+                    <i class="fas fa-link text-xs"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider">Connected Accounts</span>
+                </div>
+                <div class="flex items-center gap-2 text-slate-400 hover:text-white cursor-pointer transition-colors">
+                    <i class="fas fa-file-import text-xs"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider">Data Export</span>
+                </div>
+                <div class="flex items-center gap-2 text-slate-400 hover:text-white cursor-pointer transition-colors">
+                    <i class="fas fa-file-contract text-xs"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider">Terms of Service</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="text-center text-slate-400 text-[10px] font-black uppercase tracking-[0.4em] mt-12 pb-12">© 2026 SCL System Preferences • Institutional Core</p>
+</section>
+
+<script>
+        // Mobile Navigation Toggle
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => {
+                overlay.classList.toggle('opacity-100');
+            }, 10);
+        }
+
+        // Staggered Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sequence = ['headerSection', 'facultyGrid', 'statsGrid', 'p2025', 'p2026', 'reportsTable'];
+            sequence.forEach((id, index) => {
+                setTimeout(() => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.classList.add('animate-in');
+                        const cards = el.querySelectorAll('.hidden-down');
+                        cards.forEach((card, i) => {
+                            setTimeout(() => card.classList.add('animate-in'), i * 100);
+                        });
+                    }
+                }, index * 100);
+            });
+        });
+    </script>
 </body>
 </html>

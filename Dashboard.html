@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industrial Training Report</title>
     
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
 
     <meta name="description" content="SCL Digital Museum & Archive preserving Tanzania’s cultural heritage through digital collections, exhibitions, and research.">
     <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
@@ -14,135 +14,487 @@
 
     <link rel="icon" type="image/x-icon" href="1000186051.png">
     <link rel="apple-touch-icon" href="1000186051.png">
-</head>
-<body>
 
-    <nav>
-        <ul>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden; 
+            background-color: #f8fafc; /* Subtle grey-blue to make white cards stand out */
+        }
+        .hidden-down { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .animate-in { opacity: 1 !important; transform: translateY(0) !important; }
+        
+        /* Custom scrollbar for a "SaaS" feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        /* Card Separation Glow */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <header class="md:hidden fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-[100] px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img src="1000186051.png" alt="SCL Logo" class="w-8">
+            <span class="font-bold tracking-tight text-sm">SCL PORTAL</span>
+        </div>
+        <button onclick="toggleMobileMenu()" class="text-slate-600 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </header>
+
+   <nav id="sidebar" class="fixed inset-y-0 left-0 z-[200] w-72 bg-white/90 backdrop-blur-xl border-r border-slate-200 p-6 flex flex-col transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out">
+    
+    <div class="flex items-center justify-between mb-10 px-2">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="p-2 bg-teal-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <img src="1000186051.png" alt="SCL Logo" class="w-8">
+            </div>
+            <div class="flex flex-col">
+                <span class="font-black text-lg tracking-tight text-slate-800 leading-none">SCL PORTAL</span>
+                <span class="text-[10px] font-bold text-teal-600 tracking-widest uppercase mt-1">Management</span>
+            </div>
+        </a>
+        <button onclick="toggleMobileMenu()" class="md:hidden w-8 h-8 flex items-center justify-center rounded-lg bg-slate-50 text-slate-400">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-4">Main Menu</p>
+        <ul class="space-y-1.5">
             <li>
-                <a href="index.html" class="logo">
-                    <img src="1000186051.png" alt="Logo">
-                    <span class="nav-item">SCL PORTAL</span>
+                <a href="Dashboard.html" class="flex items-center gap-4 px-4 py-3 bg-teal-600 text-white rounded-xl shadow-lg shadow-teal-600/20 transition-all font-semibold text-sm">
+                    <i class="fas fa-home w-5 opacity-90"></i>
+                    <span>Home</span>
                 </a>
             </li>
-            <li><a href="Dashboard.html"><i class="fas fa-home"></i><span class="nav-item">Home</span></a></li>
-            <li><a href="course.html"><i class="fas fa-book"></i><span class="nav-item">Course</span></a></li>
-            <li><a href="report.html"><i class="fas fa-database"></i><span class="nav-item">Report</span></a></li>
-            <li><a href="subscription.html"><i class="fas fa-credit-card"></i><span class="nav-item">Subscription</span></a></li>
-            <li><a href="setting.html"><i class="fas fa-cog"></i><span class="nav-item">Settings</span></a></li>
-            <li><a href="Biometric.html"><i class="fas fa-fingerprint"></i><span class="nav-item">Scan</span></a></li>
-            <li><a href="registration.html"><i class="fas fa-list"></i><span class="nav-item">Register</span></a></li>
-            <li><a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item">Log out</span></a></li>
-        </ul>
-    </nav>
-
-    <section class="main">
-        <div class="main-top hidden-down" id="headerSection">
-            <h1>Faculty of Arts and Social Sciences (FASS)</h1>
-            <i class="fas fa-user-cog"></i>
-        </div>
-
-        <div class="users" id="facultyGrid">
-            <div class="card hidden-down">
-                <img src="pic/makulilo.avif" alt="Prof. Alex B. Makulilo">
-                <h4>Prof. Alex B. Makulilo</h4>
-                <p>Vice Chancellor</p>
-                <a href="https://www.out.ac.tz/about-our-website/vc-message" class="profile-button">Profile</a>
-            </div>
-
-            <div class="card hidden-down">
-                <img src="pic/ochieng.avif" alt="Dr. Dunlop O. Ochieng">
-                <h4>Dr. Dunlop O. Ochieng</h4>
-                <p>Dean, Faculty of Arts and Social Sciences</p>
-                <a href="#" class="profile-button">Profile</a>
-            </div>
-
-            <div class="card hidden-down">
-                <img src="pic/lisakafu.jpg" alt="Dr. Jacob Lisakafu">
-                <h4>Dr. Jacob Lisakafu</h4>
-                <p>HOD, Political Science and Public Administration</p>
-                <a href="#" class="profile-button">Profile</a>
-            </div>
-
-            <div class="card hidden-down">
-                <img src="pic/Mariana-Makuu.webp" alt="Dr. Mariana Makuu">
-                <h4>Dr. Mariana Makuu</h4>
-                <p>HOD, Sociology and Social Work</p>
-                <a href="#" class="profile-button">Profile</a>
-            </div>
-        </div>
-
-        <div class="dashboard-stats" id="statsGrid">
-            <div class="stat-card hidden-down">
-                <i class="fas fa-user-graduate"></i>
-                <div><h2>11</h2><p>Total Students</p></div>
-            </div>
-            <div class="stat-card hidden-down">
-                <i class="fas fa-check-circle"></i>
-                <div><h2>5</h2><p>Reports Submitted</p></div>
-            </div>
-            <div class="stat-card hidden-down">
-                <i class="fas fa-clock"></i>
-                <div><h2>6</h2><p>In Progress</p></div>
-            </div>
-            <div class="stat-card hidden-down">
-                <i class="fas fa-globe-africa"></i>
-                <div><h2>5</h2><p>Regions Covered</p></div>
-            </div>
-        </div>
-
-        <section class="project-overview hidden-down" id="p2025">
-            <h2>Cultural Echoes Field Project 2025</h2>
-            <div class="overview-grid">
-                <div class="overview-card"><h3>Research Areas</h3><p>Vidunda, Makonde, Pare, Meru, Sukuma</p></div>
-                <div class="overview-card"><h3>Objective</h3><p>To document indigenous knowledge, traditions, and cultural heritage across Tanzania.</p></div>
-                <div class="overview-card"><h3>Methodology</h3><p>Ethnographic fieldwork, interviews, observation, and digital documentation.</p></div>
-                <div class="overview-card"><h3>Impact</h3><p>Supports national heritage preservation and digital transformation.</p></div>
-            </div>
-        </section>
-
-        <section class="project-overview hidden-down" id="p2026">
-            <h2>Cultural Echoes Field Project 2026</h2>
-            <div class="overview-grid">
-                <div class="overview-card"><h3>Research Areas</h3><p>Mchemba, Tarime, Kagera, Mtama, Tunduru</p></div>
-                <div class="overview-card"><h3>Objective</h3><p>To document indigenous knowledge, traditions, and cultural heritage across Tanzania.</p></div>
-                <div class="overview-card"><h3>Methodology</h3><p>Ethnographic fieldwork, interviews, observation, and digital documentation.</p></div>
-                <div class="overview-card"><h3>Impact</h3><p>Supports national heritage preservation and digital transformation.</p></div>
-            </div>
-        </section>
             
-        <section class="attendance hidden-down" id="reportsTable">
-            <div class="attendance-list">
-                <h1>Student Reports</h1>
-                <table class="table">
+            <li>
+                <a href="course.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-book w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Course</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="report.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-database w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Report</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="subscription.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-credit-card w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Subscription</span>
+                </a>
+            </li>
+
+            <div class="my-6 border-t border-slate-100 mx-4"></div>
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-4">System</p>
+
+            <li>
+                <a href="Biometric.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-fingerprint w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Biometric Scan</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="registration.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-user-plus w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Registration</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="setting.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-cog w-5 group-hover:rotate-45 transition-transform"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mt-auto pt-6 border-t border-slate-100">
+        <a href="index.html" class="flex items-center gap-4 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl transition-all font-bold text-sm group">
+            <div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <span>Sign Out</span>
+        </a>
+    </div>
+</nav>
+
+    <div id="overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[150] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <main class="md:ml-72 min-h-screen pt-24 md:pt-12 px-6 md:px-12 pb-20">
+        
+         <header class="sticky top-0 z-50 w-full bg-slate-50/80 backdrop-blur-md border-b border-slate-200/60 px-4 py-4 mb-8 transition-all duration-300" id="headerSection">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-4">
+            <div class="hidden md:flex w-12 h-12 bg-teal-600 rounded-2xl items-center justify-center text-white shadow-lg shadow-teal-600/20">
+                <i class="fas fa-university text-lg"></i>
+            </div>
+            <div>
+                <h1 class="text-xl md:text-2xl font-black tracking-tight text-slate-900 leading-none">
+                    Faculty of Arts and Social Sciences <span class="text-teal-600">(FASS)</span>
+                </h1>
+                <div class="flex items-center gap-2 mt-1.5">
+                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">SCL Portal • HOME </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="relative group">
+                <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200 text-slate-400 cursor-pointer group-hover:text-teal-600 group-hover:border-teal-200 transition-all duration-300">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 border-2 border-white rounded-full"></span>
+            </div>
+
+            <div class="flex items-center gap-3 bg-white pl-1 pr-4 py-1 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-200 transition-all cursor-pointer group">
+                <div class="w-9 h-9 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                    <i class="fas fa-user-cog"></i>
+                </div>
+                <span class="text-xs font-black text-slate-700 uppercase tracking-wider hidden sm:block font-sans">Admin Panel</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 mb-12 px-4" id="facultyGrid">
+    
+    <div class="relative bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center hidden-down hover:shadow-[0_20px_50px_rgba(13,148,136,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out group overflow-hidden">
+        
+        <div class="absolute -top-12 -right-12 w-24 h-24 bg-teal-50 rounded-full group-hover:scale-[3] transition-transform duration-700 opacity-50"></div>
+
+        <div class="relative">
+            <div class="relative w-28 h-28 mx-auto mb-6">
+                <div class="absolute inset-0 bg-teal-200 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <img src="pic/makulilo.avif" alt="Prof. Alex B. Makulilo" 
+                     class="relative w-full h-full rounded-full object-cover border-4 border-white shadow-md transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2">
+            </div>
+
+            <h4 class="font-black text-slate-800 text-base leading-tight">Prof. Alex B. Makulilo</h4>
+            <div class="inline-block px-3 py-1 bg-slate-50 rounded-full mt-2 mb-8">
+                <p class="text-[9px] uppercase tracking-[0.15em] text-teal-600 font-black">Vice Chancellor</p>
+            </div>
+
+            <a href="https://www.out.ac.tz/about-our-website/vc-message" 
+               class="flex items-center justify-center gap-2 py-3.5 bg-slate-900 text-white text-xs font-bold rounded-2xl group-hover:bg-teal-600 shadow-lg shadow-slate-200 group-hover:shadow-teal-200 transition-all duration-300">
+                <span>View Profile</span>
+                <i class="fas fa-arrow-right text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="relative bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center hidden-down hover:shadow-[0_20px_50px_rgba(13,148,136,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out group overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-24 h-24 bg-teal-50 rounded-full group-hover:scale-[3] transition-transform duration-700 opacity-50"></div>
+        <div class="relative">
+            <div class="relative w-28 h-28 mx-auto mb-6">
+                <div class="absolute inset-0 bg-teal-200 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <img src="pic/ochieng.avif" alt="Dr. Dunlop O. Ochieng" 
+                     class="relative w-full h-full rounded-full object-cover border-4 border-white shadow-md transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
+            </div>
+            <h4 class="font-black text-slate-800 text-base leading-tight">Dr. Dunlop O. Ochieng</h4>
+            <div class="inline-block px-3 py-1 bg-slate-50 rounded-full mt-2 mb-8">
+                <p class="text-[9px] uppercase tracking-[0.15em] text-teal-600 font-black">Dean, FASS</p>
+            </div>
+            <a href="#" class="flex items-center justify-center gap-2 py-3.5 bg-slate-900 text-white text-xs font-bold rounded-2xl group-hover:bg-teal-600 shadow-lg shadow-slate-200 group-hover:shadow-teal-200 transition-all duration-300">
+                <span>View Profile</span>
+                <i class="fas fa-arrow-right text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="relative bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center hidden-down hover:shadow-[0_20px_50px_rgba(13,148,136,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out group overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-24 h-24 bg-teal-50 rounded-full group-hover:scale-[3] transition-transform duration-700 opacity-50"></div>
+        <div class="relative">
+            <div class="relative w-28 h-28 mx-auto mb-6">
+                <div class="absolute inset-0 bg-teal-200 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <img src="pic/lisakafu.jpg" alt="Dr. Jacob Lisakafu" 
+                     class="relative w-full h-full rounded-full object-cover border-4 border-white shadow-md transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2">
+            </div>
+            <h4 class="font-black text-slate-800 text-base leading-tight">Dr. Jacob Lisakafu</h4>
+            <div class="inline-block px-3 py-1 bg-slate-50 rounded-full mt-2 mb-8">
+                <p class="text-[9px] uppercase tracking-[0.15em] text-teal-600 font-black">HOD, Political Science</p>
+            </div>
+            <a href="#" class="flex items-center justify-center gap-2 py-3.5 bg-slate-900 text-white text-xs font-bold rounded-2xl group-hover:bg-teal-600 shadow-lg shadow-slate-200 group-hover:shadow-teal-200 transition-all duration-300">
+                <span>View Profile</span>
+                <i class="fas fa-arrow-right text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="relative bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center hidden-down hover:shadow-[0_20px_50px_rgba(13,148,136,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out group overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-24 h-24 bg-teal-50 rounded-full group-hover:scale-[3] transition-transform duration-700 opacity-50"></div>
+        <div class="relative">
+            <div class="relative w-28 h-28 mx-auto mb-6">
+                <div class="absolute inset-0 bg-teal-200 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <img src="pic/Mariana-Makuu.webp" alt="Dr. Mariana Makuu" 
+                     class="relative w-full h-full rounded-full object-cover border-4 border-white shadow-md transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
+            </div>
+            <h4 class="font-black text-slate-800 text-base leading-tight">Dr. Mariana Makuu</h4>
+            <div class="inline-block px-3 py-1 bg-slate-50 rounded-full mt-2 mb-8">
+                <p class="text-[9px] uppercase tracking-[0.15em] text-teal-600 font-black">HOD, Sociology</p>
+            </div>
+            <a href="#" class="flex items-center justify-center gap-2 py-3.5 bg-slate-900 text-white text-xs font-bold rounded-2xl group-hover:bg-teal-600 shadow-lg shadow-slate-200 group-hover:shadow-teal-200 transition-all duration-300">
+                <span>View Profile</span>
+                <i class="fas fa-arrow-right text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-12" id="statsGrid">
+    
+    <div class="group bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(13,148,136,0.1)] transition-all duration-500 hidden-down relative overflow-hidden">
+        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-teal-50 rounded-full blur-3xl group-hover:bg-teal-100 transition-colors"></div>
+        
+        <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fas fa-user-graduate text-lg"></i>
+                </div>
+                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest">Growth +2</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+                <h2 class="text-4xl font-black text-slate-900 tracking-tight">11</h2>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Students</span>
+            </div>
+            <div class="w-full h-1.5 bg-slate-50 rounded-full mt-4 overflow-hidden">
+                <div class="w-[85%] h-full bg-teal-500 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(34,197,94,0.1)] transition-all duration-500 hidden-down relative overflow-hidden">
+        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-green-50 rounded-full blur-3xl group-hover:bg-green-100 transition-colors"></div>
+        
+        <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fas fa-check-circle text-lg"></i>
+                </div>
+                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest">45% Done</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+                <h2 class="text-4xl font-black text-slate-900 tracking-tight">5</h2>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Submitted</span>
+            </div>
+            <div class="w-full h-1.5 bg-slate-50 rounded-full mt-4 overflow-hidden">
+                <div class="w-[45%] h-full bg-green-500 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.1)] transition-all duration-500 hidden-down relative overflow-hidden">
+        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-amber-50 rounded-full blur-3xl group-hover:bg-amber-100 transition-colors"></div>
+        
+        <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fas fa-clock text-lg"></i>
+                </div>
+                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest">Pending</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+                <h2 class="text-4xl font-black text-slate-900 tracking-tight">6</h2>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">In Progress</span>
+            </div>
+            <div class="w-full h-1.5 bg-slate-50 rounded-full mt-4 overflow-hidden">
+                <div class="w-[55%] h-full bg-amber-500 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(79,70,229,0.1)] transition-all duration-500 hidden-down relative overflow-hidden">
+        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-indigo-50 rounded-full blur-3xl group-hover:bg-indigo-100 transition-colors"></div>
+        
+        <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fas fa-globe-africa text-lg"></i>
+                </div>
+                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest">Tanzania</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+                <h2 class="text-4xl font-black text-slate-900 tracking-tight">5</h2>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Regions</span>
+            </div>
+            <div class="w-full h-1.5 bg-slate-50 rounded-full mt-4 overflow-hidden">
+                <div class="w-[100%] h-full bg-indigo-500 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="space-y-8 mb-12">
+    <section class="group bg-slate-50/50 p-8 rounded-[3rem] border border-slate-200/60 shadow-sm hidden-down relative overflow-hidden transition-all hover:bg-white hover:shadow-xl hover:shadow-slate-200/50" id="p2025">
+        <div class="flex items-center justify-between mb-10">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-slate-200 flex items-center justify-center text-slate-500 shadow-inner">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-black tracking-tight text-slate-800">Cultural Echoes Field Project 2025</h2>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Completed Cycle</p>
+                </div>
+            </div>
+            <span class="px-4 py-1.5 bg-white text-slate-400 rounded-full text-[10px] font-black uppercase border border-slate-200 shadow-sm">Archive</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+            <div class="p-4 rounded-2xl bg-white/50 border border-slate-100/50">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Research Areas</h3>
+                <p class="text-sm text-slate-600 font-bold leading-relaxed">Vidunda, Makonde, Pare, Meru, Sukuma</p>
+            </div>
+            <div class="p-4">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Objective</h3>
+                <p class="text-sm text-slate-500 font-medium leading-relaxed italic">Documenting indigenous knowledge & traditions across Tanzania.</p>
+            </div>
+            <div class="p-4">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Methodology</h3>
+                <p class="text-sm text-slate-500 font-medium leading-relaxed">Ethnographic fieldwork & digital documentation.</p>
+            </div>
+            <div class="p-4">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Final Impact</h3>
+                <p class="text-sm text-slate-500 font-medium leading-relaxed">National heritage preservation success.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-white p-8 rounded-[3rem] border-2 border-teal-100 shadow-xl shadow-teal-900/5 hidden-down overflow-hidden group hover:border-teal-300 transition-all duration-500" id="p2026">
+        <div class="absolute top-0 right-0 p-4">
+            <div class="flex items-center gap-2 px-3 py-1 bg-teal-50 rounded-full border border-teal-100">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                </span>
+                <span class="text-[10px] font-black text-teal-700 uppercase tracking-tighter">Current Phase</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-10">
+            <div class="w-14 h-14 rounded-2xl bg-teal-600 flex items-center justify-center text-white shadow-lg shadow-teal-200 group-hover:rotate-6 transition-transform">
+                <i class="fas fa-map-marked-alt text-xl"></i>
+            </div>
+            <div>
+                <h2 class="text-2xl font-black tracking-tight text-slate-900">Cultural Echoes Field Project 2026</h2>
+                <div class="flex items-center gap-2 mt-1">
+                    <div class="w-32 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div class="w-1/3 h-full bg-teal-500"></div>
+                    </div>
+                    <span class="text-[9px] font-black text-teal-600 uppercase">35% Complete</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-teal-50/30 p-5 rounded-2xl border border-teal-50 transition-colors group-hover:bg-teal-50/60">
+                <h3 class="text-[10px] font-black text-teal-600 uppercase tracking-[0.2em] mb-3">Live Locations</h3>
+                <p class="text-sm text-slate-800 font-black leading-relaxed">Mchemba, Tarime, Kagera, Mtama, Tunduru</p>
+            </div>
+            <div class="p-5">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Core Objective</h3>
+                <p class="text-sm text-slate-700 font-bold leading-relaxed">Heritage preservation and digital cultural mapping.</p>
+            </div>
+            <div class="p-5">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Methodology</h3>
+                <p class="text-sm text-slate-700 font-bold leading-relaxed">Mobile interviews & 360° VR Observation.</p>
+            </div>
+            <div class="p-5">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Expected Impact</h3>
+                <p class="text-sm text-slate-700 font-bold leading-relaxed">National digital archives transformation.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+        <section class="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-200 p-6 md:p-10 hidden-down" id="reportsTable">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+                <h1 class="text-2xl font-black tracking-tight text-slate-900">Student Reports</h1>
+                <div class="flex gap-2 overflow-x-auto pb-2">
+                    <button class="flex items-center gap-2 px-5 py-2.5 bg-white text-slate-600 rounded-xl text-xs font-bold border border-slate-200 hover:bg-slate-50 transition-colors"><i class="fas fa-filter"></i> Filter</button>
+                    <button class="flex items-center gap-2 px-5 py-2.5 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-lg shadow-teal-600/20 transition-transform active:scale-95">Export Results</button>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto -mx-6 md:mx-0">
+                <table class="w-full text-left">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Batch</th>
-                            <th>Region</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                        <tr class="text-slate-400 text-[10px] font-black uppercase tracking-[0.15em] border-b border-slate-100">
+                            <th class="px-6 py-4">ID</th>
+                            <th class="px-6 py-4">Student</th>
+                            <th class="px-6 py-4">Region</th>
+                            <th class="px-6 py-4 text-center">Status</th>
+                            <th class="px-6 py-4 text-right">Link</th>
                         </tr>
                     </thead> 
-                    <tbody>
-                        <tr><td>01</td><td><b>Makene Ngoroma</b></td><td>Batch 1</td><td>Morogoro - Vidunda</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
-                        <tr><td>02</td><td><b>Aktari Sabiha</b></td><td>Batch 1</td><td>Mtwara - Newala</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
-                        <tr><td>03</td><td><b>Elihaki</b></td><td>Batch 1</td><td>Kilimanjaro - Same</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
-                        <tr><td>04</td><td><b>Davison Nasari</b></td><td>Batch 1</td><td>Arusha - Meru</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
-                        <tr><td>05</td><td><b>Alex Maungo</b></td><td>Batch 1</td><td>Mwanza - Kisesa</td><td>Submitted</td><td><a href="Report.html"><button>View Report</button></a></td></tr>
-                        <tr><td>01</td><td><b>Yamungu Mashaka Jumanne</b></td><td>Batch 2</td><td>Dodoma - Mchemba</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
-                        <tr><td>02</td><td><b>Mugini Jacob Mwera</b></td><td>Batch 2</td><td>Mara - Tarime</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
-                        <tr><td>03</td><td><b>Yokshani Charles Mlyashuma</b></td><td>Batch 2</td><td>Bukoba - Kagera</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
-                        <tr><td>04</td><td><b>Orpa Daniel Kijanda</b></td><td>Batch 2</td><td>Ruvuma - Tunduru</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
-                        <tr><td>05</td><td><b>Abubakari Mohamedi Emilian</b></td><td>Batch 2</td><td>Lindi - Mtama</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
-                        <tr><td>06</td><td><b>Rotiken Torenti</b></td><td>Batch 2</td><td>Arusha - ***</td><td class="status progress">In Progress</td><td><button class="btn-pending">Pending</button></td></tr>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50 transition-colors group">
+                            <td class="px-6 py-6 text-sm text-slate-400 font-medium">01</td>
+                            <td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Makene Ngoroma</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 1</span></div></td>
+                            <td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Morogoro - Vidunda</td>
+                            <td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-green-50 text-green-600 text-[9px] font-black rounded-lg uppercase border border-green-200">Submitted</span></td>
+                            <td class="px-6 py-6 text-right"><a href="Report.html" class="inline-flex items-center gap-2 text-[10px] font-black uppercase text-teal-600 hover:text-teal-800 transition-colors">View <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">02</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Aktari Sabiha</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 1</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Mtwara - Newala</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-green-50 text-green-600 text-[9px] font-black rounded-lg uppercase border border-green-200">Submitted</span></td><td class="px-6 py-6 text-right"><a href="Report.html" class="inline-flex items-center gap-2 text-[10px] font-black uppercase text-teal-600 hover:text-teal-800 transition-colors">View <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">03</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Elihaki</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 1</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Kilimanjaro - Same</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-green-50 text-green-600 text-[9px] font-black rounded-lg uppercase border border-green-200">Submitted</span></td><td class="px-6 py-6 text-right"><a href="Report.html" class="inline-flex items-center gap-2 text-[10px] font-black uppercase text-teal-600 hover:text-teal-800 transition-colors">View <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">04</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Davison Nasari</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 1</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Arusha - Meru</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-green-50 text-green-600 text-[9px] font-black rounded-lg uppercase border border-green-200">Submitted</span></td><td class="px-6 py-6 text-right"><a href="Report.html" class="inline-flex items-center gap-2 text-[10px] font-black uppercase text-teal-600 hover:text-teal-800 transition-colors">View <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">05</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Alex Maungo</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 1</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Mwanza - Kisesa</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-green-50 text-green-600 text-[9px] font-black rounded-lg uppercase border border-green-200">Submitted</span></td><td class="px-6 py-6 text-right"><a href="Report.html" class="inline-flex items-center gap-2 text-[10px] font-black uppercase text-teal-600 hover:text-teal-800 transition-colors">View <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">01</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Yamungu Mashaka Jumanne</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 2</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Dodoma - Mchemba</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-amber-50 text-amber-600 text-[9px] font-black rounded-lg uppercase border border-amber-200">In Progress</span></td><td class="px-6 py-6 text-right"><button class="bg-slate-50 text-slate-300 px-4 py-1.5 rounded-lg text-[9px] font-black uppercase cursor-not-allowed">Pending</button></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">02</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Mugini Jacob Mwera</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 2</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Mara - Tarime</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-amber-50 text-amber-600 text-[9px] font-black rounded-lg uppercase border border-amber-200">In Progress</span></td><td class="px-6 py-6 text-right"><button class="bg-slate-50 text-slate-300 px-4 py-1.5 rounded-lg text-[9px] font-black uppercase cursor-not-allowed">Pending</button></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">03</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Yokshani Charles Mlyashuma</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 2</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Bukoba - Kagera</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-amber-50 text-amber-600 text-[9px] font-black rounded-lg uppercase border border-amber-200">In Progress</span></td><td class="px-6 py-6 text-right"><button class="bg-slate-50 text-slate-300 px-4 py-1.5 rounded-lg text-[9px] font-black uppercase cursor-not-allowed">Pending</button></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">04</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Orpa Daniel Kijanda</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 2</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Ruvuma - Tunduru</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-amber-50 text-amber-600 text-[9px] font-black rounded-lg uppercase border border-amber-200">In Progress</span></td><td class="px-6 py-6 text-right"><button class="bg-slate-50 text-slate-300 px-4 py-1.5 rounded-lg text-[9px] font-black uppercase cursor-not-allowed">Pending</button></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">05</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Abubakari Mohamedi Emilian</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 2</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Lindi - Mtama</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-amber-50 text-amber-600 text-[9px] font-black rounded-lg uppercase border border-amber-200">In Progress</span></td><td class="px-6 py-6 text-right"><button class="bg-slate-50 text-slate-300 px-4 py-1.5 rounded-lg text-[9px] font-black uppercase cursor-not-allowed">Pending</button></td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors group"><td class="px-6 py-6 text-sm text-slate-400 font-medium">06</td><td class="px-6 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-slate-800">Rotiken Torenti</span><span class="text-[10px] text-slate-400 font-bold uppercase">Batch 2</span></div></td><td class="px-6 py-6 text-sm text-slate-500 font-medium italic">Arusha - ***</td><td class="px-6 py-6 text-center"><span class="px-3 py-1.5 bg-amber-50 text-amber-600 text-[9px] font-black rounded-lg uppercase border border-amber-200">In Progress</span></td><td class="px-6 py-6 text-right"><button class="bg-slate-50 text-slate-300 px-4 py-1.5 rounded-lg text-[9px] font-black uppercase cursor-not-allowed">Pending</button></td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
-    </section>
+    </main>
 
-    <script src="studentreportscript.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => {
+                overlay.classList.toggle('opacity-100');
+            }, 10);
+        }
+
+        // Staggered Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sequence = ['headerSection', 'facultyGrid', 'statsGrid', 'p2025', 'p2026', 'reportsTable'];
+            sequence.forEach((id, index) => {
+                setTimeout(() => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.classList.add('animate-in');
+                        const cards = el.querySelectorAll('.hidden-down');
+                        cards.forEach((card, i) => {
+                            setTimeout(() => card.classList.add('animate-in'), i * 100);
+                        });
+                    }
+                }, index * 100);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,269 +3,563 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Information | Industrial Training Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Industrial Training Report</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <meta name="description" content="SCL Digital Museum & Archive preserving Tanzania’s cultural heritage through digital collections, exhibitions, and research.">
-  <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
-  <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
+    <meta name="keywords" content="Tanzania museum, digital archive, African heritage, culture, history, SHIMULIMULI">
+    <meta name="author" content="SHIMULIMULI COMPANY LIMITED">
 
-  <!-- FAVICON -->
-  <link rel="icon" type="image/x-icon" href="1000186051.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="apple-touch-icon" href="1000186051.png">
+    <link rel="icon" type="image/x-icon" href="1000186051.png">
+    <link rel="apple-touch-icon" href="1000186051.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden; 
+            background-color: #f8fafc; /* Subtle grey-blue to make white cards stand out */
+        }
+        .hidden-down { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .animate-in { opacity: 1 !important; transform: translateY(0) !important; }
+        
+        /* Custom scrollbar for a "SaaS" feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        /* Card Separation Glow */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html" class="logo">
-                        <img src="1000186051.png" alt="Logo">
-                        <span class="nav-item">SCL PORTAL </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Dashboard.html">
-                        <i class="fas fa-home"></i>
-                        <span class="nav-item">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="course.html">
-                        <i class="fas fa-book"></i>
-                        <span class="nav-item">Course</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="report.html">
-                        <i class="fas fa-database"></i>
-                        <span class="nav-item">Report</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="subscription.html">
-                        <i class="fas fa-credit-card"></i>
-                        <span class="nav-item">Subscription</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="setting.html">
-                        <i class="fas fa-cog"></i>
-                        <span class="nav-item">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Biometric.html">
-                        <i class="fas fa-fingerprint"></i>
-                        <span class="nav-item">Scan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="registration.html">
-                        <i class="fas fa-list"></i>
-                        <span class="nav-item">Register</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="logout.html" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+<body class="text-slate-900">
 
-        <section class="main">
-            <div class="main-top">
-                <h1>Course Information</h1>
-                <i class="fas fa-book"></i>
+    <header class="md:hidden fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-[100] px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img src="1000186051.png" alt="SCL Logo" class="w-8">
+            <span class="font-bold tracking-tight text-sm">SCL PORTAL</span>
+        </div>
+        <button onclick="toggleMobileMenu()" class="text-slate-600 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </header>
+
+   <nav id="sidebar" class="fixed inset-y-0 left-0 z-[200] w-72 bg-white/90 backdrop-blur-xl border-r border-slate-200 p-6 flex flex-col transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out">
+    
+    <div class="flex items-center justify-between mb-10 px-2">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="p-2 bg-teal-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <img src="1000186051.png" alt="SCL Logo" class="w-8">
+            </div>
+            <div class="flex flex-col">
+                <span class="font-black text-lg tracking-tight text-slate-800 leading-none">SCL PORTAL</span>
+                <span class="text-[10px] font-bold text-teal-600 tracking-widest uppercase mt-1">Management</span>
+            </div>
+        </a>
+        <button onclick="toggleMobileMenu()" class="md:hidden w-8 h-8 flex items-center justify-center rounded-lg bg-slate-50 text-slate-400">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-4">Main Menu</p>
+        <ul class="space-y-1.5">
+            <li>
+                <a href="Dashboard.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-home w-5 opacity-90"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="course.html" class="flex items-center gap-4 px-4 py-3 bg-teal-600 text-white rounded-xl shadow-lg shadow-teal-600/20 transition-all font-semibold text-sm">
+                    <i class="fas fa-book w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Course</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="report.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-database w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Report</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="subscription.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-credit-card w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Subscription</span>
+                </a>
+            </li>
+
+            <div class="my-6 border-t border-slate-100 mx-4"></div>
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-4">System</p>
+
+            <li>
+                <a href="Biometric.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-fingerprint w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Biometric Scan</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="registration.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-user-plus w-5 group-hover:scale-110 transition-transform"></i>
+                    <span>Registration</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="setting.html" class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-teal-600 rounded-xl transition-all font-semibold text-sm group">
+                    <i class="fas fa-cog w-5 group-hover:rotate-45 transition-transform"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mt-auto pt-6 border-t border-slate-100">
+        <a href="index.html" class="flex items-center gap-4 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl transition-all font-bold text-sm group">
+            <div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <span>Sign Out</span>
+        </a>
+    </div>
+</nav>
+
+    <div id="overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[150] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <main class="md:ml-72 min-h-screen pt-24 md:pt-12 px-6 md:px-12 pb-20">
+        
+        <header class="sticky top-0 z-50 w-full bg-slate-50/80 backdrop-blur-md border-b border-slate-200/60 px-4 py-4 mb-8 transition-all duration-300" id="headerSection">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-4">
+            <div class="hidden md:flex w-12 h-12 bg-teal-600 rounded-2xl items-center justify-center text-white shadow-lg shadow-teal-600/20">
+                <i class="fas fa-university text-lg"></i>
+            </div>
+            <div>
+                <h1 class="text-xl md:text-2xl font-black tracking-tight text-slate-900 leading-none">
+                    Faculty of Arts and Social Sciences <span class="text-teal-600">(FASS)</span>
+                </h1>
+                <div class="flex items-center gap-2 mt-1.5">
+                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">SCL Portal • COURSE</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="relative group">
+                <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200 text-slate-400 cursor-pointer group-hover:text-teal-600 group-hover:border-teal-200 transition-all duration-300">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 border-2 border-white rounded-full"></span>
             </div>
 
-            <div class="course-sections">
-                <div class="section main-header">
-                    <h2>Why Study at the Faculty of Arts and Social Sciences?</h2>
-<p>
-The Faculty of Arts and Social Sciences (FASS) comprises of 6 departments offering programmes for Certificate, Diploma, Bachelor, Postgraduate, and PhD levels.<br><br>
-Tracing its origins back in 1992, the Faculty of Arts and Social Sciences (FASS) deserves a claim to be Open University of Tanzania’s oldest faculty. The Open University of Tanzania (OUT) is an open and distance learning institution offering certificates, diplomas, degrees and postgraduate courses. The education delivery is attained through various means of communication such as broadcasting, telecasting, information and communication technologies, correspondence, enhanced face-to-face, seminars and contact programmes. It is a vibrant, lively and supporting intellectual community with diverse student body, committed to academic excellence. The University extends learning access beyond the traditional full-time residential student body, hence making it the first of its kind in East Africa.
-</p>
-
+            <div class="flex items-center gap-3 bg-white pl-1 pr-4 py-1 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-200 transition-all cursor-pointer group">
+                <div class="w-9 h-9 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                    <i class="fas fa-user-cog"></i>
                 </div>
-                
-                   <div class="section sub-header">
-    <h3>Staff Contacts</h3>
-    <table class="staff-contacts-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Contacts</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Prof. Alex B. Makulilo</td>
-                <td>Vice Chancellor</td>
-                <td><a href="mailto:alex.makulilo@out.ac.tz">alex.makulilo@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Prof. Saganga M. Kapaya</td>
-                <td>Ag. DVC Academics, Research and Consultancy</td>
-                <td><a href="mailto:saganga.kapaya@out.ac.tz">saganga.kapaya@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Prof. Josiah Z. Katani</td>
-                <td>DVC Planning, Finance & Administration</td>
-                <td><a href="mailto:josiah.katani@out.ac.tz">josiah.katani@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Prof. Leonard W. Fweja</td>
-                <td>DVC Learning Technologies and Regional Services</td>
-                <td><a href="mailto:leonard.fweja@out.ac.tz">leonard.fweja@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Adv. Nelly G. Mwasongwe</td>
-                <td>Secretary to Council</td>
-                <td><a href="mailto:nelly.mwasongwe@out.ac.tz">nelly.mwasongwe@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Prof. Gwahula R. Kimamala</td>
-                <td>Director of Postgraduate Studies</td>
-                <td><a href="mailto:gwahula.kimamala@out.ac.tz">gwahula.kimamala@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Prof. Paul D. Ikwaba</td>
-                <td>Director of Teaching, Learning, and Examination Services</td>
-                <td><a href="mailto:paul.ikwaba@out.ac.tz">paul.ikwaba@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr. Juma A. Matonya</td>
-                <td>Director of Consultancy Services</td>
-                <td><a href="mailto:juma.matonya@out.ac.tz">juma.matonya@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>CPA Azimio J. Taluka</td>
-                <td>Director of Finance and Accountings</td>
-                <td><a href="mailto:azimio.taluka@out.ac.tz">azimio.taluka@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Mr Francis E. Badundwa</td>
-                <td>Director of Human Resource Management and Administration</td>
-                <td><a href="mailto:francis.badundwa@out.ac.tz">francis.badundwa@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Dunlop O. Ochieng</td>
-                <td>Dean, Faculty of Arts and Social Sciences</td>
-                <td><a href="mailto:dunlop.ochieng@out.ac.tz">dunlop.ochieng@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr. Mato Magobe</td>
-                <td>Dean, Faculty of Business Management</td>
-                <td><a href="mailto:mato.magobe@out.ac.tz">mato.magobe@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Janeth E. Kigobe</td>
-                <td>Dean, Faculty of Education</td>
-                <td><a href="mailto:janeth.kigobe@out.ac.tz">janeth.kigobe@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr. Catherine Mkude</td>
-                <td>Dean, Faculty of Science Technology and Environmental Studies</td>
-                <td><a href="mailto:catherine.mkude@out.ac.tz">catherine.mkude@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Mr Deusdedit Buberwa</td>
-                <td>Director of Planning and Development</td>
-                <td><a href="mailto:deusdedit.buberwa@out.ac.tz">deusdedit.buberwa@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Harieth K. Hellar</td>
-                <td>Director of Undergraduate Studies</td>
-                <td><a href="mailto:harieth.hellar@out.ac.tz">harieth.hellar@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Helen Kiunsi</td>
-                <td>Dean, Faculty of Law</td>
-                <td><a href="mailto:helen.kiunsi@out.ac.tz">helen.kiunsi@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Lilian D. Isowe</td>
-                <td>Director of Library Services</td>
-                <td><a href="mailto:lilian.isowe@out.ac.tz">lilian.isowe@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Adam W. Namamba</td>
-                <td>Head of Communications and Marketing Unit</td>
-                <td><a href="mailto:adam.namamba@out.ac.tz">adam.namamba@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr. Antipas F. Massawe</td>
-                <td>Head of Internal Audit</td>
-                <td><a href="mailto:antipas.massawe@out.ac.tz">antipas.massawe@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Leopold J. Mwalongo</td>
-                <td>Director Institute of Continuing Education</td>
-                <td><a href="mailto:leopold.mwalongo@out.ac.tz">leopold.mwalongo@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Emmanuel N. Kazuva</td>
-                <td>Head of Quality Assurance Unit</td>
-                <td><a href="mailto:emmanuel.kazuva@out.ac.tz">emmanuel.kazuva@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Mr Daudi S. Sospeter</td>
-                <td>Head of Procurement Management Unit</td>
-                <td><a href="mailto:daudi.sospeter@out.ac.tz">daudi.sospeter@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Flora M. Kiwonde</td>
-                <td>Director of Internationalization and Convocation Unit</td>
-                <td><a href="mailto:flora.kiwonde@out.ac.tz">flora.kiwonde@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Zacharia R. Rwejuna</td>
-                <td>Director of Students Services</td>
-                <td><a href="mailto:zacharia.rwejuna@out.ac.tz">zacharia.rwejuna@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Prof. Joel Matobola Mihale</td>
-                <td>Director of Research Publications & Innovations</td>
-                <td><a href="mailto:joel.mihale@out.ac.tz">joel.mihale@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Betty D. Mntambo</td>
-                <td>Coordinator of Gender Unit & Head of Gender Desk</td>
-                <td><a href="mailto:betty.mntambo@out.ac.tz">betty.mntambo@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Khamis Kalegele</td>
-                <td>Director Institute of Educational and Management Technologies</td>
-                <td><a href="mailto:khamis.kalegele@out.ac.tz">khamis.kalegele@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Dr Wambuka S. Rangi</td>
-                <td>Coordinator of HIV/AIDS and Non-Communicable Diseases</td>
-                <td><a href="mailto:wambuka.rangi@out.ac.tz">wambuka.rangi@out.ac.tz</a></td>
-            </tr>
-            <tr>
-                <td>Directors of Regional Centres</td>
-                <td>Directors of Regional Centres</td>
-                <td><a href="mailto:regional.centres@out.ac.tz">regional.centres@out.ac.tz</a></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-             
-                     
-                             
-                <div class="section sub-header">
-                    <h3>Students Projects</h3>
-                    <p><a href="Report.html" class="view-project-button">View Projects</a></p>
-                </div>
-                
-        </section>
+                <span class="text-xs font-black text-slate-700 uppercase tracking-wider hidden sm:block font-sans">Admin Panel</span>
+            </div>
+        </div>
     </div>
+</header>
+<section class="min-h-screen bg-slate-50/50 p-4 md:p-10 font-sans text-slate-900">
+
+    <div class="space-y-8">
+        <article class="relative overflow-hidden bg-slate-900 rounded-[3rem] p-8 md:p-12 text-white shadow-2xl shadow-slate-900/20">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[100px] rounded-full -mr-20 -mt-20"></div>
+            
+            <div class="relative z-10 max-w-4xl">
+                <h2 class="text-2xl md:text-3xl font-black mb-6 leading-tight">
+                    Why Study at the <span class="text-teal-400">Faculty of Arts and Social Sciences?</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 text-slate-300">
+                    <p class="text-sm leading-relaxed font-medium">
+                        The Faculty of Arts and Social Sciences (FASS) comprises <span class="text-white font-bold">6 specialized departments</span> offering a comprehensive academic ladder—from Certificate and Diploma levels to Bachelor, Postgraduate, and PhD research.
+                    </p>
+                    <p class="text-sm leading-relaxed font-medium">
+                        Established in 1992, FASS is the Open University of Tanzania’s oldest faculty. We are pioneers in <span class="text-white font-bold">Distance Learning</span> across East Africa, utilizing advanced ICT, telecasting, and enhanced face-to-face seminars.
+                    </p>
+                </div>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <span class="px-4 py-2 bg-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest border border-white/10">Academic Excellence</span>
+                    <span class="px-4 py-2 bg-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest border border-white/10">Flexible Learning</span>
+                    <span class="px-4 py-2 bg-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest border border-white/10">Legacy Since 1992</span>
+                </div>
+            </div>
+        </article>
+
+        <section class="bg-white rounded-[3rem] border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-8 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-xl font-black text-slate-900">Institutional Directory</h3>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Key Administrative & Faculty Contacts</p>
+                </div>
+                <div class="relative">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" placeholder="Search staff..." class="pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-teal-500/20 transition-all w-64">
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50/50 text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">
+                            <th class="px-8 py-5">Full Name</th>
+                            <th class="px-8 py-5">Designation</th>
+                            <th class="px-8 py-5">Official Email</th>
+                            <th class="px-8 py-5 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                    <i class="fas fa-user-tie text-xs"></i>
+                </div>
+                <span class="text-sm font-black text-slate-800">Prof. Alex B. Makulilo</span>
+            </div>
+        </td>
+        <td class="px-8 py-6">
+            <span class="px-3 py-1 bg-slate-900 text-white text-[10px] font-black rounded-lg uppercase tracking-tighter">Vice Chancellor</span>
+        </td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">alex.makulilo@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right">
+            <a href="mailto:alex.makulilo@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a>
+        </td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                    <i class="fas fa-user-tie text-xs"></i>
+                </div>
+                <span class="text-sm font-black text-slate-800">Prof. Saganga M. Kapaya</span>
+            </div>
+        </td>
+        <td class="px-8 py-6">
+            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200 group-hover:border-teal-200 transition-all">Ag. DVC Academics</span>
+        </td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">saganga.kapaya@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right">
+            <a href="mailto:saganga.kapaya@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a>
+        </td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Prof. Josiah Z. Katani</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">DVC Planning & Admin</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">josiah.katani@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:josiah.katani@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Prof. Leonard W. Fweja</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">DVC Learning Tech</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">leonard.fweja@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:leonard.fweja@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Adv. Nelly G. Mwasongwe</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Secretary to Council</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">nelly.mwasongwe@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:nelly.mwasongwe@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Prof. Gwahula R. Kimamala</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Postgraduate</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">gwahula.kimamala@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:gwahula.kimamala@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Prof. Paul D. Ikwaba</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Teaching & Exam</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">paul.ikwaba@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:paul.ikwaba@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr. Juma A. Matonya</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Consultancy</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">juma.matonya@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:juma.matonya@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">CPA Azimio J. Taluka</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Finance & Acc</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">azimio.taluka@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:azimio.taluka@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Mr Francis E. Badundwa</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. HR & Admin</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">francis.badundwa@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:francis.badundwa@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-graduation-cap text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Dunlop O. Ochieng</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-teal-50 text-teal-700 text-[10px] font-black rounded-lg uppercase border border-teal-200">Dean, FASS</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">dunlop.ochieng@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:dunlop.ochieng@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-graduation-cap text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr. Mato Magobe</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-teal-50 text-teal-700 text-[10px] font-black rounded-lg uppercase border border-teal-200">Dean, Business Mgmt</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">mato.magobe@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:mato.magobe@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-graduation-cap text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Janeth E. Kigobe</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-teal-50 text-teal-700 text-[10px] font-black rounded-lg uppercase border border-teal-200">Dean, Education</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">janeth.kigobe@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:janeth.kigobe@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-graduation-cap text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr. Catherine Mkude</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-teal-50 text-teal-700 text-[10px] font-black rounded-lg uppercase border border-teal-200">Dean, Science Tech</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">catherine.mkude@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:catherine.mkude@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Mr Deusdedit Buberwa</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Planning</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">deusdedit.buberwa@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:deusdedit.buberwa@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-tie text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Harieth K. Hellar</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Undergraduate</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">harieth.hellar@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:harieth.hellar@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-graduation-cap text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Helen Kiunsi</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-teal-50 text-teal-700 text-[10px] font-black rounded-lg uppercase border border-teal-200">Dean, Law</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">helen.kiunsi@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:helen.kiunsi@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-book-reader text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Lilian D. Isowe</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Library</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">lilian.isowe@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:lilian.isowe@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-bullhorn text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Adam W. Namamba</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Head of Marketing</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">adam.namamba@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:adam.namamba@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-calculator text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr. Antipas F. Massawe</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Head Internal Audit</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">antipas.massawe@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:antipas.massawe@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-chalkboard-teacher text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Leopold J. Mwalongo</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Continuing Ed</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">leopold.mwalongo@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:leopold.mwalongo@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-check-double text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Emmanuel N. Kazuva</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Head Quality Assurance</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">emmanuel.kazuva@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:emmanuel.kazuva@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-shopping-cart text-xs"></i></div><span class="text-sm font-black text-slate-800">Mr Daudi S. Sospeter</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Head Procurement</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">daudi.sospeter@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:daudi.sospeter@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-globe-africa text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Flora M. Kiwonde</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Internationalization</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">flora.kiwonde@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:flora.kiwonde@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-user-graduate text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Zacharia R. Rwejuna</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Student Services</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">zacharia.rwejuna@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:zacharia.rwejuna@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-microscope text-xs"></i></div><span class="text-sm font-black text-slate-800">Prof. Joel Matobola Mihale</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Research & Innov</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">joel.mihale@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:joel.mihale@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-venus-mars text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Betty D. Mntambo</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Head Gender Unit</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">betty.mntambo@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:betty.mntambo@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-laptop-code text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Khamis Kalegele</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Dir. Ed Tech</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">khamis.kalegele@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:khamis.kalegele@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-heartbeat text-xs"></i></div><span class="text-sm font-black text-slate-800">Dr Wambuka S. Rangi</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Coord. Health Unit</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">wambuka.rangi@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:wambuka.rangi@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+
+    <tr class="hover:bg-teal-50/30 transition-colors group">
+        <td class="px-8 py-6">
+            <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all"><i class="fas fa-map-marked-alt text-xs"></i></div><span class="text-sm font-black text-slate-800">Directors of Regional Centres</span></div>
+        </td>
+        <td class="px-8 py-6"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-lg uppercase border border-slate-200">Regional Directors</span></td>
+        <td class="px-8 py-6"><code class="text-xs font-bold text-teal-600">regional.centres@out.ac.tz</code></td>
+        <td class="px-8 py-6 text-right"><a href="mailto:regional.centres@out.ac.tz" class="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-teal-600 hover:text-white transition-all inline-block shadow-sm"><i class="fas fa-paper-plane text-xs"></i></a></td>
+    </tr>
+</tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="bg-teal-600 rounded-[3rem] p-10 flex flex-col md:flex-row items-center justify-between shadow-xl shadow-teal-600/20 relative overflow-hidden">
+             <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+            
+            <div class="relative z-10 text-center md:text-left mb-6 md:mb-0">
+                <h3 class="text-2xl font-black text-white leading-tight">Innovative Student Projects</h3>
+                <p class="text-teal-100 text-sm font-bold mt-2">Explore the digital cultural heritage archives and field research.</p>
+            </div>
+            
+            <a href="Report.html" class="relative z-10 group px-8 py-4 bg-white text-teal-700 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:bg-slate-900 hover:text-white transition-all duration-300 active:scale-95 flex items-center gap-3">
+                View Project Archive
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => {
+                overlay.classList.toggle('opacity-100');
+            }, 10);
+        }
+
+        // Staggered Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sequence = ['headerSection', 'facultyGrid', 'statsGrid', 'p2025', 'p2026', 'reportsTable'];
+            sequence.forEach((id, index) => {
+                setTimeout(() => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.classList.add('animate-in');
+                        const cards = el.querySelectorAll('.hidden-down');
+                        cards.forEach((card, i) => {
+                            setTimeout(() => card.classList.add('animate-in'), i * 100);
+                        });
+                    }
+                }, index * 100);
+            });
+        });
+    </script>
 </body>
 </html>
