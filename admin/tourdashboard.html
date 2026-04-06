@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Shop Admin - Worker Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* Ensure the sidebar and main content handle the screen height correctly */
+    body {
+      min-height: 100vh;
+      display: flex;
+    }
+    @media (max-width: 1024px) {
+      body {
+        flex-direction: column;
+      }
+    }
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="bg-[var(--body-bg)]">
+
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+  <aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col h-screen bg-[var(--header-bg)] border-r border-[var(--border-color)]">
+    <h1 class="p-6 text-xl font-bold text-[var(--text-main)]">SCL Admin</h1>
+    
+    <nav class="flex-1 overflow-y-auto py-4">
+      <div class="px-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Management</div>
+      <a href="staff.html" class="nav-link active">
+        <i class="fa-solid fa-address-card"></i>
+        <span>Staff Directory Dashboard</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Inventory & Services</div>
+      <a href="artifactsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-monument"></i>
+        <span>Artifacts Replicas</span>
+      </a>
+      <a href="merchandisedashboard.html" class="nav-link">
+        <i class="fa-solid fa-tshirt"></i>
+        <span>Branded Merchandise</span>
+      </a>
+      <a href="booksdashboard.html" class="nav-link">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Books & Publications</span>
+      </a>
+      <a href="digitalproductsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>Digital Products</span>
+      </a>
+      <a href="tourdashboard.html" class="nav-link">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>Cultural Tour Packages</span>
+      </a>
+      <a href="hoteldashboard.html" class="nav-link">
+        <i class="fa-solid fa-hotel"></i>
+        <span>Hotels</span>
+      </a>
+      <a href="Transportationdashboard.html" class="nav-link">
+        <i class="fa-solid fa-bus"></i>
+        <span>Transportations</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Customer Experience</div>
+      <a href="cartdashboard.html" class="nav-link">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span>Cart</span>
+      </a>
+      <a href="profiledashboard.html" class="nav-link">
+        <i class="fa-solid fa-user-circle"></i>
+        <span>Customer Profile</span>
+      </a>
+      <a href="reviewsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>Reviews & Comments</span>
+      </a>
+    </nav>
+    
+    <a href="#" class="p-6 text-red-400 hover:text-red-300 mt-auto border-t border-[var(--border-color)] flex items-center">
+      <i class="fa-solid fa-right-from-bracket mr-2"></i>Logout
+    </a>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0 h-screen">
+    
+    <header class="sticky top-0 z-20 flex justify-between items-center px-4 md:px-8 py-4 border-b border-[var(--border-color)] bg-[var(--header-bg)] shadow-sm">
+      <div class="flex items-center gap-4">
+        <button id="mobileMenuBtn" class="lg:hidden text-[var(--text-main)] p-2">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h2 class="text-lg md:text-xl font-bold text-[var(--text-main)] truncate">Worker Profile Detail</h2>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4">
+        <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base">
+          <i class="fa-solid fa-moon"></i>
+          <span id="themeText" class="hidden sm:inline">Dark Mode</span>
+        </button>
+
+        <a href="admindashboard.html" id="adminLink" onclick="return checkAdminAccess(event)" class="no-underline">
+          <button type="button" class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base font-semibold hover:bg-blue-200 dark:hover:bg-blue-900/50">
+            <i class="fa-solid fa-users-gear"></i>
+            <span class="hidden sm:inline">Employee's Update</span>
+          </button>
+        </a>
+      </div>
+    </header>
+
+
+<main class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+
+  <div class="mb-10 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-6 border-b border-[var(--border-color)] pb-8">
+  <div class="flex-1 w-full">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-2 h-8 bg-indigo-600 rounded-full"></div>
+      <h2 class="text-3xl font-black text-[var(--text-main)] tracking-tight">Financial Checkout Manager</h2>
+    </div>
+    
+    <div class="flex items-center gap-2 mb-6">
+      <p class="text-sm font-medium text-[var(--text-muted)]">Order ID: #SCL-88291 | TSh</p>
+      <span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[9px] font-black uppercase rounded-md border border-amber-200">Pending Verification</span>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center gap-3 max-w-2xl">
+      <div class="relative flex-1 w-full group">
+        <i class="fa-solid fa-file-invoice-dollar absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-xs opacity-60 group-focus-within:text-indigo-600 transition-colors"></i>
+        <input type="text" 
+               placeholder="Search by Transaction, Control No..." 
+               class="w-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-sm rounded-2xl py-3.5 pl-11 pr-4 outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-600/5 transition-all shadow-sm">
+      </div>
+      
+      <button onclick="togglePaymentStructure()" class="flex items-center gap-2 px-5 py-3.5 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-2xl text-xs font-bold hover:bg-indigo-100 transition whitespace-nowrap w-full sm:w-auto justify-center">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Fee Structure</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap sm:flex-nowrap gap-3 w-full xl:w-auto">
+    <button class="bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-[10px] font-black px-6 py-4 rounded-2xl uppercase hover:bg-gray-50 transition flex-1 sm:flex-none">
+      Export Tax Report
+    </button>
+    <button class="bg-indigo-600 text-white text-[10px] font-black px-6 py-4 rounded-2xl uppercase shadow-lg shadow-indigo-100 hover:scale-[1.02] active:scale-95 transition flex-1 sm:flex-none">
+      Generate GePG Control No.
+    </button>
+  </div>
+</div>
+
+<div id="paymentModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+  <div class="bg-[var(--card-bg)] w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+    <div class="p-6 border-b border-[var(--border-color)] flex justify-between items-center">
+      <h3 class="font-black text-[var(--text-main)] uppercase tracking-tight">Cultural Tour Payment Structure</h3>
+      <button onclick="togglePaymentStructure()" class="text-[var(--text-muted)] hover:text-red-500"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="p-6 space-y-6">
+  <div class="space-y-2">
+    <div class="flex justify-between items-end">
+      <p class="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">Fee Distribution</p>
+      <p class="text-[10px] font-bold text-indigo-600">Total 100%</p>
+    </div>
+    <div class="w-full h-3 bg-gray-100 rounded-full flex overflow-hidden border border-gray-200/50">
+      <div style="width: 49%" class="h-full bg-indigo-500 shadow-inner" title="Specialist"></div>
+      <div style="width: 37.8%" class="h-full bg-indigo-300" title="SCL"></div>
+      <div style="width: 13.2%" class="h-full bg-orange-400" title="Taxes & Fees"></div>
+    </div>
+  </div>
+
+  <div class="space-y-3">
+    <div class="bg-gray-50/50 rounded-2xl border border-[var(--border-color)] overflow-hidden">
+      <div class="px-4 py-2 bg-gray-100/50 border-b border-[var(--border-color)]">
+        <p class="text-[9px] font-black uppercase text-gray-500 tracking-tighter">Statutory & Regulatory</p>
+      </div>
+      <div class="p-4 space-y-3">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-semibold text-[var(--text-main)]">Ada (Regulatory)</span>
+          <span class="text-xs font-black text-[var(--text-main)]">0.054%</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-semibold text-[var(--text-main)]">Tozo (Levy)</span>
+          <span class="text-xs font-black text-[var(--text-main)]">11.14%</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-semibold text-[var(--text-main)]">VAT</span>
+          <span class="text-xs font-black text-[var(--text-main)]">2.01%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3">
+      <div class="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100">
+        <p class="text-[9px] font-black text-indigo-400 uppercase tracking-tighter mb-1">Specialist</p>
+        <p class="text-xl font-black text-indigo-700">49%</p>
+      </div>
+      <div class="p-4 bg-indigo-600 rounded-2xl shadow-lg shadow-indigo-200">
+        <p class="text-[9px] font-black text-indigo-200 uppercase tracking-tighter mb-1">SHIMULIMULI COMPANY LIMITED Share</p>
+        <p class="text-xl font-black text-white">37.8%</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-center text-[9px] text-[var(--text-muted)] font-medium italic">
+    * All percentages are calculated based on the gross booking value.
+  </p>
+</div>
+  </div>
+</div>
+
+
+  <div class="space-y-8">
+    
+    <div class="bg-[var(--card-bg)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-500">
+      <div class="bg-gray-50/50 dark:bg-gray-800/30 px-6 py-3 border-b border-[var(--border-color)] flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 bg-blue-100 text-blue-600 rounded text-[9px] font-black uppercase">ID: SCL-2026-001</span>
+          <span class="text-xs font-bold text-[var(--text-main)]">Makene Ngoroma — Morogoro, Vidunda</span>
+        </div>
+        <span class="text-[10px] font-bold text-orange-500 tracking-widest uppercase">Pending Approval</span>
+      </div>
+      <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Customer Profile</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Full Name:</span> <span class="font-bold">John Maziku</span></p>
+            <p><span class="text-[var(--text-muted)]">Username:</span> @maziku_j</p>
+            <p><span class="text-[var(--text-muted)]">Email:</span> john@scl.co.tz</p>
+            <p><span class="text-[var(--text-muted)]">Phone:</span> +255 711 000 111</p>
+            <p><span class="text-[var(--text-muted)]">DOB/Gender:</span> 12/05/1990 — Male</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Address & Role</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Role:</span> Premium Tourist</p>
+            <p><span class="text-[var(--text-muted)]">Street:</span> 123 Kimara</p>
+            <p><span class="text-[var(--text-muted)]">City:</span> Dar es Salaam, TZ</p>
+          </div>
+        </div>
+        <div class="bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 flex flex-col gap-2">
+          <button onclick="sendAlert('Email')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> Send Email</button>
+          <button onclick="sendAlert('SMS')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-comment-sms text-green-500"></i> Send SMS</button>
+          <button onclick="sendAlert('WhatsApp')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp</button>
+          <button onclick="triggerApproval()" class="bg-[#3b4f91] text-white text-[10px] font-bold py-2.5 rounded-lg uppercase">Approve Booking</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-500">
+      <div class="bg-gray-50/50 dark:bg-gray-800/30 px-6 py-3 border-b border-[var(--border-color)] flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 bg-blue-100 text-blue-600 rounded text-[9px] font-black uppercase">ID: SCL-2026-002</span>
+          <span class="text-xs font-bold text-[var(--text-main)]">Aktari Sabihi — Mtwara, Newala</span>
+        </div>
+        <span class="text-[10px] font-bold text-orange-500 tracking-widest uppercase">Pending Approval</span>
+      </div>
+      <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Customer Profile</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Full Name:</span> <span class="font-bold">Sarah Mpendwa</span></p>
+            <p><span class="text-[var(--text-muted)]">Username:</span> @sarah_m</p>
+            <p><span class="text-[var(--text-muted)]">Email:</span> sarah@domain.com</p>
+            <p><span class="text-[var(--text-muted)]">Phone:</span> +255 788 222 333</p>
+            <p><span class="text-[var(--text-muted)]">DOB/Gender:</span> 24/09/1995 — Female</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Address & Role</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Role:</span> Cultural Explorer</p>
+            <p><span class="text-[var(--text-muted)]">Street:</span> Oysterbay Area</p>
+            <p><span class="text-[var(--text-muted)]">City:</span> Dar es Salaam, TZ</p>
+          </div>
+        </div>
+        <div class="bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 flex flex-col gap-2">
+          <button onclick="sendAlert('Email')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> Send Email</button>
+          <button onclick="sendAlert('SMS')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-comment-sms text-green-500"></i> Send SMS</button>
+          <button onclick="sendAlert('WhatsApp')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp</button>
+          <button onclick="triggerApproval()" class="bg-[#3b4f91] text-white text-[10px] font-bold py-2.5 rounded-lg uppercase">Approve Booking</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-500">
+      <div class="bg-gray-50/50 dark:bg-gray-800/30 px-6 py-3 border-b border-[var(--border-color)] flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 bg-blue-100 text-blue-600 rounded text-[9px] font-black uppercase">ID: SCL-2026-003</span>
+          <span class="text-xs font-bold text-[var(--text-main)]">Elihaki Yonazi — Kilimanjaro, Same</span>
+        </div>
+        <span class="text-[10px] font-bold text-orange-500 tracking-widest uppercase">Pending Approval</span>
+      </div>
+      <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Customer Profile</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Full Name:</span> <span class="font-bold">David Mtale</span></p>
+            <p><span class="text-[var(--text-muted)]">Username:</span> @dmtale</p>
+            <p><span class="text-[var(--text-muted)]">Email:</span> d.mtale@outlook.com</p>
+            <p><span class="text-[var(--text-muted)]">Phone:</span> +255 755 333 444</p>
+            <p><span class="text-[var(--text-muted)]">DOB/Gender:</span> 01/01/1988 — Male</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Address & Role</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Role:</span> Guest Tourist</p>
+            <p><span class="text-[var(--text-muted)]">Street:</span> Njiro Hill</p>
+            <p><span class="text-[var(--text-muted)]">City:</span> Arusha, TZ</p>
+          </div>
+        </div>
+        <div class="bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 flex flex-col gap-2">
+          <button onclick="sendAlert('Email')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> Send Email</button>
+          <button onclick="sendAlert('SMS')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-comment-sms text-green-500"></i> Send SMS</button>
+          <button onclick="sendAlert('WhatsApp')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp</button>
+          <button onclick="triggerApproval()" class="bg-[#3b4f91] text-white text-[10px] font-bold py-2.5 rounded-lg uppercase">Approve Booking</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-500">
+      <div class="bg-gray-50/50 dark:bg-gray-800/30 px-6 py-3 border-b border-[var(--border-color)] flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 bg-blue-100 text-blue-600 rounded text-[9px] font-black uppercase">ID: SCL-2026-004</span>
+          <span class="text-xs font-bold text-[var(--text-main)]">Davison Nasari — Arusha, Meru</span>
+        </div>
+        <span class="text-[10px] font-bold text-orange-500 tracking-widest uppercase">Pending Approval</span>
+      </div>
+      <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Customer Profile</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Full Name:</span> <span class="font-bold">Amina Juma</span></p>
+            <p><span class="text-[var(--text-muted)]">Username:</span> @amina_j</p>
+            <p><span class="text-[var(--text-muted)]">Email:</span> amina.j@gmail.com</p>
+            <p><span class="text-[var(--text-muted)]">Phone:</span> +255 622 444 555</p>
+            <p><span class="text-[var(--text-muted)]">DOB/Gender:</span> 15/03/1993 — Female</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Address & Role</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Role:</span> Student Scholar</p>
+            <p><span class="text-[var(--text-muted)]">Street:</span> University Rd</p>
+            <p><span class="text-[var(--text-muted)]">City:</span> Dodoma, TZ</p>
+          </div>
+        </div>
+        <div class="bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 flex flex-col gap-2">
+          <button onclick="sendAlert('Email')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> Send Email</button>
+          <button onclick="sendAlert('SMS')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-comment-sms text-green-500"></i> Send SMS</button>
+          <button onclick="sendAlert('WhatsApp')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp</button>
+          <button onclick="triggerApproval()" class="bg-[#3b4f91] text-white text-[10px] font-bold py-2.5 rounded-lg uppercase">Approve Booking</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-500">
+      <div class="bg-gray-50/50 dark:bg-gray-800/30 px-6 py-3 border-b border-[var(--border-color)] flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 bg-blue-100 text-blue-600 rounded text-[9px] font-black uppercase">ID: SCL-2026-005</span>
+          <span class="text-xs font-bold text-[var(--text-main)]">Alex Maungo — Mwanza, Kisesa</span>
+        </div>
+        <span class="text-[10px] font-bold text-orange-500 tracking-widest uppercase">Pending Approval</span>
+      </div>
+      <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Customer Profile</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Full Name:</span> <span class="font-bold">Erick Lema</span></p>
+            <p><span class="text-[var(--text-muted)]">Username:</span> @elema_mza</p>
+            <p><span class="text-[var(--text-muted)]">Email:</span> erick.lema@live.com</p>
+            <p><span class="text-[var(--text-muted)]">Phone:</span> +255 744 555 666</p>
+            <p><span class="text-[var(--text-muted)]">DOB/Gender:</span> 30/08/1985 — Male</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-500 border-b border-blue-100 pb-1">Address & Role</h4>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <p><span class="text-[var(--text-muted)]">Role:</span> Research Tourist</p>
+            <p><span class="text-[var(--text-muted)]">Street:</span> Rock City St</p>
+            <p><span class="text-[var(--text-muted)]">City:</span> Mwanza, TZ</p>
+          </div>
+        </div>
+        <div class="bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 flex flex-col gap-2">
+          <button onclick="sendAlert('Email')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> Send Email</button>
+          <button onclick="sendAlert('SMS')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-comment-sms text-green-500"></i> Send SMS</button>
+          <button onclick="sendAlert('WhatsApp')" class="bg-white border text-[10px] font-bold py-2 rounded-lg flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp</button>
+          <button onclick="triggerApproval()" class="bg-[#3b4f91] text-white text-[10px] font-bold py-2.5 rounded-lg uppercase">Approve Booking</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<script src="css/dashboardscript.js"></script>
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    function toggleMenu() { sidebar.classList.toggle('-translate-x-full'); overlay.classList.toggle('hidden'); }
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+  </script>
+</body>
+</html>

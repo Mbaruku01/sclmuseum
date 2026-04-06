@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Shop Admin - Worker Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body { min-height: 100vh; display: flex; }
+    @media (max-width: 1024px) { body { flex-direction: column; } }
+    .sidebar { width: 260px; flex-shrink: 0; }
+  </style>
+</head>
+<body class="bg-[var(--body-bg)]">
+
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+  <aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col h-screen bg-[var(--header-bg)] border-r border-[var(--border-color)]">
+    <h1 class="p-6 text-xl font-bold text-[var(--text-main)]">SCL Admin</h1>
+    <nav class="flex-1 overflow-y-auto py-4">
+      <div class="px-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Management</div>
+      <a href="staff.html" class="nav-link active">
+        <i class="fa-solid fa-address-card"></i>
+        <span>Staff Directory Dashboard</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Inventory & Services</div>
+      <a href="artifactsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-monument"></i>
+        <span>Artifacts Replicas</span>
+      </a>
+      <a href="merchandisedashboard.html" class="nav-link">
+        <i class="fa-solid fa-tshirt"></i>
+        <span>Branded Merchandise</span>
+      </a>
+      <a href="booksdashboard.html" class="nav-link">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Books & Publications</span>
+      </a>
+      <a href="digitalproductsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>Digital Products</span>
+      </a>
+      <a href="tourdashboard.html" class="nav-link">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>Cultural Tour Packages</span>
+      </a>
+      <a href="hoteldashboard.html" class="nav-link">
+        <i class="fa-solid fa-hotel"></i>
+        <span>Hotels</span>
+      </a>
+      <a href="Transportationdashboard.html" class="nav-link">
+        <i class="fa-solid fa-bus"></i>
+        <span>Transportations</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Customer Experience</div>
+      <a href="cartdashboard.html" class="nav-link">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span>Cart</span>
+      </a>
+      <a href="profiledashboard.html" class="nav-link">
+        <i class="fa-solid fa-user-circle"></i>
+        <span>Customer Profile</span>
+      </a>
+      <a href="reviewsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>Reviews & Comments</span>
+      </a>
+    </nav>
+    <a href="#" class="p-6 text-red-400 hover:text-red-300 mt-auto border-t border-[var(--border-color)] flex items-center">
+      <i class="fa-solid fa-right-from-bracket mr-2"></i>Logout
+    </a>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0 h-screen">
+    <header class="sticky top-0 z-20 flex justify-between items-center px-4 md:px-8 py-4 border-b border-[var(--border-color)] bg-[var(--header-bg)] shadow-sm">
+      <div class="flex items-center gap-4">
+        <button id="mobileMenuBtn" class="lg:hidden text-[var(--text-main)] p-2">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h2 class="text-lg md:text-xl font-bold text-[var(--text-main)] truncate">Worker Profile Detail</h2>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4">
+        <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base">
+          <i class="fa-solid fa-moon"></i>
+          <span id="themeText" class="hidden sm:inline">Dark Mode</span>
+        </button>
+        <a href="admindashboard.html" id="adminLink" onclick="return checkAdminAccess(event)" class="no-underline">
+          <button type="button" class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base font-semibold hover:bg-blue-200 dark:hover:bg-blue-900/50">
+            <i class="fa-solid fa-users-gear"></i>
+            <span class="hidden sm:inline">Employee's Update</span>
+          </button>
+        </a>
+      </div>
+    </header>
+    
+<main class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+
+ <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-color)] pb-6 sticky top-0 bg-[var(--body-bg)] z-30">
+  
+  <div class="flex flex-wrap gap-3">
+    <a href="#bookings" class="px-6 py-2.5 bg-blue-600 text-white rounded-full text-[10px] font-black shadow-lg flex items-center tracking-widest">
+      <i class="fa-solid fa-hotel mr-2"></i> BOOKING QUEUE
+    </a>
+    <a href="#submissions" class="px-6 py-2.5 bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] rounded-full text-[10px] font-black flex items-center tracking-widest hover:bg-gray-50 transition-colors">
+      <i class="fa-solid fa-cloud-arrow-up mr-2 text-orange-500"></i> PROPERTY UPLOADS
+    </a>
+  </div>
+
+  <div class="relative w-full md:w-64 group">
+    <i class="fa-solid fa-filter absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-[10px] opacity-70 group-focus-within:text-blue-600"></i>
+    <input type="text" 
+           placeholder="Quick filter..." 
+           class="w-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-main)] text-xs rounded-full py-2.5 pl-10 pr-4 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/5 transition-all"
+    >
+  </div>
+
+</div>
+
+  <section id="bookings" class="space-y-10 scroll-mt-24">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-2">
+      <h2 class="text-3xl font-black text-[var(--text-main)] tracking-tight">Booking Management</h2>
+      <div class="text-[10px] font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg border border-blue-100">
+        1 USD = 2,600 TSh
+      </div>
+    </div>
+
+    <div class="bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] overflow-hidden shadow-sm border-l-4 border-l-blue-600">
+      <div class="px-8 py-5 border-b border-[var(--border-color)] flex flex-wrap justify-between items-center gap-4 bg-gray-50/50">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-gray-100">
+            <i class="fa-solid fa-hotel text-blue-600"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-[var(--text-main)]">Hyatt Regency Dar es Salaam</h3>
+            <p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest">Guest: Baraka Mshana • 15 - 18 March</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <button class="bg-white border border-blue-200 text-blue-600 text-[10px] font-black px-5 py-2.5 rounded-xl uppercase hover:bg-blue-50 transition">
+            <i class="fa-solid fa-user-shield mr-2"></i> Review Guest File
+          </button>
+          <button class="bg-[#3b4f91] text-white text-[10px] font-black px-8 py-2.5 rounded-xl uppercase shadow-md hover:opacity-90 transition">
+            Confirm & Send
+          </button>
+        </div>
+      </div>
+
+      <div class="p-8 grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div class="space-y-3">
+          <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest border-b pb-1">Customer Message</p>
+          <div class="bg-blue-50/50 p-4 rounded-2xl border border-blue-100 italic">
+            <p class="text-xs font-bold text-blue-800">"I need a quiet room on a high floor for business calls. Is a late check-out at 3:00 PM possible?"</p>
+          </div>
+          <div class="mt-4 p-3 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+             <p class="text-[9px] font-black text-gray-400 uppercase mb-1">Total Stay Cost</p>
+             <p class="text-lg font-black text-emerald-600">TSh 1,170,000</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest border-b pb-1">Edit Confirmation Email</p>
+          <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2 text-xs font-bold" value="Confirmed: Your Stay at Hyatt Regency">
+          <textarea class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs min-h-[110px] focus:ring-1 focus:ring-blue-500 outline-none">Dear Baraka, 
+
+Your booking for 3 nights is confirmed. We have allocated a quiet room on the 7th floor as requested.
+
+Best regards,
+Hotel Management</textarea>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[10px] font-black text-emerald-600 uppercase tracking-widest border-b pb-1">Instant Message (WA)</p>
+          <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100">
+             <textarea class="w-full bg-white border border-emerald-200 rounded-xl p-3 text-[11px] min-h-[80px] mb-2">Hujambo Baraka! Your Hyatt stay (15-18 Mar) is all set. Karibu sana! 🏨</textarea>
+             <p class="text-[9px] font-black text-emerald-600 text-right uppercase">Sent to: +255 711 000 111</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="my-20 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--border-color)] to-transparent"></div>
+
+  <section id="submissions" class="space-y-10 scroll-mt-24">
+    <h2 class="text-3xl font-black text-[var(--text-main)] tracking-tight">Property Uploads Review</h2>
+
+    <div class="bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] overflow-hidden shadow-sm border-t-4 border-t-orange-500">
+      <div class="px-8 py-5 border-b border-[var(--border-color)] flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <h3 class="font-black text-[var(--text-main)] text-xl">Modern Ocean View Apartment</h3>
+          <p class="text-[10px] text-orange-600 font-bold uppercase">Kigamboni • TSh 285,000 / Night</p>
+        </div>
+        <div class="flex gap-2">
+          <button class="bg-white border border-orange-200 text-orange-600 text-[10px] font-black px-5 py-2.5 rounded-xl uppercase hover:bg-orange-50 transition">
+            <i class="fa-solid fa-id-card mr-2"></i> Review Owner Profile
+          </button>
+          <button class="bg-emerald-600 text-white px-8 py-2.5 rounded-xl text-[10px] font-black uppercase shadow-md hover:bg-emerald-700 transition">Approve</button>
+          <button class="bg-white border-2 border-red-100 text-red-500 px-8 py-2.5 rounded-xl text-[10px] font-black uppercase hover:bg-red-50 transition">Reject</button>
+        </div>
+      </div>
+
+      <div class="p-8">
+        <p class="text-[10px] font-black text-orange-500 uppercase tracking-widest border-b pb-1 mb-4">Complete Upload Gallery</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+           <div class="aspect-square rounded-2xl overflow-hidden border-2 border-orange-500 shadow-md"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300" class="w-full h-full object-cover"></div>
+           <div class="aspect-square rounded-2xl overflow-hidden grayscale-[0.3] hover:grayscale-0 transition cursor-pointer"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300" class="w-full h-full object-cover"></div>
+           <div class="aspect-square rounded-2xl overflow-hidden grayscale-[0.3] hover:grayscale-0 transition cursor-pointer"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=300" class="w-full h-full object-cover"></div>
+           <div class="aspect-square rounded-2xl overflow-hidden grayscale-[0.3] hover:grayscale-0 transition cursor-pointer"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=300" class="w-full h-full object-cover"></div>
+           <div class="aspect-square rounded-2xl overflow-hidden grayscale-[0.3] hover:grayscale-0 transition cursor-pointer"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300" class="w-full h-full object-cover"></div>
+           <div class="aspect-square rounded-2xl bg-black flex flex-col items-center justify-center text-white cursor-pointer hover:bg-gray-900">
+             <i class="fa-solid fa-play text-xl mb-1"></i>
+             <span class="text-[8px] font-black">PLAY TOUR</span>
+           </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div class="space-y-4">
+            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest border-b pb-1">Property Description</p>
+            <p class="text-sm leading-relaxed text-[var(--text-main)]">"Fully furnished apartment in Kigamboni. Has a great sea breeze, high-speed internet, and is close to the ferry."</p>
+            <div class="grid grid-cols-3 gap-2 mt-4">
+               <div class="bg-gray-50 p-2 rounded-lg border text-center"><p class="text-[8px] text-gray-400 uppercase">Beds</p><p class="text-xs font-bold">3</p></div>
+               <div class="bg-gray-50 p-2 rounded-lg border text-center"><p class="text-[8px] text-gray-400 uppercase">Baths</p><p class="text-xs font-bold">2</p></div>
+               <div class="bg-gray-50 p-2 rounded-lg border text-center"><p class="text-[8px] text-gray-400 uppercase">Guests</p><p class="text-xs font-bold">6</p></div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <p class="text-[10px] font-black text-red-400 uppercase tracking-widest border-b pb-1">Internal Rejection Notes</p>
+            <textarea class="w-full bg-red-50/20 border border-red-100 rounded-2xl p-4 text-xs min-h-[100px]" placeholder="If you reject this property, provide a reason here for the owner to fix..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="css/dashboardscript.js"></script>
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    function toggleMenu() { sidebar.classList.toggle('-translate-x-full'); overlay.classList.toggle('hidden'); }
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+  </script>
+</body>
+</html>

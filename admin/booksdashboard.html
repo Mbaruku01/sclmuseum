@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCL Shop Admin - Worker Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* Ensure the sidebar and main content handle the screen height correctly */
+    body {
+      min-height: 100vh;
+      display: flex;
+    }
+    @media (max-width: 1024px) {
+      body {
+        flex-direction: column;
+      }
+    }
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="bg-[var(--body-bg)]">
+
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+  <aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col h-screen bg-[var(--header-bg)] border-r border-[var(--border-color)]">
+    <h1 class="p-6 text-xl font-bold text-[var(--text-main)]">SCL Admin</h1>
+    
+    <nav class="flex-1 overflow-y-auto py-4">
+      <div class="px-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Management</div>
+      <a href="staff.html" class="nav-link active">
+        <i class="fa-solid fa-address-card"></i>
+        <span>Staff Directory Dashboard</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Inventory & Services</div>
+      <a href="artifactsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-monument"></i>
+        <span>Artifacts Replicas</span>
+      </a>
+      <a href="merchandisedashboard.html" class="nav-link">
+        <i class="fa-solid fa-tshirt"></i>
+        <span>Branded Merchandise</span>
+      </a>
+      <a href="booksdashboard.html" class="nav-link">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Books & Publications</span>
+      </a>
+      <a href="digitalproductsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>Digital Products</span>
+      </a>
+      <a href="tourdashboard.html" class="nav-link">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>Cultural Tour Packages</span>
+      </a>
+      <a href="hoteldashboard.html" class="nav-link">
+        <i class="fa-solid fa-hotel"></i>
+        <span>Hotels</span>
+      </a>
+      <a href="Transportationdashboard.html" class="nav-link">
+        <i class="fa-solid fa-bus"></i>
+        <span>Transportations</span>
+      </a>
+
+      <div class="px-6 mt-6 mb-2 text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Customer Experience</div>
+      <a href="cartdashboard.html" class="nav-link">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span>Cart</span>
+      </a>
+      <a href="profiledashboard.html" class="nav-link">
+        <i class="fa-solid fa-user-circle"></i>
+        <span>Customer Profile</span>
+      </a>
+      <a href="reviewsdashboard.html" class="nav-link">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>Reviews & Comments</span>
+      </a>
+    </nav>
+    
+    <a href="#" class="p-6 text-red-400 hover:text-red-300 mt-auto border-t border-[var(--border-color)] flex items-center">
+      <i class="fa-solid fa-right-from-bracket mr-2"></i>Logout
+    </a>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0 h-screen">
+    
+    <header class="sticky top-0 z-20 flex justify-between items-center px-4 md:px-8 py-4 border-b border-[var(--border-color)] bg-[var(--header-bg)] shadow-sm">
+      <div class="flex items-center gap-4">
+        <button id="mobileMenuBtn" class="lg:hidden text-[var(--text-main)] p-2">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h2 class="text-lg md:text-xl font-bold text-[var(--text-main)] truncate">Worker Profile Detail</h2>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4">
+        <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base">
+          <i class="fa-solid fa-moon"></i>
+          <span id="themeText" class="hidden sm:inline">Dark Mode</span>
+        </button>
+
+        <a href="admindashboard.html" id="adminLink" onclick="return checkAdminAccess(event)" class="no-underline">
+          <button type="button" class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg flex items-center gap-2 transition-all text-sm md:text-base font-semibold hover:bg-blue-200 dark:hover:bg-blue-900/50">
+            <i class="fa-solid fa-users-gear"></i>
+            <span class="hidden sm:inline">Employee's Update</span>
+          </button>
+        </a>
+      </div>
+    </header>
+
+   <main class="flex-1 overflow-y-auto p-4 md:p-8">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+    <div>
+      <h2 class="text-2xl font-bold text-[var(--text-main)]">Books & Publications</h2>
+      <p class="text-[var(--text-muted)] text-sm">Managing independent authors and the cultural literature catalog.</p>
+    </div>
+    <button class="bg-[#3b4f91] text-white px-6 py-2.5 rounded-lg flex items-center gap-2 hover:bg-blue-800 transition shadow-lg w-full md:w-auto justify-center">
+      <i class="fa-solid fa-plus"></i> <span>Add New Publication</span>
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Total Titles</p>
+      <h3 class="text-2xl font-bold text-[var(--text-main)]">48</h3>
+    </div>
+    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Active Authors</p>
+      <h3 class="text-2xl font-bold text-blue-500">24</h3>
+    </div>
+    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Inventory Value</p>
+      <h3 class="text-2xl font-bold text-[var(--text-main)]">TSh 8.5M</h3>
+    </div>
+    <div class="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm">
+      <p class="text-[var(--text-muted)] text-xs uppercase font-bold tracking-wider">Monthly Sales</p>
+      <h3 class="text-2xl font-bold text-green-500">32</h3>
+    </div>
+  </div>
+
+  <div class="bg-[var(--card-bg)] p-4 rounded-xl border border-[var(--border-color)] mb-6 flex flex-wrap gap-4 items-center">
+    <div class="flex-1 min-w-[200px]">
+      <input type="text" placeholder="Search by book title or author name..." class="form-input w-full text-sm py-2 px-4 border rounded-lg bg-transparent text-[var(--text-main)]">
+    </div>
+    <div class="flex gap-2 w-full md:w-auto">
+      <select class="form-input text-sm py-2 px-4 border rounded-lg bg-transparent text-[var(--text-main)] flex-1 md:w-48">
+        <option value="">All Authors</option>
+        <option value="dr-m-k">Dr. M. K. (Art History)</option>
+        <option value="j-doe">J. Serungo (Wildlife)</option>
+        <option value="a-shaaban">A. Shaaban (Literature)</option>
+      </select>
+      <button class="p-2 border border-[var(--border-color)] rounded-lg text-[var(--text-muted)] hover:bg-gray-100 transition">
+        <i class="fa-solid fa-filter"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] shadow-xl overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse min-w-[800px]">
+        <thead class="bg-gray-50 dark:bg-gray-800/50 text-[var(--text-muted)] text-xs uppercase font-bold">
+          <tr>
+            <th class="px-6 py-4">Title & Description</th>
+            <th class="px-6 py-4">Author</th>
+            <th class="px-6 py-4">Price (TSh)</th>
+            <th class="px-6 py-4">Stock Status</th>
+            <th class="px-6 py-4 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-[var(--border-color)] text-[var(--text-main)]">
+          
+          <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded flex items-center justify-center border border-indigo-100">
+                  <i class="fa-solid fa-book"></i>
+                </div>
+                <div>
+                  <div class="font-bold">Tanzanian Art History</div>
+                  <div class="text-[11px] text-[var(--text-muted)] line-clamp-1">Study on art and cultural evolution.</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4">
+              <span class="text-sm font-medium">Dr. Elias Magoma</span>
+            </td>
+            <td class="px-6 py-4 font-semibold">105,000</td>
+            <td class="px-6 py-4">
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">In Stock (20)</span>
+            </td>
+            <td class="px-6 py-4 text-right space-x-3">
+              <button class="text-[#3b4f91] hover:underline text-sm font-medium"><i class="fa-solid fa-pen-to-square mr-1"></i>Edit</button>
+              <button class="text-red-400 hover:text-red-600 transition-colors"><i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded flex items-center justify-center border border-amber-100">
+                  <i class="fa-solid fa-camera-retro"></i>
+                </div>
+                <div>
+                  <div class="font-bold">Wildlife of Tanzania</div>
+                  <div class="text-[11px] text-[var(--text-muted)] line-clamp-1">Photographic collection of habitats.</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4">
+              <span class="text-sm font-medium">Sarah J. Mtemi</span>
+            </td>
+            <td class="px-6 py-4 font-semibold">90,000</td>
+            <td class="px-6 py-4">
+              <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full font-medium">Low Stock (3)</span>
+            </td>
+            <td class="px-6 py-4 text-right space-x-3">
+              <button class="text-[#3b4f91] hover:underline text-sm font-medium"><i class="fa-solid fa-pen-to-square mr-1"></i>Edit</button>
+              <button class="text-red-400 hover:text-red-600 transition-colors"><i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded flex items-center justify-center border border-blue-100">
+                  <i class="fa-solid fa-scroll"></i>
+                </div>
+                <div>
+                  <div class="font-bold">Swahili Literature Anthology</div>
+                  <div class="text-[11px] text-[var(--text-muted)] line-clamp-1">Classic and modern literary works.</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4">
+              <span class="text-sm font-medium">Prof. Bakari Amri</span>
+            </td>
+            <td class="px-6 py-4 font-semibold">85,000</td>
+            <td class="px-6 py-4">
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">In Stock (15)</span>
+            </td>
+            <td class="px-6 py-4 text-right space-x-3">
+              <button class="text-[#3b4f91] hover:underline text-sm font-medium"><i class="fa-solid fa-pen-to-square mr-1"></i>Edit</button>
+              <button class="text-red-400 hover:text-red-600 transition-colors"><i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+ <script src="css/dashboardscript.js"></script>
+  <script>
+    // Mobile menu toggle logic
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    function toggleMenu() {
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+  </script>
+</body>
+</html>
