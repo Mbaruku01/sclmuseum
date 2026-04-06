@@ -266,9 +266,17 @@
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm items-center justify-center p-4 transition-all duration-300">
+    <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-4xl hover:text-gray-300 transition-colors z-[110]">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="relative max-w-5xl w-full flex justify-center" onclick="event.stopPropagation()">
+        <img id="modalImage" src="" alt="Full view" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain transform transition-transform duration-300 scale-95 border-4 border-white/10">
+    </div>
+</div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch1.png" alt="Logo T-Shirt" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch1.png" alt="Logo T-Shirt" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Logo T-Shirt</h2><i class="fa-solid fa-shirt text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Comfortable black t-shirt with the SCL Museum logo printed.</p>
@@ -277,7 +285,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch2.png" alt="Museum Hoodie" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch2.png" alt="Museum Hoodie" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Museum Hoodie</h2><i class="fa-solid fa-vest text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Cozy hoodie with embroidered museum emblem, perfect for cool evenings.</p>
@@ -286,7 +294,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch3.png" alt="Museum Cap" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch3.png" alt="Museum Cap" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Museum Cap</h2><i class="fa-solid fa-hat-cowboy text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Adjustable cap with SCL Museum embroidered logo, unisex fit.</p>
@@ -295,7 +303,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch4.png" alt="Canvas Tote Bag" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch4.png" alt="Canvas Tote Bag" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Canvas Tote Bag</h2><i class="fa-solid fa-bag-shopping text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Durable canvas tote bag with museum artwork print, ideal for shopping.</p>
@@ -304,7 +312,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch5.png" alt="Ceramic Mug" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch5.png" alt="Ceramic Mug" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Ceramic Mug</h2><i class="fa-solid fa-mug-hot text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">High-quality ceramic mug with museum logo and traditional patterns.</p>
@@ -313,7 +321,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch6.png" alt="Poster Print" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch6.png" alt="Poster Print" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Poster Print</h2><i class="fa-solid fa-image text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Museum-quality poster print of historical artifacts and exhibitions.</p>
@@ -322,7 +330,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch7.png" alt="Keychain" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch7.png" alt="Keychain" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Keychain Collection</h2><i class="fa-solid fa-key text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Set of 5 keychains featuring iconic museum symbols and artwork.</p>
@@ -331,7 +339,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch8.png" alt="Notebook" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch8.png" alt="Notebook" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Notebook</h2><i class="fa-solid fa-book-open text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Hardcover notebook with museum logo and artwork on the cover.</p>
@@ -340,7 +348,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch9.png" alt="Magnet" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch9.png" alt="Magnet" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Fridge Magnet</h2><i class="fa-solid fa-magnet text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Colorful fridge magnet with museum logo, perfect collectible.</p>
@@ -349,7 +357,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch10.png" alt="Canvas" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch10.png" alt="Canvas" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Canvas Print</h2><i class="fa-solid fa-palette text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">12x12 inch canvas print featuring iconic museum artifacts.</p>
@@ -358,7 +366,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch11.png" alt="Bottle" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch11.png" alt="Bottle" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Eco Water Bottle</h2><i class="fa-solid fa-bottle-water text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Reusable water bottle with museum branding, BPA-free material.</p>
@@ -367,7 +375,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch12.png" alt="Socks" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch12.png" alt="Socks" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Socks Collection</h2><i class="fa-solid fa-socks text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Pair of socks featuring museum symbols and traditional patterns.</p>
@@ -376,7 +384,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch13.png" alt="Pen Set" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch13.png" alt="Pen Set" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Notebook & Pen Set</h2><i class="fa-solid fa-pen-nib text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Stylish notebook and pen set featuring museum branding.</p>
@@ -385,7 +393,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch14.png" alt="Pin" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch14.png" alt="Pin" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Pin Badge</h2><i class="fa-solid fa-medal text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Metal pin badge with museum logo, collectible item.</p>
@@ -394,7 +402,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch15.png" alt="Mini Tote" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch15.png" alt="Mini Tote" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Mini Tote Bag</h2><i class="fa-solid fa-bag-shopping text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Small tote bag for essentials with museum print.</p>
@@ -403,7 +411,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch16.png" alt="Key Ring" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch16.png" alt="Key Ring" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Key Ring</h2><i class="fa-solid fa-key text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">High-quality key ring with museum logo, durable and stylish.</p>
@@ -412,7 +420,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch17.png" alt="Bookmarks" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch17.png" alt="Bookmarks" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Bookmark Collection</h2><i class="fa-solid fa-bookmark text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Set of 3 bookmarks showcasing museum artifacts and designs.</p>
@@ -421,7 +429,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch18.png" alt="Phone Case" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch18.png" alt="Phone Case" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Phone Case</h2><i class="fa-solid fa-mobile-screen text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Protective phone case with vibrant museum artwork print.</p>
@@ -430,7 +438,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch19.png" alt="Eco Tote" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch19.png" alt="Eco Tote" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Eco Tote Bag</h2><i class="fa-solid fa-leaf text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Environmentally-friendly tote bag with museum branding.</p>
@@ -439,7 +447,7 @@
     </div>
 
     <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700/50">
-      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch20.png" alt="Art Print" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700"></div>
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-200"><img src="pic/merch20.png" alt="Art Print" onclick="openModal(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-700 cursor-pointer"></div>
       <div class="p-6 flex flex-col flex-1">
         <div class="flex justify-between items-start mb-2"><h2 class="text-lg font-bold text-gray-900 dark:text-white">Art Print Set</h2><i class="fa-solid fa-layer-group text-purple-600"></i></div>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Set of 3 museum-quality art prints showcasing Tanzanian artifacts.</p>
@@ -447,7 +455,7 @@
       </div>
     </div>
 
-  </div>
+</div>
 
   <section class="mt-20 bg-white dark:bg-gray-800 p-10 md:p-16 rounded-[3rem] shadow-xl border border-gray-100 dark:border-gray-700">
     <h2 class="text-3xl font-black text-gray-900 dark:text-white mb-8 flex items-center gap-4"><span class="w-12 h-1 bg-purple-600"></span>Artisan Philosophy</h2>
@@ -606,6 +614,37 @@
     chatFile.value = '';
   });
 </script>
+<script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
 
+    function openModal(src) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modalImg.src = src;
+
+        // Animate pop-in
+        setTimeout(() => {
+            modalImg.classList.remove('scale-95');
+            modalImg.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeModal() {
+        modalImg.classList.remove('scale-100');
+        modalImg.classList.add('scale-95');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 200);
+    }
+
+    // Close on click outside or Esc key
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+</script>
 </body>
 </html>
